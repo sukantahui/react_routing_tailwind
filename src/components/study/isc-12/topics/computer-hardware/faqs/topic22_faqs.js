@@ -1,4 +1,4 @@
-// Topic 22 FAQs - 15 Comprehensive Questions and Answers
+// Topic 22 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What key diagrammatic features do CISCE examiners inspect in 4-to-1 MUX questions?",
     "answer": "Clearly labeled inputs (I0-I3), select lines (S1=MSB, S0=LSB), Enable pin, and accurate Boolean sum-of-products equation.",
     "explanation": "Marks are deducted if S1 and S0 are inverted or if the internal AND gate minterm combinations do not match the inputs."
+  },
+  {
+    "id": 16,
+    "question": "What are the inputs and outputs of a 4-to-1 Multiplexer?",
+    "answer": "4 Data inputs (I0, I1, I2, I3), 2 Select lines (S1 MSB, S0 LSB), and 1 Output (Y).",
+    "explanation": "2 select lines produce 2^2 = 4 combinations, selecting one of I0-I3."
+  },
+  {
+    "id": 17,
+    "question": "What is the Boolean equation of a 4-to-1 Multiplexer?",
+    "answer": "Y = S1'S0'I0 + S1'S0I1 + S1S0'I2 + S1S0I3.",
+    "explanation": "Each data input is ANDed with its corresponding 2-variable select minterm."
+  },
+  {
+    "id": 18,
+    "question": "What is the Function Table of a 4-to-1 Multiplexer?",
+    "answer": "S1 S0 | Output Y : (0 0 → I0), (0 1 → I1), (1 0 → I2), (1 1 → I3).",
+    "explanation": "Addresses 00, 01, 10, 11 route I0, I1, I2, I3 respectively to Y."
+  },
+  {
+    "id": 19,
+    "question": "How many and what type of logic gates are used to build a 4-to-1 MUX?",
+    "answer": "Two NOT gates (for S1', S0'), four 3-input AND gates, and one 4-input OR gate.",
+    "explanation": "The two NOT gates provide complemented select lines; each AND gate evaluates one minterm; the OR gate sums all paths."
+  },
+  {
+    "id": 20,
+    "question": "What commercial IC contains two 4-to-1 Multiplexers in a single DIP package?",
+    "answer": "IC 74153 (Dual 4-line to 1-line multiplexer).",
+    "explanation": "Contains two independent 4:1 multiplexers sharing common select lines S1 and S0 but with separate active-low enable pins (1E', 2E')."
+  },
+  {
+    "id": 21,
+    "question": "How does an Enable (E) pin affect the 4-to-1 MUX equation if included?",
+    "answer": "Y = E · (S1'S0'I0 + S1'S0I1 + S1S0'I2 + S1S0I3).",
+    "explanation": "If E = 0, Y = 0 regardless of data or select inputs."
+  },
+  {
+    "id": 22,
+    "question": "What output is produced when S1 = 1, S0 = 0?",
+    "answer": "Output Y = I2.",
+    "explanation": "Binary 10 is decimal 2, which activates the third AND gate, routing data input I2 to Y."
+  },
+  {
+    "id": 23,
+    "question": "How can a 4-to-1 MUX be built using three 2-to-1 MUXes?",
+    "answer": "MUX 1 selects between I0, I1 using S0; MUX 2 selects between I2, I3 using S0; MUX 3 selects between the outputs of MUX 1 and MUX 2 using S1.",
+    "explanation": "A two-level tree hierarchy: Level 1 decodes S0; Level 2 decodes S1."
+  },
+  {
+    "id": 24,
+    "question": "How does a 4-to-1 MUX implement any 2-variable Boolean function F(A, B)?",
+    "answer": "Connect A, B to select lines S1, S0; connect inputs I0-I3 directly to logic 0 or logic 1 according to the truth table output.",
+    "explanation": "Zero external gates are needed; inputs I0-I3 are simply tied to Vcc or GND."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE marking scheme for a 4-to-1 MUX?",
+    "answer": "1 mark for Function Table, 1 mark for Boolean equation, and 2 marks for gate-level logic diagram.",
+    "explanation": "Full marks require clear labeling of S1, S0, I0-I3, and Y."
   }
 ];
 

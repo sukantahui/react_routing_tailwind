@@ -1,4 +1,4 @@
-// Topic 42 FAQs - 15 Comprehensive Questions and Answers
+// Topic 42 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 // Special Topic: 10 Detailed 8:1 Multiplexer Implementation Examples
 
@@ -92,6 +92,66 @@ export const faqs = [
     question: "What step-by-step format should be followed in the ISC Board Examination for full marks?",
     answer: "1. State ordered sequence and select line assignments (S2=b, S1=c, S0=d); 2. State singled-out variable a; 3. Draw the 2-row table and circle included minterms; 4. List data input values I0-I7 with rule justifications; 5. Draw the labeled 8:1 MUX circuit.",
     explanation: "CISCE evaluators allot specific marks for the variable declaration, the implementation table, the deduced inputs, and the complete schematic."
+  },
+  {
+    "id": 16,
+    "question": "In this Masterclass, what is the canonical method for realizing any 4-variable function using an 8-to-1 MUX?",
+    "answer": "1. Connect MSB variables (A, B, C) to select lines (S2, S1, S0); 2. Singled-out variable D determines inputs I0-I7 using the 4 canonical rules on a 2×8 implementation table.",
+    "explanation": "Provides a deterministic, foolproof procedure for any arbitrary 4-variable Boolean function."
+  },
+  {
+    "id": 17,
+    "question": "For F(A, B, C, D) = Σ(1, 3, 7, 11, 15), what are the inputs I0 to I7 of an 8-to-1 MUX?",
+    "answer": "I0 = D (1 circled), I1 = D (3 circled), I2 = 0, I3 = D (7 circled), I4 = 0, I5 = D (11 circled), I6 = 0, I7 = D (15 circled).",
+    "explanation": "All circled minterms are in row D, while row D' has none, yielding D or 0."
+  },
+  {
+    "id": 18,
+    "question": "For F(A, B, C, D) = Σ(0, 2, 4, 6, 8, 10, 12, 14) (all even minterms), what are the inputs I0 to I7?",
+    "answer": "I0 = D', I1 = D', I2 = D', I3 = D', I4 = D', I5 = D', I6 = D', I7 = D'.",
+    "explanation": "All even minterms lie in row D'; thus every input channel is tied to D' (the complement of variable D)."
+  },
+  {
+    "id": 19,
+    "question": "For F(A, B, C, D) = Σ(0, 1, 2, 3, 4, 5, 6, 7), what are the inputs I0 to I7?",
+    "answer": "I0 = 1, I1 = 1, I2 = 1, I3 = 1, I4 = 0, I5 = 0, I6 = 0, I7 = 0.",
+    "explanation": "Inputs I0-I3 have both cells circled (=1); inputs I4-I7 have no cells circled (=0). This function is simply F = A'."
+  },
+  {
+    "id": 20,
+    "question": "For F(A, B, C, D) = Σ(2, 3, 6, 7, 10, 11, 14, 15), what are the inputs I0 to I7?",
+    "answer": "I0 = 0, I1 = 1, I2 = 0, I3 = 1, I4 = 0, I5 = 1, I6 = 0, I7 = 1.",
+    "explanation": "Alternating 0 and 1 inputs, which simplifies to the single literal C."
+  },
+  {
+    "id": 21,
+    "question": "How do you handle Don't Care conditions F = Σm(1, 5, 6, 12, 13) + d(2, 4) in an 8-to-1 MUX implementation table?",
+    "answer": "Circle Don't Care minterms (e.g. 4) if doing so pairs with an existing minterm (e.g. 5) to produce input = 1, eliminating an inverter.",
+    "explanation": "Don't Cares are selectively circled to convert variable inputs (D or D') into constant 1s or 0s."
+  },
+  {
+    "id": 22,
+    "question": "For F(A, B, C, D) = Σ(0, 5, 10, 15), what are the derived data inputs?",
+    "answer": "I0 = D' (0 circled), I1 = 0, I2 = D (5 circled), I3 = 0, I4 = 0, I5 = D' (10 circled), I6 = 0, I7 = D (15 circled).",
+    "explanation": "Inputs: I0=D', I1=0, I2=D, I3=0, I4=0, I5=D', I6=0, I7=D."
+  },
+  {
+    "id": 23,
+    "question": "What is the maximum number of external NOT gates ever needed for an 8-to-1 MUX 4-variable realization?",
+    "answer": "At most ONE NOT gate (to invert variable D into D').",
+    "explanation": "All 8 inputs receive 0, 1, D, or D'. Thus a single inverter on variable D suffices for the entire circuit."
+  },
+  {
+    "id": 24,
+    "question": "What happens if all 16 minterms are present in the function F(A, B, C, D)?",
+    "answer": "Every input I0 through I7 is connected to logic 1 (+5V Vcc), yielding output Y = 1 permanently.",
+    "explanation": "Tautology function F = 1."
+  },
+  {
+    "id": 25,
+    "question": "What are the common marks awarded by CISCE evaluators for a complete Masterclass MUX problem?",
+    "answer": "Full 4 to 5 marks: 1 mark for select variable mapping, 1 mark for implementation table with circled minterms, 1 mark for input equations (I0-I7), and 1-2 marks for neat circuit schematic.",
+    "explanation": "Demonstrates complete procedural rigor in ISC Class 12 Computer Science examinations."
   }
 ];
 

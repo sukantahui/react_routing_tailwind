@@ -1,4 +1,4 @@
-// Topic 41 FAQs - 15 Comprehensive Questions and Answers
+// Topic 41 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What are the key diagrams and explanations required in ISC exams for MUX applications?",
     "answer": "The Bus Routing block diagram (Fig 2.27) with register labels and select codes, and the Serializer diagram (Fig 2.28) with parallel inputs and counter clocking.",
     "explanation": "Examiners look for clear signal flow arrows, input-output labeling, and concise operational descriptions."
+  },
+  {
+    "id": 16,
+    "question": "How is a Multiplexer used for Bus Word Routing between microprocessor registers?",
+    "answer": "A bank of multiplexers (e.g. Quad 2:1 or Quad 4:1) selects an entire n-bit data word from one of several source registers (Reg A, Reg B) and routes it onto the shared CPU data bus.",
+    "explanation": "Select lines act as register address decoders for internal bus transfers."
+  },
+  {
+    "id": 17,
+    "question": "How does a Multiplexer function as a Parallel-to-Serial Data Converter (Serializer)?",
+    "answer": "An 8-bit parallel byte is loaded into inputs I0-I7; a 3-bit binary counter clocks select lines S2-S0 from 000 to 111, transmitting the bits sequentially on single output line Y.",
+    "explanation": "Foundational in serial communication standards like UART, USB, and SPI."
+  },
+  {
+    "id": 18,
+    "question": "What is a Barrel Shifter and how does it use Multiplexers?",
+    "answer": "A digital circuit that shifts or rotates a binary word by any number of bit positions in a single clock cycle, constructed from cascading levels of 2-to-1 multiplexers.",
+    "explanation": "Critical for floating-point arithmetic and bit-manipulation instructions in modern ALUs."
+  },
+  {
+    "id": 19,
+    "question": "How does a Multiplexer perform Logic Function Emulation in hardware testbenches?",
+    "answer": "By changing the binary constants on data input pins, an engineer can reconfigure a hardware board to test different logic functions without resoldering components.",
+    "explanation": "Acts as a hardwired lookup table for prototyping."
+  },
+  {
+    "id": 20,
+    "question": "What is Time-Division Multiplexing (TDM) in digital telephony?",
+    "answer": "A transmission technique where multiple digital voice calls are sampled and interleaved into rapid sequential timeslots across a single high-bandwidth transmission line using a MUX.",
+    "explanation": "Increases cable utilization by sharing one physical channel among hundreds of users."
+  },
+  {
+    "id": 21,
+    "question": "How does a 74157 Quad 2-to-1 MUX route 4-bit nibbles?",
+    "answer": "Contains four 2:1 MUXes driven by a common select line S. When S=0, 4-bit Word A (A3-A0) appears at outputs; when S=1, 4-bit Word B (B3-B0) appears.",
+    "explanation": "Standard 4-bit bus switcher in microcontroller interfacing."
+  },
+  {
+    "id": 22,
+    "question": "How are multiplexers used in video graphics cards (VRAM DACs)?",
+    "answer": "Multiplexers select between RGB color component bytes from display memory and route them to high-speed digital-to-analog converters (DACs) at pixel clock rates.",
+    "explanation": "Enables multi-megahertz video signal generation."
+  },
+  {
+    "id": 23,
+    "question": "What role does a Multiplexer play in Seven-Segment Display Multiplexing?",
+    "answer": "It cycles through BCD digits of a multi-digit number, synchronizing with digit-enable transistors so only one common display decoder chip is needed for all digits.",
+    "explanation": "Massively reduces pin count and wiring in digital clocks and calculators."
+  },
+  {
+    "id": 24,
+    "question": "Why are Multiplexers favored over tristate buses in modern FPGA synthesis?",
+    "answer": "Multiplexer-based multiplexing uses dedicated internal logic cells with deterministic timing, avoiding floating-bus contention and leakage current risks.",
+    "explanation": "Modern deep-submicron CMOS architectures prohibit internal tristate buses."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for Practical MUX Applications?",
+    "answer": "Explain with a diagram how a Multiplexer is used for parallel-to-serial conversion, or explain how a Quad 2:1 MUX performs bus selection between two 4-bit registers.",
+    "explanation": "A frequent 3-mark application question in ISC Class 12 Computer Science."
   }
 ];
 

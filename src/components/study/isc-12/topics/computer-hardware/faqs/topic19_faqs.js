@@ -1,4 +1,4 @@
-// Topic 19 FAQs - 15 Comprehensive Questions and Answers
+// Topic 19 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What are the standard steps required in ISC board exams for solving 'Implement F using a decoder'?",
     "answer": "1. Expand F into canonical minterm SOP form. 2. Specify decoder size. 3. Draw decoder block diagram with labeled inputs and outputs. 4. Connect minterms to OR/NAND gate.",
     "explanation": "Following these explicit four steps ensures total clarity and earns full marks according to CISCE evaluation rubrics."
+  },
+  {
+    "id": 16,
+    "question": "Why is an n-to-2^n Decoder called a 'Universal Logic Generator'?",
+    "answer": "Because it generates all 2^n fundamental product terms (minterms) of n variables simultaneously.",
+    "explanation": "Since any Boolean function can be expressed in canonical SOP form as a sum of minterms, any arbitrary function can be realized simply by ORing the corresponding decoder outputs."
+  },
+  {
+    "id": 17,
+    "question": "How is the function F(A, B, C) = Σm(1, 3, 5, 7) realized using a 3-to-8 Decoder?",
+    "answer": "Connect decoder outputs Y1, Y3, Y5, Y7 to the inputs of a 4-input OR gate. The output of the OR gate is F.",
+    "explanation": "F = m1 + m3 + m5 + m7; the OR gate sums the selected minterms directly."
+  },
+  {
+    "id": 18,
+    "question": "How can multiple Boolean functions sharing the same inputs be realized using a single Decoder?",
+    "answer": "Use one common decoder to generate all minterms; connect separate OR gates for each function, tapping the required minterm output lines.",
+    "explanation": "For example, Full Adder Sum = OR(m1, m2, m4, m7) and Carry = OR(m3, m5, m6, m7) share a single 3-to-8 decoder."
+  },
+  {
+    "id": 19,
+    "question": "How do you realize a Full Adder using a 3-to-8 decoder with Active-HIGH outputs?",
+    "answer": "Feed inputs A, B, Cin into decoder address lines; connect Y1, Y2, Y4, Y7 into OR Gate 1 (Sum); connect Y3, Y5, Y6, Y7 into OR Gate 2 (Carry).",
+    "explanation": "Sum = Σm(1, 2, 4, 7) and Carry = Σm(3, 5, 6, 7). Only 1 decoder and 2 OR gates are needed."
+  },
+  {
+    "id": 20,
+    "question": "How do you realize a Full Subtractor using a 3-to-8 decoder?",
+    "answer": "Feed A, B, Bin into decoder; connect Y1, Y2, Y4, Y7 to OR Gate 1 (Difference = Σm(1,2,4,7)); connect Y1, Y2, Y3, Y7 to OR Gate 2 (Borrow = Σm(1,2,3,7)).",
+    "explanation": "Difference and Borrow are synthesized directly from decoder minterms."
+  },
+  {
+    "id": 21,
+    "question": "If an Active-LOW Decoder (NAND-based) is used, what gate is used instead of an OR gate?",
+    "answer": "A NAND gate.",
+    "explanation": "Active-low outputs produce m_i'. Feeding m_i' into a NAND gate yields (m1' · m2' · ...)' = m1 + m2 + ..., which is the exact SOP function."
+  },
+  {
+    "id": 22,
+    "question": "How can a canonical POS function F = ΠM(0, 2, 6) be implemented with an Active-HIGH decoder?",
+    "answer": "Use a NOR gate to combine minterms m0, m2, m6 (since (m0 + m2 + m6)' = m0' · m2' · m6' = M0 · M2 · M6 = F), or an OR gate combining the remaining minterms.",
+    "explanation": "The duality between minterms and maxterms allows easy POS synthesis."
+  },
+  {
+    "id": 23,
+    "question": "What is the primary hardware advantage of using a decoder to implement logic functions?",
+    "answer": "Eliminates custom gate networks; any function can be created or rewired simply by changing connections to external OR gates without redesigning the decoder core.",
+    "explanation": "This principle led to the development of Mask-Programmed ROMs and PLAs."
+  },
+  {
+    "id": 24,
+    "question": "Can a function with 5 variables be implemented using a 3-to-8 decoder?",
+    "answer": "Not directly with a single decoder, because a 3-to-8 decoder only generates minterms for 3 variables (8 minterms vs 32 needed for 5 variables).",
+    "explanation": "Implementing 5-variable functions requires a 5-to-32 decoder (or multiplexer-based Shannon decomposition)."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for Decoder Function Implementation?",
+    "answer": "Given F1(x, y, z) = Σm(...) and F2(x, y, z) = Σm(...), draw the logic diagram to implement both functions using a single 3-to-8 decoder and external OR gates.",
+    "explanation": "A frequent 4-mark question testing understanding of minterm tapping."
   }
 ];
 

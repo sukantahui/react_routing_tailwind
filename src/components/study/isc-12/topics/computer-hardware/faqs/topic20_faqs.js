@@ -1,4 +1,4 @@
-// Topic 20 FAQs - 15 Comprehensive Questions and Answers
+// Topic 20 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "In ISC Class 12 board examinations, what are the primary drawing conventions for multiplexers?",
     "answer": "Trapezoidal or rectangular block symbol with inputs on left, select lines on bottom, enable on side, and output on right.",
     "explanation": "The trapezoidal symbol visually communicates line concentration: wide input side converging to a narrow single-output side."
+  },
+  {
+    "id": 16,
+    "question": "What is the basic functional definition of a Multiplexer (MUX)?",
+    "answer": "A combinational circuit that selects one binary information input from among 2^n input lines and directs it to a single output line based on n select lines.",
+    "explanation": "Known as a Data Selector, it acts as a digital single-pole multi-throw switch controlled by binary address bits."
+  },
+  {
+    "id": 17,
+    "question": "What is the mathematical relationship between the number of data inputs (I) and select lines (S) in a MUX?",
+    "answer": "I = 2^n, where n is the number of select lines (or n = log2(I)).",
+    "explanation": "For example, 4 inputs require 2 select lines (2^2=4); 8 inputs require 3 select lines (2^3=8); 16 inputs require 4 select lines (2^4=16)."
+  },
+  {
+    "id": 18,
+    "question": "Why is a Multiplexer called a 'Data Selector'?",
+    "answer": "Because the binary value applied to its selection lines 'selects' exactly which data input channel is routed to the output.",
+    "explanation": "The select lines act as an address determining which data input appears at pin Y."
+  },
+  {
+    "id": 19,
+    "question": "What is the general Boolean equation for any 2^n-to-1 Multiplexer?",
+    "answer": "Y = Σ (m_k · I_k) for k = 0 to 2^n - 1, where m_k is the minterm of the selection variables and I_k is the data input.",
+    "explanation": "Each data input I_k is ANDed with its corresponding select line minterm, and all terms are ORed together."
+  },
+  {
+    "id": 20,
+    "question": "What is the role of an Enable (Strobe) input in a Multiplexer?",
+    "answer": "It activates or deactivates the multiplexer. When disabled, the output is forced to logic 0 (or HIGH-Z), regardless of data or select inputs.",
+    "explanation": "The Strobe input is vital for expanding multiplexer networks (e.g. cascading two 4:1 MUXes to build an 8:1 MUX)."
+  },
+  {
+    "id": 21,
+    "question": "How does a Multiplexer enable Time-Division Multiplexing (TDM) in telecommunications?",
+    "answer": "By sequentially cycling select lines (using a binary counter), multiple telephone or sensor data channels share a single long-distance transmission cable.",
+    "explanation": "At the receiving end, a Demultiplexer synchronized with the counter reconstructs the individual channels."
+  },
+  {
+    "id": 22,
+    "question": "How does a Multiplexer function as a Parallel-to-Serial Data Converter?",
+    "answer": "Apply multi-bit parallel data to the inputs (I0-I7); clocking a binary counter connected to the select lines shifts the bits out serially on the single output line Y.",
+    "explanation": "This is standard in UART transmission and shift register interfaces."
+  },
+  {
+    "id": 23,
+    "question": "Compare a Multiplexer with an Encoder.",
+    "answer": "A MUX routes one of 2^n data lines to 1 output using n select lines; an encoder converts 2^n active request lines into an n-bit binary code.",
+    "explanation": "MUX output carries the data signal; encoder output carries the address/code."
+  },
+  {
+    "id": 24,
+    "question": "What are the common standard commercial Multiplexer ICs?",
+    "answer": "IC 74157 (Quad 2-to-1 MUX), IC 74153 (Dual 4-to-1 MUX), IC 74151 (8-to-1 MUX), and IC 74150 (16-to-1 MUX).",
+    "explanation": "These TTL 7400 series chips are central to ISC hardware questions."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE definition of a Multiplexer?",
+    "answer": "A combinational circuit that receives binary information from 2^n input data lines and directs it to a single output line, governed by n selection lines.",
+    "explanation": "Full credit requires mentioning 2^n data inputs, n select lines, and 1 output line."
   }
 ];
 

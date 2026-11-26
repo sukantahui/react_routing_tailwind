@@ -1,4 +1,4 @@
-// Topic 29 FAQs - 15 Comprehensive Questions and Answers
+// Topic 29 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What are the primary drawing conventions for demultiplexers in ISC Class 12 board examinations?",
     "answer": "An expanding trapezoidal or rectangular symbol with 1 data input on the left, select lines on the bottom, and 2^n output lines on the right.",
     "explanation": "The outward taper of the trapezoid visually emphasizes the 1-to-many distribution function of the circuit."
+  },
+  {
+    "id": 16,
+    "question": "What is the primary function of a Demultiplexer (DEMUX)?",
+    "answer": "A combinational circuit that takes a single data input line and directs it to any one of 2^n possible output lines, determined by n select lines.",
+    "explanation": "Known as a Data Distributor, it performs the reverse operation of a multiplexer."
+  },
+  {
+    "id": 17,
+    "question": "What is the mathematical relation between data inputs, select lines, and outputs in a DEMUX?",
+    "answer": "1 Data input (D), n Select lines (S), and 2^n Output lines (Y0 to Y_(2^n - 1)).",
+    "explanation": "For example, 1-to-4 DEMUX has 1 data input, 2 select lines, and 4 outputs."
+  },
+  {
+    "id": 18,
+    "question": "Why is a Demultiplexer called a 'Data Distributor'?",
+    "answer": "Because it receives serial data on a single transmission channel and distributes it to one of multiple destination ports or registers.",
+    "explanation": "It dynamically routes single-channel information to designated destinations."
+  },
+  {
+    "id": 19,
+    "question": "What is the general Boolean equation for output Y_k of a 1-to-2^n Demultiplexer?",
+    "answer": "Y_k = D · m_k, where D is the single data input and m_k is the minterm of the n select lines.",
+    "explanation": "Each output is the product of the data input and one select line minterm."
+  },
+  {
+    "id": 20,
+    "question": "How do a Multiplexer and Demultiplexer work together in a communication link?",
+    "answer": "At the transmitter, an n:1 MUX serializes multiple channels onto a single cable; at the receiver, a 1:n DEMUX synchronized with the transmitter reconstructs the individual channels.",
+    "explanation": "This forms the basis of Time-Division Multiplexed (TDM) digital communications."
+  },
+  {
+    "id": 21,
+    "question": "What happens to the unselected output lines of an Active-HIGH Demultiplexer?",
+    "answer": "All unselected output lines remain at logic 0.",
+    "explanation": "Only the single selected output line mirrors the logic level of the data input D."
+  },
+  {
+    "id": 22,
+    "question": "Can a Demultiplexer function as a Serial-to-Parallel Data Converter?",
+    "answer": "Yes; by applying incoming serial bits to the data input D and stepping select lines through binary counts, successive bits are distributed to parallel output pins.",
+    "explanation": "Enables serial-to-parallel conversion when combined with output latches."
+  },
+  {
+    "id": 23,
+    "question": "What is the relationship between an Enable pin of a Decoder and the Data input of a Demultiplexer?",
+    "answer": "They are physically and logically identical; feeding data D into the Enable pin of an n-to-2^n decoder transforms it into a 1-to-2^n demultiplexer.",
+    "explanation": "This dual equivalence is a foundational concept in CISCE digital electronics."
+  },
+  {
+    "id": 24,
+    "question": "What are common commercial Demultiplexer ICs?",
+    "answer": "IC 74138 (1-to-8 Demultiplexer / 3-to-8 Decoder) and IC 74154 (1-to-16 Demultiplexer / 4-to-16 Decoder).",
+    "explanation": "Commercial IC manufacturers package decoders and demultiplexers as dual-function chips."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE definition of a Demultiplexer?",
+    "answer": "A combinational circuit that takes a single input data line and routes it to one of 2^n output lines, governed by the binary values on n select lines.",
+    "explanation": "Award of 2 marks requires stating 1 data input, n select lines, and 2^n output lines."
   }
 ];
 

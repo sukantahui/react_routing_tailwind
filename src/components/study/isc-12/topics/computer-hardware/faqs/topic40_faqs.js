@@ -1,4 +1,4 @@
-// Topic 40 FAQs - 15 Comprehensive Questions and Answers
+// Topic 40 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What diagrams must be drawn in an ISC examination question on Scaled-Down Multiplexers?",
     "answer": "The step-by-step algebraic factoring proof, definition of inputs I0 and I1, and the circuit diagram showing 2:1 MUX and the external OR gate (Fig 2.26).",
     "explanation": "Full credit requires showing how the Boolean expression was factored and drawing the gate connected to the MUX input."
+  },
+  {
+    "id": 16,
+    "question": "What is a 'Scaled-Down Multiplexer' implementation?",
+    "answer": "Realizing an n-variable Boolean function using a multiplexer with fewer than 2^(n-1) inputs (e.g. realizing a 3-variable function using a 2-to-1 MUX).",
+    "explanation": "Requires factoring the Boolean expression into sub-functions applied to the MUX data inputs."
+  },
+  {
+    "id": 17,
+    "question": "How does Shannon's Expansion Theorem enable scaled-down MUX implementations?",
+    "answer": "F(A, B, C) = A' · F(0, B, C) + A · F(1, B, C). A 2:1 MUX with select line S=A routes sub-function F0(B,C) to input 0 and F1(B,C) to input 1.",
+    "explanation": "Decomposes a 3-variable problem into two 2-variable sub-problems."
+  },
+  {
+    "id": 18,
+    "question": "For F(A, B, C) = A'B + AC, how is this realized using a single 2-to-1 MUX?",
+    "answer": "Connect select line S = A; connect Data Input I0 = B; connect Data Input I1 = C. Output Y = A'B + AC = F.",
+    "explanation": "Zero external gates required; directly maps to Y = S'I0 + SI1."
+  },
+  {
+    "id": 19,
+    "question": "How can a 3-input XOR gate F = A ⊕ B ⊕ C be implemented with a 2-to-1 MUX?",
+    "answer": "Select line S = A; Input I0 = B ⊕ C; Input I1 = (B ⊕ C)'. Output Y = A'(B ⊕ C) + A(B ⊕ C)' = A ⊕ B ⊕ C.",
+    "explanation": "Uses one 2:1 MUX and external gates for the 2-variable sub-functions."
+  },
+  {
+    "id": 20,
+    "question": "What is the trade-off in using scaled-down multiplexers?",
+    "answer": "Reduces MUX pin count and size, but may require external discrete gates to synthesize the complex sub-functions feeding inputs I0 and I1.",
+    "explanation": "Balance between multiplexer size and external glue logic."
+  },
+  {
+    "id": 21,
+    "question": "How is an 8-variable function decomposed in modern FPGA architectures?",
+    "answer": "FPGAs use 4-input or 6-input LUTs (multiplexers) cascaded via dedicated carry and expansion multiplexers (e.g. MUXF7, MUXF8).",
+    "explanation": "Applies recursive Shannon decomposition in commercial FPGA synthesis."
+  },
+  {
+    "id": 22,
+    "question": "What is the algebraic factoring step for F(A, B, C) = Σ(1, 2, 4, 7)?",
+    "answer": "F = A'(B'C + BC') + A(B'C' + BC) = A'(B ⊕ C) + A(B ⊙ C). Feed (B ⊕ C) to I0 and (B ⊙ C) to I1 of a 2:1 MUX with select line A.",
+    "explanation": "Factoring out A' and A reveals the sub-functions."
+  },
+  {
+    "id": 23,
+    "question": "Can any 3-variable function be realized using a 2-to-1 MUX?",
+    "answer": "Yes, by Shannon expansion with respect to any variable, provided appropriate sub-functions are applied to inputs I0 and I1.",
+    "explanation": "Universal algebraic decomposition."
+  },
+  {
+    "id": 24,
+    "question": "What is the propagation delay of a scaled-down MUX circuit?",
+    "answer": "Max delay = max(delay of sub-function logic on I0, I1) + t_2:1_MUX.",
+    "explanation": "Sum of sub-circuit delay and multiplexer switching latency."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for Scaled-Down Multiplexers?",
+    "answer": "Decompose a given 3-variable function using Shannon's Expansion Theorem and draw its implementation using a 2-to-1 MUX and minimal discrete gates.",
+    "explanation": "An advanced 4-mark problem for high-scoring students in ISC Class 12."
   }
 ];
 

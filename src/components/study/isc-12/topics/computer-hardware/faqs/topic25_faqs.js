@@ -1,4 +1,4 @@
-// Topic 25 FAQs - 15 Comprehensive Questions and Answers
+// Topic 25 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What are the key diagrammatic conventions required for full marks in ISC Class 12 cascading questions?",
     "answer": "Labeled block symbols for each MUX, parallel select lines (S1, S0), S2 to final stage, clearly labeled data inputs D0-D7, and output Y.",
     "explanation": "Clear, clean wiring and unambiguous pin names (I0-I3, S, E, Y) ensure full credit from CISCE board evaluators."
+  },
+  {
+    "id": 16,
+    "question": "What components are required to build an 8-to-1 MUX using two 4-to-1 MUXes?",
+    "answer": "Two 4-to-1 Multiplexers (MUX 1 and MUX 2), one inverter (NOT gate), and one 2-input OR gate (or one 2-to-1 MUX).",
+    "explanation": "Each 4:1 MUX handles 4 data inputs; together they handle 8 inputs."
+  },
+  {
+    "id": 17,
+    "question": "How are the select lines (S2, S1, S0) connected in this cascading configuration?",
+    "answer": "Lower select lines (S1, S0) are connected in parallel to the select lines of both 4:1 MUXes; MSB select line S2 controls the Enable (Strobe) inputs.",
+    "explanation": "S1 and S0 choose the internal channel (0-3); S2 determines which of the two 4:1 MUX chips is active."
+  },
+  {
+    "id": 18,
+    "question": "How is S2 wired to the Enable pins if the 4-to-1 MUXes have Active-LOW Enable inputs (E1', E2')?",
+    "answer": "Connect S2 directly to E1' of MUX 1; connect S2 through an inverter (NOT gate) to E2' of MUX 2.",
+    "explanation": "When S2 = 0, E1' = 0 (MUX 1 active, handling I0-I3) and E2' = 1 (MUX 2 disabled). When S2 = 1, E1' = 1 and E2' = 0 (MUX 2 active, handling I4-I7)."
+  },
+  {
+    "id": 19,
+    "question": "How are the outputs of MUX 1 (Y1) and MUX 2 (Y2) combined to produce the final output Y?",
+    "answer": "Connect Y1 and Y2 to the inputs of a 2-input OR gate.",
+    "explanation": "Since the disabled MUX outputs 0, Y = Y1 + Y2 transmits the active MUX's data signal cleanly."
+  },
+  {
+    "id": 20,
+    "question": "What data line is selected when S2 S1 S0 = 1 1 0?",
+    "answer": "Input I6 is routed to final output Y.",
+    "explanation": "S2 = 1 enables MUX 2; S1 S0 = 10 selects the third input of MUX 2, which is I6."
+  },
+  {
+    "id": 21,
+    "question": "Can a 2-to-1 MUX be used instead of the OR gate to combine Y1 and Y2?",
+    "answer": "Yes; connect Y1 to input 0 and Y2 to input 1 of a 2:1 MUX, controlled by select line S2.",
+    "explanation": "This eliminates the need for active-low enable pins, operating purely on data selection."
+  },
+  {
+    "id": 22,
+    "question": "What data inputs connect to MUX 1 and MUX 2?",
+    "answer": "MUX 1 receives inputs I0, I1, I2, I3; MUX 2 receives inputs I4, I5, I6, I7.",
+    "explanation": "Evenly distributes the 8 data channels."
+  },
+  {
+    "id": 23,
+    "question": "What is the total propagation delay of this cascaded 8-to-1 MUX?",
+    "answer": "Delay = t_MUX + t_OR (or t_inverter + t_enable_to_output + t_OR).",
+    "explanation": "Signals pass through one 4:1 MUX stage and one final OR gate stage."
+  },
+  {
+    "id": 24,
+    "question": "Why is cascading multiplexers important in practical computer hardware design?",
+    "answer": "It overcomes pin-count and IC fan-in limitations, allowing arbitrary wide bus switching networks to be built using standard modular parts.",
+    "explanation": "Enables hierarchical data routing trees."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for this topic?",
+    "answer": "Design and draw the block diagram of an 8-to-1 Multiplexer using two 4-to-1 Multiplexers and an OR gate, clearly labeling all inputs, outputs, and select lines.",
+    "explanation": "A frequent 3-mark or 4-mark design problem in ISC Class 12 board papers."
   }
 ];
 

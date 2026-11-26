@@ -1,4 +1,4 @@
-// Topic 11 FAQs - 15 Comprehensive Questions and Answers
+// Topic 11 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What is the common mistake students make in ISC board exams for this topic?",
     "answer": "Forgetting to include D9 in the equation for output D (writing D = D1+D3+D5+D7 only).",
     "explanation": "Decimal 9 is 1001₂, which has a 1 in both bit position A (8) and bit position D (1). Leaving out D9 causes digit 9 to encode as 8 (1000₂)."
+  },
+  {
+    "id": 16,
+    "question": "What are the inputs and outputs of a Decimal-to-BCD Encoder?",
+    "answer": "10 inputs: D0 through D9 (representing decimal digits 0 to 9); 4 outputs: A, B, C, D (representing BCD 8421 weights).",
+    "explanation": "It encodes a single active decimal digit line into its 4-bit binary-coded decimal equivalent."
+  },
+  {
+    "id": 17,
+    "question": "What are the Boolean equations for the 4 BCD outputs (A3, A2, A1, A0)?",
+    "answer": "A3 = D8 + D9; A2 = D4 + D5 + D6 + D7; A1 = D2 + D3 + D6 + D7; A0 = D1 + D3 + D5 + D7 + D9.",
+    "explanation": "A3 represents weight 8; A2 weight 4; A1 weight 2; A0 weight 1 (LSB). D0 is not connected to any gate."
+  },
+  {
+    "id": 18,
+    "question": "Why are there only 10 inputs instead of 16 in a Decimal-to-BCD encoder?",
+    "answer": "Because decimal numbers use only digits 0 through 9; codes 1010 through 1111 (10 to 15) are invalid in BCD.",
+    "explanation": "The unused states 10-15 are treated as Don't Cares or invalid input states in BCD arithmetic."
+  },
+  {
+    "id": 19,
+    "question": "How many OR gates are required to construct a Decimal-to-BCD encoder?",
+    "answer": "4 OR gates (one 2-input, two 4-input, and one 5-input OR gate).",
+    "explanation": "Gate 1 (A3) has 2 inputs (D8, D9); Gate 2 (A2) has 4 inputs; Gate 3 (A1) has 4 inputs; Gate 4 (A0) has 5 inputs."
+  },
+  {
+    "id": 20,
+    "question": "What is the BCD output when input D7 is active?",
+    "answer": "A3 = 0, A2 = 1, A1 = 1, A0 = 1 (binary '0111', which is decimal 7).",
+    "explanation": "7 = 4 + 2 + 1, so gates A2, A1, and A0 are driven HIGH."
+  },
+  {
+    "id": 21,
+    "question": "What commercial IC is a 10-line to 4-line Decimal-to-BCD Priority Encoder?",
+    "answer": "IC 74147.",
+    "explanation": "The 74LS147 accepts 9 active-low decimal inputs (1 to 9) and outputs an active-low 4-bit BCD code."
+  },
+  {
+    "id": 22,
+    "question": "Where are Decimal-to-BCD encoders commonly used in electronic hardware?",
+    "answer": "In electronic calculator keypads, digital multimeters, cash registers, and microwave oven digital input pads.",
+    "explanation": "Whenever humans press a decimal key (0-9), the encoder translates it into BCD for processing by microcontroller chips."
+  },
+  {
+    "id": 23,
+    "question": "Why is input D0 omitted from the OR gate array?",
+    "answer": "Because decimal digit 0 is encoded as 0000; all four BCD lines must remain LOW when D0 is pressed.",
+    "explanation": "D0 requires no gate activation to produce 0000."
+  },
+  {
+    "id": 24,
+    "question": "What happens if a user presses keys '3' and '9' simultaneously on a non-priority decimal encoder?",
+    "answer": "Outputs for 3 (0011) and 9 (1001) OR together to produce 1011 (decimal 11), an invalid BCD code.",
+    "explanation": "This demonstrates why consumer keypads mandate priority encoders to resolve multiple key presses cleanly."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for a Decimal-to-BCD Encoder?",
+    "answer": "Draw the Truth Table for inputs D0-D9 and outputs A, B, C, D, write the 4 Boolean output equations, and draw the logic gate diagram.",
+    "explanation": "A frequent 4-mark board question testing understanding of BCD 8421 code mapping."
   }
 ];
 

@@ -1,4 +1,4 @@
-// Topic 36 FAQs - 15 Comprehensive Questions and Answers
+// Topic 36 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What is the complete algebraic output equation for the 4:1 MUX realizing F(x, y, z) = Σ(1, 3, 5, 6)?",
     "answer": "F = y'z'(0) + y'z(1) + yz'(x) + yz(x') = y'z + xyz' + x'yz.",
     "explanation": "Substituting S1=y, S0=z, I0=0, I1=1, I2=x, I3=x' into the general 4:1 MUX equation F = S1'S0'I0 + S1'S0 I1 + S1 S0' I2 + S1 S0 I3 matches the original canonical minterms."
+  },
+  {
+    "id": 16,
+    "question": "In Textbook Page 108, what is Step IV in realizing F(x, y, z) = Σ(1, 3, 5, 6) using a 4-to-1 MUX?",
+    "answer": "Assigning select lines: Variables x and y are assigned to select lines S1 and S0 respectively, while variable z is singled out.",
+    "explanation": "Step IV establishes the address bus structure of the 4:1 MUX."
+  },
+  {
+    "id": 17,
+    "question": "What is Step V in the Page 108 textbook procedure?",
+    "answer": "Constructing the Implementation Table: List 4 columns for I0, I1, I2, I3; list 2 rows for z' and z; circle minterms 1, 3, 5, and 6.",
+    "explanation": "Step V visually maps the function minterms onto MUX channels."
+  },
+  {
+    "id": 18,
+    "question": "What is Step VI in the Page 108 textbook procedure?",
+    "answer": "Applying Rules 1-4 to determine data inputs: Column I0 → z; Column I1 → z; Column I2 → z; Column I3 → z'.",
+    "explanation": "Step VI derives the exact signals to be applied to MUX data pins."
+  },
+  {
+    "id": 19,
+    "question": "How does Fig 2.25 depict the final circuit diagram?",
+    "answer": "A 4-to-1 MUX block with select lines S1=x, S0=y; inputs I0, I1, I2 tied together and connected to variable z; input I3 connected to z via an inverter; output Y = F.",
+    "explanation": "Fig 2.25 is the canonical diagram prescribed in the textbook."
+  },
+  {
+    "id": 20,
+    "question": "Why does Column I0 evaluate to z for minterm 1?",
+    "answer": "Row z' contains minterm 0 (not circled); Row z contains minterm 1 (circled). By Rule 4 (0 in z' row, 1 in z row), Input = z.",
+    "explanation": "Direct application of Rule 4."
+  },
+  {
+    "id": 21,
+    "question": "Why does Column I3 evaluate to z' for minterm 6?",
+    "answer": "Row z' contains minterm 6 (circled); Row z contains minterm 7 (not circled). By Rule 3 (1 in z' row, 0 in z row), Input = z'.",
+    "explanation": "Direct application of Rule 3."
+  },
+  {
+    "id": 22,
+    "question": "Can variables y and z be used as select lines instead of x and y for F(x, y, z)?",
+    "answer": "Yes; variable x would be singled out, yielding an implementation table with rows x' and x.",
+    "explanation": "The circuit remains valid and functional, but wiring to I0-I3 changes."
+  },
+  {
+    "id": 23,
+    "question": "How many ICs are needed to build the Fig 2.25 circuit physically?",
+    "answer": "Two ICs: one 74153 (Dual 4:1 MUX) and one 7404 (Hex Inverter).",
+    "explanation": "Requires only 1 MUX chip and 1 inverter gate from a 7404."
+  },
+  {
+    "id": 24,
+    "question": "What is the truth table verification of Fig 2.25 when x = 1, y = 1, z = 0?",
+    "answer": "Select lines S1S0 = 11, routing input I3 to Y. Since I3 = z' and z = 0, Y = 0' = 1. Matches minterm 6 = 1.",
+    "explanation": "Confirms circuit correctness for minterm 6 (110)."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for Page 108 Step-by-Step problems?",
+    "answer": "Explicitly asking for: 1. Assignment of select variables; 2. Implementation table with circled minterms; 3. Derived inputs I0-I3; 4. Circuit diagram conforming to Fig 2.25.",
+    "explanation": "A standard 4-mark question directly testing this exact textbook derivation."
   }
 ];
 

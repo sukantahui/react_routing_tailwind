@@ -1,4 +1,4 @@
-// Topic 23 FAQs - 15 Comprehensive Questions and Answers
+// Topic 23 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What are common pitfalls students encounter in ISC exams when drawing an 8-to-1 MUX circuit?",
     "answer": "Reversing select bit significance (assigning S0 as MSB) or forgetting to tie unused data inputs securely to GND or VCC.",
     "explanation": "Reversing select lines scrambles minterm routing completely. In digital circuits, floating inputs cause unpredictable outputs."
+  },
+  {
+    "id": 16,
+    "question": "What are the inputs and outputs of an 8-to-1 Multiplexer?",
+    "answer": "8 Data inputs (I0 to I7), 3 Select lines (S2 MSB, S1, S0 LSB), 1 Enable/Strobe line (E), and Output Y (often with complementary output W = Y').",
+    "explanation": "3 select lines choose 1 of 8 inputs."
+  },
+  {
+    "id": 17,
+    "question": "Write the complete Boolean equation of an 8-to-1 Multiplexer.",
+    "answer": "Y = S2'S1'S0'I0 + S2'S1'S0I1 + S2'S1S0'I2 + S2'S1S0I3 + S2S1'S0'I4 + S2S1'S0I5 + S2S1S0'I6 + S2S1S0I7.",
+    "explanation": "Sum of 8 product terms, each coupling an input I_k with minterm m_k of select variables."
+  },
+  {
+    "id": 18,
+    "question": "What commercial IC chip is the industry standard 8-to-1 Multiplexer?",
+    "answer": "IC 74151 (74LS151 / 74HC151).",
+    "explanation": "The 74151 provides 8 data inputs, 3 select lines, an active-low strobe (G'), true output Y, and inverted output W."
+  },
+  {
+    "id": 19,
+    "question": "What is the Function Table of an 8-to-1 Multiplexer for select lines S2 S1 S0?",
+    "answer": "000→I0, 001→I1, 010→I2, 011→I3, 100→I4, 101→I5, 110→I6, 111→I7.",
+    "explanation": "Binary addresses 0 to 7 select lines I0 to I7."
+  },
+  {
+    "id": 20,
+    "question": "How many and what type of gates are needed to construct an 8-to-1 MUX?",
+    "answer": "Three NOT gates (for S2', S1', S0'), eight 4-input AND gates, and one 8-input OR gate.",
+    "explanation": "Each AND gate combines 3 select literals with 1 data input; the OR gate gathers all 8 channels."
+  },
+  {
+    "id": 21,
+    "question": "What output is generated when S2 = 1, S1 = 0, S0 = 1?",
+    "answer": "Output Y = I5 (and complementary output W = I5').",
+    "explanation": "Binary 101 is decimal 5, routing input I5 to Y."
+  },
+  {
+    "id": 22,
+    "question": "How can an 8-to-1 MUX directly implement any 3-variable Boolean function F(A, B, C)?",
+    "answer": "Connect A, B, C to select lines S2, S1, S0; tie input I_k to 1 if minterm m_k is present in F, and tie to 0 if absent.",
+    "explanation": "Direct minterm mapping requires zero external gates."
+  },
+  {
+    "id": 23,
+    "question": "How can an 8-to-1 MUX implement a 4-variable function F(A, B, C, D)?",
+    "answer": "Connect three variables (A, B, C) to select lines (S2, S1, S0); use the fourth variable D to determine the inputs I0-I7 as 0, 1, D, or D'.",
+    "explanation": "This is the classic (n-1) select line Singled-Out Variable implementation method."
+  },
+  {
+    "id": 24,
+    "question": "What is the role of the complementary output W in IC 74151?",
+    "answer": "W = Y'; it provides the negated output directly without requiring an external inverter.",
+    "explanation": "Useful when synthesized logic requires active-low data or inverted functions."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for an 8-to-1 MUX?",
+    "answer": "Write Function Table, write Boolean equation, and draw block/logic diagram.",
+    "explanation": "A frequent 4-mark question in ISC Class 12 board theory papers."
   }
 ];
 

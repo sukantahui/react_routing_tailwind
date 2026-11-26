@@ -1,4 +1,4 @@
-// Topic 37 FAQs - 15 Comprehensive Questions and Answers
+// Topic 37 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What are the key diagrams required by CISCE board examiners for Example 2.13?",
     "answer": "The 8-column implementation table with circled minterms, list of input equations with rule numbers, and the labeled 8:1 MUX block schematic.",
     "explanation": "Full marks require explicit demonstration of the implementation table, rule identification, and clear pin labeling."
+  },
+  {
+    "id": 16,
+    "question": "In Textbook Page 109 Example 2.13, what is the function to be realized?",
+    "answer": "F(a, b, c, d) = Σ(0, 1, 3, 4, 8, 9, 15) using an 8-to-1 Multiplexer.",
+    "explanation": "A standard 4-variable textbook master problem."
+  },
+  {
+    "id": 17,
+    "question": "How are the 8 data input channels (I0 to I7) paired in Example 2.13?",
+    "answer": "I0:(0,1), I1:(2,3), I2:(4,5), I3:(6,7), I4:(8,9), I5:(10,11), I6:(12,13), I7:(14,15).",
+    "explanation": "Each channel I_k pairs minterms (2k, 2k+1) under singled-out variable d."
+  },
+  {
+    "id": 18,
+    "question": "Which minterms are circled in the implementation table for Example 2.13?",
+    "answer": "Minterms 0, 1, 3, 4, 8, 9, and 15 are circled.",
+    "explanation": "These correspond to the 1-outputs of the function F."
+  },
+  {
+    "id": 19,
+    "question": "Why is I0 = 1 in Example 2.13?",
+    "answer": "Both minterms 0 (d' row) and 1 (d row) are circled; by Rule 2, when both are circled, the input is connected to logic 1 (+5V).",
+    "explanation": "Output is 1 regardless of variable d."
+  },
+  {
+    "id": 20,
+    "question": "Why is I2 = d' in Example 2.13?",
+    "answer": "Minterm 4 (d' row) is circled and minterm 5 (d row) is uncircled; by Rule 3, when only the d' cell is circled, Input = d'.",
+    "explanation": "Output is 1 when d = 0."
+  },
+  {
+    "id": 21,
+    "question": "Why are inputs I3, I5, and I6 connected to logic 0 (GND)?",
+    "answer": "None of the minterms in columns I3(6,7), I5(10,11), or I6(12,13) are present in the function; by Rule 1, Input = 0.",
+    "explanation": "Output is 0 for both states of variable d."
+  },
+  {
+    "id": 22,
+    "question": "What are the final values of all 8 data inputs in Example 2.13?",
+    "answer": "I0 = 1, I1 = d, I2 = d', I3 = 0, I4 = 1, I5 = 0, I6 = 0, I7 = d.",
+    "explanation": "The complete set of derived inputs for the 8:1 MUX."
+  },
+  {
+    "id": 23,
+    "question": "How is the circuit drawn according to Example 2.13?",
+    "answer": "8:1 MUX with S2=a, S1=b, S0=c. Inputs I0, I4 connected to Vcc (1); I3, I5, I6 connected to GND (0); I1, I7 connected to d; I2 connected to d via an inverter; Output Y = F.",
+    "explanation": "Complete schematic diagram for Example 2.13."
+  },
+  {
+    "id": 24,
+    "question": "Verify the circuit output for minterm 15 (a=1, b=1, c=1, d=1).",
+    "answer": "Select lines S2S1S0 = 111, routing input I7 to Y. Since I7 = d and d = 1, Output Y = 1. Matches minterm 15 = 1.",
+    "explanation": "Verifies correct operation for input 1111."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for Example 2.13?",
+    "answer": "Implement F(a, b, c, d) = Σ(0, 1, 3, 4, 8, 9, 15) using an 8-to-1 MUX. Show the Implementation Table and draw the logic circuit diagram.",
+    "explanation": "A classic 4-mark problem appearing in CISCE board question papers."
   }
 ];
 

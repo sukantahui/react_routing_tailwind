@@ -1,4 +1,4 @@
-// Topic 28 FAQs - 15 Comprehensive Questions and Answers
+// Topic 28 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 // Textbook Page 109 Example 2.13: F(a, b, c, d) = Σ(0, 1, 3, 4, 8, 9, 15) using 8:1 MUX
 
@@ -92,6 +92,67 @@ export const faqs = [
     "question": "How are marks allocated for Example 2.13 in an ISC Class 12 board examination?",
     "answer": "1 mark for variable identification, 2 marks for the 8-column table with circled minterms, 1 mark for input deductions, and 1 mark for the circuit diagram.",
     "explanation": "Presenting all steps explicitly ensures full 5 marks according to official CISCE evaluation rubrics."
+  },
+  {
+    "id": 16,
+    "question": "How many select lines and data inputs does an 8-to-1 MUX have when realizing a 4-variable function?",
+    "answer": "3 select lines (S2, S1, S0) and 8 data inputs (I0 to I7).",
+    "explanation": "For 4 variables (a, b, c, d), 3 variables (a, b, c) connect to select lines, and variable d is singled out."
+  },
+  {
+    "id": 17,
+    "question": "For F(a, b, c, d) = Σ(0, 1, 3, 4, 8, 9, 15), how are the select lines assigned?",
+    "answer": "Connect variable 'a' to S2, variable 'b' to S1, and variable 'c' to S0; variable 'd' is singled out.",
+    "explanation": "The three MSB variables serve as select addresses for the 8 MUX channels."
+  },
+  {
+    "id": 18,
+    "question": "Construct the implementation table columns for F(a, b, c, d) = Σ(0, 1, 3, 4, 8, 9, 15).",
+    "answer": "8 columns (I0 to I7) with 2 rows: Row d' (0,2,4,6,8,10,12,14) and Row d (1,3,5,7,9,11,13,15). Circled minterms: 0, 1, 3, 4, 8, 9, 15.",
+    "explanation": "Each column I_k pairs minterms (2k, 2k+1)."
+  },
+  {
+    "id": 19,
+    "question": "Derive the data inputs (I0 to I7) for F(a, b, c, d) = Σ(0, 1, 3, 4, 8, 9, 15).",
+    "answer": "I0 = 1 (both 0,1 circled); I1 = d (3 circled); I2 = d' (4 circled); I3 = 0 (none); I4 = 1 (both 8,9 circled); I5 = 0 (none); I6 = 0 (none); I7 = d (15 circled).",
+    "explanation": "Applying the 4 canonical rules to each column gives: I0=1, I1=d, I2=d', I3=0, I4=1, I5=0, I6=0, I7=d."
+  },
+  {
+    "id": 20,
+    "question": "What external gates are required for this 8-to-1 MUX implementation?",
+    "answer": "Only one NOT gate (to invert variable d into d' for input I2).",
+    "explanation": "Inputs I1 and I7 connect to d; I2 connects to d'; I0 and I4 connect to logic 1; I3, I5, I6 connect to logic 0."
+  },
+  {
+    "id": 21,
+    "question": "What logic level represents logic 1 and logic 0 in hardware circuit diagrams?",
+    "answer": "Logic 1 connects to +5V (Vcc); Logic 0 connects to Ground (GND / 0V).",
+    "explanation": "Standard TTL voltage specifications."
+  },
+  {
+    "id": 22,
+    "question": "Why is implementing functions using MUXes vastly superior to standard gate implementations?",
+    "answer": "Zero K-map minimization is required, hazard glitches are reduced, and design requires only 1 IC package instead of 4-6 discrete gate ICs.",
+    "explanation": "Drastically cuts PCB board area, component count, and wiring complexity."
+  },
+  {
+    "id": 23,
+    "question": "What happens if variable 'd' is chosen as select line S0 and 'a' is singled out instead?",
+    "answer": "The implementation table is structured with rows a' and a; the circuit remains fully functional but yields different input equations for I0-I7.",
+    "explanation": "Any of the 4 variables can be singled out, but selecting the rightmost variable is standard textbook convention."
+  },
+  {
+    "id": 24,
+    "question": "Can an 8-to-1 MUX implement a function with Don't Care conditions F = Σm(...) + d(...)?",
+    "answer": "Yes; Don't Care minterms are circled if doing so simplifies the input to 1 or 0 instead of requiring an inverted variable.",
+    "explanation": "Don't Cares provide optimization flexibility exactly as in Karnaugh maps."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for Textbook Example 2.13?",
+    "answer": "Given F(a, b, c, d) = Σ(0, 1, 3, 4, 8, 9, 15), draw the Implementation Table, determine values of I0 to I7, and draw the complete circuit diagram using an 8-to-1 MUX.",
+    "explanation": "A frequent 4-mark board examination question in ISC Class 12 Computer Science Paper 1."
   }
 ];
+
 export default faqs;

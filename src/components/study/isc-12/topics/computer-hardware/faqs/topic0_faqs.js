@@ -1,4 +1,4 @@
-// Topic 0 FAQs - 15 Comprehensive Questions and Answers
+// Topic 0 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What is the CISCE Board marking strategy when defining a combinational circuit?",
     "answer": "State that outputs depend exclusively on present inputs, specify 'no memory elements / no feedback', and cite at least two examples (e.g., Half Adder, Multiplexer).",
     "explanation": "CISCE mark schemes award 1 mark for 'present inputs only without memory' and 1 mark for naming valid standard combinational circuits."
+  },
+  {
+    "id": 16,
+    "question": "What is fan-in and fan-out of a logic gate in a combinational network?",
+    "answer": "Fan-in is the maximum number of input signals a gate can receive; fan-out is the maximum number of standard logic gate inputs a gate output can reliably drive without voltage degradation.",
+    "explanation": "Exceeding fan-out causes output voltage levels to drop below the threshold (V_OH drops), leading to erratic circuit behavior and increased propagation delay in combinational networks."
+  },
+  {
+    "id": 17,
+    "question": "How does gate-level minimization contribute to reducing critical path delay?",
+    "answer": "Minimizing Boolean expressions reduces the number of cascaded gate levels and physical gate counts, directly decreasing total signal propagation time.",
+    "explanation": "Each additional gate level introduces a finite switching delay (typically 2-10 ns). Reducing a 4-level logic structure to a 2-level SOP structure ensures minimum propagation delay."
+  },
+  {
+    "id": 18,
+    "question": "Why can combinational circuits NOT store passwords or encryption keys?",
+    "answer": "Because combinational circuits have zero internal memory and their outputs immediately disappear or change when the input power or signals change.",
+    "explanation": "Combinational logic computes stateless functions. Data storage requires bistable multivibrators (flip-flops, SRAM cells) which belong to sequential logic circuits."
+  },
+  {
+    "id": 19,
+    "question": "What is the role of Karnaugh Maps (K-maps) in the design workflow of combinational circuits?",
+    "answer": "K-maps provide a visual, systematic graphic method to group adjacent 1s (minterms) or 0s (maxterms) into pairs, quads, and octets to find minimal Boolean expressions.",
+    "explanation": "By applying the adjacency property (Gray code ordering), K-maps eliminate redundant literals (using A + A' = 1) without requiring cumbersome algebraic theorem manipulations."
+  },
+  {
+    "id": 20,
+    "question": "What is an Incompletely Specified Function (Don't Care conditions) in combinational design?",
+    "answer": "Input combinations that never occur in practice or whose output values do not affect system performance, denoted by 'X' or 'd'.",
+    "explanation": "In BCD circuits (which only use 0-9), combinations 1010 to 1111 (10 to 15) are invalid and treated as Don't Cares, allowing larger groupings in K-maps to achieve simpler circuits."
+  },
+  {
+    "id": 21,
+    "question": "How do active-low signals prevent false triggering in noisy industrial environments?",
+    "answer": "Active-low circuits require an output to pull down to ground (0V) to activate, which offers greater current sinking capability and immunity to positive noise spikes.",
+    "explanation": "BJT TTL logic gates can sink substantially more current (I_OL) than they can source (I_OH), making active-low signaling more robust against electromagnetic interference."
+  },
+  {
+    "id": 22,
+    "question": "What is the difference between synchronous and asynchronous circuits?",
+    "answer": "Synchronous circuits are driven and coordinated by a periodic master clock pulse, whereas asynchronous combinational circuits respond instantaneously to input level transitions.",
+    "explanation": "Combinational circuits are inherently asynchronous. Synchronous systems use clock pulses to latch combinational outputs into flip-flops at defined clock edges."
+  },
+  {
+    "id": 23,
+    "question": "What is a Look-Up Table (LUT) in modern programmable combinational logic (FPGA)?",
+    "answer": "A digital memory-based structure that stores the truth table outputs of a combinational Boolean function.",
+    "explanation": "An n-input LUT uses SRAM cells addressed by the n inputs, allowing any arbitrary n-variable combinational function to be implemented simply by reading stored values without redesigning gate wiring."
+  },
+  {
+    "id": 24,
+    "question": "How does propagation delay limit the maximum clock frequency of a digital processor?",
+    "answer": "The clock period must be strictly greater than the sum of the longest combinational critical path delay, register setup time, and clock-to-Q delay.",
+    "explanation": "If the clock pulse arrives before combinational signals settle to stable values, setup-time violations occur, causing data corruption and metastable state failures."
+  },
+  {
+    "id": 25,
+    "question": "What are the essential steps in designing any combinational logic circuit from a problem specification in ISC exams?",
+    "answer": "1. State problem & identify inputs/outputs; 2. Formulate Truth Table; 3. Derive simplified Boolean equations via K-Map; 4. Draw gate-level logic circuit diagram.",
+    "explanation": "Following this 4-step canonical engineering procedure guarantees full marks in CISCE 4-mark and 5-mark hardware circuit design questions."
   }
 ];
 

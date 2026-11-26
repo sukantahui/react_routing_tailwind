@@ -1,4 +1,4 @@
-// Topic 34 FAQs - 15 Comprehensive Questions and Answers
+// Topic 34 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What common error do students commit when differentiating between a Decoder and a Demultiplexer?",
     "answer": "Claiming they are completely different circuits with different internal gates, failing to recognize that a DEMUX is a decoder with data fed to Enable.",
     "explanation": "Highlighting that their internal gate architecture is identical demonstrates deep mastery that impresses senior examiners."
+  },
+  {
+    "id": 16,
+    "question": "What is the primary operational difference between a Decoder and a Demultiplexer?",
+    "answer": "A Decoder activates 1 of 2^n output lines based on an n-bit binary input code; a Demultiplexer routes 1 data input signal to 1 of 2^n output lines using n select lines.",
+    "explanation": "Decoder converts code to line assertion; DEMUX routes external data through a designated line."
+  },
+  {
+    "id": 17,
+    "question": "Compare the input lines of a 3-to-8 Decoder vs a 1-to-8 Demultiplexer.",
+    "answer": "3-to-8 Decoder has 3 binary input lines (plus optional Enable); 1-to-8 DEMUX has 1 Data Input line AND 3 Select lines.",
+    "explanation": "The decoder's 3 inputs serve as addresses; the DEMUX has 1 data line and 3 address select lines."
+  },
+  {
+    "id": 18,
+    "question": "What do the outputs represent in a Decoder vs a Demultiplexer?",
+    "answer": "Decoder outputs represent minterms (fixed 1s or 0s); DEMUX outputs represent the actual time-varying data signal D.",
+    "explanation": "In a decoder, selected line = 1; in a demultiplexer, selected line = D."
+  },
+  {
+    "id": 19,
+    "question": "Can a Decoder implement arbitrary Boolean functions? Can a Demultiplexer?",
+    "answer": "A Decoder implements Boolean functions when combined with external OR gates; a Demultiplexer distributes data and is not used as a logic generator.",
+    "explanation": "Decoders act as universal minterm generators; demultiplexers act as communication switches."
+  },
+  {
+    "id": 20,
+    "question": "How does the Truth Table of a Decoder differ from that of a Demultiplexer?",
+    "answer": "Decoder table maps inputs to a single output 1 (or 0); DEMUX table maps select codes to output lines showing the variable 'D'.",
+    "explanation": "The variable 'D' appears explicitly in DEMUX truth table output columns."
+  },
+  {
+    "id": 21,
+    "question": "How can a Decoder be converted into a Demultiplexer?",
+    "answer": "By applying the data input signal D directly to the Enable (E) pin of the decoder.",
+    "explanation": "When Enable = D, the decoder performs data distribution."
+  },
+  {
+    "id": 22,
+    "question": "How can a Demultiplexer be converted into a Decoder?",
+    "answer": "By tying the single data input line D permanently to logic 1 (+5V Vcc) in active-high circuits.",
+    "explanation": "When D = 1, Y_k = 1 · m_k = m_k, which is the exact output of a binary decoder."
+  },
+  {
+    "id": 23,
+    "question": "Give an application example distinguishing a Decoder from a Demultiplexer.",
+    "answer": "Decoder: Memory chip select (selecting 1 RAM chip out of 8); Demultiplexer: Audio routing (sending an audio stream to 1 of 8 speakers).",
+    "explanation": "Chip activation vs analog/digital signal distribution."
+  },
+  {
+    "id": 24,
+    "question": "Compare the gate structure of a Decoder vs a Demultiplexer.",
+    "answer": "Both use identical AND/NAND gate arrays; the only difference is whether the additional gate input is tied to Vcc (Decoder) or driven by a data stream (DEMUX).",
+    "explanation": "Complete structural equivalence."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for Decoder vs Demultiplexer?",
+    "answer": "Differentiate between a Decoder and a Demultiplexer on the basis of inputs, outputs, select lines, truth tables, and applications (3-4 marks).",
+    "explanation": "A frequent board question testing conceptual clarity on digital line expansion."
   }
 ];
 

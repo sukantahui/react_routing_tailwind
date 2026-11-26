@@ -1,4 +1,4 @@
-// Topic 3 FAQs - 15 Comprehensive Questions and Answers
+// Topic 3 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What is the common CISCE exam question for 4 marks on Full Adders?",
     "answer": "'State the truth table of a Full Adder, derive the simplified Boolean expressions for Sum and Carry-out, and draw the gate circuit.'",
     "explanation": "1 mark for truth table, 1 mark for Sum derivation, 1 mark for Carry derivation, and 1 mark for clean schematic."
+  },
+  {
+    "id": 16,
+    "question": "What are the 3 inputs and 2 outputs of a 1-bit Full Adder?",
+    "answer": "Inputs: Addend bit A, Augend bit B, and Carry-in Cin; Outputs: Sum S and Carry-out Cout.",
+    "explanation": "The Full Adder handles the complete arithmetic requirement of an arbitrary bit-slice in an n-bit parallel binary adder."
+  },
+  {
+    "id": 17,
+    "question": "What is the algebraic expression for the Sum (S) of a Full Adder?",
+    "answer": "S = A ⊕ B ⊕ Cin.",
+    "explanation": "Sum is the 3-input XOR of all three operands, producing 1 whenever an odd number of the three inputs are 1 (minterms m1, m2, m4, m7)."
+  },
+  {
+    "id": 18,
+    "question": "What is the canonical Sum-of-Products (SOP) minterm form of Carry-out (Cout)?",
+    "answer": "Cout = Σm(3, 5, 6, 7) = A'BCin + AB'Cin + ABCin' + ABCin.",
+    "explanation": "Carry-out is 1 whenever two or more inputs are 1. Grouping minterms on a K-map simplifies this to Cout = AB + BCin + ACin."
+  },
+  {
+    "id": 19,
+    "question": "How can Cout be factored to share the intermediate XOR term (A ⊕ B) with Sum?",
+    "answer": "Cout = AB + Cin(A ⊕ B).",
+    "explanation": "Since Sum uses (A ⊕ B), reusing this term to compute Carry eliminates redundant gates when building a Full Adder from Half Adders."
+  },
+  {
+    "id": 20,
+    "question": "What is the result when all three inputs of a Full Adder are 1 (A = 1, B = 1, Cin = 1)?",
+    "answer": "Sum = 1, Carry-out = 1 (binary '11', which is decimal 3).",
+    "explanation": "1 + 1 + 1 = 3 (decimal) = 11 (binary). Both Sum and Carry-out pins are driven HIGH."
+  },
+  {
+    "id": 21,
+    "question": "How many total rows exist in the Truth Table of a Full Adder?",
+    "answer": "Exactly 8 rows (2^3 = 8 combinations, from 000 to 111).",
+    "explanation": "Three binary inputs (A, B, Cin) produce 8 distinct combinations, with Sum = 1 in 4 rows and Cout = 1 in 4 rows."
+  },
+  {
+    "id": 22,
+    "question": "How many NAND gates are required to construct a Full Adder from scratch?",
+    "answer": "Exactly 9 NAND gates.",
+    "explanation": "Using two 4-NAND XOR structures plus 1 NAND gate for the combined carry logic yields a 9-NAND gate realization."
+  },
+  {
+    "id": 23,
+    "question": "What is a Ripple Carry Adder (RCA) and how does it use Full Adders?",
+    "answer": "An n-bit adder formed by cascading n 1-bit Full Adders, where the Cout of each stage is connected to the Cin of the next higher stage.",
+    "explanation": "In an RCA, carry ripples sequentially from LSB to MSB, making total latency proportional to n × t_carry."
+  },
+  {
+    "id": 24,
+    "question": "How does a Carry Lookahead Adder (CLA) overcome the carry propagation delay of a Ripple Carry Adder?",
+    "answer": "By calculating carry signals in advance using Carry Generate (G = AB) and Carry Propagate (P = A ⊕ B) logic equations.",
+    "explanation": "CLA computes all carries simultaneously in two gate levels, eliminating the sequential ripple delay across bit stages."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE board question for a Full Adder?",
+    "answer": "State definition, draw the complete 8-row Truth Table, derive Sum and Carry-out equations, and draw the logic gate circuit.",
+    "explanation": "Usually carrying 4 to 5 marks, full credit demands exact derivation of S = A ⊕ B ⊕ Cin and Cout = AB + BCin + ACin."
   }
 ];
 

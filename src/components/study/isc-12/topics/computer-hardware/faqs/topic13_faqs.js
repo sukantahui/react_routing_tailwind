@@ -1,4 +1,4 @@
-// Topic 13 FAQs - 15 Comprehensive Questions and Answers
+// Topic 13 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What are the primary structural requirements in ISC Class 12 board exams for decoder questions?",
     "answer": "Input labels, Enable line, truth table with binary minterms, gate-level schematic, and clear output expressions.",
     "explanation": "Examiners look for rigorous notation: inputs (A1, A0 or A, B, C), Enable (E), proper inversion bubbles if active-LOW, and output minterms (Y0 = A'B', etc.)."
+  },
+  {
+    "id": 16,
+    "question": "What is the primary function of a Decoder in digital electronics?",
+    "answer": "To convert an n-bit binary input code into a maximum of 2^n unique output lines, activating exactly one output line for each input combination.",
+    "explanation": "A decoder performs the inverse operation of an encoder; it expands encoded binary data into decoded individual control lines."
+  },
+  {
+    "id": 17,
+    "question": "Why is a binary decoder called a 'Minterm Generator'?",
+    "answer": "Because each output line corresponds to exactly one fundamental product term (minterm) of the input variables.",
+    "explanation": "For an n-variable input, the 2^n output lines represent minterms m0, m1, ..., m_(2^n - 1)."
+  },
+  {
+    "id": 18,
+    "question": "What is the difference between an Active-HIGH and an Active-LOW Decoder?",
+    "answer": "An Active-HIGH decoder drives the selected output to 1 (all others 0); an Active-LOW decoder drives the selected output to 0 (all others 1).",
+    "explanation": "Active-HIGH decoders use AND gates; Active-LOW decoders use NAND gates."
+  },
+  {
+    "id": 19,
+    "question": "What is the purpose of the Enable (E) pin on a decoder chip?",
+    "answer": "It acts as a master ON/OFF switch; when disabled, all output lines are inactive regardless of input address signals.",
+    "explanation": "Enable pins are essential for memory address decoding and for cascading multiple smaller decoders into larger decoders."
+  },
+  {
+    "id": 20,
+    "question": "How many output lines does a decoder have if it has 5 input lines?",
+    "answer": "32 output lines (since 2^5 = 32).",
+    "explanation": "The formula is 2^n outputs for n binary inputs."
+  },
+  {
+    "id": 21,
+    "question": "How is a Decoder used in Computer Memory Address Decoding?",
+    "answer": "Upper address bits from the CPU bus connect to decoder inputs; the decoder output lines select specific RAM or ROM memory chips (Chip Select / CS).",
+    "explanation": "This ensures that only one memory chip responds to a specific memory address range on the shared data bus."
+  },
+  {
+    "id": 22,
+    "question": "What is a 3-to-8 line decoder commonly called in digital systems?",
+    "answer": "A 1-of-8 decoder, Octal Decoder, or Binary-to-Octal Decoder.",
+    "explanation": "It decodes 3 binary bits into one of 8 octal output states."
+  },
+  {
+    "id": 23,
+    "question": "How can a decoder be used to implement arbitrary Boolean functions?",
+    "answer": "By connecting an external OR gate to the decoder output lines corresponding to the minterms of the desired function.",
+    "explanation": "Since the decoder generates all 2^n minterms, any function F = Σm(...) is formed simply by ORing its designated minterm outputs."
+  },
+  {
+    "id": 24,
+    "question": "What is the difference between a Decoder and a Demultiplexer?",
+    "answer": "A decoder converts an n-bit address into 2^n outputs; a demultiplexer directs a single data input to one of 2^n outputs using n select lines.",
+    "explanation": "A decoder with an Enable input acts identically to a demultiplexer where Enable serves as the Data Input."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE definition of a Decoder?",
+    "answer": "A combinational circuit that converts binary information from n input lines to a maximum of 2^n unique output lines.",
+    "explanation": "Award of 2 marks requires stating n inputs to 2^n outputs and mentioning that only one output is activated at a time."
   }
 ];
 

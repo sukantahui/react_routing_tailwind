@@ -1,4 +1,4 @@
-// Topic 33 FAQs - 15 Comprehensive Questions and Answers
+// Topic 33 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What is the most common confusion students exhibit between Encoders and Multiplexers in board exams?",
     "answer": "Confusing select lines with data inputs and misidentifying a MUX as an encoder because both 'take many lines'.",
     "explanation": "Students often forget that a MUX has only ONE output carrying data, whereas an encoder has MULTIPLE outputs carrying a binary code."
+  },
+  {
+    "id": 16,
+    "question": "What is the primary operational difference between an Encoder and a Multiplexer?",
+    "answer": "An Encoder converts 2^n active lines into an n-bit binary code (code generator); a Multiplexer routes one of 2^n data lines to a single output based on n select lines (data router).",
+    "explanation": "Encoder output represents an address; MUX output carries the selected data signal."
+  },
+  {
+    "id": 17,
+    "question": "Compare the number of input, select, and output lines in an 8-to-3 Encoder vs an 8-to-1 Multiplexer.",
+    "answer": "8-to-3 Encoder: 8 inputs, 0 select lines, 3 outputs; 8-to-1 Multiplexer: 8 data inputs, 3 select lines, 1 output.",
+    "explanation": "Notice the inverse roles: the 3 output lines of the encoder correspond to the 3 select lines of the multiplexer."
+  },
+  {
+    "id": 18,
+    "question": "What type of basic logic gates are primarily used to construct Encoders vs Multiplexers?",
+    "answer": "Encoders are constructed primarily using OR gates; Multiplexers are constructed using an AND-OR gate array (AND gates for selection, OR gate for combining).",
+    "explanation": "Encoders sum active lines; multiplexers form sum-of-products terms."
+  },
+  {
+    "id": 19,
+    "question": "Can an Encoder implement arbitrary Boolean logic functions directly?",
+    "answer": "No, encoders cannot implement arbitrary Boolean functions because their outputs are fixed binary encodings of single active inputs.",
+    "explanation": "Multiplexers, by contrast, can implement any arbitrary Boolean function via Shannon expansion."
+  },
+  {
+    "id": 20,
+    "question": "How do inputs behave in an Encoder vs a Multiplexer?",
+    "answer": "In an encoder, only one input is active at a time (or prioritized); in a multiplexer, all data inputs can simultaneously carry active changing digital signals.",
+    "explanation": "The MUX select lines isolate and transmit only the chosen input."
+  },
+  {
+    "id": 21,
+    "question": "Compare the truth tables of an 8-to-3 Encoder and an 8-to-1 MUX.",
+    "answer": "Encoder truth table has 8 rows mapping active input pins to 3-bit binary words; MUX function table has 8 rows mapping 3-bit select codes to data outputs (I0-I7).",
+    "explanation": "Encoder table maps Inputs → Code; MUX table maps Code → Data Output."
+  },
+  {
+    "id": 22,
+    "question": "Give an application example distinguishing an Encoder from a Multiplexer.",
+    "answer": "Encoder: Keyboard controller converting key presses into binary scan codes; Multiplexer: CPU bus arbiter selecting which register places data onto the ALU bus.",
+    "explanation": "Clearly highlights code conversion vs data switching."
+  },
+  {
+    "id": 23,
+    "question": "Does an Encoder have selection lines?",
+    "answer": "No, a standard encoder has zero selection lines. Its inputs themselves determine the binary output code.",
+    "explanation": "Only multiplexers and demultiplexers feature separate selection control lines."
+  },
+  {
+    "id": 24,
+    "question": "Can a Priority Encoder replace a Multiplexer?",
+    "answer": "No, a priority encoder outputs an address code, not the data carried on the selected line.",
+    "explanation": "However, a priority encoder can drive the select lines of a multiplexer to route data from the highest-priority active device."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for Encoder vs Multiplexer?",
+    "answer": "Tabulate 3 to 4 points of difference between an Encoder and a Multiplexer (inputs, outputs, select lines, and applications).",
+    "explanation": "A classic 3-mark comparison question in Section D of ISC Class 12 Computer Science."
   }
 ];
 

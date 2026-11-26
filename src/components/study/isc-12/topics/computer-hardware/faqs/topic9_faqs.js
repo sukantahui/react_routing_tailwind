@@ -1,4 +1,4 @@
-// Topic 9 FAQs - 15 Comprehensive Questions and Answers
+// Topic 9 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What is the common CISCE exam marking breakdown for this circuit?",
     "answer": "Truth Table (1 Mark), Boolean Output Equations (1 Mark), Logic Circuit Diagram (1 Mark).",
     "explanation": "CISCE questions typically ask students to construct a 4-to-2 line encoder with all three elements for 3 marks."
+  },
+  {
+    "id": 16,
+    "question": "What are the inputs and outputs of a 4-to-2 line binary encoder?",
+    "answer": "4 inputs: D0, D1, D2, D3; 2 outputs: Y1 (MSB) and Y0 (LSB).",
+    "explanation": "It encodes 4 discrete lines into a 2-bit binary representation."
+  },
+  {
+    "id": 17,
+    "question": "What are the Boolean equations for the outputs of a 4-to-2 binary encoder?",
+    "answer": "Y1 = D2 + D3; Y0 = D1 + D3.",
+    "explanation": "Y1 is 1 for digits 2 (10) and 3 (11); Y0 is 1 for digits 1 (01) and 3 (11). Input D0 does not connect to any OR gate."
+  },
+  {
+    "id": 18,
+    "question": "How many 2-input OR gates are needed to implement a 4-to-2 encoder?",
+    "answer": "Exactly 2 OR gates.",
+    "explanation": "One OR gate computes Y1 = D2 + D3 and the second OR gate computes Y0 = D1 + D3."
+  },
+  {
+    "id": 19,
+    "question": "What is the output when input line D2 is active (D2 = 1, all others 0)?",
+    "answer": "Y1 = 1, Y0 = 0 (binary '10', which is decimal 2).",
+    "explanation": "Y1 = 1 + 0 = 1; Y0 = 0 + 0 = 0. Output is binary 10."
+  },
+  {
+    "id": 20,
+    "question": "What happens in a basic 4-to-2 encoder if both D2 and D3 are pressed simultaneously?",
+    "answer": "Output Y1 = 1 + 1 = 1, Y0 = 0 + 1 = 1 (output is 11, corresponding to D3).",
+    "explanation": "In basic encoders, simultaneous inputs lead to erroneous or unintended priority outputs, demonstrating the necessity of Priority Encoders."
+  },
+  {
+    "id": 21,
+    "question": "Why is input D0 not connected to any OR gate in the circuit diagram?",
+    "answer": "Because binary 0 is represented as Y1 = 0, Y0 = 0. Leaving both OR gate outputs LOW correctly generates binary 00.",
+    "explanation": "Connecting D0 would erroneously force one of the outputs HIGH when D0 is activated."
+  },
+  {
+    "id": 22,
+    "question": "What is the complete Truth Table of a 4-to-2 binary encoder?",
+    "answer": "D3 D2 D1 D0 | Y1 Y0 : (0 0 0 1 → 0 0), (0 0 1 0 → 0 1), (0 1 0 0 → 1 0), (1 0 0 0 → 1 1).",
+    "explanation": "Each row has exactly one input HIGH and produces its corresponding 2-bit binary code."
+  },
+  {
+    "id": 23,
+    "question": "What is the function of an Enable (E) line in a 4-to-2 encoder?",
+    "answer": "When E = 1, the encoder operates normally; when E = 0, all outputs are forced to 0 regardless of input states.",
+    "explanation": "Enable lines allow multiple encoders to be cascaded and controlled by master microprocessor control buses."
+  },
+  {
+    "id": 24,
+    "question": "Draw the gate-level schematic layout of a 4-to-2 line encoder.",
+    "answer": "Two 2-input OR gates: Top OR gate has inputs D2, D3 producing Y1; Bottom OR gate has inputs D1, D3 producing Y0. Input D0 is left unconnected to gates.",
+    "explanation": "A simple, clean 2-gate circuit that is frequently tested in ISC 2-mark questions."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE marking scheme for a 4-to-2 Encoder?",
+    "answer": "1 mark for Truth Table, 1 mark for Boolean equations (Y1 = D2+D3, Y0 = D1+D3), and 1 mark for logic circuit diagram.",
+    "explanation": "Full credit requires clearly labeling all input and output pins."
   }
 ];
 

@@ -1,4 +1,4 @@
-// Topic 1 FAQs - 15 Comprehensive Questions and Answers
+// Topic 1 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What is the common mistake students make when drawing universal gate circuits?",
     "answer": "Omitting the small inversion bubble on NAND and NOR gate outputs.",
     "explanation": "Without the bubble, a NAND gate is drawn as an AND gate and a NOR is drawn as an OR gate, rendering the entire derivation invalid."
+  },
+  {
+    "id": 16,
+    "question": "How is an inverter (NOT gate) realized using a single 2-input NAND gate?",
+    "answer": "By tying both inputs of the NAND gate together (A and A), or by connecting one input to logic 1 (+5V Vcc) and applying signal A to the other.",
+    "explanation": "By Boolean algebra, (A · A)' = A' and (A · 1)' = A'. Both configurations produce a pure NOT operation."
+  },
+  {
+    "id": 17,
+    "question": "How is an inverter (NOT gate) realized using a single 2-input NOR gate?",
+    "answer": "By tying both inputs of the NOR gate together (A and A), or by connecting one input to ground (logic 0) and applying signal A to the other.",
+    "explanation": "By Boolean algebra, (A + A)' = A' and (A + 0)' = A'. Both setups invert the input signal."
+  },
+  {
+    "id": 18,
+    "question": "How many 2-input NAND gates are required to synthesize a 2-input XOR gate?",
+    "answer": "Exactly 4 NAND gates.",
+    "explanation": "XOR equation is A ⊕ B = AB' + A'B. Using 4 NAND gates: Gate 1 produces (AB)', Gates 2 and 3 produce (A(AB)')' and (B(AB)')', and Gate 4 combines them to produce A ⊕ B."
+  },
+  {
+    "id": 19,
+    "question": "How many 2-input NOR gates are required to construct a 2-input XNOR gate?",
+    "answer": "Exactly 4 NOR gates.",
+    "explanation": "The dual symmetry of De Morgan's laws allows XNOR (AB + A'B') to be implemented with 4 NOR gates in the same topological arrangement as XOR with NAND gates."
+  },
+  {
+    "id": 20,
+    "question": "Why is the XOR gate also known as an 'Odd 1s Detector' or 'Parity Generator'?",
+    "answer": "Because for any number of inputs, the XOR gate output is logic 1 if and only if an odd number of inputs are at logic 1.",
+    "explanation": "If an even number of inputs are 1 (e.g., 00 or 11), the XOR output is 0. If an odd number are 1 (e.g., 01 or 10), the output is 1."
+  },
+  {
+    "id": 21,
+    "question": "Why is the XNOR gate called an 'Equivalence Gate' or 'Even Function'?",
+    "answer": "Because its output is logic 1 when all its inputs are identical (both 0 or both 1), indicating equivalence between binary variables.",
+    "explanation": "XNOR truth table: 0 ⊙ 0 = 1, 1 ⊙ 1 = 1, while 0 ⊙ 1 = 0 and 1 ⊙ 0 = 0. It serves as a 1-bit equality comparator."
+  },
+  {
+    "id": 22,
+    "question": "How can an XOR gate be configured as a Controlled Inverter (programmable complementer)?",
+    "answer": "Connect the data signal to input A and the control line to input B. If B = 0, Output = A; if B = 1, Output = A'.",
+    "explanation": "Since A ⊕ 0 = A (buffer) and A ⊕ 1 = A' (inverter), this property is exploited in binary adders to convert them into adders/subtractors using 2's complement."
+  },
+  {
+    "id": 23,
+    "question": "What is De Morgan's First Theorem and how does it relate NAND to negative-OR?",
+    "answer": "(A · B)' = A' + B'; an inverted AND gate (NAND) is logically equivalent to an OR gate with inverted inputs (Bubble OR / Negative OR).",
+    "explanation": "This dual representation is critical in schematic capture: an active-low output from a NAND gate can be interpreted as either (AB)' or A' + B'."
+  },
+  {
+    "id": 24,
+    "question": "What is De Morgan's Second Theorem and how does it relate NOR to negative-AND?",
+    "answer": "(A + B)' = A' · B'; an inverted OR gate (NOR) is logically equivalent to an AND gate with inverted inputs (Bubble AND / Negative AND).",
+    "explanation": "This equivalence allows designers to convert POS expressions directly into NOR-NOR gate architectures without altering logic values."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for realizing gates using universal gates?",
+    "answer": "Students are typically asked to draw the circuit diagram for AND, OR, or XOR using ONLY NAND gates (or ONLY NOR gates) with minimum gate count.",
+    "explanation": "Marking criteria strictly reward: correct number of gates (AND needs 2 NANDs, OR needs 3 NANDs, XOR needs 4 NANDs) and correct labelling of input/output pins."
   }
 ];
 

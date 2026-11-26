@@ -1,4 +1,4 @@
-// Topic 18 FAQs - 15 Comprehensive Questions and Answers
+// Topic 18 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What are the essential labeling requirements for the ISC board 4-to-16 cascading diagram?",
     "answer": "Chip names (Decoder 1, Decoder 2), inputs A (MSB), B, C, D (LSB), Enable connections with truth table, and outputs labeled Y0-Y7 and Y8-Y15.",
     "explanation": "Clear labeling guarantees that examiners can trace signal flow from inputs through the enable gating to all 16 output lines."
+  },
+  {
+    "id": 16,
+    "question": "How many 3-to-8 Decoders are needed to build a 4-to-16 Line Decoder?",
+    "answer": "Exactly two 3-to-8 decoders (and one inverter).",
+    "explanation": "Each 3-to-8 decoder provides 8 outputs; 8 + 8 = 16 outputs."
+  },
+  {
+    "id": 17,
+    "question": "How are the 4 input lines (A3 MSB, A2, A1, A0 LSB) distributed to the two 3-to-8 decoders?",
+    "answer": "Lower 3 bits (A2, A1, A0) are connected in parallel to the address inputs of both decoders; MSB A3 controls the Enable lines.",
+    "explanation": "A3 = 0 selects Decoder 1 (outputs Y0-Y7); A3 = 1 selects Decoder 2 (outputs Y8-Y15)."
+  },
+  {
+    "id": 18,
+    "question": "How is A3 connected if the 3-to-8 decoders have Active-HIGH Enable inputs (E1, E2)?",
+    "answer": "Connect A3 through an inverter to E1 of Decoder 1; connect A3 directly to E2 of Decoder 2.",
+    "explanation": "When A3 = 0, E1 = 1 and E2 = 0 (Decoder 1 active). When A3 = 1, E1 = 0 and E2 = 1 (Decoder 2 active)."
+  },
+  {
+    "id": 19,
+    "question": "What is the commercial IC part number for a single-chip 4-to-16 Line Decoder?",
+    "answer": "IC 74154 (74LS154 / 4-to-16 line decoder/demultiplexer with active-low outputs).",
+    "explanation": "The 74154 is widely referenced in CISCE computer hardware curricula."
+  },
+  {
+    "id": 20,
+    "question": "What output line is activated when the input address is A3 A2 A1 A0 = 1 0 1 1?",
+    "answer": "Output Y11 is activated (since 1011 in binary is decimal 11).",
+    "explanation": "A3 = 1 enables Decoder 2; A2 A1 A0 = 011 activates line 3 of Decoder 2, which corresponds to Y11."
+  },
+  {
+    "id": 21,
+    "question": "How many total 2-to-4 decoders would be required to construct a 4-to-16 decoder?",
+    "answer": "Five 2-to-4 decoders (4 in the second level to produce 16 outputs, and 1 in the first level to decode A3, A2 into enable signals).",
+    "explanation": "This tree structure uses 1 decoder to drive the enables of 4 subordinate decoders."
+  },
+  {
+    "id": 22,
+    "question": "How does a 4-to-16 decoder assist in a 16-bit microprocessor memory bus?",
+    "answer": "It decodes address lines A15-A12 to divide the CPU's 64 KB memory space into sixteen 4 KB blocks, generating individual chip selects.",
+    "explanation": "Each 4 KB memory chip is mapped to an exact, non-overlapping address boundary."
+  },
+  {
+    "id": 23,
+    "question": "What are the output pin labels for the first and second decoders?",
+    "answer": "First decoder: Y0 to Y7 (minterms m0 to m7); Second decoder: Y8 to Y15 (minterms m8 to m15).",
+    "explanation": "Together they span the complete range from 0000 to 1111."
+  },
+  {
+    "id": 24,
+    "question": "Can an additional global master Enable (E) be incorporated into this design?",
+    "answer": "Yes, by ANDing master Enable with A3' (for Decoder 1) and with A3 (for Decoder 2).",
+    "explanation": "When master Enable = 0, both decoders remain inactive regardless of address lines."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE marking scheme for a 4-to-16 decoder constructed from two 3-to-8 decoders?",
+    "answer": "1 mark for explaining the role of A3, 1 mark for address bus connections (A2-A0), and 2 marks for neat block diagram with clear labels.",
+    "explanation": "Full credit requires showing the inverter on line A3 and labeling outputs Y0-Y7 on chip 1 and Y8-Y15 on chip 2."
   }
 ];
 

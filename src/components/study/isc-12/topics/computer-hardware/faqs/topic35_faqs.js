@@ -1,4 +1,4 @@
-// Topic 35 FAQs - 15 Comprehensive Questions and Answers
+// Topic 35 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What are the top three pieces of advice from senior CISCE Computer Science examiners for scoring 100% in this module?",
     "answer": "1. Never forget the Enable line. 2. Always show the Implementation Table for MUX questions. 3. Practice drawing standard gate shapes with crisp labels.",
     "explanation": "Consistent adherence to these three fundamental guidelines reliably turns 80% scripts into 100% perfect scoring scripts."
+  },
+  {
+    "id": 16,
+    "question": "What is the typical marks distribution for Computer Hardware & Combinational Circuits in ISC Class 12?",
+    "answer": "Approximately 10 to 14 marks out of 70 marks in Paper 1 (Theory), spanning Section A (short 1-2 mark questions) and Section B/D (4-5 mark circuit design problems).",
+    "explanation": "Consistently forms a major compulsory scoring component in CISCE board exams."
+  },
+  {
+    "id": 17,
+    "question": "What are the common 2-mark definitions tested by CISCE in this unit?",
+    "answer": "Combinational vs Sequential circuits, Multiplexer, Demultiplexer, Half Adder vs Full Adder, Encoder, Priority Encoder, and Universal Gates.",
+    "explanation": "2-mark definitions require exact keywords: 'outputs depend solely on present inputs', 'no memory elements', 'data selector', '2^n inputs to n outputs'."
+  },
+  {
+    "id": 18,
+    "question": "What are the common 4-mark design and derivation questions in CISCE exams?",
+    "answer": "1. Full Adder using two Half Adders and an OR gate (with algebraic proof); 2. Full Subtractor using two Half Subtractors and an OR gate; 3. 4-to-1 or 8-to-1 MUX Boolean function realization.",
+    "explanation": "These three standard derivation problems appear in almost every alternative year's board paper."
+  },
+  {
+    "id": 19,
+    "question": "What is the CISCE marking criterion for circuit diagrams?",
+    "answer": "Correct gate symbols (distinct shapes for AND, OR, XOR), clear labeling of all input and output signal names, and explicit connection dots (nodes) where wires branch.",
+    "explanation": "Messy diagrams or missing pin labels lead to immediate mark deductions."
+  },
+  {
+    "id": 20,
+    "question": "How should a student present a Multiplexer Function Realization question for maximum marks?",
+    "answer": "Step 1: Assign select lines; Step 2: Draw the implementation table with circled minterms; Step 3: Write values for I0-I_k; Step 4: Draw neat MUX block diagram with labeled connections.",
+    "explanation": "Following these 4 structured steps guarantees full 4/4 or 5/5 marks."
+  },
+  {
+    "id": 21,
+    "question": "What common mistake do students make in the Full Adder algebraic carry proof?",
+    "answer": "Confusing C1 + C2 = AB + (A ⊕ B)Cin with AB + BCin + ACin by forgetting to expand (A ⊕ B) as (AB' + A'B) and factoring common terms.",
+    "explanation": "Board evaluators inspect every intermediate algebraic step."
+  },
+  {
+    "id": 22,
+    "question": "In Encoder questions, why do students lose marks on input D0?",
+    "answer": "Connecting D0 to an OR gate. D0 produces 00...0 and must NOT be connected to any OR gate.",
+    "explanation": "Connecting D0 forces an output line HIGH, generating an erroneous code."
+  },
+  {
+    "id": 23,
+    "question": "How are Karnaugh Maps evaluated when designing combinational circuits in board exams?",
+    "answer": "1 mark for correct K-map layout and plotting; 1 mark for correct grouping (pairs/quads/octets); 1 mark for minimal SOP/POS expression.",
+    "explanation": "Overlapping groups and reduntant groups are penalized."
+  },
+  {
+    "id": 24,
+    "question": "Why should students always label IC part numbers (e.g. 74151, 74148, 74138) in hardware answers?",
+    "answer": "Citing standard TTL IC numbers demonstrates professional technical authenticity and aligns with ISC marking guidelines.",
+    "explanation": "Shows deep mastery beyond abstract block diagrams."
+  },
+  {
+    "id": 25,
+    "question": "What is the golden rule for time management in the CISCE Computer Hardware section?",
+    "answer": "Allocate roughly 1.5 minutes per mark (6 minutes for a 4-mark design question); use a ruler and pencil for gate diagrams to ensure clarity.",
+    "explanation": "Neat, prompt circuit drawing prevents running out of time in Section B/D."
   }
 ];
 

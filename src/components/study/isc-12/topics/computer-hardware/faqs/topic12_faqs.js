@@ -1,4 +1,4 @@
-// Topic 12 FAQs - 15 Comprehensive Questions and Answers
+// Topic 12 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What is the key point to mention in CISCE exams when explaining a Priority Encoder?",
     "answer": "Define it as an encoder where each input has an assigned priority rank, mention the role of Don't Cares (X), and explain the Valid bit (V).",
     "explanation": "Students who explain the Valid bit and illustrate a multiple-input conflict resolution consistently score full marks."
+  },
+  {
+    "id": 16,
+    "question": "What is the defining capability of a Priority Encoder compared to a basic encoder?",
+    "answer": "If two or more inputs are active simultaneously, the priority encoder produces the binary code of the input with the highest designated priority.",
+    "explanation": "It resolves input conflicts deterministically by ignoring lower-priority active signals."
+  },
+  {
+    "id": 17,
+    "question": "How are Don't Care conditions ('X') used in the truth table of a priority encoder?",
+    "answer": "When a higher-priority input is active (1), all lower-priority inputs are marked as 'X' (don't care) because their values do not affect the output.",
+    "explanation": "For example, if D3 is active in a 4-input priority encoder, inputs D2, D1, D0 can be anything (X X X) and the output will remain 11."
+  },
+  {
+    "id": 18,
+    "question": "What is the purpose of the 'Valid Output' (V) pin on a priority encoder?",
+    "answer": "V = 1 indicates that at least one valid input line is active; V = 0 indicates that no inputs are active.",
+    "explanation": "This distinguishes the condition where input D0 is intentionally active (output 000, V = 1) from the idle state where no keys are pressed (output 000, V = 0)."
+  },
+  {
+    "id": 19,
+    "question": "Write the truth table rows for a 4-to-2 Priority Encoder with D3 having the highest priority.",
+    "answer": "D3 D2 D1 D0 | Y1 Y0 V : (0 0 0 0 → X X 0), (0 0 0 1 → 0 0 1), (0 0 1 X → 0 1 1), (0 1 X X → 1 0 1), (1 X X X → 1 1 1).",
+    "explanation": "This concise 5-row truth table completely specifies the priority logic."
+  },
+  {
+    "id": 20,
+    "question": "What are the simplified Boolean equations for a 4-to-2 Priority Encoder?",
+    "answer": "Y1 = D3 + D2; Y0 = D3 + D1 · D2'; V = D3 + D2 + D1 + D0.",
+    "explanation": "Y0 is 1 if D3 is active, OR if D1 is active while D2 is inactive (D1 · D2')."
+  },
+  {
+    "id": 21,
+    "question": "How is a Priority Encoder utilized in Computer Interrupt Handling (Interrupt Controller)?",
+    "answer": "Multiple peripherals (timer, keyboard, disk drive, power fail) request CPU service simultaneously; the priority encoder passes the highest-priority interrupt request to the CPU.",
+    "explanation": "A critical event (e.g. power failure on IRQ0) preempts a routine task (e.g. keyboard stroke on IRQ7)."
+  },
+  {
+    "id": 22,
+    "question": "What is the commercial part number of the industry-standard 8-line Priority Encoder?",
+    "answer": "IC 74148.",
+    "explanation": "The 74148 is an 8-to-3 priority encoder featuring active-low inputs and outputs plus cascade enable lines (EI, EO)."
+  },
+  {
+    "id": 23,
+    "question": "How do Enable Input (EI) and Enable Output (EO) facilitate cascading of priority encoders?",
+    "answer": "EI activates the chip; if no inputs on chip 1 are active, EO goes active to enable the next lower-order priority encoder chip.",
+    "explanation": "This daisy-chain mechanism allows cascading two 74148 chips to form a 16-to-4 priority encoder with zero external gates."
+  },
+  {
+    "id": 24,
+    "question": "If inputs D2 and D1 are simultaneously 1 and D3 is 0 in a 4-input priority encoder, what is the output?",
+    "answer": "Y1 = 1, Y0 = 0 (binary 2), because D2 has higher priority than D1.",
+    "explanation": "The encoder produces the code for D2 and completely ignores D1."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE marking scheme for a Priority Encoder question?",
+    "answer": "1 mark for definition, 1 mark for Truth Table with 'X' conditions and Valid pin (V), 1 mark for Boolean equations, and 1 mark for circuit diagram.",
+    "explanation": "Students must explicitly show the Don't Care 'X' symbols and explain the role of the Valid pin."
   }
 ];
 

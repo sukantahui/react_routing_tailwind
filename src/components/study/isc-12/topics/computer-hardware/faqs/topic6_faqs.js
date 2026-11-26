@@ -1,4 +1,4 @@
-// Topic 6 FAQs - 15 Comprehensive Questions and Answers
+// Topic 6 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What is the critical exam tip for drawing a Full Subtractor truth table?",
     "answer": "Carefully verify rows 001, 010, 011, and 111 where Bout must be 1; row 100 has Difference=1 but Bout=0.",
     "explanation": "Students frequently confuse 1-0-0 (D=1, Bout=0) with 0-0-1 (D=1, Bout=1)."
+  },
+  {
+    "id": 16,
+    "question": "What are the 3 inputs and 2 outputs of a Full Subtractor?",
+    "answer": "Inputs: Minuend bit A, Subtrahend bit B, Borrow-in Bin; Outputs: Difference D and Borrow-out Bout.",
+    "explanation": "A Full Subtractor performs the complete subtraction A - B - Bin for any arbitrary bit position in an n-bit binary subtractor."
+  },
+  {
+    "id": 17,
+    "question": "What is the Boolean expression for the Difference (D) of a Full Subtractor?",
+    "answer": "D = A ⊕ B ⊕ Bin.",
+    "explanation": "Difference is 1 whenever an odd number of inputs are 1 (minterms m1, m2, m4, m7), exactly identical to the Sum of a Full Adder."
+  },
+  {
+    "id": 18,
+    "question": "What is the canonical SOP minterm form and simplified equation for Borrow-out (Bout)?",
+    "answer": "Bout = Σm(1, 2, 3, 7) = A'B + A'Bin + BBin.",
+    "explanation": "Borrow-out is 1 whenever a borrow is required: when A=0 and at least one of B or Bin is 1, or when all three are 1."
+  },
+  {
+    "id": 19,
+    "question": "What is the result when A = 0, B = 0, and Bin = 1?",
+    "answer": "Difference D = 1, Borrow-out Bout = 1.",
+    "explanation": "0 - 0 - 1 = -1, which in unsigned binary notation is represented as a Difference of 1 with a Borrow-out of 1 (borrowing 2 from next column: 2 - 1 = 1)."
+  },
+  {
+    "id": 20,
+    "question": "What is the result when A = 1, B = 1, and Bin = 1?",
+    "answer": "Difference D = 1, Borrow-out Bout = 1.",
+    "explanation": "1 - 1 - 1 = -1, which requires borrowing 2 from the higher column: (1 + 2) - 1 - 1 = 1, giving D = 1 and Bout = 1."
+  },
+  {
+    "id": 21,
+    "question": "How does the K-map for Bout differ from the K-map for Cout of a Full Adder?",
+    "answer": "Cout has minterms m(3, 5, 6, 7); Bout has minterms m(1, 2, 3, 7).",
+    "explanation": "The difference lies in minterms 1, 2 vs 5, 6 due to the inverted literal A' appearing in the borrow conditions."
+  },
+  {
+    "id": 22,
+    "question": "How can Bout be factored using the term (A ⊕ B)?",
+    "answer": "Bout = A'B + Bin(A ⊕ B)'.",
+    "explanation": "Since (A ⊕ B)' = AB + A'B', multiplying by Bin and adding A'B simplifies to A'B + A'Bin + BBin."
+  },
+  {
+    "id": 23,
+    "question": "How many NAND gates are required to implement a Full Subtractor from scratch?",
+    "answer": "Exactly 9 NAND gates.",
+    "explanation": "Similar to the Full Adder, an optimized 9-NAND gate topology synthesizes both Difference and Borrow-out."
+  },
+  {
+    "id": 24,
+    "question": "Why do modern processors rarely use dedicated Full Subtractor circuits?",
+    "answer": "Because subtraction is implemented using 2's complement addition (A - B = A + B' + 1) using existing Full Adders.",
+    "explanation": "Using an XOR gate on operand B and setting Cin = 1 allows a binary adder to perform both addition and subtraction with zero extra ALU circuitry."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for a Full Subtractor?",
+    "answer": "Construct the complete 8-row Truth Table, derive K-maps for Difference and Borrow-out, and draw the logic circuit diagram.",
+    "explanation": "Full credit requires clearly labeling all 8 rows from 000 to 111 and writing Bout = A'B + A'Bin + BBin."
   }
 ];
 

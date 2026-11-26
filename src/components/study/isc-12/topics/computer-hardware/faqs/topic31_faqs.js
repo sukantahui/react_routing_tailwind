@@ -1,4 +1,4 @@
-// Topic 31 FAQs - 15 Comprehensive Questions and Answers
+// Topic 31 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What are the key diagrammatic elements evaluated by CISCE examiners for a 1-to-8 DEMUX?",
     "answer": "Single data input Din, Enable E, three select lines (S2=MSB, S1, S0=LSB), 8 outputs (Y0-Y7), and complete functional truth table.",
     "explanation": "Candidates must clearly demonstrate how select codes route Din to each designated output line."
+  },
+  {
+    "id": 16,
+    "question": "What are the inputs and outputs of a 1-to-8 Demultiplexer?",
+    "answer": "1 Data input (D), 3 Select lines (S2 MSB, S1, S0 LSB), and 8 Outputs (Y0 to Y7).",
+    "explanation": "3 select lines route single data line D to one of 8 outputs."
+  },
+  {
+    "id": 17,
+    "question": "Write the Boolean equations for outputs Y0 and Y7 of a 1-to-8 Demultiplexer.",
+    "answer": "Y0 = S2'S1'S0' · D; Y7 = S2S1S0 · D.",
+    "explanation": "Y0 corresponds to minterm 000; Y7 corresponds to minterm 111."
+  },
+  {
+    "id": 18,
+    "question": "How many logic gates are used to build a 1-to-8 Demultiplexer from discrete gates?",
+    "answer": "Three NOT gates (for S2', S1', S0') and eight 4-input AND gates.",
+    "explanation": "Each 4-input AND gate combines data D with three select line literals."
+  },
+  {
+    "id": 19,
+    "question": "What is the output state when S2 = 1, S1 = 0, S0 = 1 and D = 1?",
+    "answer": "Y5 = 1, and all other seven outputs (Y0-Y4, Y6, Y7) are 0.",
+    "explanation": "Binary 101 is decimal 5, routing D=1 to Y5."
+  },
+  {
+    "id": 20,
+    "question": "What commercial IC operates as a 1-to-8 Demultiplexer?",
+    "answer": "IC 74138 (when used by applying data input to an active-low or active-high Enable pin).",
+    "explanation": "Pin G1 (active-high enable) or G2A'/G2B' (active-low enable) acts as the data input pin."
+  },
+  {
+    "id": 21,
+    "question": "What is the Function Table for select lines S2 S1 S0 = 011 in a 1-to-8 DEMUX?",
+    "answer": "Y3 = D, and Y0 = Y1 = Y2 = Y4 = Y5 = Y6 = Y7 = 0.",
+    "explanation": "Routes input D to output line Y3."
+  },
+  {
+    "id": 22,
+    "question": "How can two 1-to-4 DEMUXes be combined to construct a 1-to-8 DEMUX?",
+    "answer": "Connect select lines S1, S0 to both DEMUXes; use MSB select line S2 to gate data D into DEMUX 1 when S2=0 (via S2'D) and into DEMUX 2 when S2=1 (via S2D).",
+    "explanation": "S2 acts as a 1-to-2 demultiplexer steering data D to one of the two 1:4 DEMUX chips."
+  },
+  {
+    "id": 23,
+    "question": "How does a 1-to-8 DEMUX distribute clock signals in a microprocessor?",
+    "answer": "By applying the master clock to data input D and feeding register addresses to select lines, the clock pulse is routed exclusively to the selected target register.",
+    "explanation": "Prevents clock switching on unselected registers, reducing power consumption."
+  },
+  {
+    "id": 24,
+    "question": "What happens if an active-low enable pin is added and held HIGH (inactive)?",
+    "answer": "All 8 outputs are forced to 0 regardless of D or select lines.",
+    "explanation": "The enable pin overrides and disables all internal AND gates."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for a 1-to-8 Demultiplexer?",
+    "answer": "Draw the complete Function Table, write Boolean equations for all 8 outputs, and draw the gate-level circuit diagram using AND gates.",
+    "explanation": "A comprehensive 4-mark question testing complete 3-variable routing."
   }
 ];
 

@@ -1,4 +1,4 @@
-// Topic 32 FAQs - 15 Comprehensive Questions and Answers
+// Topic 32 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What are the core criteria CISCE examiners look for in questions asking for 'Construct a 1:8 DEMUX using 1:4 DEMUXes'?",
     "answer": "1. Block diagram with labeled inputs/outputs. 2. MSB inverter connection to Enable pins. 3. Parallel select wiring (S1, S0). 4. Shared data line Din.",
     "explanation": "Fulfilling all four structural criteria demonstrates comprehensive architectural understanding and secures full marks."
+  },
+  {
+    "id": 16,
+    "question": "Why is a Decoder with an Enable input structurally identical to a Demultiplexer?",
+    "answer": "Because both circuits consist of an array of AND/NAND gates decoding select/address lines; the Enable input of the decoder functions identically to the Data input of the demultiplexer.",
+    "explanation": "Y_k = E · m_k (Decoder) is mathematically identical to Y_k = D · m_k (Demultiplexer)."
+  },
+  {
+    "id": 17,
+    "question": "How is IC 74138 (3-to-8 Decoder) configured to operate as a 1-to-8 Demultiplexer?",
+    "answer": "Connect the 3 select lines to address inputs (A, B, C); tie G2A' and G2B' to ground; apply the serial data signal to the active-high enable pin G1.",
+    "explanation": "Pin G1 serves as the single Data Input D, routing data to output pins Y0' to Y7'."
+  },
+  {
+    "id": 18,
+    "question": "How is a 2-to-4 Decoder converted into a 1-to-4 Demultiplexer?",
+    "answer": "Use the 2 address lines as select lines (S1, S0), and use the Enable pin (E) as the Data Input (D).",
+    "explanation": "When E = D, the outputs produce Y_k = D · m_k."
+  },
+  {
+    "id": 19,
+    "question": "What is the difference in output polarity when using a NAND-based decoder as a demultiplexer?",
+    "answer": "The output is active-low: the selected line transmits D' (or 0 when D=1), while all unselected lines remain at 1.",
+    "explanation": "NAND outputs produce (D · m_k)', yielding inverted data routing."
+  },
+  {
+    "id": 20,
+    "question": "Why do chip manufacturers sell these ICs under the dual name 'Decoder / Demultiplexer'?",
+    "answer": "Because the identical silicon die serves both functions depending entirely on whether the user views pin E as a control gate (Decoder) or as an information line (Demultiplexer).",
+    "explanation": "Dual-purpose labeling avoids manufacturing separate redundant chips."
+  },
+  {
+    "id": 21,
+    "question": "In what application is a decoder-demultiplexer circuit used in personal computers?",
+    "answer": "I/O port addressing: decoding CPU port addresses to strobe data onto specific I/O devices (printers, sound cards, serial ports).",
+    "explanation": "CPU address bus drives select lines, and I/O Write strobe drives the Data/Enable input."
+  },
+  {
+    "id": 22,
+    "question": "What is the Truth Table comparison between a 2-to-4 Decoder and 1-to-4 Demultiplexer?",
+    "answer": "In a decoder, column E is 1 to enable fixed 1s at outputs; in a demultiplexer, column E is replaced by variable D, and outputs take the value of D.",
+    "explanation": "Direct 1-to-1 operational equivalence."
+  },
+  {
+    "id": 23,
+    "question": "Can an Active-LOW enable pin be used as the Data Input?",
+    "answer": "Yes, but data must be inverted before application, or the circuit will treat logic 0 as the asserted data state.",
+    "explanation": "Active-low pins accept active-low data directly."
+  },
+  {
+    "id": 24,
+    "question": "How does this equivalence simplify digital hardware inventory for engineers?",
+    "answer": "One single IC part (e.g. 74HC138) can be stocked to fulfill both decoding and demultiplexing requirements on circuit boards.",
+    "explanation": "Reduces Bill of Materials (BOM) cost and supply chain complexity."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question on Decoder-Demultiplexer Equivalence?",
+    "answer": "'Explain how a decoder with an enable pin can be used as a demultiplexer. Illustrate with a 3-to-8 decoder / 1-to-8 demultiplexer diagram.'",
+    "explanation": "A frequent 3-mark conceptual question in ISC board exams."
   }
 ];
 

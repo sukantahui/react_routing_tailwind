@@ -1,4 +1,4 @@
-// Topic 26 FAQs - 15 Comprehensive Questions and Answers
+// Topic 26 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What are the essential labeling criteria for ISC board exams in a 16-to-1 cascading diagram?",
     "answer": "Clear block outlines, distinct labels for each chip, fully labeled data lines I0-I15, partitioned select lines (S3, S2, S1, S0), and output Y.",
     "explanation": "Properly identifying MSB and LSB connections and showing signal direction arrows earns the student maximum marks."
+  },
+  {
+    "id": 16,
+    "question": "What components are required to build a 16-to-1 MUX using two 8-to-1 MUXes?",
+    "answer": "Two 8-to-1 Multiplexers (IC 74151), one inverter (NOT gate), and one 2-input OR gate (or one 2-to-1 MUX).",
+    "explanation": "Each 8:1 MUX routes 8 inputs; two chips route 16 inputs."
+  },
+  {
+    "id": 17,
+    "question": "How are the 4 select lines (S3, S2, S1, S0) distributed in this 16-to-1 MUX design?",
+    "answer": "Lower select lines S2, S1, S0 are connected in parallel to the select inputs of both 8:1 MUXes; MSB select line S3 controls the Enable (Strobe) inputs.",
+    "explanation": "S3 = 0 activates MUX 1 (handling I0-I7); S3 = 1 activates MUX 2 (handling I8-I15)."
+  },
+  {
+    "id": 18,
+    "question": "How is S3 connected to the Active-LOW Strobe inputs (G1', G2') of the two 8-to-1 MUXes?",
+    "answer": "Connect S3 directly to G1' of MUX 1; connect S3 through an inverter (S3') to G2' of MUX 2.",
+    "explanation": "When S3 = 0, G1' = 0 (MUX 1 enabled) and G2' = 1 (MUX 2 disabled). When S3 = 1, G1' = 1 and G2' = 0 (MUX 2 enabled)."
+  },
+  {
+    "id": 19,
+    "question": "How are the outputs of the two 8-to-1 MUXes combined?",
+    "answer": "The outputs Y1 and Y2 are fed into a 2-input OR gate to generate the final composite output Y.",
+    "explanation": "Since the disabled MUX outputs 0, the OR gate passes the active MUX signal unaltered."
+  },
+  {
+    "id": 20,
+    "question": "What data line is selected when S3 S2 S1 S0 = 1 0 1 1?",
+    "answer": "Input I11 is routed to final output Y.",
+    "explanation": "S3 = 1 enables MUX 2; S2 S1 S0 = 011 selects input 3 of MUX 2, which is I11 (8 + 3 = 11)."
+  },
+  {
+    "id": 21,
+    "question": "How many 4-to-1 MUXes would be needed to build a 16-to-1 MUX without any 8-to-1 MUXes?",
+    "answer": "Five 4-to-1 MUXes (4 in the first level to take 16 data inputs, and 1 in the second level to combine the 4 outputs).",
+    "explanation": "A two-level tree hierarchy: Level 1 selects via S1, S0; Level 2 selects via S3, S2."
+  },
+  {
+    "id": 22,
+    "question": "What data inputs connect to MUX 1 and MUX 2?",
+    "answer": "MUX 1 receives inputs I0 to I7; MUX 2 receives inputs I8 to I15.",
+    "explanation": "Clean 8-channel partitioning across the 16 total inputs."
+  },
+  {
+    "id": 23,
+    "question": "What is the advantage of using a 2-to-1 MUX at the output instead of an OR gate?",
+    "answer": "It allows using 8:1 MUXes without enable pins, and maintains uniform propagation delay regardless of output active levels.",
+    "explanation": "The 2:1 MUX simply selects between Y1 and Y2 based on S3."
+  },
+  {
+    "id": 24,
+    "question": "What is the propagation delay of this cascaded 16-to-1 MUX?",
+    "answer": "Delay = max(t_S3_to_enable) + t_enable_to_Y + t_OR (typically ~15-25 ns in standard TTL).",
+    "explanation": "Governed by the inverter delay on S3, MUX enable delay, and the final OR gate delay."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for this topic?",
+    "answer": "Design and draw a 16-to-1 Multiplexer using two 8-to-1 Multiplexers and an OR gate, clearly labeling all 16 data inputs, 4 select lines, and enable wiring.",
+    "explanation": "A classic 4-mark design problem in ISC computer hardware board examinations."
   }
 ];
 

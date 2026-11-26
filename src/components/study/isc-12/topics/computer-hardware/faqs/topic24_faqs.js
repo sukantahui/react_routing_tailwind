@@ -1,4 +1,4 @@
-// Topic 24 FAQs - 15 Comprehensive Questions and Answers
+// Topic 24 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "In ISC examinations, how should students write the truth table for a 16-to-1 MUX concisely?",
     "answer": "Group rows into compact decimal indices: show Enable E=0 with Y=0, then list S3 S2 S1 S0 from 0000 to 1111 with corresponding Y = I0 to I15.",
     "explanation": "A structured 17-row table demonstrating binary combinations with matching input labels ensures complete clarity and full marks."
+  },
+  {
+    "id": 16,
+    "question": "What are the inputs and outputs of a 16-to-1 Multiplexer?",
+    "answer": "16 Data inputs (I0 to I15), 4 Select lines (S3 MSB, S2, S1, S0 LSB), 1 Strobe/Enable line, and 1 Output (Y).",
+    "explanation": "4 select lines produce 2^4 = 16 combinations to select 1 of 16 data inputs."
+  },
+  {
+    "id": 17,
+    "question": "What commercial IC part number is a 16-to-1 Multiplexer?",
+    "answer": "IC 74150 (24-pin DIP TTL IC with inverted output W).",
+    "explanation": "The 74150 is the standard 16-line to 1-line data selector in CISCE hardware syllabi."
+  },
+  {
+    "id": 18,
+    "question": "What is the Boolean equation for output Y of a 16-to-1 Multiplexer?",
+    "answer": "Y = Σ (m_k · I_k) for k = 0 to 15, where m_k is the minterm of select lines S3, S2, S1, S0.",
+    "explanation": "Sum of 16 product terms, each consisting of 4 select literals and 1 data input."
+  },
+  {
+    "id": 19,
+    "question": "What output line is selected when S3 S2 S1 S0 = 1 1 0 1?",
+    "answer": "Output Y = I13 (since 1101 in binary is decimal 13).",
+    "explanation": "Routes input I13 to output Y."
+  },
+  {
+    "id": 20,
+    "question": "How can a 16-to-1 MUX implement any 4-variable Boolean function F(A, B, C, D)?",
+    "answer": "Connect A, B, C, D to select lines S3, S2, S1, S0; tie I_k to 1 if minterm k is in the function, and tie to 0 if not.",
+    "explanation": "Direct mapping requires zero external logic gates."
+  },
+  {
+    "id": 21,
+    "question": "How can a 16-to-1 MUX implement any 5-variable Boolean function F(A, B, C, D, E)?",
+    "answer": "Connect 4 variables (A, B, C, D) to select lines S3-S0; determine inputs I0-I15 using the 5th variable E as 0, 1, E, or E'.",
+    "explanation": "Using (n-1) select lines allows a 16:1 MUX to realize any 5-variable logic function."
+  },
+  {
+    "id": 22,
+    "question": "How many gate levels are in the internal architecture of a standard 16-to-1 MUX?",
+    "answer": "Two levels: an AND level (sixteen 5-input AND gates) followed by an OR level (one 16-input OR gate or tree of OR gates).",
+    "explanation": "Two-level logic ensures minimal propagation delay across all 16 channels."
+  },
+  {
+    "id": 23,
+    "question": "Why is IC 74150 packaged in a 24-pin DIP rather than a standard 16-pin DIP?",
+    "answer": "Because it requires 16 data pins + 4 select pins + 1 strobe pin + 1 output pin + Vcc + GND = 24 pins.",
+    "explanation": "The high pin count requires a wider 24-pin dual in-line package."
+  },
+  {
+    "id": 24,
+    "question": "How does a 16-to-1 MUX function in digital waveform generation?",
+    "answer": "By hardwiring inputs I0-I15 to constant 0s and 1s and driving select lines with a binary counter, it generates any repetitive 16-bit serial bitstream.",
+    "explanation": "Acts as an arbitrary serial pattern/waveform generator."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for a 16-to-1 MUX?",
+    "answer": "Draw block diagram, write Function Table showing select lines S3-S0, and show how a 4-variable or 5-variable Boolean function is realized.",
+    "explanation": "A frequent 4-mark question in Section D of the theory examination."
   }
 ];
 

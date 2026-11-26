@@ -1,4 +1,4 @@
-// Topic 38 FAQs - 15 Comprehensive Questions and Answers
+// Topic 38 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What marking points do CISCE examiners award for the Full Adder using 4:1 MUX question?",
     "answer": "1 mark for minterms, 1 mark for each implementation table, 1 mark for input derivations, and 1 mark for the combined circuit diagram.",
     "explanation": "Examiners verify both tables, correct Rule annotations, shared select lines (B, Cin), and the single inverter for A'."
+  },
+  {
+    "id": 16,
+    "question": "Can a Full Adder (Sum and Carry) be implemented using Multiplexers?",
+    "answer": "Yes, a 1-bit Full Adder can be synthesized using two 4-to-1 Multiplexers sharing common select lines.",
+    "explanation": "One 4:1 MUX generates Sum; the second 4:1 MUX generates Carry-out."
+  },
+  {
+    "id": 17,
+    "question": "How are the Full Adder inputs (A, B, Cin) assigned to the two 4-to-1 MUXes?",
+    "answer": "Inputs A and B are connected to the shared select lines S1 and S0 of both MUXes; input Cin is singled out.",
+    "explanation": "A and B decode the 4 bit-slice states; Cin determines the data inputs."
+  },
+  {
+    "id": 18,
+    "question": "What are the data inputs (I0 to I3) for the Sum MUX (S = A ⊕ B ⊕ Cin)?",
+    "answer": "I0 = Cin, I1 = Cin', I2 = Cin', I3 = Cin.",
+    "explanation": "For S=00, Sum = Cin; for S=01, Sum = Cin'; for S=10, Sum = Cin'; for S=11, Sum = Cin."
+  },
+  {
+    "id": 19,
+    "question": "What are the data inputs (I0 to I3) for the Carry MUX (Cout = AB + BCin + ACin)?",
+    "answer": "I0 = 0, I1 = Cin, I2 = Cin, I3 = 1.",
+    "explanation": "For S=00, Cout=0; for S=01, Cout=Cin; for S=10, Cout=Cin; for S=11, Cout=1."
+  },
+  {
+    "id": 20,
+    "question": "How many external gates are needed to complete this Full Adder circuit?",
+    "answer": "Only one NOT gate (to invert Cin into Cin' for the Sum MUX).",
+    "explanation": "Both MUXes receive direct Cin, inverted Cin', logic 0, or logic 1."
+  },
+  {
+    "id": 21,
+    "question": "What commercial IC can implement this entire Full Adder on a single chip?",
+    "answer": "IC 74153 (Dual 4-line to 1-line Multiplexer).",
+    "explanation": "The 74153 contains two 4:1 MUXes with shared select lines, perfectly matching this circuit."
+  },
+  {
+    "id": 22,
+    "question": "What is the truth table verification of the Carry MUX when A=1, B=1, Cin=0?",
+    "answer": "Select lines S1S0 = 11, routing input I3 to Cout. Since I3 = 1, Cout = 1. Matches 1+1+0 = 2 (Sum 0, Carry 1).",
+    "explanation": "Verifies carry generation when A=1, B=1."
+  },
+  {
+    "id": 23,
+    "question": "How does this MUX-based Full Adder compare to a gate-based Full Adder in silicon area?",
+    "answer": "It uses standard multiplexer pass-transistor logic cells, reducing silicon layout area and providing uniform propagation delay.",
+    "explanation": "Commonly used in arithmetic datapath compilers in VLSI design."
+  },
+  {
+    "id": 24,
+    "question": "Can a Full Subtractor be synthesized in the same manner?",
+    "answer": "Yes; Difference MUX has inputs Cin, Cin', Cin', Cin; Borrow MUX has inputs 0, Cin, Cin', 1.",
+    "explanation": "Dual synthesis using the identical dual 4:1 MUX architecture."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for this topic?",
+    "answer": "Design a 1-bit Full Adder using two 4-to-1 Multiplexers and an inverter. Show implementation tables for Sum and Carry-out, and draw the complete circuit diagram.",
+    "explanation": "A high-scoring 4-mark to 5-mark question in ISC Class 12 Computer Science."
   }
 ];
 

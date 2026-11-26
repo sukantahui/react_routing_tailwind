@@ -1,4 +1,4 @@
-// Topic 15 FAQs - 15 Comprehensive Questions and Answers
+// Topic 15 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "In ISC board answer sheets, how should students write the truth table for an active-LOW decoder?",
     "answer": "Label outputs with overbars or primes (Y0', Y1', Y2', Y3') and fill unselected rows with '1' and selected rows with '0'.",
     "explanation": "Clear labeling prevents ambiguity and ensures the evaluator recognizes that the student understands active-LOW conventions."
+  },
+  {
+    "id": 16,
+    "question": "Why are NAND gates used to construct Active-LOW Decoders instead of AND gates?",
+    "answer": "NAND gates naturally produce an inverted product: (A · B · C)', which goes LOW (0) when all inputs are 1, naturally matching active-low logic.",
+    "explanation": "In active-low logic, the selected output line is pulled to 0V (ground), while unselected lines remain at 1 (+5V)."
+  },
+  {
+    "id": 17,
+    "question": "Write the Boolean equations for the 4 outputs of an Active-LOW 2-to-4 decoder with active-low enable E'.",
+    "answer": "Y0' = (E' + A1 + A0)' = (E · A1' · A0')'; Y1' = (E · A1' · A0)'; Y2' = (E · A1 · A0')'; Y3' = (E · A1 · A0)'.",
+    "explanation": "Using De Morgan's theorem, each output is a NAND gate taking active-high enable and address lines."
+  },
+  {
+    "id": 18,
+    "question": "What is the output state when the enable pin E' is at logic 1 (inactive)?",
+    "answer": "All outputs are at logic 1 (Y0' = Y1' = Y2' = Y3' = 1), meaning all channels are deactivated.",
+    "explanation": "Because the enable line is active-low, feeding logic 1 forces all NAND gate outputs HIGH."
+  },
+  {
+    "id": 19,
+    "question": "What output is produced when E' = 0, A1 = 0, A0 = 1?",
+    "answer": "Y1' = 0, and Y0' = Y2' = Y3' = 1.",
+    "explanation": "Address 01 selects line 1, which drops to logic 0 (active-low)."
+  },
+  {
+    "id": 20,
+    "question": "Why do industrial memory chips (SRAM, Flash) predominantly use active-low chip select (/CS)?",
+    "answer": "Active-low outputs sink current directly to ground, providing superior noise margins and compatibility with open-collector/open-drain bus architectures.",
+    "explanation": "TTL and CMOS pull-down transistors have lower impedance and faster fall times than pull-up networks."
+  },
+  {
+    "id": 21,
+    "question": "How can an Active-LOW Decoder directly implement a canonical POS (Product-of-Sums) maxterm?",
+    "answer": "A NAND-based decoder output line produces m_i' (the complement of minterm i), which by De Morgan's theorem equals the maxterm M_i.",
+    "explanation": "Therefore, each active-low output line directly generates an individual maxterm without requiring an external inverter."
+  },
+  {
+    "id": 22,
+    "question": "How do you implement an arbitrary SOP function using an Active-LOW Decoder?",
+    "answer": "Connect the required active-low minterm outputs into an external NAND gate.",
+    "explanation": "By De Morgan's theorem, NANDing negated minterms produces the OR of the minterms: (m1' · m2' · m4')' = m1 + m2 + m4 = F."
+  },
+  {
+    "id": 23,
+    "question": "What does a small circle (bubble) at an input or output pin signify in schematic diagrams?",
+    "answer": "It denotes logic negation (active-low signaling); the signal is asserted when at 0V.",
+    "explanation": "An input bubble means logic 0 activates the pin; an output bubble means logic 0 is the asserted state."
+  },
+  {
+    "id": 24,
+    "question": "What is the truth table row for E'=0, A1=1, A0=1?",
+    "answer": "Y3' = 0, Y2' = 1, Y1' = 1, Y0' = 1.",
+    "explanation": "Binary address 11 activates output Y3' by setting it to 0."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE marking scheme for an Active-LOW Decoder?",
+    "answer": "1 mark for Truth Table showing active 0s, 1 mark for NAND gate equations, and 2 marks for logic diagram showing input inverters and NAND gates with bubbles.",
+    "explanation": "Students must clearly show active-low outputs using inverted symbols (Y0' to Y3' or bubbles)."
   }
 ];
 

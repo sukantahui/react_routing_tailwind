@@ -1,4 +1,4 @@
-// Topic 8 FAQs - 15 Comprehensive Questions and Answers
+// Topic 8 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What is the standard CISCE board definition of an Encoder?",
     "answer": "'An encoder is a combinational logic circuit that converts 2^n input lines into an n-bit binary code.'",
     "explanation": "State the mathematical compression ratio 2^n to n and mention that only one input is active at a time for full 2-mark credit."
+  },
+  {
+    "id": 16,
+    "question": "What is the primary function of an Encoder in digital systems?",
+    "answer": "To compress 2^n (or fewer) active input lines into an n-bit binary code output.",
+    "explanation": "An encoder performs the inverse operation of a decoder; it converts human-readable or external input signals (e.g. keyboard key presses) into compact binary format for computer processing."
+  },
+  {
+    "id": 17,
+    "question": "What is the fundamental assumption of a basic (non-priority) binary encoder?",
+    "answer": "Only ONE input line is active (logic 1) at any given instant.",
+    "explanation": "If multiple inputs are activated simultaneously in a basic encoder, the output produces an erroneous combined binary code."
+  },
+  {
+    "id": 18,
+    "question": "What problem arises in a basic encoder when all inputs are 0?",
+    "answer": "The binary output is 00...0, which is indistinguishable from the valid condition where input line D0 is active.",
+    "explanation": "To resolve this ambiguity, encoders include an extra 'Valid' (V) output pin: V = 0 when no inputs are active, and V = 1 when a valid key/input is pressed."
+  },
+  {
+    "id": 19,
+    "question": "What type of basic logic gates are used to build a standard encoder?",
+    "answer": "OR gates.",
+    "explanation": "Because an output bit must be 1 whenever any of the input lines corresponding to a 1 in that bit's binary position are active, OR gates directly implement the logic."
+  },
+  {
+    "id": 20,
+    "question": "How many output lines are produced by an encoder with 64 input lines?",
+    "answer": "6 output lines (since 2^6 = 64).",
+    "explanation": "The relation 2^n = N gives n = log2(N) = log2(64) = 6."
+  },
+  {
+    "id": 21,
+    "question": "What is the difference between an Encoder and a Multiplexer?",
+    "answer": "An encoder converts 2^n active lines into an n-bit code; a multiplexer uses n select lines to route ONE of 2^n data inputs to a single output line.",
+    "explanation": "An encoder produces an address/code; a multiplexer routes data."
+  },
+  {
+    "id": 22,
+    "question": "Give two real-world hardware applications of encoders.",
+    "answer": "1. Computer keyboard matrix controllers (converting 104 key presses into ASCII/scan codes); 2. Flash Analog-to-Digital Converters (ADCs).",
+    "explanation": "In Flash ADCs, comparator bank outputs are converted into binary numbers via high-speed priority encoders."
+  },
+  {
+    "id": 23,
+    "question": "What is a Decimal-to-BCD Encoder?",
+    "answer": "An encoder that accepts 10 input lines (representing decimal digits 0 to 9) and produces a 4-bit BCD (8421) output code.",
+    "explanation": "It encodes decimal human input into standard 4-bit binary-coded decimal."
+  },
+  {
+    "id": 24,
+    "question": "Why is input line D0 usually omitted from the OR gates in a binary encoder?",
+    "answer": "Because binary code for 0 is 00...0, meaning no output OR gate needs to be driven HIGH when D0 is active.",
+    "explanation": "When D0 is 1 and all other inputs are 0, all OR gate outputs naturally remain at logic 0."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE definition of an Encoder?",
+    "answer": "A combinational circuit that has 2^n (or fewer) input lines and n output lines, generating the binary code corresponding to the active input line.",
+    "explanation": "Award of 2 marks requires mentioning 2^n inputs to n outputs and stating that it generates binary code for active inputs."
   }
 ];
 

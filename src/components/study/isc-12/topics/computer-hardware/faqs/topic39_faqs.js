@@ -1,4 +1,4 @@
-// Topic 39 FAQs - 15 Comprehensive Questions and Answers
+// Topic 39 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What is the best exam tip for avoiding confusion between Leftmost and Rightmost methods?",
     "answer": "Always write: 'Singled-out Variable = X, Select Lines = (Y, Z)' at the top of your answer script before drawing the table.",
     "explanation": "Explicitly stating your variable assignments establishes immediate clarity for the evaluator."
+  },
+  {
+    "id": 16,
+    "question": "What is the difference between Leftmost Singled-Out (A) vs Rightmost Singled-Out (C) in MUX design?",
+    "answer": "In Rightmost Singled-Out, variables A, B connect to select lines and C determines inputs; in Leftmost Singled-Out, variables B, C connect to select lines and A determines inputs.",
+    "explanation": "Both produce correct circuits, but result in different implementation tables and input equations."
+  },
+  {
+    "id": 17,
+    "question": "For F(A, B, C) = Σ(0, 2, 4, 6, 7), what are the inputs when Rightmost variable C is singled out?",
+    "answer": "Select lines S1=A, S0=B. Implementation table pairs (0,1), (2,3), (4,5), (6,7). Circled: 0, 2, 4, 6, 7. Inputs: I0 = C', I1 = C', I2 = C', I3 = 1.",
+    "explanation": "Columns: I0 has 0 (C'); I1 has 2 (C'); I2 has 4 (C'); I3 has 6,7 (1)."
+  },
+  {
+    "id": 18,
+    "question": "For F(A, B, C) = Σ(0, 2, 4, 6, 7), what are the inputs when Leftmost variable A is singled out?",
+    "answer": "Select lines S1=B, S0=C. Implementation table pairs (0,4), (1,5), (2,6), (3,7). Circled: 0, 2, 4, 6, 7. Inputs: I0 = 1, I1 = 0, I2 = 1, I3 = A.",
+    "explanation": "Columns: I0 has 0,4 (1); I1 has none (0); I2 has 2,6 (1); I3 has 7 (A)."
+  },
+  {
+    "id": 19,
+    "question": "Compare the hardware complexity of the Leftmost vs Rightmost implementation for F(A, B, C) = Σ(0, 2, 4, 6, 7).",
+    "answer": "Leftmost requires ZERO external gates (I0=1, I1=0, I2=1, I3=A); Rightmost requires an inverter (I0=I1=I2=C').",
+    "explanation": "Leftmost variable selection is superior here because it completely eliminates the external NOT gate."
+  },
+  {
+    "id": 20,
+    "question": "Why should an engineer evaluate different singled-out variables before finalizing a circuit?",
+    "answer": "Because selecting an optimal singled-out variable can eliminate inverters or reduce wiring complexity, minimizing total component count.",
+    "explanation": "A key hardware optimization strategy in digital synthesis."
+  },
+  {
+    "id": 21,
+    "question": "How are minterms paired when Leftmost variable A is singled out in a 3-variable function?",
+    "answer": "Pairs are (0,4), (1,5), (2,6), (3,7), where minterm pairs differ by 2^2 = 4.",
+    "explanation": "Row A' contains minterms 0-3; Row A contains minterms 4-7."
+  },
+  {
+    "id": 22,
+    "question": "How are minterms paired when Rightmost variable C is singled out?",
+    "answer": "Pairs are consecutive numbers: (0,1), (2,3), (4,5), (6,7), differing by 1.",
+    "explanation": "Row C' contains even numbers; Row C contains odd numbers."
+  },
+  {
+    "id": 23,
+    "question": "What is the truth table verification of the Leftmost circuit when A=1, B=1, C=1 (minterm 7)?",
+    "answer": "Select lines S1S0 = BC = 11, routing input I3 to Y. Since I3 = A and A = 1, Y = 1. Matches minterm 7 = 1.",
+    "explanation": "Confirms accurate logic synthesis."
+  },
+  {
+    "id": 24,
+    "question": "Which method is the default standard in CISCE textbooks?",
+    "answer": "Rightmost Singled-Out (singling out the last variable, e.g. z in F(x,y,z) or d in F(a,b,c,d)) is the standard textbook convention.",
+    "explanation": "However, CISCE awards full marks for any valid singled-out variable assignment."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for Variable Selection Comparative Analysis?",
+    "answer": "Implement F using a 4-to-1 MUX first by singling out C, then by singling out A. Compare both circuits and identify which one requires fewer external gates.",
+    "explanation": "A high-order analytical question testing deep comprehension of MUX synthesis."
   }
 ];
 

@@ -1,4 +1,4 @@
-// Topic 14 FAQs - 15 Comprehensive Questions and Answers
+// Topic 14 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What common mistake do students make in ISC examinations when drawing a 2-to-4 decoder?",
     "answer": "Swapping MSB and LSB connections or omitting the Enable line from the gate-level diagram.",
     "explanation": "Reversing A1 and A0 inverts the minterm assignments (confusing Y1 and Y2), while omitting E ignores a mandatory 3-input AND gate requirement."
+  },
+  {
+    "id": 16,
+    "question": "What are the inputs and outputs of a 2-to-4 line binary decoder with Active-HIGH enable?",
+    "answer": "Inputs: 2 address lines (A1 MSB, A0 LSB) and 1 Enable line (E); Outputs: 4 data lines (Y0, Y1, Y2, Y3).",
+    "explanation": "When E = 1, exactly one output Y_i corresponding to binary code A1A0 becomes 1."
+  },
+  {
+    "id": 17,
+    "question": "Write the Boolean equations for the 4 outputs of an active-HIGH 2-to-4 decoder with enable E.",
+    "answer": "Y0 = E · A1' · A0'; Y1 = E · A1' · A0; Y2 = E · A1 · A0'; Y3 = E · A1 · A0.",
+    "explanation": "Each output is an AND gate taking enable E and the corresponding minterm literals."
+  },
+  {
+    "id": 18,
+    "question": "What type and number of logic gates are used to build this decoder?",
+    "answer": "Four 3-input AND gates and two inverters (NOT gates).",
+    "explanation": "Two inverters provide A1' and A0'; each 3-input AND gate combines E and two address literals."
+  },
+  {
+    "id": 19,
+    "question": "What is the output state when E = 0, A1 = 1, A0 = 1?",
+    "answer": "All outputs are 0 (Y0 = 0, Y1 = 0, Y2 = 0, Y3 = 0).",
+    "explanation": "Because E = 0, all AND gates are disabled regardless of address inputs."
+  },
+  {
+    "id": 20,
+    "question": "What is the output state when E = 1, A1 = 1, A0 = 0?",
+    "answer": "Y2 = 1, and Y0 = Y1 = Y3 = 0.",
+    "explanation": "Binary 10 is decimal 2, which activates line Y2."
+  },
+  {
+    "id": 21,
+    "question": "Show the complete Truth Table of a 2-to-4 decoder with Active-HIGH enable.",
+    "answer": "E A1 A0 | Y3 Y2 Y1 Y0 : (0 X X → 0 0 0 0), (1 0 0 → 0 0 0 1), (1 0 1 → 0 0 1 0), (1 1 0 → 0 1 0 0), (1 1 1 → 1 0 0 0).",
+    "explanation": "A 5-row truth table illustrating disabled state (E=0) and all 4 active minterms (E=1)."
+  },
+  {
+    "id": 22,
+    "question": "How does a 2-to-4 decoder implement a 1-to-4 Demultiplexer?",
+    "answer": "Use Enable (E) as the Data Input line (D), and use address lines A1, A0 as the Select Lines (S1, S0).",
+    "explanation": "The input data D is routed directly to the selected output line Y_i."
+  },
+  {
+    "id": 23,
+    "question": "How can a Full Adder Sum and Carry be generated using a 3-to-8 decoder (extended from 2-to-4)?",
+    "answer": "Sum = OR(m1, m2, m4, m7); Carry = OR(m3, m5, m6, m7).",
+    "explanation": "Decoder outputs are fed into external OR gates to form the functions directly."
+  },
+  {
+    "id": 24,
+    "question": "Why are inverters with high fan-out capability preferred for driving decoder address buses?",
+    "answer": "Because each address line connects to half of all decoder AND gates (e.g., in a 4-to-16 decoder, each address drives 8 gates).",
+    "explanation": "Adequate fan-out prevents signal degradation across multiple gate inputs."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for a 2-to-4 Decoder?",
+    "answer": "Draw Truth Table with Enable input, derive Boolean expressions for Y0-Y3, and draw the logic gate diagram using AND gates.",
+    "explanation": "A standard 3-mark to 4-mark question testing foundational decoder construction."
   }
 ];
 

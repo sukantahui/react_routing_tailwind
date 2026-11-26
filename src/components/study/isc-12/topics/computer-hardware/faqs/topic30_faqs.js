@@ -1,4 +1,4 @@
-// Topic 30 FAQs - 15 Comprehensive Questions and Answers
+// Topic 30 FAQs - 25 Comprehensive Questions and Answers
 // Author: Sukanta Hui | CISCE Computer Science Faculty
 
 export const faqs = [
@@ -91,6 +91,66 @@ export const faqs = [
     "question": "What common errors do ISC candidates make when writing the truth table or drawing a 1-to-4 DEMUX?",
     "answer": "Omitting the data input Din from the Boolean equations or failing to show unselected outputs as 0 in the truth table.",
     "explanation": "A DEMUX truth table must show that unselected outputs remain 0 while the selected output equals Din."
+  },
+  {
+    "id": 16,
+    "question": "What are the inputs and outputs of a 1-to-2 Demultiplexer?",
+    "answer": "1 Data input (D), 1 Select line (S), and 2 Outputs (Y0, Y1).",
+    "explanation": "When S = 0, Y0 = D and Y1 = 0; when S = 1, Y0 = 0 and Y1 = D."
+  },
+  {
+    "id": 17,
+    "question": "What are the Boolean equations of a 1-to-2 Demultiplexer?",
+    "answer": "Y0 = S' · D; Y1 = S · D.",
+    "explanation": "Uses 1 inverter and two 2-input AND gates."
+  },
+  {
+    "id": 18,
+    "question": "What are the inputs and outputs of a 1-to-4 Demultiplexer?",
+    "answer": "1 Data input (D), 2 Select lines (S1 MSB, S0 LSB), and 4 Outputs (Y0, Y1, Y2, Y3).",
+    "explanation": "Select lines S1, S0 route data D to one of Y0-Y3."
+  },
+  {
+    "id": 19,
+    "question": "What are the Boolean equations of a 1-to-4 Demultiplexer?",
+    "answer": "Y0 = S1'S0'D; Y1 = S1'S0D; Y2 = S1S0'D; Y3 = S1S0D.",
+    "explanation": "Each output is formed by ANDing data D with a 2-variable minterm."
+  },
+  {
+    "id": 20,
+    "question": "How many and what type of gates are used to build a 1-to-4 Demultiplexer?",
+    "answer": "Two NOT gates (for S1', S0') and four 3-input AND gates.",
+    "explanation": "Each 3-input AND gate combines D with two select literals."
+  },
+  {
+    "id": 21,
+    "question": "What is the Function Table of a 1-to-4 Demultiplexer?",
+    "answer": "S1 S0 | Y3 Y2 Y1 Y0 : (0 0 → 0 0 0 D), (0 1 → 0 0 D 0), (1 0 → 0 D 0 0), (1 1 → D 0 0 0).",
+    "explanation": "Clearly illustrates data D routing across the 4 outputs."
+  },
+  {
+    "id": 22,
+    "question": "What output line receives data when S1 = 1, S0 = 0?",
+    "answer": "Output Y2 receives data D (Y2 = D), while Y0 = Y1 = Y3 = 0.",
+    "explanation": "Binary 10 is decimal 2, routing D to Y2."
+  },
+  {
+    "id": 23,
+    "question": "How can a 1-to-4 DEMUX be constructed using three 1-to-2 DEMUXes?",
+    "answer": "Stage 1 uses one 1-to-2 DEMUX controlled by S1 to split D into two paths; Stage 2 uses two 1-to-2 DEMUXes controlled by S0 to generate Y0-Y3.",
+    "explanation": "A hierarchical demultiplexer tree."
+  },
+  {
+    "id": 24,
+    "question": "If data input D = 0 in a 1-to-4 DEMUX, what are all the outputs?",
+    "answer": "All outputs are 0 (Y0 = Y1 = Y2 = Y3 = 0) regardless of the select line states.",
+    "explanation": "Since every output equation multiplies by D (Y_k = m_k · 0 = 0)."
+  },
+  {
+    "id": 25,
+    "question": "What is the standard CISCE question format for a 1-to-4 Demultiplexer?",
+    "answer": "Draw block diagram, write Function Table, derive Boolean equations for Y0-Y3, and draw the logic circuit diagram.",
+    "explanation": "A frequent 3-mark or 4-mark question in ISC Class 12 board papers."
   }
 ];
 
