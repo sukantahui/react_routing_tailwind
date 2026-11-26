@@ -23,14 +23,15 @@ export default function TopicBengaliExplanationModal({
   onClose,
   topicIndex = 0,
   topicTitle = "",
-  moduleTitle = ""
+  moduleTitle = "",
+  moduleSlug = ""
 }) {
   const [activeTab, setActiveTab] = useState("overview"); // 'overview' | 'keypoints' | 'analogy' | 'exam'
   const [copied, setCopied] = useState(false);
   const [isSpeaking, setIsSpeaking] = useState(false);
   const speechRef = useRef(null);
 
-  const data = getBengaliExplanation(topicIndex, topicTitle);
+  const data = getBengaliExplanation(topicIndex, topicTitle, moduleSlug, moduleTitle);
 
   // Close on Escape key
   useEffect(() => {
@@ -63,7 +64,7 @@ export default function TopicBengaliExplanationModal({
 
   const handleCopyNotes = () => {
     const textToCopy = `📌 ${data.titleBn} (${data.titleEn})
-মডিউল: ${moduleTitle || "Data Types and Preprocessing"}
+মডিউল: ${moduleTitle || "Machine Learning"}
 
 ১. সহজ সারসংক্ষেপ:
 ${data.simpleSummary}
