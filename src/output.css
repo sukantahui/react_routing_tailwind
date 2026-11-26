@@ -20887,6 +20887,9 @@
   .\[animation-delay\:0\.9s\] {
     animation-delay: 0.9s;
   }
+  .\[animation-delay\:0\.15s\] {
+    animation-delay: 0.15s;
+  }
   .\[animation-delay\:0ms\] {
     animation-delay: 0ms;
   }
@@ -25474,6 +25477,16 @@
       }
     }
   }
+  .hover\:bg-emerald-500\/40 {
+    &:hover {
+      @media (hover: hover) {
+        background-color: color-mix(in srgb, oklch(69.6% 0.17 162.48) 40%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          background-color: color-mix(in oklab, var(--color-emerald-500) 40%, transparent);
+        }
+      }
+    }
+  }
   .hover\:bg-emerald-600 {
     &:hover {
       @media (hover: hover) {
@@ -29259,6 +29272,13 @@
     &:hover {
       @media (hover: hover) {
         color: var(--color-sky-400);
+      }
+    }
+  }
+  .hover\:text-slate-100 {
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-slate-100);
       }
     }
   }

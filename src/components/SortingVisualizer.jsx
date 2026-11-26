@@ -1,5 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import { motion } from "framer-motion";
+import {
+  getTeacherStepExplanation,
+  SortingVoiceTeacher,
+} from "./sorting/sortingTeacherNarrator";
 
 // Pseudocode definitions with line numbers for each algorithm
 const ALGORITHM_CODES = {
@@ -59,7 +63,8 @@ export default function SortingVisualizer() {
   const [algorithm, setAlgorithm] = useState("bubble");
   const [sortOrder, setSortOrder] = useState("asc"); // 'asc' | 'desc'
   const [customInput, setCustomInput] = useState("");
-  const [audioEnabled, setAudioEnabled] = useState(false);
+  const [audioEnabled, setAudioEnabled] = useState(true); // Voice + Sound enabled by default
+  const [teacherLanguage, setTeacherLanguage] = useState("bn"); // 'bn' | 'en'
   const [activeRightTab, setActiveRightTab] = useState("code"); // 'code' | 'vars' | 'log'
 
   // Pre-recorded animation steps history
@@ -71,6 +76,9 @@ export default function SortingVisualizer() {
   const isPlayingRef = useRef(isPlaying);
   const speedRef = useRef(speed);
   const stepLogRef = useRef(null);
+  const voiceTeacherRef = useRef(null);
+  const autoPlayTimerRef = useRef(null);
+  const isCustomInputRef = useRef(false);
 
   useEffect(() => {
     isPlayingRef.current = isPlaying;
@@ -79,6 +87,23 @@ export default function SortingVisualizer() {
   useEffect(() => {
     speedRef.current = speed;
   }, [speed]);
+
+  // Initialize Speech Teacher on Mount
+  useEffect(() => {
+    const vt = new SortingVoiceTeacher();
+    vt.setLanguage(teacherLanguage);
+    voiceTeacherRef.current = vt;
+
+    return () => {
+      if (vt) vt.stop();
+    };
+  }, []);
+
+  useEffect(() => {
+    if (voiceTeacherRef.current) {
+      voiceTeacherRef.current.setLanguage(teacherLanguage);
+    }
+  }, [teacherLanguage]);
 
   // Audio Beep generator
   const playTone = (freq) => {
@@ -560,6 +585,9 @@ export default function SortingVisualizer() {
   const initializeArray = (newArr) => {
     setIsPlaying(false);
     isPlayingRef.current = false;
+    if (voiceTeacherRef.current) voiceTeacherRef.current.stop();
+    if (autoPlayTimerRef.current) clearTimeout(autoPlayTimerRef.current);
+
     setArray(newArr);
     const generated = generateSteps(newArr, algorithm, sortOrder);
     setSteps(generated);
@@ -608,34 +636,19 @@ export default function SortingVisualizer() {
       return;
     }
 
-    const maxVal = Math.max(...parsed);
-    const scaled = parsed.map((val) => Math.max(30, Math.min(300, Math.round((val / (maxVal || 1)) * 280))));
-    setArraySize(scaled.length);
-    initializeArray(scaled);
+    isCustomInputRef.current = true;
+    setArraySize(parsed.length);
+    initializeArray(parsed);
+    setCustomInput("");
   };
 
   useEffect(() => {
+    if (isCustomInputRef.current) {
+      isCustomInputRef.current = false;
+      return;
+    }
     generateRandomArray();
   }, [arraySize, algorithm, sortOrder]);
-
-  // Auto-play interval loop
-  useEffect(() => {
-    let timer = null;
-    if (isPlaying && currentStepIdx < steps.length - 1) {
-      timer = setTimeout(() => {
-        setCurrentStepIdx((prev) => {
-          const next = prev + 1;
-          if (next >= steps.length - 1) {
-            setIsPlaying(false);
-          }
-          return next;
-        });
-      }, speed);
-    } else if (currentStepIdx >= steps.length - 1) {
-      setIsPlaying(false);
-    }
-    return () => clearTimeout(timer);
-  }, [isPlaying, currentStepIdx, speed, steps]);
 
   // Current step state
   const currentStep = steps[currentStepIdx] || {
@@ -651,10 +664,93 @@ export default function SortingVisualizer() {
     stepType: "init",
   };
 
-  // Play audio on step change
+  // Calculate dynamic bar scaling for custom or random numbers
+  const maxInArr = useMemo(() => {
+    const arr = currentStep.array || [];
+    return arr.length > 0 ? Math.max(...arr, 1) : 1;
+  }, [currentStep.array]);
+
+  // Function to narrate a given step using Teacher Voice
+  const speakCurrentStep = (stepIdx, onEndCb = null) => {
+    if (!audioEnabled || !voiceTeacherRef.current) {
+      if (onEndCb) onEndCb();
+      return;
+    }
+
+    const targetStep = steps[stepIdx] || currentStep;
+    const explanation = getTeacherStepExplanation({
+      algorithm,
+      sortOrder,
+      step: targetStep,
+      currentStepIdx: stepIdx,
+      totalSteps: steps.length,
+      language: teacherLanguage,
+    });
+
+    voiceTeacherRef.current.speak(explanation.speechText, onEndCb);
+  };
+
+  // Auto-play interval loop with Teacher Voice Pacing
+  useEffect(() => {
+    if (autoPlayTimerRef.current) {
+      clearTimeout(autoPlayTimerRef.current);
+      autoPlayTimerRef.current = null;
+    }
+
+    if (!isPlaying) {
+      if (voiceTeacherRef.current) voiceTeacherRef.current.stop();
+      return;
+    }
+
+    if (currentStepIdx >= steps.length - 1) {
+      setIsPlaying(false);
+      return;
+    }
+
+    if (audioEnabled) {
+      // Voice-paced Auto Play: wait for teacher to finish explaining before advancing
+      speakCurrentStep(currentStepIdx, () => {
+        if (!isPlayingRef.current) return;
+        autoPlayTimerRef.current = setTimeout(() => {
+          if (!isPlayingRef.current) return;
+          setCurrentStepIdx((prev) => {
+            const next = prev + 1;
+            if (next >= steps.length - 1) {
+              setIsPlaying(false);
+            }
+            return next;
+          });
+        }, Math.max(250, Math.min(speed, 600)));
+      });
+    } else {
+      // Standard timer when voice is muted
+      autoPlayTimerRef.current = setTimeout(() => {
+        setCurrentStepIdx((prev) => {
+          const next = prev + 1;
+          if (next >= steps.length - 1) {
+            setIsPlaying(false);
+          }
+          return next;
+        });
+      }, speed);
+    }
+
+    return () => {
+      if (autoPlayTimerRef.current) {
+        clearTimeout(autoPlayTimerRef.current);
+      }
+    };
+  }, [isPlaying, currentStepIdx, speed, steps, audioEnabled, teacherLanguage]);
+
+  // Play audio beeps & handle manual navigation speech
   useEffect(() => {
     if (currentStep.compareIndices.length > 0 && currentStep.array[currentStep.compareIndices[0]]) {
-      playTone(200 + currentStep.array[currentStep.compareIndices[0]]);
+      playTone(200 + (currentStep.array[currentStep.compareIndices[0]] % 500));
+    }
+
+    // If user is stepping manually (not in auto-play), speak the step
+    if (!isPlaying && audioEnabled) {
+      speakCurrentStep(currentStepIdx);
     }
   }, [currentStepIdx]);
 
@@ -671,6 +767,7 @@ export default function SortingVisualizer() {
   // Manual Navigation Actions
   const handleStepForward = () => {
     setIsPlaying(false);
+    if (voiceTeacherRef.current) voiceTeacherRef.current.stop();
     if (currentStepIdx < steps.length - 1) {
       setCurrentStepIdx(currentStepIdx + 1);
     }
@@ -678,6 +775,7 @@ export default function SortingVisualizer() {
 
   const handleStepBackward = () => {
     setIsPlaying(false);
+    if (voiceTeacherRef.current) voiceTeacherRef.current.stop();
     if (currentStepIdx > 0) {
       setCurrentStepIdx(currentStepIdx - 1);
     }
@@ -687,12 +785,26 @@ export default function SortingVisualizer() {
     if (currentStepIdx >= steps.length - 1) {
       setCurrentStepIdx(0);
     }
-    setIsPlaying(!isPlaying);
+    const nextPlay = !isPlaying;
+    if (!nextPlay && voiceTeacherRef.current) {
+      voiceTeacherRef.current.stop();
+    }
+    setIsPlaying(nextPlay);
   };
 
   const handleReset = () => {
     setIsPlaying(false);
+    if (voiceTeacherRef.current) voiceTeacherRef.current.stop();
+    if (autoPlayTimerRef.current) clearTimeout(autoPlayTimerRef.current);
     setCurrentStepIdx(0);
+  };
+
+  const handleToggleVoice = () => {
+    const nextVal = !audioEnabled;
+    setAudioEnabled(nextVal);
+    if (!nextVal && voiceTeacherRef.current) {
+      voiceTeacherRef.current.stop();
+    }
   };
 
   // Current Pseudocode
@@ -761,16 +873,26 @@ export default function SortingVisualizer() {
               <i className="bi bi-arrow-counterclockwise"></i> Reset
             </button>
 
-            {/* Sound Toggle */}
+            {/* Sound & Teacher Voice Toggle */}
             <button
-              onClick={() => setAudioEnabled(!audioEnabled)}
+              onClick={handleToggleVoice}
               className={`px-3 py-2 text-xs font-semibold rounded-xl border flex items-center gap-1.5 transition ${
                 audioEnabled
-                  ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40"
+                  ? "bg-emerald-500/20 text-emerald-300 border-emerald-500/40 shadow-sm shadow-emerald-500/20"
                   : "bg-slate-800/80 text-slate-400 border-slate-700 hover:text-slate-200"
               }`}
+              title={audioEnabled ? "Teacher Voice & Audio: ON" : "Teacher Voice & Audio: Muted"}
             >
               <i className={`bi ${audioEnabled ? "bi-volume-up-fill" : "bi-volume-mute-fill"}`}></i>
+            </button>
+
+            {/* Teacher Voice Language Selector */}
+            <button
+              onClick={() => setTeacherLanguage((l) => (l === "bn" ? "en" : "bn"))}
+              className="px-2.5 py-2 text-xs font-semibold rounded-xl border border-slate-700 bg-slate-800/80 text-slate-300 hover:text-slate-100 transition"
+              title="Switch Voice Language (বাংলা / English)"
+            >
+              {teacherLanguage === "bn" ? "🇧🇩 বাংলা" : "🇬🇧 English"}
             </button>
           </div>
         </div>
@@ -1022,7 +1144,7 @@ export default function SortingVisualizer() {
                     <span
                       style={{ color: borderColor }}
                       className="text-[9px] sm:text-[11px] md:text-xs font-mono font-bold leading-none select-none transition-colors duration-150 drop-shadow mb-0.5"
-                      title={`Value: ${val}${isStarting ? ' (Starting Element)' : ''}`}
+                      title={`Value: ${val}${isStarting ? " (Starting Element)" : ""}`}
                     >
                       {val}
                     </span>
@@ -1030,7 +1152,7 @@ export default function SortingVisualizer() {
                     {/* The Bar */}
                     <div
                       style={{
-                        height: `${val}px`,
+                        height: `${Math.max(25, Math.min(280, Math.round((val / maxInArr) * 260)))}px`,
                         backgroundColor: bgColor,
                         borderTop: `2px solid ${borderColor}`,
                         borderRadius: "4px 4px 0 0",
@@ -1042,9 +1164,11 @@ export default function SortingVisualizer() {
 
                     {/* Bottom Index Label */}
                     {arraySize <= 30 && (
-                      <span className={`text-[9px] sm:text-[10px] font-mono hidden md:block transition-colors ${
-                        isStarting ? "text-violet-400 font-bold" : "text-slate-500"
-                      }`}>
+                      <span
+                        className={`text-[9px] sm:text-[10px] font-mono hidden md:block transition-colors ${
+                          isStarting ? "text-violet-400 font-bold" : "text-slate-500"
+                        }`}
+                      >
                         [{idx}]
                       </span>
                     )}
@@ -1054,59 +1178,57 @@ export default function SortingVisualizer() {
             </div>
 
             {/* Legend */}
-            <div className="flex items-center justify-center gap-5 text-xs text-slate-400 flex-wrap pt-2">
+            <div className="bg-slate-900/60 border border-slate-800/80 p-3.5 rounded-xl flex items-center justify-center gap-4 sm:gap-6 flex-wrap text-xs text-slate-300">
               <div className="flex items-center gap-2">
-                <span className="w-3.5 h-3.5 rounded" style={{ backgroundColor: "#8b5cf6", border: "1px solid #c084fc" }}></span>
-                <span className="text-violet-300 font-semibold">Starting Value (Idx 0)</span>
+                <span className="w-3.5 h-3.5 rounded bg-sky-600 border border-sky-400"></span>
+                <span>Normal</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-3.5 h-3.5 rounded" style={{ backgroundColor: "#0284c7", border: "1px solid #38bdf8" }}></span>
-                <span>Unsorted</span>
+                <span className="w-3.5 h-3.5 rounded bg-amber-500 border border-yellow-300"></span>
+                <span>Compare Pair</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-3.5 h-3.5 rounded" style={{ backgroundColor: "#f59e0b", border: "1px solid #fde047" }}></span>
-                <span>Comparing</span>
+                <span className="w-3.5 h-3.5 rounded bg-rose-500 border border-red-300"></span>
+                <span>Swapped</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-3.5 h-3.5 rounded" style={{ backgroundColor: "#f43f5e", border: "1px solid #fca5a5" }}></span>
-                <span>Swapping / Moving</span>
+                <span className="w-3.5 h-3.5 rounded bg-emerald-500 border border-emerald-300"></span>
+                <span>Sorted (Locked)</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-3.5 h-3.5 rounded" style={{ backgroundColor: "#10b981", border: "1px solid #6ee7b7" }}></span>
-                <span>Sorted</span>
+                <span className="w-3.5 h-3.5 rounded bg-violet-500 border border-violet-300"></span>
+                <span>Starting / Pivot</span>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Code Tracker & Variables Inspector Panel */}
-          <div className="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-col space-y-4 shadow-xl">
-            {/* Right Panel Tabs */}
-            <div className="flex rounded-xl bg-slate-950 p-1 border border-slate-800">
+          {/* Right 1-Column: Algorithm Code Tracker & Variables Inspector */}
+          <div className="space-y-4 flex flex-col">
+            {/* Tabs Header */}
+            <div className="bg-slate-900/80 p-1 rounded-xl border border-slate-800 flex items-center gap-1">
               <button
                 onClick={() => setActiveRightTab("code")}
-                className={`flex-1 py-2 text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5 transition ${
+                className={`flex-1 py-2 text-xs font-semibold rounded-lg transition flex items-center justify-center gap-1.5 ${
                   activeRightTab === "code"
                     ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/40"
                     : "text-slate-400 hover:text-slate-200"
                 }`}
               >
-                <i className="bi bi-code-square"></i> Code Step
+                <i className="bi bi-code"></i> Code Tracker
               </button>
-
               <button
                 onClick={() => setActiveRightTab("vars")}
-                className={`flex-1 py-2 text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5 transition ${
+                className={`flex-1 py-2 text-xs font-semibold rounded-lg transition flex items-center justify-center gap-1.5 ${
                   activeRightTab === "vars"
                     ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/40"
                     : "text-slate-400 hover:text-slate-200"
                 }`}
               >
-                <i className="bi bi-brackets"></i> Variables
+                <i className="bi bi-braces"></i> Live Variables
               </button>
-
               <button
                 onClick={() => setActiveRightTab("log")}
-                className={`flex-1 py-2 text-xs font-semibold rounded-lg flex items-center justify-center gap-1.5 transition ${
+                className={`flex-1 py-2 text-xs font-semibold rounded-lg transition flex items-center justify-center gap-1.5 ${
                   activeRightTab === "log"
                     ? "bg-cyan-500/20 text-cyan-300 border border-cyan-500/40"
                     : "text-slate-400 hover:text-slate-200"
@@ -1201,10 +1323,9 @@ export default function SortingVisualizer() {
                         : "None"}
                     </span>
                   </div>
-
                   <div className="bg-slate-950 p-2 rounded-lg border border-slate-800">
-                    <span className="text-[10px] text-slate-400 block">Swap / Move Pair:</span>
-                    <span className="text-rose-400 font-semibold">
+                    <span className="text-[10px] text-slate-400 block">Swap Pair:</span>
+                    <span className="text-rose-300 font-semibold">
                       {currentStep.swapIndices.length > 0
                         ? `[${currentStep.swapIndices.join(", ")}]`
                         : "None"}
@@ -1216,13 +1337,13 @@ export default function SortingVisualizer() {
 
             {/* TAB 3: Step History Timeline Log */}
             {activeRightTab === "log" && (
-              <div className="flex-1 flex flex-col space-y-3">
+              <div className="flex-1 flex flex-col space-y-2">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-semibold text-slate-300 flex items-center gap-1.5">
-                    <i className="bi bi-clock-history text-cyan-400"></i> Execution Trace Log
+                    <i className="bi bi-clock-history text-cyan-400"></i> Execution History Log
                   </span>
-                  <span className="text-[10px] font-mono text-slate-400">
-                    {steps.length} total steps
+                  <span className="text-[10px] font-mono text-slate-500">
+                    {steps.length} Total Steps
                   </span>
                 </div>
 
@@ -1238,6 +1359,7 @@ export default function SortingVisualizer() {
                         data-step-idx={idx}
                         onClick={() => {
                           setIsPlaying(false);
+                          if (voiceTeacherRef.current) voiceTeacherRef.current.stop();
                           setCurrentStepIdx(idx);
                         }}
                         className={`p-2 rounded-lg border transition cursor-pointer flex items-start gap-2 ${
@@ -1263,6 +1385,77 @@ export default function SortingVisualizer() {
                 </div>
               </div>
             )}
+          </div>
+        </div>
+
+        {/* Algorithm Complexity Reference Card */}
+        <div className="bg-slate-900/60 border border-slate-800/80 p-5 rounded-2xl">
+          <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
+            <h3 className="text-sm font-bold text-slate-200 flex items-center gap-2">
+              <i className="bi bi-info-circle text-cyan-400"></i>
+              {algorithm === "bubble" && "Bubble Sort"}
+              {algorithm === "selection" && "Selection Sort"}
+              {algorithm === "insertion" && "Insertion Sort"}
+              {algorithm === "quick" && "Quick Sort (Hoare Partition)"}
+              {algorithm === "merge" && "Merge Sort (Divide & Conquer)"}
+              {" — Theoretical Complexity"}
+            </h3>
+            <span className="text-xs text-slate-400 font-mono">Order: {sortOrder.toUpperCase()}</span>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-6 gap-3 text-center text-xs font-mono">
+            <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800/80">
+              <span className="text-[10px] text-slate-500 block uppercase font-sans">Best Time</span>
+              <span className="font-bold text-emerald-400">
+                {algorithm === "bubble" && "O(N)"}
+                {algorithm === "selection" && "O(N²)"}
+                {algorithm === "insertion" && "O(N)"}
+                {algorithm === "quick" && "O(N log N)"}
+                {algorithm === "merge" && "O(N log N)"}
+              </span>
+            </div>
+            <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800/80">
+              <span className="text-[10px] text-slate-500 block uppercase font-sans">Avg Time</span>
+              <span className="font-bold text-amber-400">
+                {algorithm === "bubble" && "O(N²)"}
+                {algorithm === "selection" && "O(N²)"}
+                {algorithm === "insertion" && "O(N²)"}
+                {algorithm === "quick" && "O(N log N)"}
+                {algorithm === "merge" && "O(N log N)"}
+              </span>
+            </div>
+            <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800/80">
+              <span className="text-[10px] text-slate-500 block uppercase font-sans">Worst Time</span>
+              <span className="font-bold text-rose-400">
+                {algorithm === "bubble" && "O(N²)"}
+                {algorithm === "selection" && "O(N²)"}
+                {algorithm === "insertion" && "O(N²)"}
+                {algorithm === "quick" && "O(N²)"}
+                {algorithm === "merge" && "O(N log N)"}
+              </span>
+            </div>
+            <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800/80">
+              <span className="text-[10px] text-slate-500 block uppercase font-sans">Space</span>
+              <span className="font-bold text-cyan-400">
+                {algorithm === "bubble" && "O(1)"}
+                {algorithm === "selection" && "O(1)"}
+                {algorithm === "insertion" && "O(1)"}
+                {algorithm === "quick" && "O(log N)"}
+                {algorithm === "merge" && "O(N)"}
+              </span>
+            </div>
+            <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800/80">
+              <span className="text-[10px] text-slate-500 block uppercase font-sans">Stable?</span>
+              <span className="font-bold text-emerald-400">
+                {algorithm === "selection" || algorithm === "quick" ? "No" : "Yes"}
+              </span>
+            </div>
+            <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800/80">
+              <span className="text-[10px] text-slate-500 block uppercase font-sans">In-Place?</span>
+              <span className="font-bold text-emerald-400">
+                {algorithm === "merge" ? "No (O(N))" : "Yes"}
+              </span>
+            </div>
           </div>
         </div>
       </div>
