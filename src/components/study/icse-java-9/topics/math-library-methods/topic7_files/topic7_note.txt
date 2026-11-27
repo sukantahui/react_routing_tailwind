@@ -1,0 +1,25 @@
+ICSE CLASS 9 COMPUTER APPLICATIONS - STUDY NOTES
+CHAPTER: MATHEMATICAL LIBRARY METHODS (java.lang.Math)
+TOPIC 7: Math.max(a, b) - Maximum Value Method
+
+1. METHOD SPECIFICATION (OVERLOADED):
+   - public static int max(int a, int b)
+   - public static long max(long a, long b)
+   - public static float max(float a, float b)
+   - public static double max(double a, double b)
+   - Belongs to: java.lang.Math
+   - Purpose: Returns the greater of two values.
+
+2. RETURN TYPE RULES:
+   - If both arguments are int: returns INT (e.g. Math.max(12, 19) -> 19).
+   - If both arguments are double: returns DOUBLE (e.g. Math.max(4.2, 5.8) -> 5.8).
+   - Mixed types (int and double): int is implicitly widened to double, so returns DOUBLE!
+     Example: Math.max(20, 15.5) -> 20.0 (NOT 20).
+
+3. NEGATIVE NUMBERS:
+   - Remember: On the negative side, numbers closer to 0 are GREATER!
+     Math.max(-5, -10) -> -5
+
+4. NESTED CALLS FOR 3 OR MORE NUMBERS:
+   - Maximum of 3 numbers: Math.max(a, Math.max(b, c))
+   - Maximum of 4 numbers: Math.max(Math.max(a, b), Math.max(c, d))

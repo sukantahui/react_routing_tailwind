@@ -1,0 +1,28 @@
+ICSE CLASS 9 COMPUTER APPLICATIONS - STUDY NOTES
+CHAPTER: MATHEMATICAL LIBRARY METHODS (java.lang.Math)
+TOPIC 6: Math.abs(a) - Absolute Value Method
+
+1. METHOD SPECIFICATION (OVERLOADED):
+   - public static int abs(int a)       -> returns int
+   - public static long abs(long a)     -> returns long
+   - public static float abs(float a)   -> returns float
+   - public static double abs(double a) -> returns double
+   - Belongs to: java.lang.Math
+   - Purpose: Returns the absolute value (magnitude without sign |a|).
+
+2. KEY RULE - RETURN TYPE PRESERVATION:
+   - If you pass an int: returns INT (e.g. Math.abs(-7) -> 7, NOT 7.0).
+   - If you pass a double: returns DOUBLE (e.g. Math.abs(-7.0) -> 7.0).
+   - Always verify if the question uses integer or decimal literals in Section A!
+
+3. EXAMPLES:
+   Math.abs(-12)    => 12
+   Math.abs(15)     => 15
+   Math.abs(-9.8)   => 9.8
+   Math.abs(0)      => 0
+   Math.abs(-0.0)   => 0.0
+
+4. SPECIAL CORNER CASE (TWO'S COMPLEMENT OVERFLOW):
+   - Integer.MIN_VALUE is -2147483648.
+   - The maximum positive 32-bit int is +2147483647.
+   - Therefore, Math.abs(Integer.MIN_VALUE) overflows and returns -2147483648!

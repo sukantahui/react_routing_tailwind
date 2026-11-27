@@ -1,0 +1,29 @@
+ICSE CLASS 9 COMPUTER APPLICATIONS - STUDY NOTES
+CHAPTER: MATHEMATICAL LIBRARY METHODS (java.lang.Math)
+TOPIC 1: Math.sqrt(x) - Square Root Method
+
+1. METHOD SPECIFICATION:
+   - Signature: public static double sqrt(double a)
+   - Belongs to: java.lang.Math
+   - Purpose: Returns the correctly rounded positive square root of a double value.
+   - Return Type: ALWAYS 'double'.
+
+2. CORE RULES & RETURN BEHAVIOR:
+   a) Math.sqrt(36) evaluates to 6.0 (NOT integer 6).
+   b) Negative Argument Trap:
+      Math.sqrt(-25) returns 'NaN' (Not a Number).
+      It NEVER throws an ArithmeticException or compile error!
+   c) Math.sqrt(0.0) returns 0.0.
+   d) Explicit cast is required to store the answer in an int variable:
+      int ans = (int) Math.sqrt(100); // ans = 10
+
+3. ALGEBRAIC TO JAVA EXPRESSION CONVERSION:
+   - √x + √y                => Math.sqrt(x) + Math.sqrt(y)
+   - √(a^2 + b^2)           => Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2))
+   - Quadratic Discriminant => Math.sqrt(b * b - 4 * a * c)
+   - Distance formula       => Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2))
+
+4. COMMON ICSE BOARD EXAMINATION TRAPS:
+   - Trap 1: Writing 'int r = Math.sqrt(25);' -> Compile Error: Type mismatch (double cannot be converted to int without cast).
+   - Trap 2: Believing Math.sqrt(-9) throws an ArithmeticException. It returns NaN!
+   - Trap 3: Omitting 'Math.' prefix (writing sqrt(25)).

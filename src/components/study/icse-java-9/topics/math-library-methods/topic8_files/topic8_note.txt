@@ -1,0 +1,24 @@
+ICSE CLASS 9 COMPUTER APPLICATIONS - STUDY NOTES
+CHAPTER: MATHEMATICAL LIBRARY METHODS (java.lang.Math)
+TOPIC 8: Math.min(a, b) - Minimum Value Method
+
+1. METHOD SPECIFICATION (OVERLOADED):
+   - public static int min(int a, int b)
+   - public static long min(long a, long b)
+   - public static float min(float a, float b)
+   - public static double min(double a, double b)
+   - Belongs to: java.lang.Math
+   - Purpose: Returns the smaller of two values.
+
+2. RETURN TYPE RULES:
+   - Both int: returns INT (e.g. Math.min(45, 12) -> 12).
+   - Both double: returns DOUBLE (e.g. Math.min(3.4, 2.1) -> 2.1).
+   - Mixed types (int and double): widens to DOUBLE (e.g. Math.min(5, 7.5) -> 5.0).
+
+3. NEGATIVE NUMBERS:
+   - On the negative number line, the number further to the left is SMALLER:
+     Math.min(-15, -28) -> -28
+
+4. NESTED CALLS FOR 3 OR MORE NUMBERS:
+   - Minimum of 3 numbers: Math.min(a, Math.min(b, c))
+   - Minimum of 4 numbers: Math.min(Math.min(a, b), Math.min(c, d))

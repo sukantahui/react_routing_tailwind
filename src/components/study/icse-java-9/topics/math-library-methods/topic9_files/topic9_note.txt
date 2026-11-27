@@ -1,0 +1,36 @@
+ICSE CLASS 9 COMPUTER APPLICATIONS - STUDY NOTES
+CHAPTER: MATHEMATICAL LIBRARY METHODS (java.lang.Math)
+TOPIC 9: Math.random() - Random Number Generation
+
+1. METHOD SPECIFICATION:
+   - Signature: public static double random()
+   - Belongs to: java.lang.Math
+   - Purpose: Returns a pseudo-random double value.
+   - Return Range: 0.0 <= value < 1.0
+     (Greater than or equal to 0.0 and strictly less than 1.0).
+   - Return Type: ALWAYS 'double'.
+
+2. KEY RANGE PROPERTIES:
+   - Minimum possible return: 0.0
+   - Maximum possible return: 0.9999999999999999 (It NEVER returns 1.0!).
+
+3. INTEGER SCALING FORMULAS (CORE ICSE SYLLABUS):
+   a) Range from 0 to N-1:
+      int r = (int)(Math.random() * N);
+      Example (0 to 9): (int)(Math.random() * 10);
+
+   b) Range from 1 to N:
+      int r = (int)(Math.random() * N) + 1;
+      Example (Dice roll 1 to 6): (int)(Math.random() * 6) + 1;
+
+   c) General Range from MIN to MAX (inclusive):
+      int r = (int)(Math.random() * (MAX - MIN + 1)) + MIN;
+      Example (10 to 99):
+      (int)(Math.random() * (99 - 10 + 1)) + 10 = (int)(Math.random() * 90) + 10;
+
+4. CRITICAL BOARD EXAM PARENTHESES TRAP:
+   - Code: int val = (int) Math.random() * 10;
+   - Why it fails: Due to operator precedence, '(int)' cast binds to Math.random() FIRST!
+     Since Math.random() is always < 1.0, (int) casts it to 0.
+     Then 0 * 10 always evaluates to 0!
+   - Correct code: int val = (int)(Math.random() * 10);

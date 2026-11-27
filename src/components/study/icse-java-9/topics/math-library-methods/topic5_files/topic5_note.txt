@@ -1,0 +1,38 @@
+ICSE CLASS 9 COMPUTER APPLICATIONS - STUDY NOTES
+CHAPTER: MATHEMATICAL LIBRARY METHODS (java.lang.Math)
+TOPIC 5: Math.round(x) - Nearest Rounding Method
+
+1. METHOD SPECIFICATION (OVERLOADED):
+   - Signature 1: public static int round(float a)
+     Argument: float -> Return Type: int
+   - Signature 2: public static long round(double a)
+     Argument: double -> Return Type: long
+   - Belongs to: java.lang.Math
+   - Purpose: Returns the closest integer to the argument.
+   - Return Type: INTEGER TYPE (int / long), NEVER double!
+
+2. MATHEMATICAL DEFINITION:
+   - For double a: Math.floor(a + 0.5d) cast to long.
+   - For float a:  Math.floor(a + 0.5f) cast to int.
+
+3. POSITIVE NUMBER RULES:
+   - Fractional part < 0.5 rounds down:
+     Math.round(8.4) -> 8
+   - Fractional part >= 0.5 rounds up:
+     Math.round(8.5) -> 9
+     Math.round(8.9) -> 9
+
+4. NEGATIVE NUMBER RULES (CRITICAL ICSE TRAP):
+   - Apply the formula floor(a + 0.5):
+     Math.round(-8.4) => floor(-8.4 + 0.5) = floor(-7.9) = -8
+     Math.round(-8.5) => floor(-8.5 + 0.5) = floor(-8.0) = -8 (NOT -9!)
+     Math.round(-8.6) => floor(-8.6 + 0.5) = floor(-8.1) = -9
+
+5. MASTER COMPARISON TABLE (SECTION A FAVORITE):
+   Argument | ceil() (double) | floor() (double) | round() (long/int)
+   ---------+-----------------+------------------+-------------------
+     +5.4   |       6.0       |       5.0        |         5
+     +5.5   |       6.0       |       5.0        |         6
+     -5.4   |      -5.0       |      -6.0        |        -5
+     -5.5   |      -5.0       |      -6.0        |        -5
+     -5.6   |      -5.0       |      -6.0        |        -6

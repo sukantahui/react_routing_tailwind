@@ -1,0 +1,34 @@
+ICSE CLASS 9 COMPUTER APPLICATIONS - STUDY NOTES
+CHAPTER: MATHEMATICAL LIBRARY METHODS (java.lang.Math)
+TOPIC 4: Math.floor(x) - Floor Method
+
+1. METHOD SPECIFICATION:
+   - Signature: public static double floor(double a)
+   - Belongs to: java.lang.Math
+   - Purpose: Returns the largest (closest to positive infinity) double value that is less than or equal to the argument and is equal to a mathematical integer.
+   - Simplified Definition: Rounds DOWN to the lower integer.
+   - Return Type: ALWAYS 'double'.
+
+2. DIRECTION OF MOVEMENT:
+   - On a horizontal number line:
+     <----(-5)----(-4)----(-3)----(-2)----(-1)----(0)----(1)----(2)----(3)----(4)----(5)---->
+     Math.floor() ALWAYS moves to the LEFT (towards negative infinity).
+
+3. CORE RULES & EXAMPLES:
+   a) Positive arguments:
+      Math.floor(7.9) -> 7.0
+      Math.floor(7.1) -> 7.0
+      Math.floor(7.0) -> 7.0
+   b) Negative arguments (Major Board Trap):
+      Math.floor(-7.2) -> -8.0 (Because -8.0 is SMALLER than -7.2)
+      Math.floor(-7.8) -> -8.0
+      Math.floor(-7.0) -> -7.0
+   c) Always write return value with .0 (double).
+
+4. COMPARISON TABLE:
+   Argument | Math.floor() | Math.ceil()
+   ---------+--------------+------------
+    +4.2    |     4.0      |    5.0
+    +4.8    |     4.0      |    5.0
+    -4.2    |    -5.0      |   -4.0
+    -4.8    |    -5.0      |   -4.0

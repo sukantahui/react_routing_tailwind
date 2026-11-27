@@ -1,0 +1,31 @@
+ICSE CLASS 9 COMPUTER APPLICATIONS - STUDY NOTES
+CHAPTER: MATHEMATICAL LIBRARY METHODS (java.lang.Math)
+TOPIC 3: Math.ceil(x) - Ceiling Method
+
+1. METHOD SPECIFICATION:
+   - Signature: public static double ceil(double a)
+   - Belongs to: java.lang.Math
+   - Purpose: Returns the smallest (closest to negative infinity) double value that is greater than or equal to the argument and is equal to a mathematical integer.
+   - Simplified Definition: Rounds UP to the next integer.
+   - Return Type: ALWAYS 'double'.
+
+2. DIRECTION OF MOVEMENT:
+   - On a horizontal number line:
+     <----(-5)----(-4)----(-3)----(-2)----(-1)----(0)----(1)----(2)----(3)----(4)----(5)---->
+     Math.ceil() ALWAYS moves to the RIGHT (towards positive infinity).
+
+3. CORE RULES & EXAMPLES:
+   a) Positive arguments:
+      Math.ceil(5.1) -> 6.0
+      Math.ceil(5.9) -> 6.0
+      Math.ceil(5.0) -> 5.0 (Already an integer, no change)
+   b) Negative arguments (Major Board Trap):
+      Math.ceil(-5.1) -> -5.0 (Because -5.0 is GREATER than -5.1)
+      Math.ceil(-5.9) -> -5.0
+      Math.ceil(-5.0) -> -5.0
+   c) Return value format:
+      ALWAYS write with a decimal point (.0). Writing integer 6 instead of 6.0 loses marks in Section A!
+
+4. COMMON BOARD EXAMINATION TRAPS:
+   - Trap 1: Confusing Math.ceil(-3.4) with -4.0. The answer is -3.0 because -3.0 > -3.4.
+   - Trap 2: Forgetting return type is double; expecting an int.

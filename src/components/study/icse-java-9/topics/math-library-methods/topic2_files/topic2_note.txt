@@ -1,0 +1,31 @@
+ICSE CLASS 9 COMPUTER APPLICATIONS - STUDY NOTES
+CHAPTER: MATHEMATICAL LIBRARY METHODS (java.lang.Math)
+TOPIC 2: Math.cbrt(x) - Cube Root Method
+
+1. METHOD SPECIFICATION:
+   - Signature: public static double cbrt(double a)
+   - Belongs to: java.lang.Math
+   - Purpose: Returns the cube root of a double value (∛a).
+   - Return Type: ALWAYS 'double'.
+
+2. KEY DIFFERENCE BETWEEN Math.sqrt() AND Math.cbrt():
+   - Math.sqrt(-16) => Returns 'NaN' (Not a Number) because square root of negative is imaginary.
+   - Math.cbrt(-8)  => Returns '-2.0' (A VALID real number) because (-2) * (-2) * (-2) = -8!
+   This is one of the most frequently asked Section A board exam questions!
+
+3. CORE RULES & RETURN BEHAVIOR:
+   a) Math.cbrt(27) evaluates to 3.0 (NOT integer 3).
+   b) Math.cbrt(0.0) evaluates to 0.0.
+   c) Math.cbrt(-125) evaluates to -5.0.
+   d) To store in an integer, cast explicitly:
+      int side = (int) Math.cbrt(64); // side = 4
+
+4. ALGEBRAIC TO JAVA CONVERSION:
+   - ∛x + ∛y       => Math.cbrt(x) + Math.cbrt(y)
+   - ∛(a^3 + b^3)   => Math.cbrt(Math.pow(a, 3) + Math.pow(b, 3))
+   - Volume to side => double s = Math.cbrt(v);
+
+5. BOARD EXAM TRAPS:
+   - Trap 1: Writing that Math.cbrt(-27) gives NaN or an error. It gives -3.0!
+   - Trap 2: Storing directly into an int variable without (int) cast.
+   - Trap 3: Writing Math.pow(x, 1/3) instead of Math.cbrt(x) or Math.pow(x, 1.0/3.0).
