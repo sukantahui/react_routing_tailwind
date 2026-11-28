@@ -1,0 +1,42 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 0: DATA MANIPULATION LANGUAGE (DML) OVERVIEW: ROLE, LIFECYCLE & OPERATIONS
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Data Manipulation Language (DML) provides commands to inspect, insert, modify, and delete tuples within relational tables without altering table schema definition.
+
+2. KEY EXAMINATION POINTS:
+  (1) DML operates on tuples (instances/records) inside relations, whereas DDL alters relations' structure (columns, types, constraints).
+  (2) Core DML commands in SQL include INSERT (row creation), UPDATE (attribute value modification), and DELETE (tuple removal).
+  (3) DQL (Data Query Language - SELECT) is often classified under the broad DML umbrella in CBSE textbooks as it manipulates query result sets.
+  (4) In transactional engines (e.g. InnoDB), DML modifications can be committed or rolled back, unlike DDL which performs implicit commits.
+
+3. SYNTAX & CODE SNIPPET:
+-- DML Lifecycle in MySQL
+-- 1. Insert row
+INSERT INTO Student (RollNo, SName, Marks) VALUES (101, 'Aarav Sharma', 94.5);
+
+-- 2. Query row
+SELECT RollNo, SName, Marks FROM Student WHERE RollNo = 101;
+
+-- 3. Modify row
+UPDATE Student SET Marks = 97.0 WHERE RollNo = 101;
+
+-- 4. Remove row
+DELETE FROM Student WHERE RollNo = 101;
+
+4. CBSE COMMON PITFALLS:
+Confusing DML with DDL in CBSE board questions: DROP TABLE and ALTER TABLE are DDL commands, whereas DELETE and UPDATE are DML commands.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between DML and DDL commands.
+  [ ] Master WHERE condition construction using relational and logical operators.
+  [ ] Be confident in NULL handling using IS NULL and IS NOT NULL.
+  [ ] Remember default ordering for ORDER BY is ASC.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 0 · CODER & ACCOTAX BARRACKPORE
+================================================================================

@@ -1,0 +1,1321 @@
+{
+  "trackId": "cbse-class12-computer-science-083",
+  "trackTitle": "CBSE Class XII Computer Science (Subject Code: 083) Complete Mastery",
+  "description": "An exhaustive, exam-aligned master curriculum for CBSE Class XII Computer Science (Code 083) as prescribed by CBSE (2024-25 / 2025-26 / 2026-27). Covers Unit I: Computational Thinking and Programming - 2 (40 Marks) including functions, scope (LEGB), text/binary/CSV file handling, pickle module, csv module, linear data structures, and Stack (LIFO) operations; Unit II: Computer Networks (10 Marks) covering evolution, transmission media, devices, topologies, protocols, web services, cybersecurity, and 4-mark case study layout designs; Unit III: Database Management (20 Marks) featuring relational database concepts, keys, SQL DDL/DML commands, table constraints, aggregate functions, GROUP BY, HAVING, multi-table Equi-Joins, and Python-MySQL database connectivity using mysql.connector; and Segment 7: Examination Mastery with Solved Board Sample Papers and a Complete 20+ Program Practical Laboratory Repository.",
+  "institute": {
+    "name": "Coder & AccoTax",
+    "website": "https://www.codernaccotax.co.in",
+    "author": "Sukanta Hui",
+    "location": "25(10/A) Shibtala Road, PO – N. C. Pukur, Barrackpore, West Bengal, India",
+    "trackType": "CBSE Class XII Computer Science (Code 083) Master Tutorial Roadmap",
+    "version": "2.1.0",
+    "lastUpdated": "2026-11-27"
+  },
+  "folder": "cbse-class-12-computer-science-083",
+  "subject": "Computer Science (083)",
+  "subjectCode": "CBSE Code 083",
+  "course": {
+    "program": "Class XII Computer Science",
+    "semester": "Board Examination",
+    "academicYear": "2025–26",
+    "credits": 5,
+    "totalAllottedHours": 160,
+    "prerequisites": [
+      "Completion of CBSE Class XI Computer Science (Code 083) or equivalent foundational Python programming",
+      "Familiarity with data types, loops, conditionals, and standard library modules",
+      "Access to a computer with Python 3.10+ and MySQL 8.0+ installed"
+    ]
+  },
+  "officialSyllabusDistribution": {
+    "unit1": {
+      "unitName": "Unit I: Computational Thinking and Programming - 2 (Python)",
+      "theoryMarks": 40,
+      "description": "Revision of Class XI Python, functions, scope of variables (LEGB), parameter passing mechanics, default arguments, text file handling, binary file handling with pickle, CSV file handling with csv module, linear data structures, and Stack (LIFO) operations using Python lists."
+    },
+    "unit2": {
+      "unitName": "Unit II: Computer Networks",
+      "theoryMarks": 10,
+      "description": "Evolution of networking (ARPANET, NSFNET, Internet), data communication terminologies, transmission media (guided and unguided), network devices, topologies (Star, Bus, Tree, Mesh), network categories (PAN, LAN, MAN, WAN), network protocols (HTTP, HTTPS, TCP/IP, VoIP, etc.), web services, cybersecurity threats & defenses, and 4-mark case-study network layout designs."
+    },
+    "unit3": {
+      "unitName": "Unit III: Database Management (DBMS & SQL)",
+      "theoryMarks": 20,
+      "description": "Database concepts, relational data model, candidate/primary/foreign keys, SQL DDL/DML statements, table constraints, aggregate functions (COUNT, SUM, AVG, MIN, MAX), GROUP BY and HAVING clauses, two-table Equi-Joins, and Python-MySQL database connectivity using mysql.connector."
+    },
+    "totalTheoryMarks": 70,
+    "practicalMarks": 30,
+    "grandTotalMarks": 100
+  },
+  "subjectLogo": {
+    "name": "Computer Science 083",
+    "icon": "Terminal",
+    "type": "svg",
+    "path": "/logos/cs-083.svg",
+    "alt": "CBSE Class XII Computer Science (083) Logo"
+  },
+  "segments": [
+    {
+      "segmentId": "segment-1-python-revision-and-functions",
+      "title": "Segment 1 – Python Revision & Advanced Functions (Unit I – 40 Marks)",
+      "level": "Intermediate",
+      "summary": "Comprehensive review of Class XI Python fundamentals, lexical tokens, control flow, sequence data types, and deep exploration of user-defined functions, parameter passing mechanics, variable scope rules (LEGB), and modular code architecture.",
+      "modules": [
+        {
+          "moduleId": "cs-083-python-revision-tracing",
+          "slug": "001_001_python-class-11-curriculum-revision-and-tracing",
+          "title": "Python Class XI Core Revision, Dry-Run Analysis & Output Tracing",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "python-revision",
+            "tokens-variables",
+            "control-flow",
+            "strings-slicing",
+            "lists-tuples-dictionaries",
+            "output-tracing",
+            "board-questions"
+          ],
+          "topics": [
+            "Review of Python Tokens: Keywords, Identifiers, Literals, Operators, and Punctuators",
+            "Variables, Dynamic Typing & l-value vs r-value Mechanics",
+            "Data Types Hierarchy: Mutable (Lists, Dictionaries) vs Immutable (Numbers, Strings, Tuples)",
+            "Operators & Expression Evaluation: Precedence, Associativity, and Short-Circuit Logic",
+            "Conditional Execution: Nested if-elif-else Decision Trees",
+            "Iterative Constructs: for Loops with range(), while Loops, break, continue, and else Suite",
+            "String Processing: Indexing, Slicing [start:stop:step], and Built-in Text Methods",
+            "List Operations: Nested Lists, Comprehensions, Slicing, and Common List Methods",
+            "Tuple Immutability, Tuple Packing & Unpacking, and Operations",
+            "Dictionary Key-Value Mappings: Accessing, Updating, Traversing, and Built-in Dictionary Methods",
+            "Section A Board Exam Output Tracing Problems & Dry-Run Tables",
+            "Downloadable Documents",
+            "Practice your Skill here",
+            "Sample Question Paper (10 Sets · 20 Marks Each)"
+          ],
+          "learningOutcomes": [
+            "Predict the exact output of complex multi-loop and conditional Python code snippets",
+            "Differentiate between mutable and immutable data structures and their in-memory behaviors",
+            "Trace slicing expressions accurately on strings, lists, and tuples",
+            "Solve Section A output prediction questions with zero syntax or calculation errors"
+          ],
+          "prerequisites": [
+            "Class XI Computer Science 083 fundamentals"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 1,
+          "summary": "Master essential Class XI Python constructs and develop rigorous output tracing skills for CBSE Section A & B examination questions.",
+          "miniProjects": [
+            "Output Tracing Simulator: Build an interactive tester for CBSE Section A loop and slice code snippets",
+            "Multi-Type Data Inspector: Analyze mutability, memory IDs, and type conversions in Python"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 5,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Class XI Revision Diagnostic Test + Output Prediction Quiz",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Tokens, Memory References & Dynamic Typing",
+            "Conditionals and Loop Iteration Mechanics",
+            "Sequence Manipulations: String, List, Tuple, and Dictionary",
+            "Dry-Run Execution Tables for Board Exam Output Questions"
+          ],
+          "previousModule": null,
+          "nextModule": "001_002_functions-scope-parameter-passing-and-modules",
+          "badge": "Python Revision Master Badge"
+        },
+        {
+          "moduleId": "cs-083-functions-scope-modules",
+          "slug": "001_002_functions-scope-parameter-passing-and-modules",
+          "title": "Functions, Scope Rules (LEGB), Parameter Passing & Modular Architecture",
+          "level": "Intermediate to Advanced",
+          "estimatedHours": 8,
+          "tags": [
+            "functions",
+            "def-statement",
+            "arguments-parameters",
+            "default-arguments",
+            "positional-arguments",
+            "scope-legb",
+            "global-keyword",
+            "modules"
+          ],
+          "topics": [
+            "Understanding Functions: Need, Advantages, and Definition using 'def' Keyword",
+            "Function Header, Formal Parameters vs Actual Arguments",
+            "Function Call, Control Flow, and Value Returning Mechanism",
+            "Positional Arguments vs Keyword (Named) Arguments",
+            "Default Parameters: Rules for Placement (Non-default arguments cannot follow default arguments)",
+            "Returning Multiple Values using Tuples and Unpacking",
+            "Variable Scope & Lifetime: Local Scope vs Global Scope",
+            "The LEGB Rule: Local, Enclosing, Global, and Built-in Namespace Resolution",
+            "Modifying Global Variables using the 'global' Keyword and Common Pitfalls",
+            "Parameter Passing Mechanics in Python: Pass-by-Object-Reference (Mutable vs Immutable Arguments)",
+            "Creating User-Defined Modules (.py files) and Importing via 'import' and 'from ... import'",
+            "Downloadable Documents",
+            "Practice your Skill here",
+            "Sample Question Paper (10 Sets · 20 Marks Each)"
+          ],
+          "learningOutcomes": [
+            "Design modular Python programs utilizing well-structured user-defined functions",
+            "Apply correct rules for positional, keyword, and default parameters without syntax errors",
+            "Resolve variable namespaces accurately using the LEGB scope resolution rule",
+            "Explain parameter passing behavior when mutable lists vs immutable integers are passed to functions"
+          ],
+          "prerequisites": [
+            "001_001_python-class-11-curriculum-revision-and-tracing"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 2,
+          "summary": "Master function architecture, argument passing conventions, default parameter rules, the global keyword, and LEGB variable scoping.",
+          "miniProjects": [
+            "Modular Mathematical Utility Package: Create a user-defined module with factorial, prime, and series functions",
+            "Scope Resolver Diagnostic Tool: Visualize variable changes across local and global environments"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 8,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Functions & Scope Board Evaluation Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Function Anatomy & Call Execution Lifecycle",
+            "Argument Types: Positional, Keyword, and Default",
+            "Scope Resolution: Local, Global, and the LEGB Hierarchy",
+            "Mutable vs Immutable Object Passing Effects"
+          ],
+          "previousModule": "001_001_python-class-11-curriculum-revision-and-tracing",
+          "nextModule": "002_001_text-file-handling-modes-reading-writing-and-pointer-methods",
+          "badge": "Python Function Specialist Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-2-file-handling",
+      "title": "Segment 2 – File Handling in Python: Text, Binary & CSV Files (Unit I – 40 Marks)",
+      "level": "Intermediate to Advanced",
+      "summary": "In-depth study of persistent storage handling in Python: Text files with reading, writing, and file pointer manipulation; Binary files with the pickle module (dump/load) and record CRUD operations; and CSV files with the csv module.",
+      "modules": [
+        {
+          "moduleId": "cs-083-text-file-handling",
+          "slug": "002_001_text-file-handling-modes-reading-writing-and-pointer-methods",
+          "title": "Text File Handling: Access Modes, Reading, Writing & File Pointer Methods",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "file-handling",
+            "text-files",
+            "open-close",
+            "file-modes",
+            "read-readline-readlines",
+            "write-writelines",
+            "seek-tell",
+            "with-statement"
+          ],
+          "topics": [
+            "Introduction to Persistent Storage: Volatile Memory vs Secondary Storage Files",
+            "Types of Files: Text Files (ASCII/Unicode) vs Binary Files (Bytes) vs CSV Files",
+            "Opening and Closing Files: open() Function, File Handles, and close() Method",
+            "File Access Modes: 'r', 'w', 'a', 'r+', 'w+', 'a+' and Their Differences",
+            "Reading from Text Files: read(), read(n), readline(), and readlines()",
+            "Writing to Text Files: write() vs writelines() and Handling Newline Characters",
+            "Manipulating the File Pointer: tell() Method and seek(offset, whence) Mechanics",
+            "Safe Resource Management: Using the 'with' Statement for Automatic File Closure",
+            "Standard Board Problems: Counting Words, Lines, Characters, Vowels, and Specific Starting Letters",
+            "Word Search and File Content Replacement Algorithms",
+            "Downloadable Documents",
+            "Practice your Skill here",
+            "Sample Question Paper (10 Sets · 20 Marks Each)"
+          ],
+          "learningOutcomes": [
+            "Select the correct file mode ('r', 'w', 'a', etc.) for any given application scenario",
+            "Choose appropriately among read(), readline(), and readlines() for optimal memory usage",
+            "Manipulate file pointers precisely using seek() and query positions using tell()",
+            "Implement standard CBSE 3-mark and 4-mark text file processing algorithms"
+          ],
+          "prerequisites": [
+            "001_002_functions-scope-parameter-passing-and-modules"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 3,
+          "summary": "Master text file manipulation, access modes, line-by-line parsing, file pointer positioning, and classic board exam text analytics algorithms.",
+          "miniProjects": [
+            "Text File Word Frequency & Vocabulary Auditor: Count words, lines, and unique keywords in essays",
+            "Log File Line Filter: Extract error logs and write to an alert report file"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 8,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Text File Programming & Theory Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "File Streams & Access Modes Matrix",
+            "Reading Strategies: read() vs readline() vs readlines()",
+            "Writing & Appending Data Streams",
+            "Pointer Repositioning: seek() and tell()",
+            "CBSE Board Text Processing Algorithms"
+          ],
+          "previousModule": "001_002_functions-scope-parameter-passing-and-modules",
+          "nextModule": "002_002_binary-file-handling-pickle-module-and-record-crud",
+          "badge": "Text File Master Badge"
+        },
+        {
+          "moduleId": "cs-083-binary-file-pickle-crud",
+          "slug": "002_002_binary-file-handling-pickle-module-and-record-crud",
+          "title": "Binary File Handling: Pickle Module, Serialization & Record CRUD Operations",
+          "level": "Advanced",
+          "estimatedHours": 10,
+          "tags": [
+            "binary-files",
+            "pickle-module",
+            "serialization",
+            "pickle-dump",
+            "pickle-load",
+            "eoferror",
+            "binary-crud",
+            "record-search-update-delete"
+          ],
+          "topics": [
+            "Concept of Binary Files: Byte-level Storage, Structure, and Performance Advantages",
+            "Object Serialization and Deserialization (Pickling vs Unpickling)",
+            "The 'pickle' Module: pickle.dump(object, file_handle) Syntax and Mechanics",
+            "Reading Binary Records: pickle.load(file_handle) and Handling EOFError",
+            "Binary File Access Modes: 'rb', 'wb', 'ab', 'rb+', 'wb+', 'ab+'",
+            "Writing Complex Data: Storing Lists of Dictionaries and Nested Records",
+            "Searching Records: Locating Records by Roll Number, Employee ID, or Name",
+            "Updating Records in Binary Files: In-place Rewriting vs Temporary File Mechanism",
+            "Deleting Records in Binary Files: Utilizing Temporary File and os.remove() / os.rename()",
+            "Complete Menu-Driven Binary File Management System (Create, Display, Search, Update, Delete)",
+            "Downloadable Documents",
+            "Practice your Skill here",
+            "Sample Question Paper (10 Sets · 20 Marks Each)"
+          ],
+          "learningOutcomes": [
+            "Serialize and deserialize arbitrary Python data structures using pickle.dump() and pickle.load()",
+            "Handle EOFError gracefully using try-except blocks when reading sequential binary records",
+            "Implement high-accuracy search, update, and deletion algorithms on binary record stores",
+            "Solve CBSE 5-mark binary file programming questions with 100% syntactic precision"
+          ],
+          "prerequisites": [
+            "002_001_text-file-handling-modes-reading-writing-and-pointer-methods"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 4,
+          "summary": "Master binary file storage with the pickle module, object serialization, EOFError exception handling, and full CRUD operations on structured records.",
+          "miniProjects": [
+            "Student Record Bank (student.dat): Menu-driven system for student registration, roll number search, and mark updating",
+            "Employee Payroll Manager: Binary file system calculating net salary and updating designations"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 10,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Binary File CRUD Lab Assessment",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Binary File Architecture & The Need for Pickling",
+            "Writing Records: pickle.dump() Workflow",
+            "Reading Sequential Records & Catching EOFError",
+            "Record Searching & Field Updates",
+            "Record Deletion via Temporary File Strategy"
+          ],
+          "previousModule": "002_001_text-file-handling-modes-reading-writing-and-pointer-methods",
+          "nextModule": "002_003_csv-file-handling-reader-writer-and-tabular-data",
+          "badge": "Binary File & Pickle Specialist Badge"
+        },
+        {
+          "moduleId": "cs-083-csv-file-handling",
+          "slug": "002_003_csv-file-handling-reader-writer-and-tabular-data",
+          "title": "CSV File Handling: csv.reader, csv.writer, Delimiters & Tabular Data Analysis",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "csv-files",
+            "csv-module",
+            "csv-reader",
+            "csv-writer",
+            "writerow",
+            "writerows",
+            "delimiter",
+            "newline-parameter",
+            "tabular-data"
+          ],
+          "topics": [
+            "Introduction to CSV (Comma Separated Values): Structure, Significance & Interoperability",
+            "The 'csv' Module in Python Standard Library",
+            "Opening CSV Files: Importance of newline='' Parameter to Prevent Blank Lines",
+            "Writing to CSV Files: csv.writer(file_handle) Object, writerow(), and writerows()",
+            "Custom Delimiters: Using the delimiter Parameter (Tab '\\t', Pipe '|', Semicolon ';')",
+            "Reading CSV Files: csv.reader(file_handle) Iterable and Row Traversal",
+            "Filtering and Extracting Specific Columns from CSV Records",
+            "Mathematical Aggregations on CSV Data (Sum, Average, Min, Max Calculations)",
+            "Menu-Driven Student Marks / Product Inventory CSV Management System",
+            "Downloadable Documents",
+            "Practice your Skill here",
+            "Sample Question Paper (10 Sets · 20 Marks Each)"
+          ],
+          "learningOutcomes": [
+            "Create, write, and append tabular records into CSV files using csv.writer",
+            "Avoid blank line creation in CSV files by configuring newline='' in open()",
+            "Iterate through CSV datasets, parse column values, and apply conditional filters",
+            "Solve CBSE 3-mark and 4-mark CSV file manipulation examination questions"
+          ],
+          "prerequisites": [
+            "002_001_text-file-handling-modes-reading-writing-and-pointer-methods"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 5,
+          "summary": "Master tabular data processing in CSV format using Python's csv module, writerow, writerows, csv.reader, and custom delimiters.",
+          "miniProjects": [
+            "Inventory Stock CSV Manager: Manage product stock, price, and reorder levels via CSV",
+            "CSV Scorecard Generator: Calculate total, percentage, and grade from student exam marks"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 8,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "CSV File Programming & Practical Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "CSV Data Format & The Standard csv Module",
+            "Writing Tabular Records: writerow() vs writerows()",
+            "The newline='' Protocol in Windows/Linux",
+            "Reading & Iterating Tabular Records with csv.reader()",
+            "Board Exam CSV Programming Patterns"
+          ],
+          "previousModule": "002_002_binary-file-handling-pickle-module-and-record-crud",
+          "nextModule": "003_001_linear-data-structures-and-stack-lifo-operations",
+          "badge": "CSV Data Engineer Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-3-data-structures-stack",
+      "title": "Segment 3 – Data Structures: Linear Lists & Stack Implementation (Unit I – 40 Marks)",
+      "level": "Intermediate to Advanced",
+      "summary": "Study of elementary linear data structures, abstract data types (ADT), and complete implementation of Stack (LIFO - Last In First Out) using Python lists with push, pop, peek, and display operations.",
+      "modules": [
+        {
+          "moduleId": "cs-083-data-structures-stack-lifo",
+          "slug": "003_001_linear-data-structures-and-stack-lifo-operations",
+          "title": "Linear Data Structures & Stack (LIFO): Push, Pop, Peek, Overflow & List Implementation",
+          "level": "Intermediate to Advanced",
+          "estimatedHours": 8,
+          "tags": [
+            "data-structures",
+            "linear-lists",
+            "stack",
+            "lifo",
+            "push-operation",
+            "pop-operation",
+            "peek-operation",
+            "stack-overflow",
+            "stack-underflow"
+          ],
+          "topics": [
+            "Introduction to Data Structures: Primitive vs Non-Primitive, Linear vs Non-Linear Structures",
+            "The Stack Data Structure: Definition, Real-World Analogies, and LIFO Principle",
+            "Stack Terminology: TOP Pointer, Push, Pop, Peek/Top, Display, Overflow, Underflow",
+            "Condition Checks: Checking for Empty Stack (len(stack) == 0 or not stack)",
+            "Implementing Push Operation: Appending Elements to a Python List",
+            "Implementing Pop Operation: Removing Elements using list.pop() with Underflow Guard",
+            "Implementing Peek Operation: Inspecting the Top Element without Removal (stack[-1])",
+            "Displaying Stack Contents: Traversing from TOP down to Bottom",
+            "Menu-Driven Stack Implementation for Numeric and String Elements",
+            "Record-Based Stack (Storing Lists of [ItemNo, ItemName, Price] or [RollNo, Name, Marks])",
+            "CBSE Board Standard Stack Question Patterns (Pushing even numbers, filtering records)",
+            "Downloadable Documents",
+            "Practice your Skill here",
+            "Sample Question Paper (10 Sets · 20 Marks Each)"
+          ],
+          "learningOutcomes": [
+            "Explain the Last-In-First-Out (LIFO) operational mechanism of the Stack data structure",
+            "Implement push, pop, peek, and display functions using Python lists with zero index errors",
+            "Prevent stack underflow runtime crashes by enforcing empty stack verification",
+            "Solve CBSE 3-mark and 4-mark stack programming questions with 100% accuracy"
+          ],
+          "prerequisites": [
+            "001_002_functions-scope-parameter-passing-and-modules"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 6,
+          "summary": "Master the Stack (LIFO) abstract data type, write robust push and pop functions, handle underflow conditions, and solve record-based stack exam problems.",
+          "miniProjects": [
+            "Browser Back-Button Simulator: Implement navigation history using a LIFO Stack",
+            "Call Center Task Stack: Manage urgent client tickets using stack priority push and pop"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 8,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Stack Data Structure Board Problem Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Data Structures Overview & The LIFO Model",
+            "Stack Operations: Push, Pop, Peek, and Display",
+            "List-based Implementation & Underflow Protection",
+            "Filtering and Pushing Domain-Specific Records",
+            "CBSE Board Exam Stack Program Blueprints"
+          ],
+          "previousModule": "002_003_csv-file-handling-reader-writer-and-tabular-data",
+          "nextModule": "004_001_network-evolution-transmission-media-and-terminologies",
+          "badge": "Stack Data Structure Architect Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-4-computer-networks",
+      "title": "Segment 4 – Computer Networks: Architecture, Transmission Media, Devices & Case Studies (Unit II – 10 Marks)",
+      "level": "Intermediate",
+      "summary": "Comprehensive exploration of computer networks: Evolution from ARPANET to the modern Internet, guided vs unguided transmission media, connecting devices, topologies, protocols, web services, cybersecurity, and 4-mark campus layout design case studies.",
+      "modules": [
+        {
+          "moduleId": "cs-083-networks-evolution-media",
+          "slug": "004_001_network-evolution-transmission-media-and-terminologies",
+          "title": "Network Evolution, Communication Terminologies, Bandwidth & Transmission Media",
+          "level": "Beginner to Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "computer-networks",
+            "arpanet",
+            "internet",
+            "bandwidth",
+            "data-transfer-rate",
+            "guided-media",
+            "twisted-pair",
+            "coaxial",
+            "fiber-optic",
+            "unguided-media",
+            "radio-waves",
+            "satellite"
+          ],
+          "topics": [
+            "Evolution of Networking: ARPANET, NSFNET, Interspace, and the Modern Internet",
+            "Data Communication System Components: Sender, Receiver, Message, Medium, Protocol",
+            "Communication Channel Capacity: Bandwidth (Hz vs bps) and Data Transfer Rates (bps, Kbps, Mbps, Gbps, Tbps)",
+            "Transmission Modes: Simplex, Half-Duplex, and Full-Duplex Communications",
+            "Guided (Wired) Transmission Media: Twisted Pair Cable (UTP vs STP, Cat-5/6, RJ45)",
+            "Coaxial Cable (Structure, Shielding, Impedance, Broadband vs Baseband)",
+            "Optical Fiber Cable (Core, Cladding, Buffer, Total Internal Reflection, High Bandwidth)",
+            "Unguided (Wireless) Media: Radio Waves (Omnidirectional, Long distance)",
+            "Microwaves (Line of Sight, Terrestrial towers) and Infrared (Short range, Line of sight)",
+            "Satellite Communication: Geostationary Satellites, Uplink, Downlink, and Transponders",
+            "Comparative Analysis of Transmission Media for Campus and Long-Distance Connectivity",
+            "Downloadable Documents",
+            "Practice your Skill here",
+            "Sample Question Paper (10 Sets · 20 Marks Each)"
+          ],
+          "learningOutcomes": [
+            "Trace the historical evolution of networking from ARPANET to the global Internet",
+            "Calculate data transfer rates and conversion between bits and bytes accurately",
+            "Compare physical media (Twisted Pair, Coaxial, Fiber Optic) based on cost, speed, and EMI resistance",
+            "Recommend appropriate wireless technologies for indoor, city, and global communications"
+          ],
+          "prerequisites": [],
+          "difficulty": "Easy to Medium",
+          "difficultyIndex": 7,
+          "summary": "Master data communication fundamentals, network evolution, bandwidth units, and guided vs unguided transmission media characteristics.",
+          "miniProjects": [
+            "Transmission Media Selection Matrix: Evaluate media options for a 5-building university campus",
+            "Data Transfer Rate Calculator in Python: Convert transfer times across bps, Mbps, and Gbps"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 2,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Network Evolution & Media Theory Quiz",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Evolutionary Milestones of Networking",
+            "Data Communication Components & Measuring Bandwidth",
+            "Guided Media: Twisted Pair, Coaxial & Fiber Optics",
+            "Unguided Media: Radio, Microwave, Infrared & Satellite",
+            "Comparative Evaluation for Real-World Deployments"
+          ],
+          "previousModule": "003_001_linear-data-structures-and-stack-lifo-operations",
+          "nextModule": "004_002_network-devices-topologies-and-types",
+          "badge": "Network Infrastructure Foundations Badge"
+        },
+        {
+          "moduleId": "cs-083-network-devices-topologies-types",
+          "slug": "004_002_network-devices-topologies-and-types",
+          "title": "Network Devices, Topologies & Network Classification (PAN, LAN, MAN, WAN)",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "network-devices",
+            "modem",
+            "hub-switch",
+            "router",
+            "gateway",
+            "repeater",
+            "topologies",
+            "star-topology",
+            "bus-topology",
+            "pan-lan-man-wan"
+          ],
+          "topics": [
+            "Network Connecting Devices: Modem (Modulation/Demodulation, Types of Modems)",
+            "Ethernet Card (NIC - Network Interface Card) and MAC Address Representation",
+            "RJ45 Connector and Modular Jack Architecture",
+            "Hub: Active Hub vs Passive Hub and Collision Domain Limitations",
+            "Switch: Intelligent Layer-2 Switching, Packet Forwarding, and Broadcast Management",
+            "Repeater: Signal Amplification, Regeneration, and the 5-4-3 Rule",
+            "Router: Routing Packets across Dissimilar Networks using IP Addressing",
+            "Gateway: Protocol Translation between Completely Dissimilar Network Architectures",
+            "Access Point (AP) and WiFi Cards in Wireless Networks",
+            "Network Topologies: Bus Topology (Backbone, Terminators, Collisions)",
+            "Star Topology (Central Hub/Switch, Fault Isolation, Scalability)",
+            "Tree Topology (Hierarchical Combination of Star and Bus, Scalability)",
+            "Mesh and Ring Topologies: Redundancy, Token Passing, and Fault Tolerance",
+            "Network Classification by Geographical Spread: PAN, LAN, MAN, and WAN",
+            "Downloadable Documents",
+            "Practice your Skill here",
+            "Sample Question Paper (10 Sets · 20 Marks Each)"
+          ],
+          "learningOutcomes": [
+            "Select and position network hardware devices (Switches, Repeaters, Routers, Gateways) accurately",
+            "Differentiate clearly between Hub vs Switch and Router vs Gateway",
+            "Compare network topologies on cable length, installation cost, and fault tolerance",
+            "Classify networks into PAN, LAN, MAN, and WAN based on geographical scale"
+          ],
+          "prerequisites": [
+            "004_001_network-evolution-transmission-media-and-terminologies"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 8,
+          "summary": "Master network connecting devices, their OSI layers and roles, network topologies, and geographical scale classifications.",
+          "miniProjects": [
+            "Network Topology Visualizer: Map node connections and failure points across Star and Bus topologies",
+            "Hardware Sizing Guide: Select networking equipment for a 150-computer school computer center"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 2,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Network Devices & Topologies Conceptual Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Hardware Devices: Modem, NIC, Hub, Switch, Repeater, Router, Gateway",
+            "Topologies: Star, Bus, Tree, Mesh & Ring Mechanics",
+            "Network Geographies: PAN, LAN, MAN, and WAN",
+            "Fault Isolation & Scalability Comparisons"
+          ],
+          "previousModule": "004_001_network-evolution-transmission-media-and-terminologies",
+          "nextModule": "004_003_network-protocols-web-services-and-cyber-security",
+          "badge": "Network Devices & Topology Specialist Badge"
+        },
+        {
+          "moduleId": "cs-083-protocols-web-services-security",
+          "slug": "004_003_network-protocols-web-services-and-cyber-security",
+          "title": "Network Protocols, Web Services & Network Security Threats",
+          "level": "Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "protocols",
+            "tcp-ip",
+            "http-https",
+            "ftp",
+            "smtp-pop3",
+            "voip",
+            "web-services",
+            "url-domain",
+            "dns",
+            "cyber-security",
+            "firewall",
+            "cookies"
+          ],
+          "topics": [
+            "Understanding Protocols: Need for Standard Rules in Digital Communication",
+            "TCP/IP Protocol Suite: Transmission Control Protocol (Reliability) & Internet Protocol (Addressing)",
+            "Web Protocols: Hypertext Transfer Protocol (HTTP) vs Secure HTTP (HTTPS)",
+            "File Transfer Protocol (FTP): File Upload, Download, and Control Connections",
+            "Email Protocols: Simple Mail Transfer Protocol (SMTP) vs POP3 and IMAP",
+            "Voice over Internet Protocol (VoIP): Internet Telephony and Packetized Voice",
+            "Remote Access Protocols: Telnet and Secure Shell (SSH)",
+            "Web Architecture: WWW, HTML, XML, Web Browsers, Web Servers, and Web Hosting",
+            "Addressing Schemes: Domain Name System (DNS), Uniform Resource Locator (URL), and IP Addresses",
+            "Network Security Threats: Malware (Virus, Worm, Trojan Horse), Spyware, Ransomware, Adware",
+            "Cyber Attacks: Phishing, Denial of Service (DoS) and Distributed DoS (DDoS), Spoofing",
+            "Network Defense Mechanisms: Firewalls (Hardware vs Software), Cookies, HTTPS/SSL, Hackers vs Crackers",
+            "Downloadable Documents",
+            "Practice your Skill here",
+            "Sample Question Paper (10 Sets · 20 Marks Each)"
+          ],
+          "learningOutcomes": [
+            "State the exact purpose and port assignments of major Internet protocols (HTTP, HTTPS, FTP, SMTP, POP3, VoIP)",
+            "Dissect URL syntax into protocol, domain name, path, and filename components",
+            "Differentiate clearly between Viruses, Worms, Trojan Horses, and Ransomware",
+            "Explain how Firewalls and SSL certificates protect corporate and school networks"
+          ],
+          "prerequisites": [
+            "004_002_network-devices-topologies-and-types"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 9,
+          "summary": "Master essential networking protocols, web services, URL/DNS addressing, and defensive network security against cyber threats.",
+          "miniProjects": [
+            "URL Parser in Python: Deconstruct web addresses into protocol, host, port, and query strings",
+            "Network Threat Audit Checklist: Formulate cybersecurity protocols for school IT labs"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 2,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Protocols & Cybersecurity Theory Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Protocol Suite Overview: TCP/IP, HTTP/S, FTP, SMTP, VoIP",
+            "Web Infrastructure: DNS, URLs, Web Servers, and Hosting",
+            "Malware Classification: Virus, Worm, Trojan, Ransomware",
+            "Defensive Engineering: Firewalls, Cookies, and Encryption"
+          ],
+          "previousModule": "004_002_network-devices-topologies-and-types",
+          "nextModule": "004_004_case-study-network-layout-and-server-design",
+          "badge": "Protocols & Cyber Defense Badge"
+        },
+        {
+          "moduleId": "cs-083-case-study-network-layout",
+          "slug": "004_004_case-study-network-layout-and-server-design",
+          "title": "4-Mark Network Case Study: Server Placement, Cable Layout & Connectivity Planning",
+          "level": "Intermediate to Advanced",
+          "estimatedHours": 6,
+          "tags": [
+            "case-study",
+            "4-mark-question",
+            "server-placement",
+            "80-20-rule",
+            "cable-layout",
+            "repeater-placement",
+            "hub-switch-placement",
+            "board-exam"
+          ],
+          "topics": [
+            "Anatomy of the 4-Mark CBSE Network Case Study Problem",
+            "Analyzing Distance Matrices and Computer Distribution Tables between Blocks/Wings",
+            "Server Placement Strategy: The 80-20 Rule (Block with Maximum Computers)",
+            "Optimal Cable Layout Design: Star vs Bus Topology Minimizing Cable Length",
+            "Repeater Placement Rules: Distance Threshold (>70-100 meters) between Blocks",
+            "Hub / Switch Placement Rules: Required in Every Block Having Multiple Computers",
+            "Selecting Communication Medium: Fiber Optic (Speed) vs Twisted Pair (Cost) vs Radio/Satellite (Long Distance)",
+            "Connecting Remote Branches: Hilly/Rough Terrain, City-to-City, and Global Links",
+            "Video Conferencing Hardware & Protocol Recommendations (VoIP, Webcams, High Bandwidth)",
+            "Solving 10 Past CBSE Board Examination 4-Mark Case Studies with Model Answers",
+            "Downloadable Documents",
+            "Practice your Skill here",
+            "Sample Question Paper (10 Sets · 20 Marks Each)"
+          ],
+          "learningOutcomes": [
+            "Identify the optimal block for server installation using the maximum-computers heuristic",
+            "Draw the most economical cable layout linking blocks with minimum total cable distance",
+            "Justify repeater placement for distances exceeding 70-100 meters and switch placement in every block",
+            "Secure all 4 marks in the CBSE Section E Network Case Study question consistently"
+          ],
+          "prerequisites": [
+            "004_002_network-devices-topologies-and-types",
+            "004_003_network-protocols-web-services-and-cyber-security"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 10,
+          "summary": "Master the classic 4-mark CBSE network case study: server location, cable layout, repeater/switch placement, and communication medium selection.",
+          "miniProjects": [
+            "Campus Network Layout Planner: Calculate shortest cable routes and device counts for a 4-wing corporate office",
+            "Automated Case Study Solver: Python script that determines server block and repeater requirements from distance matrices"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "shortAnswer": 10,
+            "coding": 2,
+            "caseStudy": 10
+          },
+          "assessment": {
+            "type": "4-Mark Network Case Study Mastery Exam",
+            "passScore": 80
+          },
+          "teachingFlow": [
+            "Anatomy of the CBSE Network Case Study Question",
+            "Step 1: Finding Server Block (Maximum Computers Rule)",
+            "Step 2: Drawing Economical Cable Layout (Star vs Bus)",
+            "Step 3: Justifying Repeater and Hub/Switch Placements",
+            "Step 4: Medium Selection for Remote and In-Campus Blocks"
+          ],
+          "previousModule": "004_003_network-protocols-web-services-and-cyber-security",
+          "nextModule": "005_001_database-concepts-rdbms-and-relational-model-keys",
+          "badge": "Network Case Study Master Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-5-database-concepts-rdbms",
+      "title": "Segment 5 – Database Management Systems & Relational Data Model (Unit III – 20 Marks)",
+      "level": "Beginner to Intermediate",
+      "summary": "Foundations of database management: Limitations of traditional file systems, advantages of DBMS/RDBMS, the relational model, tables, tuples, attributes, degree, cardinality, and keys (Candidate, Primary, Alternate, Foreign Keys).",
+      "modules": [
+        {
+          "moduleId": "cs-083-database-concepts-relational-keys",
+          "slug": "005_001_database-concepts-rdbms-and-relational-model-keys",
+          "title": "Database Concepts, RDBMS Architecture & Relational Model Keys",
+          "level": "Beginner to Intermediate",
+          "estimatedHours": 6,
+          "tags": [
+            "database-concepts",
+            "dbms-vs-file-system",
+            "rdbms",
+            "relational-model",
+            "relation-tuple-attribute",
+            "degree-cardinality",
+            "candidate-key",
+            "primary-key",
+            "foreign-key",
+            "referential-integrity"
+          ],
+          "topics": [
+            "Need for Database Management Systems: Limitations of File Processing Systems (Redundancy, Inconsistency, Isolation)",
+            "Key Advantages of DBMS: Data Sharing, Integrity, Security, Concurrency, and Recovery",
+            "Relational Database Management System (RDBMS) Concept and Architecture",
+            "Relational Data Model Terminology: Relation (Table), Tuple (Row/Record), Attribute (Column/Field)",
+            "Domain of an Attribute and Atomic Values",
+            "Degree of a Relation (Number of Attributes/Columns) vs Cardinality (Number of Tuples/Rows)",
+            "Calculating Degree and Cardinality after Insertions, Deletions, and Table Joins",
+            "Concept of Keys in RDBMS: Need for Unique Identification",
+            "Candidate Key: Definition, Minimal Superkey Concept, and Identification from Data",
+            "Primary Key: Selection from Candidate Keys, Properties (NOT NULL, UNIQUE)",
+            "Alternate Key: Candidate Keys not chosen as the Primary Key",
+            "Foreign Key: Linking Tables, Parent vs Child Relation, and Referential Integrity Rule",
+            "Downloadable Documents",
+            "Practice your Skill here",
+            "Sample Question Paper (10 Sets · 20 Marks Each)"
+          ],
+          "learningOutcomes": [
+            "Contrast relational database management systems against flat file storage systems",
+            "Compute degree and cardinality of relations and composite joined tables accurately",
+            "Differentiate clearly among Candidate Keys, Primary Key, Alternate Keys, and Foreign Keys",
+            "Explain and enforce the rule of Referential Integrity in relational schemas"
+          ],
+          "prerequisites": [],
+          "difficulty": "Easy to Medium",
+          "difficultyIndex": 11,
+          "summary": "Master RDBMS architecture, relational terminology, degree, cardinality, candidate keys, primary keys, alternate keys, and foreign keys.",
+          "miniProjects": [
+            "Relational Schema Designer: Design a normalized 3-table school schema with primary and foreign keys",
+            "Degree and Cardinality Tracker: Python script calculating table dimensions after simulated database operations"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 2,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "RDBMS Concepts & Key Identification Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "File System Drawbacks vs DBMS Superpowers",
+            "The Relational Model: Relations, Tuples, and Attributes",
+            "Degree vs Cardinality Calculation Rules",
+            "The Key Hierarchy: Candidate -> Primary -> Alternate",
+            "Foreign Keys & Enforcing Referential Integrity"
+          ],
+          "previousModule": "004_004_case-study-network-layout-and-server-design",
+          "nextModule": "006_001_sql-data-definition-and-table-constraints",
+          "badge": "Relational Database Architect Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-6-sql-and-mysql-connectivity",
+      "title": "Segment 6 – Structured Query Language (SQL) & Python-MySQL Connectivity (Unit III – 20 Marks)",
+      "level": "Intermediate to Advanced",
+      "summary": "Comprehensive study of SQL commands: DDL (CREATE, ALTER, DROP), DML (INSERT, UPDATE, DELETE, SELECT), filtering, pattern matching, aggregate functions, GROUP BY, HAVING, two-table Equi-Joins, and Python-MySQL database connectivity.",
+      "modules": [
+        {
+          "moduleId": "cs-083-sql-ddl-table-constraints",
+          "slug": "006_001_sql-data-definition-and-table-constraints",
+          "title": "SQL Data Definition Language (DDL) & Table Integrity Constraints",
+          "level": "Beginner to Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "sql",
+            "ddl",
+            "create-table",
+            "alter-table",
+            "drop-table",
+            "constraints",
+            "primary-key",
+            "foreign-key",
+            "not-null",
+            "unique",
+            "check",
+            "default"
+          ],
+          "topics": [
+            "Introduction to SQL: History, Characteristics, and Classification into DDL, DML, DQL, and TCL",
+            "SQL Data Types: CHAR vs VARCHAR, INT, DECIMAL/FLOAT, DATE ('YYYY-MM-DD'), TIME",
+            "Database Commands: CREATE DATABASE, SHOW DATABASES, USE, and DROP DATABASE",
+            "Table Inspection Commands: SHOW TABLES, DESCRIBE / DESC table_name",
+            "Creating Tables: CREATE TABLE Statement Syntax with Columns and Data Types",
+            "Column-Level vs Table-Level Constraints",
+            "PRIMARY KEY and FOREIGN KEY (REFERENCES parent_table(key)) Constraints",
+            "Data Integrity Constraints: NOT NULL, UNIQUE, CHECK, and DEFAULT",
+            "Modifying Tables: ALTER TABLE Statement (ADD Column, DROP Column, MODIFY Data Type)",
+            "Adding and Dropping Table Constraints using ALTER TABLE",
+            "Deleting Tables: DROP TABLE vs TRUNCATE TABLE",
+            "Downloadable Documents",
+            "Practice your Skill here",
+            "Sample Question Paper (10 Sets · 20 Marks Each)"
+          ],
+          "learningOutcomes": [
+            "Write syntactically flawless CREATE TABLE statements with single and composite constraints",
+            "Differentiate fixed-length CHAR from variable-length VARCHAR storage mechanics",
+            "Modify existing table structures dynamically using ALTER TABLE (ADD, MODIFY, DROP)",
+            "Enforce domain integrity using NOT NULL, CHECK, UNIQUE, and DEFAULT constraints"
+          ],
+          "prerequisites": [
+            "005_001_database-concepts-rdbms-and-relational-model-keys"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 12,
+          "summary": "Master SQL DDL statements, table creation, integrity constraints (PRIMARY KEY, FOREIGN KEY, NOT NULL, CHECK), and ALTER TABLE operations.",
+          "miniProjects": [
+            "Hospital Management Schema: Write DDL scripts creating Doctor, Patient, and Appointment tables with constraints",
+            "Schema Migration Script: Use ALTER TABLE to upgrade a legacy employee table structure"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 8,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "SQL DDL & Constraints Board Practical Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "SQL Syntax Foundations & Data Types (CHAR vs VARCHAR)",
+            "Creating Databases & Tables with Constraints",
+            "Primary and Foreign Key Schema Linkage",
+            "ALTER TABLE: Modifying Columns and Constraints",
+            "Table Removal: DROP vs TRUNCATE"
+          ],
+          "previousModule": "005_001_database-concepts-rdbms-and-relational-model-keys",
+          "nextModule": "006_002_sql-data-manipulation-filtering-and-sorting",
+          "badge": "SQL DDL Specialist Badge"
+        },
+        {
+          "moduleId": "cs-083-sql-dml-filtering-sorting",
+          "slug": "006_002_sql-data-manipulation-filtering-and-sorting",
+          "title": "SQL Data Manipulation (DML): INSERT, UPDATE, DELETE, Filtering & Sorting",
+          "level": "Intermediate",
+          "estimatedHours": 8,
+          "tags": [
+            "sql",
+            "dml",
+            "insert-into",
+            "update-set",
+            "delete-from",
+            "select",
+            "where-clause",
+            "like-operator",
+            "between-operator",
+            "order-by",
+            "distinct"
+          ],
+          "topics": [
+            "Data Manipulation Language Overview: Role and Operations",
+            "Inserting Data: INSERT INTO ... VALUES (...) Syntax (All columns vs Specific columns)",
+            "Modifying Existing Data: UPDATE ... SET ... WHERE ... (Importance of WHERE clause)",
+            "Deleting Rows: DELETE FROM ... WHERE ... vs Clearing Table",
+            "Retrieving Data: Basic SELECT * and Projection of Specific Columns",
+            "Column Aliases using AS and Arithmetic Expressions in SELECT",
+            "Eliminating Duplicate Rows: The DISTINCT Keyword",
+            "Filtering Rows with the WHERE Clause: Relational Operators (=, !=, <>, <, >, <=, >=)",
+            "Logical Operators: Combining Conditions using AND, OR, and NOT",
+            "Pattern Matching with LIKE Operator: Wildcard Characters % (Multi-char) and _ (Single char)",
+            "Range Search: BETWEEN ... AND and NOT BETWEEN ... AND Operators",
+            "Set Membership: IN and NOT IN Operators",
+            "Handling Missing Data: IS NULL and IS NOT NULL (NULL Comparisons)",
+            "Sorting Query Results: ORDER BY Column [ASC | DESC] and Multi-Column Sorting",
+            "Downloadable Documents",
+            "Practice your Skill here",
+            "Sample Question Paper (10 Sets · 20 Marks Each)"
+          ],
+          "learningOutcomes": [
+            "Insert, update, and delete table rows accurately with proper condition guards",
+            "Construct complex queries using WHERE, AND, OR, NOT, and parentheses precedence",
+            "Perform pattern matching searches using the LIKE operator with % and _ wildcards",
+            "Sort query results in ascending or descending order across single or multiple attributes"
+          ],
+          "prerequisites": [
+            "006_001_sql-data-definition-and-table-constraints"
+          ],
+          "difficulty": "Medium",
+          "difficultyIndex": 13,
+          "summary": "Master SQL data manipulation: INSERT, UPDATE, DELETE, and rich querying with WHERE, LIKE, BETWEEN, IN, IS NULL, and ORDER BY.",
+          "miniProjects": [
+            "E-Commerce Customer Query Suite: Query active customers, order amounts, and cities using complex filters",
+            "School Marks Filter: Filter students scoring in specific grade ranges and sort by roll number"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 10,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "SQL DML Querying & Filtering Exam",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Data Modification: INSERT, UPDATE, and DELETE",
+            "Querying Foundations: SELECT, Projection, and Aliases",
+            "Filtering Power: WHERE with Logical Operators",
+            "Wildcards & Pattern Matching: LIKE with % and _",
+            "Range, Set Membership, NULL Handling, and ORDER BY"
+          ],
+          "previousModule": "006_001_sql-data-definition-and-table-constraints",
+          "nextModule": "006_003_sql-aggregate-functions-group-by-having-and-joins",
+          "badge": "SQL Querying Professional Badge"
+        },
+        {
+          "moduleId": "cs-083-sql-aggregates-group-by-joins",
+          "slug": "006_003_sql-aggregate-functions-group-by-having-and-joins",
+          "title": "SQL Aggregate Functions, GROUP BY, HAVING & Multi-Table Joins",
+          "level": "Intermediate to Advanced",
+          "estimatedHours": 8,
+          "tags": [
+            "sql",
+            "aggregate-functions",
+            "count",
+            "sum-avg-min-max",
+            "group-by",
+            "having-clause",
+            "table-joins",
+            "equi-join",
+            "cartesian-product"
+          ],
+          "topics": [
+            "Introduction to Aggregate / Group Functions: Working on Multi-Row Sets",
+            "The COUNT() Function: Difference between COUNT(*), COUNT(column), and COUNT(DISTINCT column)",
+            "Mathematical Aggregates: SUM(column) and AVG(column) (Ignoring NULL values)",
+            "Boundary Aggregates: MIN(column) and MAX(column) on Numbers, Dates, and Strings",
+            "Grouping Data: The GROUP BY Clause and Grouping by Single vs Multiple Attributes",
+            "Rules for GROUP BY: Columns in SELECT must appear in GROUP BY or inside Aggregate Functions",
+            "Filtering Grouped Data: The HAVING Clause vs The WHERE Clause",
+            "Execution Order in SQL: FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY",
+            "Multi-Table Querying: The Cartesian Product (Cross Join) - Degree and Cardinality Rules",
+            "Table Aliases for Concise Multi-Table Syntax",
+            "The Equi-Join: Linking Tables via Common Attributes (WHERE table1.id = table2.id)",
+            "Combining Table Joins with Filtering, Grouping, and Sorting in CBSE Board Problems",
+            "Downloadable Documents",
+            "Practice your Skill here",
+            "Sample Question Paper (10 Sets · 20 Marks Each)"
+          ],
+          "learningOutcomes": [
+            "Apply aggregate functions (COUNT, SUM, AVG, MIN, MAX) and explain their NULL-handling behavior",
+            "Construct robust GROUP BY queries and filter groups using the HAVING clause",
+            "Differentiate between row filtering (WHERE) and group filtering (HAVING)",
+            "Join two relational tables using Equi-Joins and calculate Cartesian product dimensions"
+          ],
+          "prerequisites": [
+            "006_002_sql-data-manipulation-filtering-and-sorting"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 14,
+          "summary": "Master aggregate functions, the GROUP BY and HAVING clauses, execution order, Cartesian products, and two-table Equi-Join queries.",
+          "miniProjects": [
+            "Department Salary Analyzer: Generate department-wise total, average, and headcount reports using GROUP BY",
+            "Two-Table Sales Reporting Engine: Join Customer and Orders tables to produce monthly client sales statements"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 10,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "SQL Grouping & Joins Board Problem Test",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Aggregate Functions & NULL Behavior (COUNT(*) vs COUNT(col))",
+            "Grouping Rows with GROUP BY",
+            "HAVING vs WHERE: Filtering Groups vs Filtering Rows",
+            "The Cartesian Product: (D1+D2, C1*C2)",
+            "Equi-Joins & Real-World Multi-Table Reports"
+          ],
+          "previousModule": "006_002_sql-data-manipulation-filtering-and-sorting",
+          "nextModule": "006_004_python-mysql-database-connectivity",
+          "badge": "SQL Aggregation & Joins Master Badge"
+        },
+        {
+          "moduleId": "cs-083-python-mysql-connectivity",
+          "slug": "006_004_python-mysql-database-connectivity",
+          "title": "Python-MySQL Database Connectivity: mysql.connector, Cursor & Dynamic CRUD",
+          "level": "Advanced",
+          "estimatedHours": 8,
+          "tags": [
+            "python-mysql",
+            "mysql-connector",
+            "connect-method",
+            "cursor-object",
+            "cursor-execute",
+            "fetchall-fetchone",
+            "commit-method",
+            "parameterized-queries"
+          ],
+          "topics": [
+            "Need for Database Connectivity: Integrating Python Front-End with MySQL Back-End",
+            "The 'mysql.connector' Module: Installation and Environment Setup",
+            "Establishing Database Connection: mysql.connector.connect(host, user, password, database)",
+            "Testing Connection Status using connection.is_connected()",
+            "The Cursor Object: Purpose, Creation using connection.cursor(), and Execution Lifecycle",
+            "Executing SQL Queries: cursor.execute(query_string)",
+            "Retrieving Query Results: fetchone(), fetchmany(size), fetchall(), and cursor.rowcount",
+            "Iterating Over Cursor Result Sets in Python Loops",
+            "Data Modification Operations (INSERT, UPDATE, DELETE): Role of connection.commit() and rollback()",
+            "Parameterized Queries: Using '%s' Placeholders to Prevent SQL Injection Attacks",
+            "Exception Handling in Database Operations: Handling mysql.connector.Error with try-except",
+            "Building a Complete Python-MySQL CRUD Application (Student / Banking Management)",
+            "Downloadable Documents",
+            "Practice your Skill here",
+            "Sample Question Paper (10 Sets · 20 Marks Each)"
+          ],
+          "learningOutcomes": [
+            "Establish a live connection between Python and a MySQL database using mysql.connector",
+            "Execute SQL queries dynamically from Python scripts using cursor objects",
+            "Retrieve query records using fetchone(), fetchmany(), and fetchall() methods",
+            "Commit data mutations (INSERT, UPDATE, DELETE) securely using parameterized statements"
+          ],
+          "prerequisites": [
+            "006_002_sql-data-manipulation-filtering-and-sorting"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 15,
+          "summary": "Master Python-MySQL database connectivity using mysql.connector, cursor execution, record fetching, commit transactions, and parameterized CRUD operations.",
+          "miniProjects": [
+            "Student Examination Record Portal: Python-MySQL app to register students, update scores, and print mark sheets",
+            "Library Book Circulation Tracker: Issue and return books with real-time MySQL table updates"
+          ],
+          "exercises": {
+            "mcq": 30,
+            "shortAnswer": 15,
+            "coding": 8,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "Python-MySQL Connectivity Practical Exam",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Connectivity Architecture: Python Driver to MySQL Server",
+            "Establishing Connection & Creating Cursor",
+            "Querying Records: fetchone() vs fetchall()",
+            "Data Mutation Protocol: execute() & commit()",
+            "Security: Parameterized Statements & Error Handling"
+          ],
+          "previousModule": "006_003_sql-aggregate-functions-group-by-having-and-joins",
+          "nextModule": "007_001_cbse-class-12-cs-083-sample-question-papers",
+          "badge": "Full-Stack Python-MySQL Developer Badge"
+        }
+      ]
+    },
+    {
+      "segmentId": "segment-7-cbse-class-12-cs-083-examination-mastery",
+      "title": "Segment 7 – Examination Mastery: Solved Sample Papers, Suggested Mock Sets & Practical Lab Bank",
+      "level": "Advanced / Board Mastery",
+      "summary": "Dedicated examination mastery hub featuring solved CBSE board question papers, suggested mock examination papers aligned with the official 70-mark blueprint, and a comprehensive 20+ program practical laboratory repository with viva voce guidance.",
+      "modules": [
+        {
+          "moduleId": "cs-083-sample-question-papers",
+          "slug": "007_001_cbse-class-12-cs-083-sample-question-papers",
+          "title": "CBSE Class XII Computer Science (083) Solved Sample Papers & Suggested Mock Sets",
+          "level": "Board Exam Special",
+          "estimatedHours": 12,
+          "tags": [
+            "cbse-class-12",
+            "sample-papers",
+            "mock-tests",
+            "solved-papers",
+            "blueprint",
+            "section-a-to-e",
+            "board-prep"
+          ],
+          "topics": [
+            "Official CBSE Class XII CS 083 Examination Pattern & Section-wise Marks Distribution",
+            "CBSE Class XII Computer Science (083) Official Sample Question Paper 2026 (Solved)",
+            "Coder & AccoTax Suggested Mock Paper 1: Full-Length 70-Mark Simulation",
+            "Coder & AccoTax Suggested Mock Paper 2: Full-Length 70-Mark Simulation",
+            "Coder & AccoTax Suggested Mock Paper 3: Full-Length 70-Mark Simulation",
+            "Army Public School Barrackpore Pre-Board Examination Paper (Solved)",
+            "Kendriya Vidyalaya Sangathan (KVS) Pre-Board Model Paper (Solved)",
+            "Section A Mastery: 18 Objective MCQs & Assertion-Reasoning Drill",
+            "Section B Mastery: 7 Very Short Answer (2 Marks) Output & Syntax Errors Drill",
+            "Section C Mastery: 5 Short Answer (3 Marks) Text File & Stack Programming Drill",
+            "Section D Mastery: 2 Long Answer (5 Marks) Binary File & SQL Query Drill",
+            "Section E Mastery: 3 Case-Based (4 Marks) Network Layout & Database Drill",
+            "CBSE Board Marking Scheme Analysis & Step-Marking Strategies",
+            "Downloadable Documents",
+            "Practice your Skill here",
+            "Sample Question Paper (10 Sets · 20 Marks Each)"
+          ],
+          "learningOutcomes": [
+            "Navigate the 35-question 5-section CBSE Class XII Computer Science examination paper with optimal time management",
+            "Score full marks in Section A MCQs and Assertion-Reasoning questions through rapid dry-run analysis",
+            "Draft complete, error-free solutions for 5-mark Binary File and SQL queries adhering to step-marking criteria",
+            "Achieve 95+ in the final CBSE Class XII Computer Science Board Examination"
+          ],
+          "prerequisites": [
+            "Completion of Segments 1 through 6"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 16,
+          "summary": "Exhaustive collection of solved official CBSE sample papers, pre-board papers, and curated 70-mark mock tests with step-by-step marking rubrics.",
+          "miniProjects": [
+            "Timed Exam Simulator: Practice completing the full 35-question 70-mark paper within 180 minutes",
+            "Step-Marking Evaluator: Score peer answer sheets against the official CBSE marking scheme"
+          ],
+          "exercises": {
+            "mcq": 50,
+            "shortAnswer": 25,
+            "coding": 10,
+            "caseStudy": 5
+          },
+          "assessment": {
+            "type": "Full-Length CBSE Class XII CS (083) Mock Examination",
+            "passScore": 75
+          },
+          "teachingFlow": [
+            "Deconstructing the Official 35-Question CBSE Blueprint",
+            "Section A (18M) Strategy: MCQs & Assertion-Reasoning",
+            "Section B (14M) & C (15M) Strategy: Functions, Files, and Stacks",
+            "Section D (10M) Strategy: Binary File CRUD & SQL Queries",
+            "Section E (12M) Strategy: Network Layout & Case Studies"
+          ],
+          "previousModule": "006_004_python-mysql-database-connectivity",
+          "nextModule": "007_002_cbse-class-12-cs-083-lab-practical-question-bank",
+          "badge": "CBSE Board Examination Topper Badge"
+        },
+        {
+          "moduleId": "cs-083-lab-practical-question-bank",
+          "slug": "007_002_cbse-class-12-cs-083-lab-practical-question-bank",
+          "title": "Class XII CS (083) 30-Mark Practical Examination Lab Bank: 20+ Program Practical Repository",
+          "level": "Practical Exam Special",
+          "estimatedHours": 12,
+          "tags": [
+            "practical-exam",
+            "lab-bank",
+            "cbse-suggested-programs",
+            "report-file",
+            "viva-voce",
+            "project-work",
+            "python-sql-lab"
+          ],
+          "topics": [
+            "CBSE Class XII CS 083 Practical Examination Structure (30 Marks: Lab Test 12M, Report File 7M, Project 8M, Viva 3M)",
+            "Practical 1: Text File Character, Word & Line Counter with Vowel Frequency",
+            "Practical 2: Text File Line Filter Copying Lines Starting with Specified Letter",
+            "Practical 3: Text File Word Search, Count, and Case Replacement",
+            "Practical 4: Binary File Record Writer (RollNo, Name, Marks) using pickle.dump()",
+            "Practical 5: Binary File Record Search by Key with EOFError Exception Handling",
+            "Practical 6: Binary File Record Modifier Updating Marks in student.dat",
+            "Practical 7: Binary File Record Deletion using Temporary File Strategy",
+            "Practical 8: CSV File Writer Creating Employee Dataset with Custom Delimiter",
+            "Practical 9: CSV File Filter & Numeric Aggregator using csv.reader",
+            "Practical 10: Linear Stack Implementation for Numbers with Push, Pop, Peek, and Display",
+            "Practical 11: Linear Stack Implementation for Book Records [BookNo, Title, Price]",
+            "Practical 12: Python-MySQL Database and Table Initialization Script",
+            "Practical 13: Python-MySQL Parameterized Record Insertion with commit()",
+            "Practical 14: Python-MySQL Query Execution with fetchall() and Formatted Display",
+            "Practical 15: Python-MySQL Record Update and Deletion with Error Handling",
+            "Practical 16: SQL Set 1: DDL Table Creation with PRIMARY KEY and FOREIGN KEY",
+            "Practical 17: SQL Set 2: DML Queries with WHERE, LIKE, BETWEEN, and ORDER BY",
+            "Practical 18: SQL Set 3: Aggregate Functions, GROUP BY, and HAVING Filter Queries",
+            "Practical 19: SQL Set 4: Two-Table Equi-Join and Combined Report Queries",
+            "Practical 20: Capstone Project: End-to-End Python Front-End with MySQL Back-End",
+            "Practical Examination Viva Voce: Top 50 Frequently Asked Examiner Questions & Model Answers",
+            "Downloadable Documents",
+            "Practice your Skill here",
+            "Sample Question Paper (10 Sets · 20 Marks Each)"
+          ],
+          "learningOutcomes": [
+            "Fulfill the statutory CBSE practical report file requirement with 20+ verified programs",
+            "Write and execute Python programs on text, binary, CSV, and stack data structures within the allotted 60-minute lab test",
+            "Execute SQL queries and Python-MySQL connectivity scripts with flawless database transactions",
+            "Answer external examiner viva voce questions with confidence, securing the full 30/30 practical marks"
+          ],
+          "prerequisites": [
+            "007_001_cbse-class-12-cs-083-sample-question-papers"
+          ],
+          "difficulty": "Hard",
+          "difficultyIndex": 17,
+          "summary": "Comprehensive 20+ program practical laboratory repository satisfying CBSE practical syllabus guidelines, lab test evaluation rubrics, and viva voce mastery.",
+          "miniProjects": [
+            "Practical Examination Portfolio: Assemble the complete 20-program report file ready for external examiner verification",
+            "Mock Practical & Viva Voce Simulation: Conduct a simulated 30-mark lab test under timed examination conditions"
+          ],
+          "exercises": {
+            "mcq": 20,
+            "shortAnswer": 20,
+            "coding": 22,
+            "caseStudy": 2
+          },
+          "assessment": {
+            "type": "30-Mark CBSE Class XII Computer Science Practical Mock Examination",
+            "passScore": 80
+          },
+          "teachingFlow": [
+            "30-Mark Practical Examination Blueprint & Evaluation Rubric",
+            "Programs 1-3: Text File Processing Suite",
+            "Programs 4-7: Binary File CRUD & Pickle Suite",
+            "Programs 8-9: CSV Tabular Processing Suite",
+            "Programs 10-11: Stack Data Structure (LIFO) Suite",
+            "Programs 12-15: Python-MySQL Connectivity Suite",
+            "Programs 16-19: SQL Mastery Query Sets",
+            "Program 20 & Capstone Project Guidelines",
+            "Viva Voce Master Prep: 50 High-Yield Questions"
+          ],
+          "previousModule": "007_001_cbse-class-12-cs-083-sample-question-papers",
+          "nextModule": null,
+          "badge": "CBSE Practical Examination Master (30/30) Badge"
+        }
+      ]
+    }
+  ]
+}

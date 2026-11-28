@@ -1,0 +1,42 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 3: NETWORK PROTOCOLS, WEB SERVICES & CYBER SECURITY
+TOPIC 3: FILE TRANSFER PROTOCOL (FTP) - UPLOAD, DOWNLOAD & ARCHITECTURE
+
+================================================================================
+1. CORE ARCHITECTURE: DUAL CONNECTION MODEL
+================================================================================
+FTP uses two distinct TCP connections simultaneously (Out-of-Band Control):
+1. CONTROL CONNECTION (TCP Port 21):
+   - Establishes user authentication (USER, PASS).
+   - Sends commands (LIST, CWD, PWD, RETR, STOR, QUIT).
+   - Receives server status codes (220, 230, 331, 550).
+   - Remains OPEN throughout the entire session.
+
+2. DATA CONNECTION (TCP Port 20 in Active Mode / Ephemeral Port in Passive Mode):
+   - Created on-demand whenever a file or directory listing is transferred.
+   - Closed immediately after transfer completion.
+   - Active Mode: Server initiates data connection to client port (PORT command).
+   - Passive Mode: Client initiates data connection to server port (PASV command).
+     Recommended when clients are behind Firewalls / NAT.
+
+================================================================================
+2. TRANSFER MODES
+================================================================================
+- ASCII Mode: Used for text files (.txt, .html, .py). Converts newline characters
+  between operating systems (Windows CRLF vs Linux LF).
+- Binary Mode (IMAGE): Used for executables (.exe), images (.jpg, .png), archives
+  (.zip), and databases. Preserves exact bit-for-bit integrity.
+
+================================================================================
+3. COMMAND REFERENCE FOR CBSE EXAMINATIONS
+================================================================================
+Command        Function
+--------------------------------------------------------------------------------
+USER / PASS    Authenticate client username and password
+PWD            Print remote working directory
+CWD / CD       Change remote working directory
+LIST / DIR     List files in remote directory
+GET / RETR     Download file from remote server to local machine
+PUT / STOR     Upload file from local machine to remote server
+BYE / QUIT     Terminate control connection and close FTP session

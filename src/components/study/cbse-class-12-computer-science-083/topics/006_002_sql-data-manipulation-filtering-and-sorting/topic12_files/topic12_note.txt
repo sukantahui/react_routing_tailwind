@@ -1,0 +1,43 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 12: HANDLING MISSING DATA: IS NULL AND IS NOT NULL (NULL COMPARISONS)
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+In SQL, NULL represents missing, unknown, or inapplicable data. NULL cannot be evaluated with standard equality operators (= or !=).
+
+2. KEY EXAMINATION POINTS:
+  (1) NULL is NOT equal to zero (0), nor is it an empty string (''). It is an indicator of missing data.
+  (2) Equality comparison '= NULL' or '!= NULL' evaluates to UNKNOWN (neither TRUE nor FALSE) and returns zero rows!
+  (3) Always use 'IS NULL' to find records with missing values and 'IS NOT NULL' for present values.
+  (4) Arithmetic expressions with NULL: Any number + NULL = NULL (propagation of NULL).
+
+3. SYNTAX & CODE SNIPPET:
+-- CORRECT: Find students whose project marks have not been submitted
+SELECT RollNo, SName, ProjectMarks 
+FROM Student 
+WHERE ProjectMarks IS NULL;
+
+-- CORRECT: Find employees who receive a sales commission
+SELECT EName, Salary, Commission 
+FROM Employee 
+WHERE Commission IS NOT NULL;
+
+-- CRITICAL ERROR IN CBSE EXAM:
+-- SELECT * FROM Student WHERE ProjectMarks = NULL; 
+-- ALWAYS returns EMPTY set! Never use '= NULL'.
+
+4. CBSE COMMON PITFALLS:
+Remember to test conditions carefully and use parentheses to disambiguate AND/OR connectives.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between DML and DDL commands.
+  [ ] Master WHERE condition construction using relational and logical operators.
+  [ ] Be confident in NULL handling using IS NULL and IS NOT NULL.
+  [ ] Remember default ordering for ORDER BY is ASC.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 12 · CODER & ACCOTAX BARRACKPORE
+================================================================================

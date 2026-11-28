@@ -1,0 +1,28 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: PERSISTENT DATA STORAGE - CSV FILE HANDLING
+TOPIC 9: DOWNLOADABLE DOCUMENTS & MASTER REVISION COMPENDIUM
+
+1. COMPLETE TOPIC REVISION SUMMARY:
+- CSV Definition: Comma Separated Values, plain text, tabular data format, RFC 4180 standard.
+- Python Module: import csv (Standard library, zero pip installs).
+- Opening Files: Always use newline='' when writing or appending (prevents Windows \r\r\n blank lines).
+- Writing Records:
+  * csv.writer(file_handle, delimiter=',')
+  * writerow(1D_sequence) -> single row
+  * writerows(2D_sequences) -> multiple rows
+- Custom Delimiters: delimiter='\t' (TSV), delimiter='|' (PSV), delimiter=';' (European).
+- Reading Records:
+  * csv.reader(file_handle, delimiter=',')
+  * Returns iterable yielding rows as list of strings.
+  * next(reader) advances past header row.
+- Search & Filtering:
+  * Cast numeric strings with float() or int() before comparisons.
+  * Use found boolean flag for search feedback.
+- Mathematical Aggregations:
+  * Sum, Average, Min, Max in a single O(N) traversal.
+  * Guard against ZeroDivisionError on empty files.
+- Full CRUD Architecture:
+  * Menu-driven interactive program with while True loop.
+
+2. MASTER LAB SCRIPT:
+- Complete standalone Python lab: csv_file_handling_complete_master_lab.py

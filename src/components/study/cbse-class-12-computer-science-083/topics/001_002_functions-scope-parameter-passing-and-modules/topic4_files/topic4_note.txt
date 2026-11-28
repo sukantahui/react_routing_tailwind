@@ -1,0 +1,27 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 4: DEFAULT PARAMETERS (PLACEMENT RULES & MUTABLE DEFAULT TRAP)
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. DEFINITION OF DEFAULT PARAMETER:
+   A formal parameter in a function header that is assigned a default fallback value:
+   'def greet(name, msg="Good Morning"):'
+   If the caller omits the argument during invocation, Python uses the default value.
+
+2. STATUTORY PLACEMENT RULE (CRITICAL FOR BOARD EXAMS):
+   - All default parameters MUST be placed to the RIGHT of any non-default parameters.
+   - NON-DEFAULT ARGUMENTS CANNOT FOLLOW DEFAULT ARGUMENTS.
+   - Legal headers:
+     * def f(a, b=10):            -> VALID
+     * def f(a, b, c=10, d=20):   -> VALID
+     * def f(a=1, b=2, c=3):      -> VALID (all have defaults)
+   - Illegal headers:
+     * def f(a=10, b):            -> SyntaxError: non-default argument follows default argument
+     * def f(a, b=10, c):         -> SyntaxError: non-default argument follows default argument
+
+3. MUTABLE DEFAULT ARGUMENT GOTCHA:
+   - Default parameter values are evaluated ONCE when the function definition is executed, NOT at call time!
+   - If a default value is mutable (like a list [] or dict {}), it is shared across all subsequent invocations.
+   - Standard Fix: Use 'None' as default and initialize inside the body ('if cart is None: cart = []').
+===============================================================================

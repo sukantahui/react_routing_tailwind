@@ -1,0 +1,27 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: MODULE 1 (004_001) - MASTER REVISION COMPENDIUM & LABORATORY PACKAGE
+
+1. SUMMARY OF MODULE 1 CURRICULUM:
+   - Evolution of Networking: ARPANET (1969, US DoD), NSFNET (mid-1980s, academic research), Interspace, and the modern Internet.
+   - Data Communication Components: Sender, Receiver, Message, Medium, Protocol (the rule set governing exchange).
+   - Measuring Capacity: Bandwidth (Hertz vs bps), Transfer Rates (bps, Kbps, Mbps, Gbps, Tbps).
+     * Calculation rule: 1 Byte = 8 bits. Divide file size in bits by transfer rate in bps to get transfer time.
+   - Transmission Modes:
+     * Simplex: Unidirectional flow only (Keyboard to CPU, TV broadcast).
+     * Half-Duplex: Both directions, but only one at a time (Walkie-talkie).
+     * Full-Duplex: Both directions simultaneously (Telephone, modern Ethernet switch).
+   - Guided Transmission Media:
+     * Twisted Pair Cable: UTP (cheap, flexible, standard LANs) vs STP (shielded against extreme EMI, industrial). Segment limit: 100 meters. Connector: RJ-45.
+     * Coaxial Cable: 4 concentric layers (core, dielectric, shield, jacket). Baseband (50 Ohm, 10BASE2/10BASE5) vs Broadband (75 Ohm, CATV). Terminator: 50 Ohm BNC.
+     * Optical Fiber: Total Internal Reflection (n_core > n_cladding, theta_i > theta_c). Single-mode (laser, long distance) vs Multi-mode (LED, campus LANs). 100% EMI immune.
+   - Unguided Transmission Media:
+     * Radio Waves: 3 kHz to 1 GHz, omnidirectional, penetrates walls, AM/FM/Cellular/Wi-Fi.
+     * Microwaves: 1 GHz to 300 GHz, unidirectional focused beam, line of sight, repeater towers every 40-50 km due to Earth curvature.
+     * Infrared: 300 GHz to 400 THz, short range (< 10m), stopped by solid walls (high security), TV remotes, IrDA.
+     * Satellite Communication: GEO at 35,786 km, 24-hr orbit, Uplink (higher freq) != Downlink (lower freq) to prevent feedback, transponder, latency ~250-500ms, VSAT.
+   - Case Study Decision Guidelines:
+     * <= 100m within building -> Cat-6 UTP Cable.
+     * 100m - 5km inter-building -> Optical Fiber Cable.
+     * Hilly terrain / river / busy highway -> Terrestrial Microwave.
+     * Remote island / offshore / rural desert -> Satellite (VSAT).

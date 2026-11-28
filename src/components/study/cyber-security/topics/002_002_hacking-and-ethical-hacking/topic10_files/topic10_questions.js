@@ -239,6 +239,46 @@ CRIMINAL VIOLATION:      Dumping 500,000 live production customer records to loc
     level: "expert",
     codeExample: `// The Crowdsourced Defense Formula:
 Global_Ethical_Talent + Legal_Safe_Harbors + Economic_Incentives_INR = CONTINUOUS IMMUNIZATION OF DIGITAL SOCIETY;`
+  },
+  {
+    question: "What is the difference between a Vulnerability Disclosure Program (VDP) and a Bug Bounty Program?",
+    shortAnswer: "A VDP provides a secure, legal channel to report vulnerabilities without financial reward; a Bug Bounty Program actively offers monetary compensation (bounties) for valid bugs.",
+    explanation: "All mature organizations should have a VDP (like a digital security.txt); bug bounties incentivize skilled global security researchers with cash rewards based on severity.",
+    hint: "VDP provides legal intake channel; bug bounty awards cash payouts.",
+    level: "moderate",
+    codeExample: "// Standard security.txt placed in /.well-known/security.txt:\nContact: security@company.com\nPolicy: https://company.com/vdp"
+  },
+  {
+    question: "How does the Common Vulnerability Scoring System (CVSS) determine bug bounty payouts?",
+    shortAnswer: "CVSS calculates a standardized 0.0 to 10.0 score based on attack vector, complexity, privileges required, and impact on CIA; higher scores command larger financial rewards.",
+    explanation: "Bounties typically follow tiers: Low (0.1-3.9), Medium (4.0-6.9), High (7.0-8.9), and Critical (9.0-10.0, e.g. remote code execution paying $10,000+).",
+    hint: "Standardized 0-10 metric rating exploitability and CIA impact to tier cash payouts.",
+    level: "moderate",
+    codeExample: "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H # Critical 10.0 Base Score"
+  },
+  {
+    question: "What is a 'Duplicate Submission' in bug bounty platforms (HackerOne, Bugcrowd)?",
+    shortAnswer: "A report describing a vulnerability that another security researcher has already submitted earlier; only the first reporter receives the bounty and reputation credit.",
+    explanation: "Platform triagers compare timestamps; duplicate submissions are marked as closed without payout, emphasizing speed and thoroughness in bounty hunting.",
+    hint: "Another researcher reported the same flaw first; only the first gets paid.",
+    level: "basic",
+    codeExample: "Status: Closed - Duplicate of Report #1849204"
+  },
+  {
+    question: "What is the purpose of the RFC 9116 `security.txt` file on web servers?",
+    shortAnswer: "It provides a machine-readable, standardized location (`/.well-known/security.txt`) containing security contact information, encryption keys, and vulnerability policies for researchers.",
+    explanation: "Standardized by the IETF, `security.txt` helps ethical researchers quickly find how to report security bugs without resorting to guessing corporate email addresses.",
+    hint: "Well-known text file containing security team contact details and PGP key.",
+    level: "moderate",
+    codeExample: "curl https://example.com/.well-known/security.txt"
+  },
+  {
+    question: "Why do companies enforce strict 'Out of Scope' rules in their bug bounty briefs?",
+    shortAnswer: "To protect mission-critical operations from disruptive tests, such as physical office intrusions, employee social engineering/phishing, and volumetric DDoS attacks.",
+    explanation: "Testing out-of-scope targets (e.g. third-party payment gateways like Stripe or employee personal phones) results in immediate disqualification and potential legal liability.",
+    hint: "Excluding DDoS, social engineering, and third-party vendors from testing.",
+    level: "moderate",
+    codeExample: "OutOfScope: ['Denial of Service (DoS)', 'Spam / Social Engineering', 'Physical Testing']"
   }
 ];
 

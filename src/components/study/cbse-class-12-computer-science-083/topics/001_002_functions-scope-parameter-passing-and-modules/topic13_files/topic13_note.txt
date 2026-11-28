@@ -1,0 +1,27 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - MASTER SAMPLE QUESTION PAPERS
+MODULE 2: FUNCTIONS, SCOPE, PARAMETER PASSING & MODULES (10 SETS · 20 MARKS EACH)
+
+=============================================================================
+EXAMINATION BLUEPRINT (20 MARKS PER SET · 45 MINUTES):
+=============================================================================
+* Section A: 4 Objective / Conceptual Questions (1 Mark each = 4 Marks)
+* Section B: 2 Short Answer / Code Tracing Questions (2 Marks each = 4 Marks)
+* Section C: 2 Analytical Problem Solving Questions (3 Marks each = 6 Marks)
+* Section D: 1 Comprehensive Programming Problem (6 Marks = 6 Marks)
+* TOTAL: 20 MARKS
+
+=============================================================================
+COVERED TOPICS (Strictly based on Module 2 previous topics):
+=============================================================================
+1. Function Basics: def keyword, formal vs actual parameters, void vs fruitful functions.
+2. Parameter Types: Positional arguments, Default arguments, Keyword arguments, *args.
+3. Variable Scope: Local vs Global scope, LEGB resolution hierarchy, 'global' and 'nonlocal' keywords.
+4. Pass by Object Reference: Mutable in-place mutation vs Immutable local rebinding.
+5. Standard Library Modules: math (floor, ceil, gcd, pow, sqrt), random (randint, random, choice, sample),
+   statistics (mean, median, mode).
+6. Custom Modules: Creating .py module files, import syntax, aliasing ('as'), and 'if __name__ == "__main__":'.
+7. Function Debugging & Tracing: Identifying syntax errors, dry-run variable execution tables.
+
+TEACHER'S ADVICE (Sukanta Hui):
+In periodic assessments and unit tests, functions carry the highest weightage in Unit I.
+Master the difference between print() and return! A fruitful function must always use return.

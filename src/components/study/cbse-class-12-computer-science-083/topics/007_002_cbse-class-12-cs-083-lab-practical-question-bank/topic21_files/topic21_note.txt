@@ -1,0 +1,39 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 21: PRACTICAL EXAMINATION VIVA VOCE: TOP 50 FREQUENTLY ASKED EXAMINER QUESTIONS & ANSWERS
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Comprehensive bank of the 50 most frequently asked oral viva questions by CBSE external examiners covering Python fundamentals, file handling, stacks, and MySQL.
+
+2. KEY EXAMINATION POINTS:
+  (1) Python Viva: Difference between mutable and immutable types, LEGB scope, parameter passing, modules.
+  (2) File Handling Viva: Text vs binary, role of pickle.dump/load, seek() vs tell(), newline parameter in CSV.
+  (3) Stack Viva: LIFO principle, Underflow vs Overflow, why list.append() and list.pop() are O(1).
+  (4) MySQL Viva: DDL vs DML, Primary vs Candidate key, role of con.commit(), WHERE vs HAVING.
+
+3. PRACTICAL CODE SNIPPET:
+# Sample Viva Voce Quick-Answer Cards:
+# Q: Why do we open CSV files with newline='' in Python 3?
+# A: To prevent the csv.writer from generating redundant blank carriage-return lines on Windows platforms.
+#
+# Q: What happens if con.commit() is omitted after an INSERT query in Python?
+# A: The changes remain in the uncommitted transaction buffer and are discarded when the script ends.
+#
+# Q: Differentiate between seek() and tell() in file handling.
+# A: tell() reports the current byte position; seek() repositions the file pointer to a specified byte offset.
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 21 · CODER & ACCOTAX BARRACKPORE
+================================================================================

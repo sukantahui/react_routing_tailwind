@@ -1,0 +1,39 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: TOPIC 7 - UNGUIDED MEDIA: RADIO WAVES (OMNIDIRECTIONAL, LONG DISTANCE)
+
+1. NATURE OF UNGUIDED (WIRELESS) TRANSMISSION:
+   - In unguided media, electromagnetic waves propagate through air, water, or vacuum without any physical solid conductor.
+   - Frequency Spectrum of Radio Waves: 3 kHz to 1 GHz (CBSE definition).
+   - Omnidirectional Propagation:
+     * Radio waves radiate in all directions from the transmitting antenna.
+     * Sending and receiving antennas do NOT require sharp line-of-sight physical alignment.
+     * A single transmitter can broadcast signals to thousands of receivers simultaneously (e.g. AM/FM radio).
+
+2. KEY CHARACTERISTICS OF RADIO WAVES:
+   - High Penetration: Can easily pass through solid walls, buildings, and obstacles at lower frequencies.
+   - Long-Distance Reach: Capable of traveling across cities, continents, and oceans via ground-wave and sky-wave ionospheric reflection.
+   - Omnidirectional Reception: Receivers can move freely without losing signal connection (mobile devices, cellular handsets).
+   - Inexpensive Setup: Eliminates the massive civil engineering costs of digging trenches and laying physical cables.
+
+3. RADIO WAVE PROPAGATION MODES:
+   1. Ground Wave Propagation (< 2 MHz): Waves follow the curvature of the earth. Used for VLF/LF maritime and AM broadcast.
+   2. Sky Wave Propagation (2 MHz to 30 MHz): Waves bounce back and forth between the earth's surface and the charged Ionosphere. Enables international shortwave radio.
+   3. Space Wave (Line of Sight) Propagation (> 30 MHz): Waves travel directly in straight lines. Used for VHF/UHF, FM radio, television, and cellular networks.
+
+4. REAL-WORLD APPLICATIONS (CBSE CURRICULUM):
+   - AM and FM Radio Broadcasting.
+   - Cellular Mobile Communications (2G, 3G, 4G, 5G RF carriers).
+   - Cordless Telephones and Walkie-Talkies.
+   - Wi-Fi (2.4 GHz and 5 GHz RF bands) and Bluetooth (2.4 GHz ISM band).
+
+5. ADVANTAGES & LIMITATIONS:
+   - Advantages:
+     * Omnidirectional coverage (no antenna pointing needed).
+     * Excellent wall and obstacle penetration.
+     * Supports user mobility and vast geographic broadcast.
+   - Limitations:
+     * Prone to interference from other transmitters sharing similar frequencies.
+     * Susceptible to atmospheric weather conditions (rain, thunderstorms).
+     * Government Regulation: Radio spectrum is strictly licensed by regulatory bodies (e.g. WPC/DoT in India, FCC in USA).
+     * Lower data transmission rates compared to optical fiber.

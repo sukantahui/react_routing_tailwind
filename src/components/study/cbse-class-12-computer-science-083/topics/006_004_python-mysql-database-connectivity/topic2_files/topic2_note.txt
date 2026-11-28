@@ -1,0 +1,42 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 2: ESTABLISHING DATABASE CONNECTION: MYSQL.CONNECTOR.CONNECT() PARAMETERS
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+The connect() factory method initiates a TCP/IP network connection to the MySQL server and returns an active Connection object.
+
+2. KEY EXAMINATION POINTS:
+  (1) Syntax: 'con = mysql.connector.connect(host="localhost", user="root", password="your_pass", database="school")'
+  (2) Essential Connection Parameters: host (server IP or 'localhost'), user (database username), password (credentials), database (target DB name).
+  (3) Default MySQL port is 3306. If MySQL runs on a custom port, pass 'port=3307'.
+  (4) Always close connections when tasks finish using 'con.close()' to prevent connection pool exhaustion.
+
+3. SYNTAX & CODE SNIPPET:
+import mysql.connector
+
+# Establishing connection to local MySQL server
+con = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="tiger",        # Replace with your MySQL password
+    database="SchoolDB"      # Name of the database to connect to
+)
+
+print("Connection object:", con)
+
+4. CBSE COMMON PITFALLS:
+Always remember to commit transactions and close both cursor and connection.
+
+5. REVISION CHECKLIST:
+  [ ] Understand connect() parameters: host, user, password, database.
+  [ ] Know the difference between fetchone(), fetchmany(), and fetchall().
+  [ ] Remember that fetchone() returns None and fetchall() returns [] when exhausted.
+  [ ] Master con.commit() for INSERT/UPDATE/DELETE.
+  [ ] Know that '%s' is the universal placeholder in mysql.connector.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 2 · CODER & ACCOTAX BARRACKPORE
+================================================================================

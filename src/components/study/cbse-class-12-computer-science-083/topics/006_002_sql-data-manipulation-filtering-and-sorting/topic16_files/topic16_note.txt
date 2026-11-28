@@ -1,0 +1,33 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 16: SAMPLE QUESTION PAPER (10 SETS · 20 MARKS EACH)
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+EXAMINATION BLUEPRINT & STRUCTURE (45 MINUTES PER SET · 20 MARKS TOTAL):
+- Section A: 4 Questions × 1 Mark = 4 Marks (Short answer / MCQs / 1-line syntax)
+- Section B: 2 Questions × 2 Marks = 4 Marks (Differentiate / Tracing / Logic errors)
+- Section C: 2 Questions × 3 Marks = 6 Marks (SQL query writing from given table)
+- Section D: 1 Question × 6 Marks = 6 Marks (Comprehensive Case Study, 6 sub-parts)
+
+SCOPE OF SYLLABUS FOR THIS MODULE (TOPICS 0 TO 15 ONLY):
+- DML Concepts & Operations: INSERT INTO, UPDATE ... SET, DELETE FROM
+- SELECT Queries: Projection, Asterisk (*), Column Aliases (AS), Arithmetic Expressions
+- Duplicate Handling: The DISTINCT Keyword
+- Filtering & Operators: WHERE Clause, Relational (=, <>, <, >, <=, >=) & Logical (AND, OR, NOT)
+- Pattern Matching: LIKE with '%' and '_' Wildcards
+- Range & Set Operators: BETWEEN ... AND, NOT BETWEEN, IN, NOT IN
+- Missing Value Handling: IS NULL and IS NOT NULL (Pitfalls of '= NULL')
+- Result Sorting: ORDER BY Column [ASC | DESC], Multi-Column Sorting
+
+MASTER TEACHER SUKANTA HUI'S GOLDEN RULES FOR 100% MARKS IN SQL:
+1. Always enclose string literals and date values ('YYYY-MM-DD') in single or double quotes.
+2. Remember that NULL cannot be checked with '=' or '!='; always use 'IS NULL' or 'IS NOT NULL'.
+3. In BETWEEN low AND high, the lower boundary MUST come first, and BOTH bounds are inclusive.
+4. ORDER BY is always the last clause in a SELECT query. Default sorting direction is ASC.
+5. In UPDATE and DELETE, check the WHERE clause twice to prevent unintentional whole-table modifications!
+
+================================================================================
+END OF REVISION SHEET · 10 SAMPLE SETS · CODER & ACCOTAX BARRACKPORE
+================================================================================

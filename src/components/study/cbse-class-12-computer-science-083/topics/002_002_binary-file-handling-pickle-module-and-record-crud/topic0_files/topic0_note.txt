@@ -1,0 +1,40 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 0: CONCEPT OF BINARY FILES - BYTE-LEVEL STORAGE & ADVANTAGES
+======================================================================
+
+1. WHAT IS A BINARY FILE?
+   - A binary file stores data in the exact same format as it is held in
+     computer RAM (memory bits and bytes).
+   - Contains a sequence of raw bytes (values 0 to 255 / 0x00 to 0xFF).
+   - Does NOT use character encoding tables (ASCII / UTF-8) for conversion.
+   - Does NOT undergo End-of-Line (EOL) character translation.
+   - Standard CBSE Class 12 file extension: .dat (e.g. student.dat).
+
+2. KEY ADVANTAGES OVER TEXT FILES (CBSE 2-MARK FAVORITE)
+   A. Superior Execution Speed:
+      - Bypasses string encoding/decoding and newline translation.
+      - Direct memory-to-disk and disk-to-memory block transfers.
+   B. Exact Data Precision:
+      - Floating-point numbers are preserved bit-for-bit without rounding.
+   C. Native Object Hierarchy:
+      - Can store lists of dictionaries, tuples, and custom classes directly
+        using the 'pickle' module.
+   D. Compact Storage:
+      - Numbers take fixed byte sizes rather than variable-length digit characters.
+
+3. TEXT VS BINARY COMPARISON MATRIX
+   ----------------------------------------------------------------------
+   Criteria           Text File (.txt)       Binary File (.dat)
+   ----------------------------------------------------------------------
+   Content            Human-readable text    Raw memory bytes (0-255)
+   EOL Translation    Yes (\r\n -> \n)     NO translation whatsoever
+   Readability        Notepad, editors       Gibberish / unreadable
+   Python Mode Flags  'r', 'w', 'a'          'rb', 'wb', 'ab'
+   Python Tool        open() / write()       import pickle / dump / load
+   ----------------------------------------------------------------------
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

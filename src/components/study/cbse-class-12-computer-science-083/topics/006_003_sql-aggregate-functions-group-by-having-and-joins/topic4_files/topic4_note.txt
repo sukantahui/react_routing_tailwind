@@ -1,0 +1,40 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 4: GROUPING DATA: THE GROUP BY CLAUSE AND SINGLE VS MULTIPLE ATTRIBUTES
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+The GROUP BY clause partitions table records into summary sub-groups based on identical values in one or more grouping attributes.
+
+2. KEY EXAMINATION POINTS:
+  (1) GROUP BY divides the rows into sets where each row in a set shares the same value for the grouping column(s).
+  (2) Each group produces exactly ONE summary row in the query result set.
+  (3) Single-column grouping: 'GROUP BY Department' produces one row per department.
+  (4) Multi-column grouping: 'GROUP BY Department, Designation' produces one row for every distinct (Department, Designation) pair.
+
+3. SYNTAX & CODE SNIPPET:
+-- Group by single attribute: Total employees and avg salary per Department
+SELECT Dept, COUNT(*) AS HeadCount, AVG(Salary) AS AvgSalary 
+FROM Employee 
+GROUP BY Dept;
+
+-- Group by multiple attributes: Stream and Gender
+SELECT Stream, Gender, COUNT(*) AS TotalStudents, MAX(Marks) AS TopScore 
+FROM Student 
+GROUP BY Stream, Gender;
+
+4. CBSE COMMON PITFALLS:
+Ensure correct placement of WHERE before GROUP BY and HAVING after GROUP BY.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between COUNT(*) and COUNT(col).
+  [ ] Master GROUP BY rules regarding non-aggregated columns.
+  [ ] Remember WHERE cannot contain aggregate functions; use HAVING.
+  [ ] Know Cartesian Product formulas: Cardinality = R1 * R2, Degree = C1 + C2.
+  [ ] Always include (N - 1) join conditions when joining N tables.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 4 · CODER & ACCOTAX BARRACKPORE
+================================================================================

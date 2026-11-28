@@ -1,0 +1,46 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+SEGMENT 3: DATA STRUCTURES (LINEAR LISTS & STACKS)
+TOPIC 10: CBSE BOARD STANDARD STACK QUESTION PATTERNS
+
+1. THE FIVE CLASSIC CBSE BOARD QUESTION ARCHETYPES:
+Archetype 1: Conditional Push from a Dictionary
+  Given a dictionary of employee salaries or student marks:
+  d = {"Aarav": 95, "Pooja": 72, "Tanmay": 88}
+  Task: Push names of students who scored > 75 onto a stack.
+  def Push(d, stk):
+      for name, marks in d.items():
+          if marks > 75:
+              stk.append(name)
+
+Archetype 2: Conditional Push from a List of Numbers
+  numbers = [12, 15, 20, 25, 33, 40]
+  Task: Push all numbers divisible by 5.
+  def PushDiv5(stk, nums):
+      for n in nums:
+          if n % 5 == 0:
+              stk.append(n)
+
+Archetype 3: String Filtering (Vowels / String Length)
+  words = ["Apple", "Sky", "Elephant", "Ink", "Dry"]
+  Task: Push words starting with a vowel.
+  def PushVowel(stk, word_list):
+      vowels = "AEIOUaeiou"
+      for w in word_list:
+          if w[0] in vowels:
+              stk.append(w)
+
+Archetype 4: Pop and Display all Elements until Stack is Empty
+  def PopAll(stk):
+      while len(stk) > 0:
+          print(stk.pop())
+      print("Stack Empty / Underflow")
+
+Archetype 5: Record-Based Push and Count
+  Push records where city == "Delhi" and return total count pushed.
+
+2. BOARD MARKING SCHEME BREAKDOWN (3 to 4 Marks):
+- 1 Mark: Correct loop traversal through source data (list or dictionary).
+- 1 Mark: Accurate conditional check ('if marks > 75:' or 'if n % 5 == 0:').
+- 1 Mark: Correct Push operation ('stk.append(...)').
+- 1 Mark: Pop function with Underflow check and clean return/print.

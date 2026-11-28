@@ -1,0 +1,40 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+SEGMENT 3: DATA STRUCTURES (LINEAR LISTS & STACKS)
+TOPIC 7: DISPLAYING STACK CONTENTS (TOP-TO-BOTTOM TRAVERSAL)
+
+1. WHY TRAVERSE FROM TOP TO BOTTOM?
+- In a Stack, the user's primary point of view is the TOP.
+- Traversal must always display the most recently pushed element first, moving downward toward the bottom.
+- Since TOP is at index len(stk) - 1 and bottom is at index 0, iteration proceeds in reverse index order.
+
+2. STANDARD IMPLEMENTATION METHODS IN PYTHON:
+Method A (Using reversed range - CBSE Standard):
+  def Display(stk):
+      if len(stk) == 0:
+          print("Stack is empty / Underflow")
+          return
+      top = len(stk) - 1
+      print(stk[top], "<-- TOP")
+      for i in range(top - 1, -1, -1):
+          print(stk[i])
+
+Method B (Using reversed() iterator):
+  def Display(stk):
+      if not stk:
+          print("Stack Empty")
+          return
+      for item in reversed(stk):
+          print(item)
+
+Method C (Using slice with negative step stk[::-1]):
+  def Display(stk):
+      if not stk:
+          print("Stack Empty")
+          return
+      for item in stk[::-1]:
+          print(item)
+
+3. IMPORTANT CBSE BOARD RULE:
+- Never pop elements while displaying the stack!
+- Display is a NON-DESTRUCTIVE inspection traversal; the stack must retain all its elements after Display() executes.

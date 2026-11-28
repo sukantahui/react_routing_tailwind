@@ -1,0 +1,17 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - QUICK REVISION NOTE
+TOPIC 13: DIAGNOSTIC EXAMINATION ON DATABASE CONCEPTS & RELATIONAL KEYS
+
+SUMMARY OF ALL 12 CORE CONCEPTS TESTED:
+1. Limitations of File Systems: Data Redundancy, Data Inconsistency, Data Isolation.
+2. Advantages of DBMS: Controlled redundancy, sharing, integrity, security, recovery.
+3. ACID Properties: Atomicity (All or Nothing), Consistency, Isolation, Durability.
+4. ANSI-SPARC Architecture: External (Views), Conceptual (Logical), Internal (Physical).
+5. Relational Vocabulary: Table = Relation, Row = Tuple, Column = Attribute, Data Type = Domain.
+6. Domain & 1NF: Pool of permissible values; all values must be strictly atomic (indivisible).
+7. Degree: Number of attributes (columns). Changes only with ALTER TABLE ADD/DROP.
+8. Cardinality: Number of tuples (rows). Changes with INSERT, DELETE, TRUNCATE.
+9. Cartesian Product: Degree(A x B) = D1 + D2; Cardinality(A x B) = C1 * C2.
+10. Super Key vs Candidate Key: Candidate Key is a MINIMAL Super Key (no redundant columns).
+11. Primary Key: The single chosen candidate key; strictly UNIQUE and NOT NULL (Entity Integrity).
+12. Alternate Key: Candidate Keys - Primary Key.
+13. Foreign Key: Child table attribute referencing parent table Primary Key (Referential Integrity).

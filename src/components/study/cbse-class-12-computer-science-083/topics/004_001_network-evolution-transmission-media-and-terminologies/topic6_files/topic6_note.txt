@@ -1,0 +1,45 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: TOPIC 6 - GUIDED MEDIA: OPTICAL FIBER CABLE (CORE, CLADDING, BUFFER, TIR)
+
+1. FUNDAMENTAL PRINCIPLE: TOTAL INTERNAL REFLECTION (TIR):
+   - Optical fiber transmits data using light pulses (photons) instead of electrical voltages.
+   - Total Internal Reflection Condition:
+     1. Light must travel from a denser optical medium (higher refractive index n1) to a rarer optical medium (lower refractive index n2).
+     2. Angle of incidence (theta_i) must be greater than the Critical Angle (theta_c):
+        sin(theta_c) = n2 / n1  (where n1 > n2).
+     3. When theta_i > theta_c, 100% of the light ray reflects back into the core without escaping into the cladding.
+
+2. THREE-LAYER ANATOMY OF OPTICAL FIBER:
+   1. Core (Innermost): Ultra-pure cylindrical glass (silica) or plastic. Refractive index n1 (typically ~1.48). Carries light pulses.
+   2. Cladding (Middle): Optically transparent silica glass surrounding the core with a slightly lower refractive index n2 (typically ~1.46). Creates the reflective boundary for TIR.
+   3. Buffer Coating & Jacket (Outermost): Protective acrylic layer and outer Kevlar/Aramid yarn with PVC jacket. Provides mechanical tensile strength and moisture barrier.
+
+3. SINGLE-MODE FIBER (SMF) VS MULTI-MODE FIBER (MMF):
+   +------------------------+------------------------------------+------------------------------------+
+   | Feature                | Single-Mode Fiber (SMF)            | Multi-Mode Fiber (MMF)             |
+   +------------------------+------------------------------------+------------------------------------+
+   | Core Diameter          | Tiny: 8 to 10 micrometers (um)     | Large: 50 to 62.5 micrometers (um) |
+   | Light Source           | Infrared Laser Diode (LD)          | Light Emitting Diode (LED)         |
+   | Light Paths (Modes)    | Single straight light path         | Multiple rays bouncing at angles   |
+   | Modal Dispersion       | Zero modal dispersion              | High modal dispersion limits reach |
+   | Distance Reach         | Up to 40 to 100+ km without repeater| Up to 300 to 2000 meters           |
+   | Transceiver Cost       | Expensive laser transceivers       | Economical LED transceivers        |
+   | Common Application     | Telco backbones, submarine cables  | Campus LAN backbones, data centers |
+   +------------------------+------------------------------------+------------------------------------+
+
+4. OPTICAL CONNECTORS (CBSE SYLLABUS):
+   - SC (Subscriber Connector / Square Connector): Push-pull latching mechanism.
+   - ST (Straight Tip): Spring-loaded bayonet twist lock (resembles BNC).
+   - LC (Lucent Connector / Little Connector): Small form factor modular RJ-style latching.
+
+5. ADVANTAGES & LIMITATIONS OF OPTICAL FIBER:
+   - Major Advantages:
+     * Enormous Bandwidth: Supports Terabits per second (Tbps) data capacity.
+     * Complete Noise Immunity: Being dielectric glass, it is 100% immune to EMI, RFI, lightning, and electrical power lines.
+     * Superior Data Security: Impossible to tap electronically without physically breaking the fiber (which alerts network management instantly).
+     * Extremely Low Attenuation: Can travel tens of kilometers without repeaters.
+   - Limitations:
+     * Expensive: Fiber transceivers and fusion splicing equipment are costly.
+     * Fragile: Glass fibers can snap if bent past their minimum bend radius.
+     * Complex Termination: Requires skilled technicians and precision optical cleaving tools.

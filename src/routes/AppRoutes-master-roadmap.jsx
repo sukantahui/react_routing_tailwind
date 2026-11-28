@@ -280,6 +280,10 @@ const ROUTES = {
   CBSE_CLASS_11_CS_083_ROADMAP: '/cbse-class-11-computer-science-083/roadmap',
   CBSE_CLASS_11_CS_083_MODULE: '/cbse-class-11-computer-science-083/module/:slug',
   CBSE_CLASS_11_CS_083_TOPIC: '/cbse-class-11-computer-science-083/topic/:moduleSlug/:topicIndex',
+
+  CBSE_CLASS_12_CS_083_ROADMAP: '/cbse-class-12-computer-science-083/roadmap',
+  CBSE_CLASS_12_CS_083_MODULE: '/cbse-class-12-computer-science-083/module/:slug',
+  CBSE_CLASS_12_CS_083_TOPIC: '/cbse-class-12-computer-science-083/topic/:moduleSlug/:topicIndex',
 };
 
 // --------------------------------------------------------------
@@ -621,6 +625,15 @@ const STUDY_TRACKS = [
     loadRoadmap: () => import('../components/study/cbse-class-11-computer-science-083/cbse-class-11-computer-science-083-roadmap.json'),
     getTopics: () => import.meta.glob('../components/study/cbse-class-11-computer-science-083/topics/*/Topic*.jsx'),
     topicBasePath: '../components/study/cbse-class-11-computer-science-083/topics',
+  },
+  {
+    key: 'cbse-class-12-computer-science-083',
+    roadmapRoute: ROUTES.CBSE_CLASS_12_CS_083_ROADMAP,
+    moduleRoute: ROUTES.CBSE_CLASS_12_CS_083_MODULE,
+    topicRoute: ROUTES.CBSE_CLASS_12_CS_083_TOPIC,
+    loadRoadmap: () => import('../components/study/cbse-class-12-computer-science-083/cbse-class-12-computer-science-083-roadmap.json'),
+    getTopics: () => import.meta.glob('../components/study/cbse-class-12-computer-science-083/topics/*/Topic*.jsx'),
+    topicBasePath: '../components/study/cbse-class-12-computer-science-083/topics',
   },
 ];
 

@@ -1,0 +1,34 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: EXAMINATION MASTERY (FULL BOARD PATTERN)
+TOPIC 7: SECTION A MASTERY: 18 OBJECTIVE MCQS & ASSERTION-REASONING DRILL
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Targeted drill and strategies for solving all 18 MCQs and Assertion-Reasoning questions in Section A with 100% accuracy.
+
+2. KEY EXAMINATION POINTS:
+  (1) Mastering Assertion (A) and Reason (R): Both true and R is correct explanation, both true but R is not explanation, A true R false, A false R true.
+  (2) Python token classification: Keywords, Identifiers, Literals, Operators, Delimiters.
+  (3) Data type mutability: Mutable (list, dict, set) vs Immutable (int, float, str, tuple).
+  (4) Elimination technique: Quickly eliminating 2 obviously incorrect options within 15 seconds.
+
+3. CODE & STRATEGY SNIPPET:
+# Assertion-Reasoning Rule of Thumb:
+# Step 1: Evaluate Assertion (A) independently: Is it True or False?
+# Step 2: Evaluate Reason (R) independently: Is it True or False?
+# Step 3: If both are True, insert the word "BECAUSE" between A and R to check if R explains A.
+
+4. CBSE COMMON PITFALLS:
+Adhere strictly to step-marking rubrics and never leave questions unattempted.
+
+5. REVISION CHECKLIST:
+  [ ] Understand 70-mark theory distribution across Sections A to E.
+  [ ] Practice dry-run trace tables for Section B output questions.
+  [ ] Memorize standard templates for Stack and Text file questions.
+  [ ] Know the 80-20 rule and repeater/switch criteria for Section E.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 7 · CODER & ACCOTAX BARRACKPORE
+================================================================================

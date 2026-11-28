@@ -1,0 +1,40 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: EXAMINATION MASTERY (FULL BOARD PATTERN)
+TOPIC 1: CBSE CLASS XII COMPUTER SCIENCE (083) OFFICIAL SAMPLE QUESTION PAPER 2026 (SOLVED)
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Comprehensive solution and analytical walkthrough of the latest official CBSE Class 12 Computer Science sample paper with point-by-point evaluation criteria.
+
+2. KEY EXAMINATION POINTS:
+  (1) Full coverage of all 35 official questions with step-by-step marking rubrics.
+  (2) Clear differentiation of 1/2 mark deductions for missing colon, indentation, or quotation errors.
+  (3) Model stack programming solution adhering to LIFO list push/pop conventions.
+  (4) Model Python-MySQL database connectivity function with connection.commit() and error handling.
+
+3. CODE & STRATEGY SNIPPET:
+# Official Sample Paper - Stack Coding Pattern (Section C, 3 Marks)
+def Push_Element(Stk, Element):
+    Stk.append(Element)
+
+def Pop_Element(Stk):
+    if len(Stk) == 0:
+        print("Underflow")
+        return None
+    else:
+        return Stk.pop()
+
+4. CBSE COMMON PITFALLS:
+Adhere strictly to step-marking rubrics and never leave questions unattempted.
+
+5. REVISION CHECKLIST:
+  [ ] Understand 70-mark theory distribution across Sections A to E.
+  [ ] Practice dry-run trace tables for Section B output questions.
+  [ ] Memorize standard templates for Stack and Text file questions.
+  [ ] Know the 80-20 rule and repeater/switch criteria for Section E.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 1 · CODER & ACCOTAX BARRACKPORE
+================================================================================

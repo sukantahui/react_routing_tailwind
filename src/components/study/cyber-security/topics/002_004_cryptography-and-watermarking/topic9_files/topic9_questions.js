@@ -189,6 +189,70 @@ Detector:      Correlation = Sum( I'_k * P_k ) = b * alpha * L + Noise → If Co
     level: "expert",
     codeExample: `// The Master Watermarking Architectural Equation:
 (DWT_DCT_SpreadSpectrum + Reversible_DICOM_Integrity + Indian_Copyright_Act_Sec65B) = COMPLETE_MULTIMEDIA_PROTECTION;`
+  },
+  {
+    question: "What is Digital Watermarking and what is its primary technical objective?",
+    shortAnswer: "Embedding a permanent digital signal (identifier, copyright code, or serial number) imperceptibly into digital media (image, audio, video) to prove ownership and trace unauthorized copies.",
+    explanation: "Unlike encryption which only protects media during transit, watermarks remain permanently embedded inside the decoded media even after playback or display.",
+    hint: "Embedding imperceptible copyright metadata directly into media files.",
+    level: "basic",
+    codeExample: "EmbeddedMedia = HostImage + alpha * WatermarkSignal"
+  },
+  {
+    question: "What is the difference between a Robust Watermark and a Fragile Watermark?",
+    shortAnswer: "A Robust watermark is engineered to survive hostile transformations (compression, cropping, rotation, filtering); a Fragile watermark is designed to be destroyed by any alteration, serving as a tamper detector.",
+    explanation: "Robust watermarks protect copyright ownership; fragile watermarks detect whether a court evidence photo or medical image was edited.",
+    hint: "Robust survives editing for copyright; fragile breaks on edits for tamper detection.",
+    level: "moderate",
+    codeExample: "WatermarkTypes = { Robust: 'Survives JPEG compression', Fragile: 'Destroys on 1-pixel edit' };"
+  },
+  {
+    question: "How does Spatial Domain Watermarking (e.g. Least Significant Bit - LSB) work?",
+    shortAnswer: "By directly modifying the lowest-order bit values of pixel color bytes (e.g. changing 11010110 to 11010111) to embed watermark bitstreams.",
+    explanation: "Because human visual perception cannot differentiate a 1/256th change in color luminosity, the modification is completely invisible to the eye.",
+    hint: "Modifying the lowest-order bit of image pixels to store hidden bits.",
+    level: "moderate",
+    codeExample: "pixel_byte = (pixel_byte & 0xFE) | watermark_bit # LSB insertion"
+  },
+  {
+    question: "What is the primary vulnerability of Spatial Domain (LSB) watermarking?",
+    shortAnswer: "Extreme vulnerability to lossy compression (JPEG), geometric cropping, resizing, and noise filtering, which destroys the lowest-order bit planes.",
+    explanation: "A simple JPEG compression cycle quantizes high-frequency data, completely wiping out LSB watermarks.",
+    hint: "Easily destroyed by JPEG compression, cropping, or resizing.",
+    level: "moderate",
+    codeExample: "# Lossy compression wipes LSB:\nimg.save('output.jpg', quality=85) # LSB watermark erased"
+  },
+  {
+    question: "How does Frequency Domain Watermarking (DCT / DWT) achieve superior robustness?",
+    shortAnswer: "By applying mathematical transforms (Discrete Cosine Transform or Discrete Wavelet Transform) to embed the watermark in middle-frequency coefficients of the image.",
+    explanation: "Middle-frequency coefficients survive JPEG compression and cropping without creating visible visual distortions that high or low frequencies would produce.",
+    hint: "Embedding watermarks in middle-frequency coefficients using DCT or DWT.",
+    level: "advanced",
+    codeExample: "dct_coeffs = scipy.fftpack.dct(image_block);\ndct_coeffs[middle_band] += alpha * watermark_vector;"
+  },
+  {
+    question: "What is Blind vs Non-Blind Watermark Extraction?",
+    shortAnswer: "Blind extraction recovers the embedded watermark without needing the original unwatermarked host image; Non-Blind extraction requires the original host image as a baseline reference.",
+    explanation: "Blind extraction is practically preferred because copyright authorities do not need to maintain petabyte databases of pristine original media to verify ownership.",
+    hint: "Extracting watermark without original image (blind) vs needing original (non-blind).",
+    level: "moderate",
+    codeExample: "Watermark = BlindDetector(WatermarkedImage, SecretKey) # No original image required"
+  },
+  {
+    question: "What is 'Fingerprinting' (Forensic Watermarking) in streaming platforms like Netflix and Hollywood screeners?",
+    shortAnswer: "Embedding a unique recipient-specific serial watermark into each user's video stream, allowing studios to trace leaked pirate rips directly to the subscriber who recorded it.",
+    explanation: "If a pre-release screener is leaked online, analyzing the forensic watermark reveals the exact account ID, time, and IP address of the leaker.",
+    hint: "Unique watermarks embedded per user to trace leaked video streams back to the leaker.",
+    level: "moderate",
+    codeExample: "ForensicWatermark = { SubscriberID: 'usr_849201', SessionTimestamp: 1718294021 };"
+  },
+  {
+    question: "What is the Stirmark benchmark in digital watermarking evaluation?",
+    shortAnswer: "A standard benchmark software suite that subjects watermarked images to geometric distortions, rotation, cropping, jitter, and compression to test watermark survivability.",
+    explanation: "Developed in the late 1990s, Stirmark established rigorous robustness testing criteria for commercial digital rights management (DRM) technologies.",
+    hint: "Benchmark suite stress-testing watermark survival against image manipulation.",
+    level: "advanced",
+    codeExample: "stirmark -attack all -input watermarked.bmp -output tested_samples/"
   }
 ];
 

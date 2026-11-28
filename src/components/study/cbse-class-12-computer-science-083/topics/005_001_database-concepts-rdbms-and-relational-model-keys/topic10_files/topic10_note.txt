@@ -1,0 +1,29 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - QUICK REVISION NOTE
+TOPIC 10: ALTERNATE KEY (SECONDARY UNIQUE IDENTIFIERS)
+
+1. DEFINITION:
+   - An Alternate Key (also called Secondary Key) is any Candidate Key that is NOT chosen
+     as the Primary Key of the relation.
+   - Formula:
+     Alternate Keys = (Set of All Candidate Keys) - (Primary Key)
+
+2. CORE CHARACTERISTICS:
+   - Uniqueness: Because every alternate key is a candidate key, its values MUST be unique.
+   - Count:
+     * If a table has N candidate keys, exactly 1 is Primary Key, and (N - 1) are Alternate Keys.
+     * If a table has 1 candidate key, there are ZERO alternate keys.
+   - Enforcement in SQL: Implemented using the UNIQUE constraint (or UNIQUE NOT NULL).
+
+3. CLASSIC CBSE EXAM EXAMPLE:
+   Table: STUDENT(AdmNo, RollNo, AadhaarNo, Name, Marks)
+   * Candidate Keys: AdmNo, RollNo, AadhaarNo (3 candidate keys)
+   * Chosen Primary Key: AdmNo
+   * Alternate Keys: RollNo, AadhaarNo (2 alternate keys)
+
+4. PRIMARY KEY VS ALTERNATE KEY:
+   * Feature               Primary Key              Alternate Key
+   ----------------------------------------------------------------------
+   Role                    Primary Row Identifier   Secondary Unique Constraint
+   Constraint in SQL       PRIMARY KEY              UNIQUE
+   NULL allowed?           STRICTLY FORBIDDEN       Allowed (unless NOT NULL added)
+   Count per table         Strictly ONE             Zero or more

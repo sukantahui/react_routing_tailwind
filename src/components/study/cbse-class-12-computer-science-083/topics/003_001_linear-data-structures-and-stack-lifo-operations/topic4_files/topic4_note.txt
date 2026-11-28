@@ -1,0 +1,28 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+SEGMENT 3: DATA STRUCTURES (LINEAR LISTS & STACKS)
+TOPIC 4: IMPLEMENTING THE PUSH OPERATION
+
+1. WHAT IS THE PUSH OPERATION?
+- PUSH is the operation of inserting a new element onto the TOP of the stack.
+- In Python, a stack is represented using a mutable linear list.
+- The end of the list (highest index) serves as the TOP.
+- The built-in list method append() adds an element to the end in O(1) amortized time.
+
+2. STANDARD CBSE FUNCTION SIGNATURES:
+Pattern A (Item passed as parameter):
+  def Push(stk, item):
+      stk.append(item)
+
+Pattern B (Input taken inside the function):
+  def Push(stk):
+      item = int(input("Enter element to push: "))
+      stk.append(item)
+
+3. WHY append() INSTEAD OF insert(0, item)?
+- append(item) adds to index -1, taking O(1) time without shifting existing elements.
+- insert(0, item) forces every existing item in the list to shift right by 1 position, taking O(N) time and degrading performance.
+
+4. PASS BY OBJECT REFERENCE:
+- In Python, lists are mutable objects passed by reference.
+- Any modification (stk.append(x)) inside the function directly reflects in the caller's list without needing a 'return stk'.

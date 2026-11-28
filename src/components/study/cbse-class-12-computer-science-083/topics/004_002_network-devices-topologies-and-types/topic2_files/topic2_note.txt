@@ -1,0 +1,56 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: MODULE 2 - TOPIC 2: RJ45 CONNECTOR & MODULAR JACK ARCHITECTURE
+
+1. DEFINITION AND ARCHITECTURE:
+   - Acronym: Registered Jack 45.
+   - Formal Engineering Standard: 8P8C (8 Position, 8 Contact) modular plug and jack.
+   - Application: The universal physical connector used to terminate unshielded (UTP) and shielded (STP) twisted pair cables in local area networks (Ethernet).
+   - Construction: Clear plastic body housing 8 gold-plated copper contacts that pierce through the wire insulation when crimped, plus a flexible plastic retaining latch (tab) that locks the plug firmly into the modular jack.
+
+2. TIA/EIA-568 WIRING SCHEMES (T568A VS T568B):
+   Ethernet cabling defines 8 color-coded conductors (4 pairs: Orange, Green, Blue, Brown).
+   - T568A Pinout:
+     * Pin 1: White/Green
+     * Pin 2: Green
+     * Pin 3: White/Orange
+     * Pin 4: Blue
+     * Pin 5: White/Blue
+     * Pin 6: Orange
+     * Pin 7: White/Brown
+     * Pin 8: Brown
+   - T568B Pinout (Most Widely Used in Commercial LANs):
+     * Pin 1: White/Orange
+     * Pin 2: Orange
+     * Pin 3: White/Green
+     * Pin 4: Blue
+     * Pin 5: White/Blue
+     * Pin 6: Green
+     * Pin 7: White/Brown
+     * Pin 8: Brown
+   * Notice: T568A and T568B simply swap the Green and Orange pairs (Pins 1,2 swapped with Pins 3,6).
+
+3. CABLE CONFIGURATIONS:
+   1. Straight-Through Cable:
+      - Has identical wiring on BOTH ends (T568B at both ends, or T568A at both ends).
+      - Purpose: Connects DISSIMILAR network devices:
+        * Workstation (PC) to Switch / Hub
+        * Router to Switch
+   2. Crossover Cable:
+      - Has T568A at one end and T568B at the opposite end.
+      - Purpose: Swaps the Transmit (Tx) and Receive (Rx) pairs to connect SIMILAR network devices directly:
+        * Workstation to Workstation (PC to PC directly)
+        * Switch to Switch
+        * Router to PC
+   3. Auto-MDIX (Automatic Medium-Dependent Interface Crossover):
+      - Modern Gigabit Ethernet switches and NICs automatically detect whether a straight-through or crossover cable is connected and electronically swap Tx/Rx pins internally.
+
+4. RJ-45 VS RJ-11 (CBSE COMPARISON):
+   +------------------------+-------------------------------+---------------------------------+
+   | Feature                | RJ-45 Connector               | RJ-11 Connector                 |
+   +------------------------+-------------------------------+---------------------------------+
+   | Pins / Contacts        | 8 Positions, 8 Contacts (8P8C)| 4 or 6 Positions (6P4C or 6P2C) |
+   | Physical Width         | Wider physical connector      | Narrower physical connector     |
+   | Primary Application    | Ethernet computer LAN networks| Landline Telephone voice lines  |
+   | Wire Pairs Connected   | 4 twisted pairs (8 wires)     | 1 or 2 wire pairs (2 or 4 wires)|
+   +------------------------+-------------------------------+---------------------------------+

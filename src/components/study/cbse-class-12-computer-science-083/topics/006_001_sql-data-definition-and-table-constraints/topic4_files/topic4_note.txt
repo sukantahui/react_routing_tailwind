@@ -1,0 +1,29 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT III: SQL DDL & TABLE CONSTRAINTS
+TOPIC 4: CREATING TABLES: CREATE TABLE STATEMENT SYNTAX & SCHEMA DESIGN
+=====================================================
+The CREATE TABLE statement creates a new relational table within the active database schema.
+
+BASIC SYNTAX:
+CREATE TABLE table_name (
+    column1 data_type [column_constraint],
+    column2 data_type [column_constraint],
+    ...
+    [table_constraints]
+);
+
+EXAMPLE:
+CREATE TABLE student (
+    roll_no INT,
+    name VARCHAR(40) NOT NULL,
+    stream VARCHAR(20) DEFAULT 'Science',
+    percentage DECIMAL(5, 2),
+    dob DATE,
+    PRIMARY KEY (roll_no)
+);
+
+BEST PRACTICES:
+1. Always end SQL statements with a semicolon (;).
+2. Choose descriptive, lowercase or uppercase uniform column names without spaces.
+3. Use singular nouns for table names (e.g. student, employee, product).
+4. Explicitly declare NOT NULL on required fields.

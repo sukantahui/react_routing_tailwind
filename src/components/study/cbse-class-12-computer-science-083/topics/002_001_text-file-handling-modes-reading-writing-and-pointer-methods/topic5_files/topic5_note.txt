@@ -1,0 +1,36 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 5: WRITING TO TEXT FILES - write() VS writelines() & NEWLINES
+======================================================================
+
+1. THE write() METHOD
+   - Syntax: bytes_or_chars_written = f.write(string_data)
+   - Rules:
+     * Argument MUST be a string (str). Passing int/float/list raises TypeError.
+     * Does NOT append '\n' automatically! You must concatenate '\n'.
+     * Consecutive write() calls append text immediately without spaces or breaks.
+     * Returns the integer number of characters written.
+
+2. THE writelines() METHOD
+   - Syntax: f.writelines(iterable_of_strings)
+   - Rules:
+     * Accepts a list, tuple, or generator of strings.
+     * CRITICAL BOARD TRAP: writelines() does NOT add newlines between elements!
+     * If list is ['A', 'B', 'C'], disk receives 'ABC' on one single line!
+     * Correct approach:
+       f.writelines([line + '\n' for line in my_list])
+
+3. WRITING VIA print() FUNCTION
+   - Syntax: print("Hello", file=f, end='\n')
+   - Automatically handles non-string conversions.
+   - Automatically appends '\n' (unless end='' specified).
+
+4. PRACTICAL CHECKLIST
+   - Ensure file is opened in 'w' (overwrite) or 'a' (append) mode.
+   - Always remember to convert numeric data using str(value).
+   - Use flush() or close() so writes are not trapped in buffer.
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

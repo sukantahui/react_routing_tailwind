@@ -1,0 +1,40 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 3: NETWORK PROTOCOLS, WEB SERVICES & CYBER SECURITY
+TOPIC 5: VOICE OVER INTERNET PROTOCOL (VOIP)
+
+================================================================================
+1. DEFINITION & ARCHITECTURAL PRINCIPLES
+================================================================================
+VoIP (Voice over Internet Protocol) is a methodology and group of technologies
+for the delivery of voice communications and multimedia sessions over Internet
+Protocol (IP) networks such as the Internet or corporate intranets.
+
+Core Process:
+1. SAMPLING & DIGITIZATION: Microphone analog audio is sampled (e.g. 8000 samples/sec).
+2. CODEC COMPRESSION: Algorithms (G.711, G.729, Opus) compress audio waveforms.
+3. PACKETIZATION: Encapsulated into RTP (Real-Time Transport Protocol) packets.
+4. TRANSPORT: Dispatched over UDP (for lowest possible latency).
+5. RECONSTRUCTION: Receiver jitter buffer reorders packets and DAC converts to sound.
+
+================================================================================
+2. CORE VOIP PROTOCOLS
+================================================================================
+- SIP (Session Initiation Protocol - Port 5060): Call signaling, ring, invite, terminate.
+- RTP (Real-Time Transport Protocol): Carries actual digitized voice payload.
+- RTCP (RTP Control Protocol): Monitors QoS statistics (jitter, latency, packet loss).
+- H.323: Legacy ITU-T audiovisual conferencing standard.
+
+================================================================================
+3. ADVANTAGES VS LIMITATIONS FOR CBSE EXAM
+================================================================================
+ADVANTAGES:
+- Substantial Cost Savings: Avoids long-distance PSTN toll tariffs.
+- Unified Communications: Integrates voice, video, text chat, and screen sharing.
+- Mobility & Portability: Use softphones anywhere with internet access.
+- Bandwidth Efficiency: Shared packet switching + Voice Activity Detection (VAD).
+
+LIMITATIONS:
+- Dependence on Power: Requires active power for routers, switches, and modems.
+- Quality Vulnerability: Sensitive to network latency (>150ms), jitter, and packet loss.
+- Emergency Location (E911): IP addresses do not map automatically to physical street addresses.

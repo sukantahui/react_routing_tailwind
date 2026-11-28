@@ -1,0 +1,29 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 5: RETURNING MULTIPLE VALUES (TUPLE PACKING & UNPACKING)
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. RETURNING MULTIPLE VALUES IN PYTHON:
+   - Unlike languages like C, C++, or Java (which restrict functions to returning a single primitive value),
+     Python allows returning multiple comma-separated expressions:
+     'return val1, val2, val3'
+   - What actually happens?
+     Python automatically performs TUPLE PACKING on the return expressions.
+     The function returns a single TUPLE object containing all the values!
+
+2. HOW TO RECEIVE MULTIPLE RETURN VALUES:
+   Approach A: Single Tuple Variable
+     result = func()
+     print(result[0], result[1])
+
+   Approach B: Tuple Unpacking into Multiple Variables (Most Pythonic)
+     a, b, c = func()
+     Number of variables on the left MUST EXACTLY EQUAL the number of elements returned,
+     otherwise raises: 'ValueError: too many values to unpack' or 'not enough values to unpack'.
+
+3. CBSE BOARD FAVORITE PATTERNS:
+   - Returning quotient and remainder: return a // b, a % b
+   - Returning min and max of a list: return min(L), max(L)
+   - Swapping two numbers inside a function: return b, a
+===============================================================================

@@ -1,0 +1,32 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - QUICK REVISION NOTE
+TOPIC 8: CANDIDATE KEY (DEFINITION, MINIMALITY & IDENTIFICATION)
+
+1. FORMAL DEFINITION:
+   - A Candidate Key is a MINIMAL Super Key.
+   - It is a set of one or more attributes that:
+     (a) Uniquely identifies each tuple in a relation (UNIQUENESS).
+     (b) Contains NO redundant attributes; no proper subset can uniquely identify tuples (MINIMALITY).
+
+2. CANDIDATE KEY VS SUPER KEY:
+   - Super Key: Any combination of attributes that uniquely identifies a row. May contain redundant columns.
+     Example: If RollNo is unique, then (RollNo, Name) is a Super Key.
+   - Candidate Key: Minimal Super Key.
+     Example: RollNo is a Candidate Key, but (RollNo, Name) is NOT a Candidate Key because Name is redundant!
+
+3. MULTIPLE CANDIDATE KEYS IN A RELATION:
+   - A table can have several candidate keys.
+   - Example in Table STUDENT:
+     * Candidate Key 1: AdmNo (Admission Number)
+     * Candidate Key 2: RollNo (if unique across school)
+     * Candidate Key 3: AadhaarNo (National ID)
+     * Candidate Key 4: Email (School Email ID)
+
+4. COMPOSITE CANDIDATE KEYS:
+   - When no single attribute is unique, two or more attributes are combined minimally.
+   - Example in Table ATTENDANCE(StudentId, Date, Status):
+     * Neither StudentId nor Date is unique alone.
+     * Candidate Key = (StudentId, Date) [Composite Candidate Key].
+
+5. CBSE EXAM FORMULA FOR CANDIDATE KEY QUESTIONS:
+   - "Identify the candidate keys from the given table":
+     Find all attributes (or minimal combinations) that contain UNIQUE, non-repeating values.

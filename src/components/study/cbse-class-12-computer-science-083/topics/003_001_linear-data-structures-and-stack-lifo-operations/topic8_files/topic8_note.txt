@@ -1,0 +1,53 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+SEGMENT 3: DATA STRUCTURES (LINEAR LISTS & STACKS)
+TOPIC 8: MENU-DRIVEN STACK IMPLEMENTATION
+
+1. ARCHITECTURE OF A MENU-DRIVEN PROGRAM:
+- An interactive continuous loop using while True:
+  * Option 1: PUSH (Take input, append to stack)
+  * Option 2: POP (Check underflow, remove and display popped value)
+  * Option 3: PEEK (Check underflow, view top value without removing)
+  * Option 4: DISPLAY (Check underflow, traverse top-to-bottom)
+  * Option 5: EXIT (Break loop cleanly)
+
+2. CORE CODE SKELETON:
+  def Push(stk, item):
+      stk.append(item)
+
+  def Pop(stk):
+      if len(stk) == 0:
+          print("Underflow: Stack is empty")
+          return None
+      return stk.pop()
+
+  def Peek(stk):
+      if len(stk) == 0:
+          print("Stack is empty")
+          return None
+      return stk[-1]
+
+  def Display(stk):
+      if len(stk) == 0:
+          print("Stack is empty")
+          return
+      top = len(stk) - 1
+      print(stk[top], "<-- TOP")
+      for i in range(top - 1, -1, -1):
+          print(stk[i])
+
+  stack = []
+  while True:
+      print("1.Push  2.Pop  3.Peek  4.Display  5.Exit")
+      ch = input("Enter choice: ")
+      if ch == '1':
+          val = input("Enter value: ")
+          Push(stack, val)
+      elif ch == '2':
+          Pop(stack)
+      elif ch == '3':
+          print("Top element:", Peek(stack))
+      elif ch == '4':
+          Display(stack)
+      elif ch == '5':
+          break

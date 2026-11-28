@@ -1,0 +1,46 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 5: PRACTICAL 5: BINARY FILE RECORD SEARCH BY KEY WITH EOFERROR HANDLING
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Python practical program to search for a specific student record by Roll Number in 'student.dat' using pickle.load() inside a while True loop with EOFError handling.
+
+2. KEY EXAMINATION POINTS:
+  (1) Opens file in binary read mode ('rb').
+  (2) Sequentially unpacks records using pickle.load() inside an infinite while loop.
+  (3) Catches EOFError exception to gracefully terminate loop upon reaching end-of-file.
+  (4) Maintains boolean 'found' flag to report record non-existence.
+
+3. PRACTICAL CODE SNIPPET:
+import pickle
+
+def search_student(target_roll):
+    found = False
+    with open('student.dat', 'rb') as f:
+        try:
+            while True:
+                rec = pickle.load(f)
+                if rec[0] == target_roll:
+                    print(f"Record Found -> Roll: {rec[0]}, Name: {rec[1]}, Marks: {rec[2]}")
+                    found = True
+                    break
+        except EOFError:
+            pass
+    if not found:
+        print(f"Roll No {target_roll} not found.")
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 5 · CODER & ACCOTAX BARRACKPORE
+================================================================================

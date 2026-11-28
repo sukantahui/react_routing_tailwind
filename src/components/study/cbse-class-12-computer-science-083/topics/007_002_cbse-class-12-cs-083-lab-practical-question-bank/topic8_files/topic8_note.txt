@@ -1,0 +1,45 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 8: PRACTICAL 8: CSV FILE WRITER CREATING EMPLOYEE DATASET WITH CUSTOM DELIMITER
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Python practical program to create an employee CSV file containing (EmpId, Name, Dept, Salary) with user-defined records and proper newline handling.
+
+2. KEY EXAMINATION POINTS:
+  (1) Opens CSV file with 'newline=""' to prevent blank line insertion on Windows.
+  (2) Initializes writer object: writer = csv.writer(f).
+  (3) Writes header row via writer.writerow(['EmpId', 'Name', 'Dept', 'Salary']).
+  (4) Accepts multiple records and appends using writer.writerow() or writer.writerows().
+
+3. PRACTICAL CODE SNIPPET:
+import csv
+
+def create_employee_csv():
+    with open('employees.csv', 'w', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(['EmpId', 'Name', 'Dept', 'Salary'])
+        while True:
+            eid = int(input("EmpId: "))
+            name = input("Name: ")
+            dept = input("Dept: ")
+            sal = float(input("Salary: "))
+            writer.writerow([eid, name, dept, sal])
+            if input("More? (y/n): ").lower() != 'y':
+                break
+    print("employees.csv generated successfully!")
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 8 · CODER & ACCOTAX BARRACKPORE
+================================================================================

@@ -1,0 +1,48 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 11: PRACTICAL 11: LINEAR STACK IMPLEMENTATION FOR BOOK RECORDS [BOOKNO, TITLE, PRICE]
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Python practical program implementing a Linear Stack storing composite book records [BookNo, Title, Price] with Push, Pop, and formatted Display.
+
+2. KEY EXAMINATION POINTS:
+  (1) Accepts composite record: [BookNo, Title, Price] and pushes onto stack.
+  (2) Pop removes and displays the topmost book record with Underflow verification.
+  (3) Display iterates backwards from top to bottom, formatting output into neat table columns.
+  (4) Standard 8-mark Python practical program frequently assigned in board exams.
+
+3. PRACTICAL CODE SNIPPET:
+def Push_Book(stk, book):
+    stk.append(book)
+
+def Pop_Book(stk):
+    if not stk:
+        print("Stack Underflow: No books to pop")
+        return None
+    return stk.pop()
+
+def Display_Books(stk):
+    if not stk:
+        print("Stack is Empty")
+    else:
+        print(f"{'BookNo':<10}{'Title':<25}{'Price':>8}")
+        print("-" * 45)
+        for i in range(len(stk) - 1, -1, -1):
+            b = stk[i]
+            print(f"{b[0]:<10}{b[1]:<25}{b[2]:>8.2f}")
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 11 · CODER & ACCOTAX BARRACKPORE
+================================================================================

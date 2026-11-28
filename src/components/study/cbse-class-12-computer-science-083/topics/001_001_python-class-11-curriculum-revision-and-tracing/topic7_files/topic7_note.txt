@@ -1,0 +1,29 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 7: LIST OPERATIONS (NESTED LISTS, COMPREHENSIONS & METHODS)
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. LIST CHARACTERISTICS:
+   - Ordered, MUTABLE sequences of heterogenous elements enclosed in square brackets [ ].
+   - Supports forward (0 to n-1) and reverse (-1 to -n) indexing.
+   - Elements can be modified, appended, inserted, and deleted in-place.
+
+2. LIST MUTATION METHODS:
+   - append(x): Appends object x to end of list. Mutates in-place; returns None.
+   - extend(iterable): Appends all items from iterable to end. Mutates in-place; returns None.
+   - insert(idx, x): Inserts item x at specified index.
+   - pop([idx]): Removes and RETURNS item at index (default is last item -1). Raises IndexError on empty list.
+   - remove(x): Removes first matching occurrence of x. Raises ValueError if x not found.
+   - clear(): Empties the list in-place (results in []).
+   - sort(reverse=False): Sorts list in-place. Returns None!
+   - reverse(): Reverses list in-place. Returns None!
+
+3. LIST COMPREHENSIONS:
+   - Concise syntax to construct new lists from iterables.
+   - Syntax: [expr for var in iterable if condition]
+   - Example: [x*2 for x in [1, 2, 3] if x > 1] -> [4, 6]
+
+4. BOARD EXAM COMMON TRAP:
+   - Assigning result of in-place methods: 'L = L.sort()' sets L to None! Because in-place list methods return None.
+===============================================================================

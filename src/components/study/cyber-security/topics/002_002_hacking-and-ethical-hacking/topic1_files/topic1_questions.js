@@ -225,6 +225,46 @@ Section 66F: Cyber Terrorism / Critical Infrastructure Sabotage (Punishable by L
 1990s: "Build a firewall around our office network." (Perimeter Security)
 2000s: "Install antivirus on every PC and patch monthly." (Endpoint Defense)
 2020s: "Assume breach; verify every identity, packet, and microservice continuously." (Zero Trust Architecture)`
+  },
+  {
+    question: "What role did early 'phreaking' culture play in the evolution of modern computer hacking?",
+    shortAnswer: "Phreaking explored and manipulated telecommunication switching systems (e.g. John Draper's 2600 Hz whistle), establishing the reverse-engineering mindset and exploration ethic later applied to ARPANET and microcomputers.",
+    explanation: "Phone phreaks demonstrated that complex automated networks could be controlled through in-band signaling tones, laying technical and cultural foundations for early hacker communities.",
+    hint: "Manipulating telecom switches using audio frequencies like 2600 Hz.",
+    level: "moderate",
+    codeExample: "# Blue box tone generator frequency for Bell trunk lines: 2600 Hz"
+  },
+  {
+    question: "How did the transition from mainframe terminals to personal workstations in the 1980s alter cyber threat models?",
+    shortAnswer: "It decentralized computing power, bringing direct control of operating system binaries, network stacks, and storage media into decentralized user hands without centralized mainframe operator oversight.",
+    explanation: "Mainframes enforced strict physical and operational boundaries. Decentralized microcomputers (like IBM PCs and Apple II) made malware distribution, floppy disk boot-sector infections (e.g. Brain virus), and dial-up wardialing viable.",
+    hint: "Shift from centralized mainframe operators to decentralized personal computers.",
+    level: "moderate",
+    codeExample: "// 1986 Brain.c boot sector infection vector stub\nvoid infect_boot_sector(int drive) { write_sectors(drive, 0, 1, viral_code); }"
+  },
+  {
+    question: "What was the significance of the 2000 Mafiaboy DDoS attacks on commercial internet infrastructure?",
+    shortAnswer: "It proved that major multinational internet platforms (Yahoo, eBay, CNN, Amazon) could be paralyzed simultaneously by a single teenager using primitive distributed denial-of-service toolkits (Rivolta).",
+    explanation: "Mafiaboy (Michael Calce) compromised university networks to launch coordinated SYN floods, prompting the FBI and international law enforcement to formalize public-private incident response partnerships.",
+    hint: "Coordinated SYN floods taking down Yahoo, CNN, and eBay in February 2000.",
+    level: "moderate",
+    codeExample: "ping -s 65500 -f target_host # Smurf/SYN amplification prototype"
+  },
+  {
+    question: "How did the emergence of cryptocurrency (Bitcoin) in 2009 fundamentally accelerate cyber extortion economies?",
+    shortAnswer: "It provided a pseudo-anonymous, cross-border, non-custodial payment rails that eliminated traditional bank account mule risks for cyber extortionists and ransomware syndicates.",
+    explanation: "Prior to cryptocurrency, digital extortion relied on easily traceable wire transfers, Western Union, or prepaid debit cards. Bitcoin enabled automated, programmatic ransom payments on a global industrial scale.",
+    hint: "Decentralized, pseudo-anonymous settlement replacing traceable wire transfers.",
+    level: "advanced",
+    codeExample: "btc_tx = send_transaction(ransom_wallet, 2.5, private_key)"
+  },
+  {
+    question: "What distinguishes APT (Advanced Persistent Threat) state-sponsored campaigns from 1990s hacker attacks?",
+    shortAnswer: "APTs operate with military discipline, nation-state funding, stealth persistence over months/years, and strategic espionage or sabotage goals rather than public defacement or quick financial profit.",
+    explanation: "1990s attacks were largely opportunistic and noisy. Modern APTs (like APT28, APT29, Lazarus) use custom zero-days, living-off-the-land techniques, and supply-chain compromises.",
+    hint: "Nation-state funding, stealth persistence, and strategic geopolitical goals.",
+    level: "advanced",
+    codeExample: "reg add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v SvchostUpdate /t REG_SZ /d 'C:\\Windows\\Temp\\payload.exe'"
   }
 ];
 

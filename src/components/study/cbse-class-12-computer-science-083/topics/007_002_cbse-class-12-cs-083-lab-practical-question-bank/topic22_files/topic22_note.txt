@@ -1,0 +1,38 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 22: DOWNLOADABLE DOCUMENTS: COMPLETE CBSE CLASS 12 CS PRACTICAL LAB MANUAL
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Printable laboratory manual containing all 20 board practical codes, sample data files, output screenshots, and the top 50 viva voce questions.
+
+2. KEY EXAMINATION POINTS:
+  (1) Ready-to-print code listings for all 20 practical programs formatted for lab record files.
+  (2) Sample input files: data.txt, student.dat, employees.csv with test data.
+  (3) SQL scripts for initializing Department, Employee, and Hospital schemas.
+  (4) Master teacher guidance by Sukanta Hui for scoring 30/30 in the practical exam.
+
+3. PRACTICAL CODE SNIPPET:
+# Practical Lab Manual Index:
+# Practicals 1-3:   Text File Processing
+# Practicals 4-7:   Binary File Handling (pickle)
+# Practicals 8-9:   CSV File Processing
+# Practicals 10-11: Linear Stack Implementations
+# Practicals 12-15: Python-MySQL Database Connectivity
+# Practicals 16-19: SQL Relational Queries & Multi-Table Joins
+# Practical 20:     Full Capstone Project System
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 22 · CODER & ACCOTAX BARRACKPORE
+================================================================================

@@ -1,0 +1,31 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 9: DICTIONARY KEY-VALUE MAPPINGS & BUILT-IN METHODS
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. DICTIONARY FUNDAMENTALS:
+   - Dictionaries are MUTABLE, key-value associative mappings enclosed in curly braces { }.
+   - As of Python 3.7+, dictionaries preserve insertion order.
+   - KEYS MUST BE:
+     * Unique: Duplicate keys overwrite earlier assignments.
+     * Immutable / Hashable: str, int, float, tuple (containing immutable items only).
+     * Lists, dicts, and sets CANNOT be dictionary keys (raises TypeError: unhashable type).
+   - VALUES: Can be of any data type and can contain duplicates.
+
+2. RETRIEVAL & KEYERROR:
+   - d[key]: Retrieves value; raises 'KeyError' if key is missing.
+   - d.get(key, default=None): Safe lookup; returns default value if key is missing (NO CRASH!).
+
+3. ESSENTIAL DICTIONARY METHODS:
+   - keys(): Returns dict_keys view of all keys.
+   - values(): Returns dict_values view of all values.
+   - items(): Returns dict_items view of (key, value) pairs.
+   - update(other_dict): Merges key-value pairs from other_dict into d.
+   - pop(key[, default]): Removes key and returns its value. Raises KeyError if missing and no default.
+   - popitem(): Removes and returns the last inserted (key, value) tuple (LIFO order).
+   - clear(): Empties dictionary in-place (results in {}).
+
+4. FREQUENCY COUNTER PATTERN (CBSE BOARD FAVORITE):
+   - freq[item] = freq.get(item, 0) + 1
+===============================================================================

@@ -217,6 +217,46 @@ PERMITTED: nmap -sS -T1 -p 502 --max-retries 1 192.168.1.100 (Safe, single-packe
     codeExample: `// The Enumeration to Exploitation Pipeline:
 Phase 2 Enumeration: Discovers "ProFTPD 1.3.5 with mod_copy enabled"
 Phase 3 Exploitation:  msf> use exploit/unix/ftp/proftpd_modcopy_exec → Instant Root Shell (#)!`
+  },
+  {
+    question: "What is Network Enumeration and how does it advance an attack beyond basic port scanning?",
+    shortAnswer: "Enumeration establishes active connections to open services to query specific details: user accounts, group names, network shares, routing tables, and service software versions.",
+    explanation: "Port scanning merely identifies that port 445 is open; enumeration queries SMB to extract exact Windows domain names, share permissions, and user lists.",
+    hint: "Querying open services directly to pull user lists, shares, and exact versions.",
+    level: "moderate",
+    codeExample: "enum4linux -a 192.168.1.50 # Comprehensive SMB enumeration"
+  },
+  {
+    question: "How does an attacker enumerate SNMP (Simple Network Management Protocol) services on UDP port 161?",
+    shortAnswer: "By querying SNMP community strings (e.g. default 'public' or 'private') to extract system uptime, network interfaces, IP routing tables, and running process lists.",
+    explanation: "SNMPv1 and SNMPv2c transmit community strings in cleartext; guessing the string allows complete reconnaissance of router and switch configurations.",
+    hint: "Using community strings like 'public' on UDP 161 to dump router configurations.",
+    level: "moderate",
+    codeExample: "snmpwalk -v 2c -c public 192.168.1.1 1.3.6.1.2.1.25.4.2.1.2 # Process list OID"
+  },
+  {
+    question: "What is LDAP enumeration in Active Directory environments?",
+    shortAnswer: "Querying the Lightweight Directory Access Protocol (TCP port 389/636) to list all domain users, security groups, organizational units (OUs), and computer objects.",
+    explanation: "LDAP enumeration maps the entire enterprise privilege hierarchy, identifying high-value targets like members of the 'Domain Admins' group.",
+    hint: "Querying port 389 to map domain users, computers, and Domain Admin groups.",
+    level: "moderate",
+    codeExample: "ldapsearch -x -H ldap://dc01.corp.local -b 'dc=corp,dc=local' '(objectClass=user)' sAMAccountName"
+  },
+  {
+    question: "How does SMTP VRFY and EXPN command enumeration work on legacy mail servers?",
+    shortAnswer: "The VRFY command asks the mail server to verify if a username exists; EXPN asks the server to expand and reveal members of a mailing list.",
+    explanation: "Attackers iterate through dictionaries of common names (admin, root, bob, alice); 250 responses confirm valid usernames for subsequent brute-force attacks.",
+    hint: "SMTP commands VRFY and EXPN to confirm if email accounts exist.",
+    level: "moderate",
+    codeExample: "nc -nv 192.168.1.25 25\nVRFY root\n250 2.1.5 root@target.com"
+  },
+  {
+    question: "What defensive controls block unauthorized network enumeration?",
+    shortAnswer: "Disabling default community strings (SNMPv3), blocking anonymous LDAP and SMB NULL sessions, restricting RPC endpoint mapping, and deploying strict egress/ingress firewalls.",
+    explanation: "Enforcing authentication on directory services and filtering management ports ensures that unauthorized scanners receive no responsive data.",
+    hint: "Enforce authentication, disable null sessions, and upgrade to SNMPv3.",
+    level: "moderate",
+    codeExample: "// Windows Registry: RestrictAnonymous = 1 to prevent anonymous enumeration"
   }
 ];
 

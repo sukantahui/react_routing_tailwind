@@ -1,0 +1,46 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 3: NETWORK PROTOCOLS, WEB SERVICES & CYBER SECURITY
+TOPIC 1: TCP/IP PROTOCOL SUITE (RELIABILITY & ADDRESSING)
+
+================================================================================
+1. THE TCP/IP ARCHITECTURAL MODEL (4 LAYERS)
+================================================================================
+1. APPLICATION LAYER: HTTP, HTTPS, FTP, SMTP, POP3, IMAP, Telnet, SSH, DNS
+2. TRANSPORT LAYER: TCP (Reliable, connection-oriented), UDP (Fast, connectionless)
+3. INTERNET LAYER: IP (Logical Addressing, Routing), ICMP (Diagnostics/Ping), ARP
+4. NETWORK ACCESS (LINK) LAYER: Ethernet, Wi-Fi, PPP, MAC Addressing
+
+================================================================================
+2. TCP VS IP DIVISION OF RESPONSIBILITIES
+================================================================================
+Parameter          TCP (Transmission Control Protocol)     IP (Internet Protocol)
+--------------------------------------------------------------------------------
+OSI / TCP Layer    Transport Layer (Layer 4)               Internet Layer (Layer 3)
+Service Type       Connection-Oriented                     Connectionless
+Reliability        100% Reliable (Guaranteed In-Order)     Best-Effort (Packets can be lost)
+Addressing         16-bit Port Numbers (0 - 65535)         32-bit IPv4 / 128-bit IPv6
+Handshake          3-Way Handshake (SYN, SYN-ACK, ACK)     No handshake (Direct dispatch)
+Key Features       Sequence numbers, ACKs, Flow Control    Routing, TTL, Fragmentation
+
+================================================================================
+3. TCP 3-WAY HANDSHAKE PROTOCOL
+================================================================================
+Client                                              Server
+  | ------ [Step 1: SYN (Seq=X)] -------------------> |  (Client requests connection)
+  | <--- [Step 2: SYN-ACK (Seq=Y, Ack=X+1)] ---------- |  (Server acknowledges & syncs)
+  | ------ [Step 3: ACK (Ack=Y+1)] -----------------> |  (Client confirms, session open)
+  | ===== ESTABLISHED: BI-DIRECTIONAL DATA FLOW ===== |
+
+================================================================================
+4. WELL-KNOWN PORT NUMBERS FOR CBSE BOARD EXAM
+================================================================================
+- Port 20/21: FTP (File Transfer Protocol - Data/Control)
+- Port 22: SSH (Secure Shell)
+- Port 23: Telnet (Insecure Remote Terminal)
+- Port 25: SMTP (Simple Mail Transfer Protocol - Mail Sending)
+- Port 53: DNS (Domain Name System)
+- Port 80: HTTP (Hypertext Transfer Protocol - Insecure Web)
+- Port 110: POP3 (Post Office Protocol v3 - Mail Retrieval)
+- Port 143: IMAP (Internet Message Access Protocol - Sync Mail)
+- Port 443: HTTPS (HTTP Secure over SSL/TLS)

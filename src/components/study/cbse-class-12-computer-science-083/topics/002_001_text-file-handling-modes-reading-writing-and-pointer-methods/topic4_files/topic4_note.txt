@@ -1,0 +1,39 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 4: READING FROM TEXT FILES - read(), read(n), readline(), readlines()
+======================================================================
+
+1. SUMMARY OF TEXT FILE READING METHODS
+   ----------------------------------------------------------------------
+   Method         Argument    Return Type    Description
+   ----------------------------------------------------------------------
+   read()         None / -1   str            Reads entire remaining file to EOF.
+   read(n)        Integer n   str            Reads at most n characters from pointer.
+   readline()     None / -1   str            Reads next line (including \n). EOF returns ''.
+   readline(n)    Integer n   str            Reads up to n characters of current line.
+   readlines()    None / -1   list of str    Reads all remaining lines into a list of strings.
+   for line in f: Iteration   str (per line) Generator-based streaming (Best for large files).
+   ----------------------------------------------------------------------
+
+2. CRITICAL DISTINCTION: EOF DETECTION
+   - In text mode, EOF is indicated by an EMPTY STRING: '' (len == 0).
+   - An empty line containing only a newline returns: '\n' (len == 1).
+   - Therefore, condition to check EOF:
+     line = f.readline()
+     if line == '':
+         # Reached end of file!
+
+3. TRAILING NEWLINE HANDLING
+   - readline() and readlines() preserve trailing '\n'.
+   - To clean lines:
+     line = line.rstrip('\n')   # strips right newline only
+     line = line.strip()         # strips all leading/trailing whitespace
+
+4. MEMORY EFFICIENCY IN CBSE CODING
+   - Bad: f.read().splitlines() on 5 GB file (MemoryError).
+   - Good: for line in f: (Processes line-by-line in constant O(1) memory).
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

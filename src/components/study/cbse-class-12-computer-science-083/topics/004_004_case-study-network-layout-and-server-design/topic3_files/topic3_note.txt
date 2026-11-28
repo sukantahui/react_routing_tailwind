@@ -1,0 +1,47 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 4: 4-MARK NETWORK CASE STUDY & INFRASTRUCTURE DESIGN
+TOPIC 3: OPTIMAL CABLE LAYOUT DESIGN (STAR VS BUS TOPOLOGY)
+
+================================================================================
+1. STAR TOPOLOGY LAYOUT (RECOMMENDED & PREFERRED)
+================================================================================
+Design Principle:
+- The Server block acts as the central hub.
+- Dedicated point-to-point cables radiate directly from the Server block to EVERY
+  other campus block.
+- Total Links Required: N - 1 links (where N is total number of blocks).
+
+Advantages:
+- Superior Fault Isolation: A break in one inter-building cable affects only that
+  single building; all other blocks communicate with the server uninterrupted.
+- High Performance: Dedicated bandwidth on each link to the central switch.
+- Easy Troubleshooting & Scalability: Adding a new building requires only running
+  a new drop cable to a spare switch port in the server room.
+
+Diagrammatic Representation in Exam:
+[Admin Wing] <==================== [Technical Wing] ====================> [Finance Wing]
+  (60 m)                               (SERVER)                                (85 m)
+                                          ||
+                                          || (95 m)
+                                          /
+                                   [Academic Wing]
+Total Cable Required: 60 m + 85 m + 95 m = 240 meters.
+
+================================================================================
+2. BUS / TREE TOPOLOGY LAYOUT (MINIMUM CABLE LENGTH)
+================================================================================
+Design Principle:
+- Connects adjacent blocks sequentially along the shortest path (Minimum Spanning Tree).
+- Used when the question explicitly states: "Suggest a cable layout to minimize
+  cable expenditure / total cable length."
+
+Advantages:
+- Minimum total cable meters and lowest trenching cost.
+
+Disadvantages:
+- A break in the central backbone cable severs communication for all downstream blocks.
+
+Diagrammatic Representation in Exam:
+[Admin Wing] ----(50m)----> [Finance Wing] ----(60m)----> [Academic] ----(85m)----> [Technical (SERVER)]
+Total Cable Required: 50 m + 60 m + 85 m = 195 meters.

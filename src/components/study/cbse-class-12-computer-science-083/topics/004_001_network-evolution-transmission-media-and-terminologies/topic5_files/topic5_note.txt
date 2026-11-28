@@ -1,0 +1,44 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: TOPIC 5 - GUIDED MEDIA: COAXIAL CABLE (STRUCTURE, SHIELDING, BASEBAND VS BROADBAND)
+
+1. PHYSICAL STRUCTURE OF COAXIAL CABLE:
+   Coaxial cable consists of two concentric conductors sharing the same geometric axis:
+   1. Central Core Conductor: Solid or stranded copper wire that carries the high-frequency electrical signal.
+   2. Dielectric Insulator: Non-conductive plastic / Teflon layer that maintains uniform radial distance between inner and outer conductors.
+   3. Outer Metallic Braided Shield: Braided copper or aluminium mesh (and foil) that blocks external EMI/RFI and acts as the ground return loop.
+   4. Protective Plastic Jacket: Tough outer polyvinyl chloride (PVC) sheath protecting against environmental moisture and physical abrasion.
+
+2. BASEBAND VS BROADBAND COAXIAL TRANSMISSION:
+   +------------------------+------------------------------------+------------------------------------+
+   | Feature                | Baseband Coaxial Cable             | Broadband Coaxial Cable            |
+   +------------------------+------------------------------------+------------------------------------+
+   | Characteristic Imp.    | 50 Ohms                            | 75 Ohms                            |
+   | Signal Format          | Digital bitstream (Manchester enc) | Analog modulated signals (RF/FDM)  |
+   | Channel Sharing        | Single channel dedicated to 1 user | Multiple frequency channels (FDM)  |
+   | Typical Cable Types    | RG-8, RG-11 (Thicknet), RG-58      | RG-6, RG-59 (Cable TV, Cable Modems|
+   | Max Segment Distance   | 185m (Thinnet) to 500m (Thicknet)  | Several kilometers with amplifiers |
+   | Primary Use Case       | Legacy Ethernet (10BASE2, 10BASE5) | Cable Television & High-Speed Cable|
+   +------------------------+------------------------------------+------------------------------------+
+
+3. LEGACY ETHERNET STANDARDS (CBSE FREQUENT QUESTIONS):
+   - 10BASE5 (Thicknet):
+     * '10' = 10 Mbps speed
+     * 'BASE' = Baseband digital signaling
+     * '5' = 500 meters maximum segment length
+     * Uses Vampire Taps and Drop Cables to connect to Transceivers.
+   - 10BASE2 (Thinnet):
+     * '10' = 10 Mbps speed
+     * 'BASE' = Baseband digital signaling
+     * '2' = ~185 meters (rounded up to 200m) maximum segment length
+     * Uses BNC T-connectors and 50-Ohm terminators at both cable ends to absorb signal reflections.
+
+4. COAXIAL CONNECTORS:
+   - BNC (Bayonet Neill-Concelman) Connector: Push-and-twist bayonet locking connector.
+   - BNC T-Connector: Joins a network card (NIC) to the passing bus backbone cable.
+   - BNC Terminator (50 Ohm): Absorbs electrical signal energy at bus terminations to eliminate ghost reflections.
+   - F-Type Connector: Threaded screw-on connector used for 75-Ohm TV and DOCSIS cable modems.
+
+5. ADVANTAGES & LIMITATIONS:
+   - Advantages: Higher bandwidth than twisted pair, superior EMI immunity due to solid braided sheath, longer reach without repeaters (up to 500m).
+   - Limitations: Bulky, thick, difficult to route around corners, bus topology single point of failure, largely superseded by UTP and Fiber in modern LANs.

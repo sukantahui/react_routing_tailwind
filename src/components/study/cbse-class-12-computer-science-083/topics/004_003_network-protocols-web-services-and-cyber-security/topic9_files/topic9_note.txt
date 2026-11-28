@@ -1,0 +1,39 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 3: NETWORK PROTOCOLS, WEB SERVICES & CYBER SECURITY
+TOPIC 9: NETWORK SECURITY THREATS (MALWARE TAXONOMY)
+
+================================================================================
+1. CORE MALWARE TAXONOMY & DEFINITIONS
+================================================================================
+Threat Type    Host Required?  Self-Replicating?  Primary Distribution & Harm
+--------------------------------------------------------------------------------
+VIRUS          YES             YES                Attaches to host executable files;
+                                                  requires user execution to spread; corrupts files.
+WORM           NO (Standalone) YES (Autonomous)   Propagates machine-to-machine via network
+                                                  exploits; consumes bandwidth; creates backdoors.
+TROJAN HORSE   NO              NO                 Disguises as legitimate/useful software;
+                                                  installs hidden backdoors, rootkits, or spyware.
+SPYWARE        Varies          NO                 Covertly tracks browsing, logs keystrokes,
+                                                  steals passwords, transmits data to attackers.
+RANSOMWARE     Varies          Can be (Worm-like) Encrypts victim's data with strong ciphers;
+                                                  demands cryptocurrency ransom for decryption key.
+ADWARE         NO              NO                 Forces unwanted banner ads and popups;
+                                                  monitors user search habits for commercial gain.
+
+================================================================================
+2. HISTORICAL & MODERN EXAMPLES FOR EXAMS
+================================================================================
+- Creeper (1971): Earliest experimental computer virus/worm on ARPANET.
+- Morris Worm (1988): First major network worm that crippled early Internet hosts.
+- ILOVEYOU (2000): Visual Basic Script virus distributed via email attachment.
+- WannaCry (2017): Devastating ransomware worm exploiting EternalBlue (SMBv1).
+
+================================================================================
+3. ESSENTIAL DEFENSIVE BEST PRACTICES
+================================================================================
+1. Signature & Heuristic Antivirus: Regular signature updates and real-time scanning.
+2. Timely Security Patching: Closing zero-day vulnerabilities promptly.
+3. Offline & Immutable Backups: Mitigating catastrophic ransomware destruction.
+4. Least Privilege Access (RBAC): Restricting administrative root permissions.
+5. Email Hygiene: Never executing unknown attachments or enabling unverified macros.

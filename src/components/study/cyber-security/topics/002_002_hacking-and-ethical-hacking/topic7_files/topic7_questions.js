@@ -230,6 +230,46 @@ DPDP Act 2023 Section 33: Data Fiduciary Breach Penalty → Up to ₹250 Crores`
     codeExample: `// False Flag Attribution Deception Example:
 Attacker: Iranian APT group
 Tactic: Inserts Russian language Cyrillic strings into malware binary and sets compile timestamp to Moscow Standard Time (UTC+3) to mislead forensic investigators into blaming Russian APT28.`
+  },
+  {
+    question: "What defines a 'Script Kiddie' in cybersecurity threat actor taxonomy?",
+    shortAnswer: "An unskilled individual who executes pre-written automated exploit scripts and tools (e.g. LOIC, Metasploit scripts) without understanding the underlying code, protocols, or architecture.",
+    explanation: "Script kiddies lack foundational programming or protocol knowledge; they operate for bragging rights, personal spite, or vandalism, often leaving extensive digital forensic trails.",
+    hint: "Unskilled attacker running downloaded tools without understanding how they work.",
+    level: "basic",
+    codeExample: "# Typical script kiddie tool: LOIC (Low Orbit Ion Cannon) GUI button click"
+  },
+  {
+    question: "What is 'Hacktivism' and what distinguishes its attack patterns from cybercrime?",
+    shortAnswer: "Hacking driven by political, religious, environmental, or social justice ideologies rather than personal financial profit.",
+    explanation: "Hacktivists (e.g. Anonymous) utilize website defacements, data doxxing, and massive DDoS attacks to draw public and media attention to political causes or corporate abuses.",
+    hint: "Politically motivated hacking using defacements, leaks, and DDoS.",
+    level: "moderate",
+    codeExample: "# Hacktivist signature: Web defacement with political manifesto and logo"
+  },
+  {
+    question: "What characteristic hallmarks distinguish Nation-State Threat Actors (APT groups)?",
+    shortAnswer: "Virtually unlimited budgets, zero-day exploit stockpiles, military chain of command, focus on critical infrastructure and defense secrets, and extreme anti-forensic stealth.",
+    explanation: "Nation-state groups (e.g. Russia's Sandworm, China's APT41, North Korea's Lazarus) prioritize intelligence gathering, long-term persistence, or strategic infrastructure disruption.",
+    hint: "Nation-state funding, zero-day exploits, and long-term geopolitical espionage.",
+    level: "advanced",
+    codeExample: "StuxnetPLC_Vector = 'Target Siemens S7-300 centrifuges at Natanz enrichment facility';"
+  },
+  {
+    question: "What is a 'Cyber Mercenary' or Private Sector Offensive Actor (PSOA)?",
+    shortAnswer: "Commercial technology companies that develop and sell high-end surveillance spyware and zero-click mobile exploits to governments and intelligence agencies (e.g. NSO Group).",
+    explanation: "PSOAs commercialize military-grade cyber capabilities, selling spyware (like Pegasus) capable of extracting messages, microphone audio, and location from mobile devices.",
+    hint: "Commercial firms selling zero-click mobile spyware to nation-states.",
+    level: "advanced",
+    codeExample: "Pegasus_ZeroClick: Exploits iOS CoreGraphics / ImageIO via silent iMessage packet"
+  },
+  {
+    question: "Why do 'Insider Threats' represent one of the most dangerous threat actor categories?",
+    shortAnswer: "Because insiders possess legitimate authorized credentials, direct physical or logical access behind perimeter firewalls, and knowledge of where critical data assets reside.",
+    explanation: "Insiders (disgruntled employees, bribed contractors) bypass perimeter firewalls and IDS. Detecting them requires User and Entity Behavior Analytics (UEBA) and Zero Trust policies.",
+    hint: "Legitimate credentials and direct access bypassing perimeter defenses.",
+    level: "moderate",
+    codeExample: "UEBA_Alert = detect_anomaly(user='finance_clerk', action='download_100GB_source_code_at_3am');"
   }
 ];
 

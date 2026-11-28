@@ -1,0 +1,38 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 0: CBSE CLASS XII CS 083 PRACTICAL EXAMINATION STRUCTURE (30 MARKS BREAKDOWN)
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Comprehensive breakdown of the 30-mark CBSE practical examination: Lab Test (12 Marks: Python Program 8M, SQL Queries 4M), Report File (7 Marks: Minimum 15 Python programs, 5 SQL sets), Project Work (8 Marks), and Viva Voce (3 Marks).
+
+2. KEY EXAMINATION POINTS:
+  (1) Lab Test: 12 Marks total -> Python Program (8 Marks) + SQL Queries (4 Marks).
+  (2) Report File: 7 Marks -> Minimum 15 Python programs (Files, Stack) and 5 SQL command sets.
+  (3) Project Work: 8 Marks -> End-to-end Python front-end with MySQL back-end application.
+  (4) Viva Voce: 3 Marks -> Oral questioning by external examiner on Python, SQL, and project.
+
+3. PRACTICAL CODE SNIPPET:
+# CBSE Practical Mark Distribution (Total 30 Marks):
+# 1. Lab Test:
+#    - Python Program (Files / Stack): 8 Marks
+#    - SQL Queries (DDL / DML / Joins): 4 Marks
+# 2. Report File (Practical Notebook): 7 Marks
+# 3. Project Work (Python + MySQL):    8 Marks
+# 4. Viva Voce (Oral Examination):     3 Marks
+# Total:                              30 Marks
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Neglecting the Practical Report File or Project Documentation; 15 of the 30 marks depend on the prepared notebook and working project.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 0 · CODER & ACCOTAX BARRACKPORE
+================================================================================

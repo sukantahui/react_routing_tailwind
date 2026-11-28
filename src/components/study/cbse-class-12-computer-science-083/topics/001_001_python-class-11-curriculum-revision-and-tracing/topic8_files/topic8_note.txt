@@ -1,0 +1,32 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 8: TUPLE IMMUTABILITY, PACKING & UNPACKING OPERATIONS
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. TUPLE ESSENTIALS:
+   - Ordered, IMMUTABLE sequence of heterogenous elements enclosed in parentheses ( ).
+   - Parentheses are syntactically optional when commas are present ('t = 1, 2, 3').
+   - SINGLETON TUPLE RULE: A single element must be followed by a trailing comma:
+     * t = (5)   -> type is <class 'int'>
+     * t = (5,)  -> type is <class 'tuple'>
+
+2. IMMUTABILITY GUARANTEES:
+   - Tuple elements cannot be reassigned: 't[0] = 99' raises:
+     'TypeError: 'tuple' object does not support item assignment'.
+   - Tuples have NO append(), extend(), insert(), pop(), or remove() methods!
+   - Tuples have ONLY TWO built-in methods:
+     * count(x): Returns frequency of x.
+     * index(x): Returns lowest index of x (raises ValueError if missing).
+
+3. TUPLE PACKING AND UNPACKING:
+   - Packing: Creating a tuple without parentheses (e.g. coordinates = 12.5, 77.2).
+   - Unpacking: Assigning tuple elements to multiple variables:
+     * x, y = coordinates
+     * Number of variables on left MUST equal number of items in tuple, otherwise raises ValueError.
+     * Extended unpacking: first, *rest = (1, 2, 3, 4) -> rest is [2, 3, 4].
+
+4. BOARD EXAM FREQUENT QUESTIONS:
+   - Can a tuple serve as a dictionary key? YES, provided all its items are immutable.
+   - What is the output of 't = (1, 2, [3, 4]); t[2].append(5)'? Valid! Produces (1, 2, [3, 4, 5]).
+===============================================================================

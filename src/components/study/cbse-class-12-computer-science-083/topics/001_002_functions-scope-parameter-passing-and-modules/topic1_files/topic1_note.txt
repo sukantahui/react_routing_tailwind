@@ -1,0 +1,31 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 1: FUNCTION HEADER, FORMAL PARAMETERS VS ACTUAL ARGUMENTS
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. FORMAL PARAMETERS:
+   - Identifiers declared inside the parentheses of the function header definition:
+     'def function_name(param1, param2):'
+   - They act as LOCAL variable placeholders waiting to receive values when invoked.
+   - Lifetime: Created when the function is called, destroyed when function returns.
+
+2. ACTUAL ARGUMENTS:
+   - The concrete values, variables, expressions, or function calls supplied inside
+     the parentheses during the function INVOCATION:
+     'result = function_name(arg1, arg2)'
+   - Python evaluates all actual arguments FIRST, then binds their resulting object
+     references to the corresponding formal parameters.
+
+3. FORMS OF ACTUAL ARGUMENTS:
+   - Constant Literals: func(10, 'Admin')
+   - Variables: func(score, grade)
+   - Complex Expressions: func(x * 2, y + 10)
+   - Function Calls (Nested): func(math.sqrt(16), len([1, 2, 3]))
+
+4. THE CARDINAL RULE OF ARGUMENT COUNT:
+   - Unless default parameters or *args are configured, the number of actual arguments
+     passed in the call MUST EXACTLY MATCH the number of formal parameters declared.
+   - Mismatch raises: 'TypeError: func() missing N required positional argument(s)'
+     or 'TypeError: func() takes N positional arguments but M were given'.
+===============================================================================

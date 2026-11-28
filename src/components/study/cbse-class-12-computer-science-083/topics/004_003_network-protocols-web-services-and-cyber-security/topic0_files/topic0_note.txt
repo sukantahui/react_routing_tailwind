@@ -1,0 +1,34 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 3: NETWORK PROTOCOLS, WEB SERVICES & CYBER SECURITY
+TOPIC 0: UNDERSTANDING PROTOCOLS - NEED FOR STANDARD RULES
+
+================================================================================
+1. DEFINITION & THE CORE PROTOCOL TRIAD
+================================================================================
+A Protocol is a formalized set of conventions, standards, and rules governing the format, transmission, and reception of data across networked devices.
+
+The Three Core Elements:
+1. SYNTAX: Data formatting, field sizing, delimiters, bit ordering, and header structure.
+2. SEMANTICS: The meaning assigned to each section of bits and the deterministic action to be taken by the receiver.
+3. TIMING: Sequencing of events, speed matching (flow control), and clock synchronization.
+
+================================================================================
+2. WHY PROTOCOLS ARE INDISPENSABLE IN NETWORKING
+================================================================================
+- Heterogeneous Interoperability: Allows Windows PCs, Linux servers, macOS laptops, and Android smartphones to communicate flawlessly.
+- Error Control: Verifies data integrity using Checksums, CRC, and ARQ retransmissions.
+- Flow Control: Prevents high-speed senders from overflowing low-memory receivers (e.g., sliding window protocol).
+- Congestion Avoidance: Prevents network packet collapses when routers exceed buffer capacity.
+- Addressing & Multiplexing: Uses port numbers to allow multiple applications (web browser, email, music stream) to share a single physical connection simultaneously.
+
+================================================================================
+3. ENCAPSULATION & PDU HIERARCHY
+================================================================================
+Layer             PDU Name          Added Control Data
+--------------------------------------------------------------------------------
+Application       Data / Message    Application payload, HTTP/SMTP headers
+Transport         Segment / Datagram Port numbers, Sequence #, TCP Checksum
+Network (IP)      Packet            Source & Destination IP addresses, TTL
+Data Link         Frame             Source & Destination MAC addresses, FCS (CRC)
+Physical          Bits              Preamble, voltage level pulses, optical pulses

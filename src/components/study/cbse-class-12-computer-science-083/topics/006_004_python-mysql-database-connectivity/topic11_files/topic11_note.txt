@@ -1,0 +1,57 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 11: BUILDING A COMPLETE PYTHON-MYSQL CRUD APPLICATION (STUDENT / BANKING MANAGEMENT)
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+A complete, production-grade menu-driven Python application implementing all four CRUD operations: Create, Read, Update, and Delete on a MySQL table.
+
+2. KEY EXAMINATION POINTS:
+  (1) Menu-driven architecture using while True loop and clean functional decomposition.
+  (2) Modular functions: insert_student(), view_all(), search_student(), update_marks(), delete_student().
+  (3) Proper input validation, exception handling, and transaction commits across all operations.
+  (4) Standard template required for CBSE Class 12 Computer Science practical lab project (Code 083).
+
+3. SYNTAX & CODE SNIPPET:
+import mysql.connector
+
+def get_connection():
+    return mysql.connector.connect(host="localhost", user="root", password="tiger", database="SchoolDB")
+
+def insert_student():
+    con = get_connection()
+    cur = con.cursor()
+    r = int(input("Roll No: "))
+    n = input("Name: ")
+    m = float(input("Marks: "))
+    cur.execute("INSERT INTO Student VALUES (%s, %s, %s);", (r, n, m))
+    con.commit()
+    print("Student enrolled successfully!")
+    cur.close()
+    con.close()
+
+def view_all():
+    con = get_connection()
+    cur = con.cursor()
+    cur.execute("SELECT * FROM Student;")
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
+    cur.close()
+    con.close()
+
+4. CBSE COMMON PITFALLS:
+Always remember to commit transactions and close both cursor and connection.
+
+5. REVISION CHECKLIST:
+  [ ] Understand connect() parameters: host, user, password, database.
+  [ ] Know the difference between fetchone(), fetchmany(), and fetchall().
+  [ ] Remember that fetchone() returns None and fetchall() returns [] when exhausted.
+  [ ] Master con.commit() for INSERT/UPDATE/DELETE.
+  [ ] Know that '%s' is the universal placeholder in mysql.connector.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 11 · CODER & ACCOTAX BARRACKPORE
+================================================================================

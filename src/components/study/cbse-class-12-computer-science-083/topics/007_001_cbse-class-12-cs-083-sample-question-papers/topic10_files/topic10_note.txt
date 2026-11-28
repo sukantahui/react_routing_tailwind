@@ -1,0 +1,46 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: EXAMINATION MASTERY (FULL BOARD PATTERN)
+TOPIC 10: SECTION D MASTERY: 2 LONG ANSWER (5 MARKS) BINARY FILE & SQL QUERY DRILL
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+In-depth guide to tackling the two 5-mark anchor questions of the CBSE paper: Binary File record CRUD and complex SQL relational queries.
+
+2. KEY EXAMINATION POINTS:
+  (1) Binary File (5 Marks): Read, Search, or Update records using pickle.load() inside a while True loop with try-except EOFError.
+  (2) Update in Binary File: Using f.seek() and f.tell() to overwrite a record in-place, or the temporary file strategy.
+  (3) SQL Questions (5 Marks): Usually 4 query-writing sub-parts and 1 predict-output sub-part, or 5 query-writing sub-parts.
+  (4) Common SQL sub-parts: Projection with WHERE, LIKE wildcard, Aggregate with GROUP BY, and Multi-Table Equi-Join.
+
+3. CODE & STRATEGY SNIPPET:
+# Binary File In-Place Update (5 Marks)
+import pickle
+
+def update_marks(roll, new_marks):
+    with open('student.dat', 'rb+') as f:
+        try:
+            while True:
+                pos = f.tell()
+                rec = pickle.load(f)
+                if rec[0] == roll:
+                    rec[2] = new_marks
+                    f.seek(pos)
+                    pickle.dump(rec, f)
+                    break
+        except EOFError:
+            pass
+
+4. CBSE COMMON PITFALLS:
+Adhere strictly to step-marking rubrics and never leave questions unattempted.
+
+5. REVISION CHECKLIST:
+  [ ] Understand 70-mark theory distribution across Sections A to E.
+  [ ] Practice dry-run trace tables for Section B output questions.
+  [ ] Memorize standard templates for Stack and Text file questions.
+  [ ] Know the 80-20 rule and repeater/switch criteria for Section E.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 10 · CODER & ACCOTAX BARRACKPORE
+================================================================================

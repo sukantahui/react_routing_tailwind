@@ -1,0 +1,23 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT III: SQL DDL & TABLE CONSTRAINTS
+TOPIC 1: SQL DATA TYPES: CHAR VS VARCHAR, INT, DECIMAL, DATE, AND TIME
+=====================================================
+Selecting the optimal data type for each table column ensures storage efficiency, data integrity, and fast index traversal.
+
+1. String Data Types:
+   - CHAR(M): Fixed-length character string where M (0 to 255) defines the exact allocated character size. If a shorter string is stored, MySQL automatically right-pads it with spaces.
+     Use case: Data with fixed, constant length (e.g. State code 'WB', Gender 'M'/'F', Grade 'A1', PIN code '700120').
+   - VARCHAR(M): Variable-length character string where M (0 to 65,535) defines the maximum allowable characters. It uses only the bytes required for the string plus 1-2 prefix bytes recording length.
+     Use case: Data with variable length (e.g. Student Name, Address, Email ID).
+
+2. Numeric Data Types:
+   - INT / INTEGER: Standard 4-byte integer ranging from -2,147,483,648 to 2,147,483,647 (or 0 to 4.29 billion unsigned).
+   - SMALLINT (2 bytes), TINYINT (1 byte, useful for boolean flags 0/1).
+   - DECIMAL(P, D) / NUMERIC(P, D): Exact fixed-point numeric type where P is Total Precision (total digits) and D is Scale (digits after decimal point).
+     Example: DECIMAL(8, 2) can store up to 999999.99 (6 digits before decimal, 2 after). Mandatory for monetary amounts and currency to avoid floating-point rounding errors.
+   - FLOAT / DOUBLE: Inexact approximate floating-point values for scientific measurements.
+
+3. Date & Time Data Types:
+   - DATE: Stores calendar dates in strict ISO-8601 format: 'YYYY-MM-DD' (e.g., '2026-03-15'). Range: '1000-01-01' to '9999-12-31'.
+   - TIME: Stores time values in 'HH:MM:SS' format.
+   - DATETIME: Stores combined date and time: 'YYYY-MM-DD HH:MM:SS'.

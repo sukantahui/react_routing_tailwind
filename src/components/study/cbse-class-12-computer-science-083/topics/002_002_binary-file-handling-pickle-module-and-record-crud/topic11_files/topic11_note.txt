@@ -1,0 +1,21 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 11: PRACTICE YOUR SKILL - TIMED DIAGNOSTIC QUIZ REVISION
+======================================================================
+
+1. DIAGNOSTIC CHECKLIST BEFORE STARTING THE QUIZ
+   - Can you write the exact pickle.dump(obj, f) and pickle.load(f) syntax?
+   - Do you remember to wrap pickle.load(f) in try...except EOFError:?
+   - Do you know the difference between 'wb' (truncates) and 'ab' (preserves)?
+   - Can you explain why the Temporary File Pattern is used for updates & deletes?
+   - Can you write the found = False search template?
+
+2. BOARD EXAM SCORING ADVICE
+   - Underline key requirements: 'append', 'search', 'update', 'delete'.
+   - Always close files or use 'with open(...) as f:'.
+   - Handle FileNotFoundError and EOFError defensively!
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

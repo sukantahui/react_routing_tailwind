@@ -1,0 +1,34 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: COMPUTER NETWORKS ARCHITECTURE & MEDIA
+TOPIC 3: TRANSMISSION MODES (SIMPLEX, HALF-DUPLEX, FULL-DUPLEX)
+
+1. WHAT IS A TRANSMISSION MODE?
+- The direction of signal flow between two interconnected communication devices.
+- Categorized into three fundamental modes: Simplex, Half-Duplex, and Full-Duplex.
+
+2. SIMPLEX MODE (UNIDIRECTIONAL):
+- Data transmission occurs in only ONE direction (Sender -> Receiver).
+- The sender can only send; the receiver can only receive and CANNOT reply.
+- The entire channel capacity is dedicated to one-way transmission.
+- Examples:
+  * Traditional Television & FM Radio broadcasting.
+  * Keyboard sending keystrokes to CPU.
+  * CPU outputting display signals to a computer monitor.
+
+3. HALF-DUPLEX MODE (BIDIRECTIONAL, ALTERNATE):
+- Data transmission can occur in BOTH directions, but only ONE direction at a time.
+- When station A is transmitting, station B can only receive. Station B must wait until station A finishes before replying.
+- The full channel capacity is shared between both directions alternately.
+- Examples:
+  * Walkie-Talkies (users say "Over" to release the channel).
+  * Push-to-talk marine and aviation radios.
+
+4. FULL-DUPLEX MODE (BIDIRECTIONAL, SIMULTANEOUS):
+- Data transmission occurs in BOTH directions SIMULTANEOUSLY at the exact same moment.
+- Both stations can transmit and receive concurrently without waiting.
+- Channel capacity is divided between the two directions, or two separate physical transmission paths exist.
+- Examples:
+  * Modern telephone and mobile phone conversations (both callers can talk at once).
+  * Video conferencing (Zoom, Google Meet).
+  * Full-duplex switched Gigabit Ethernet connections.

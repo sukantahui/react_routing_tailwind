@@ -1,0 +1,42 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 3: DELETING ROWS: DELETE FROM ... WHERE VS TRUNCATE VS DROP
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+The DELETE statement removes tuples from a table based on conditional filters while preserving table schema and column definitions.
+
+2. KEY EXAMINATION POINTS:
+  (1) Syntax: 'DELETE FROM table_name WHERE condition;' removes only rows satisfying the condition.
+  (2) Omitting WHERE in DELETE removes all rows one-by-one, but the empty table structure remains intact.
+  (3) DELETE vs TRUNCATE: DELETE is DML (logged, row-by-row, triggers fire, can rollback), TRUNCATE is DDL (fast deallocation, cannot rollback).
+  (4) DELETE vs DROP: DROP destroys both the data AND the table definition completely from the database catalog.
+
+3. SYNTAX & CODE SNIPPET:
+-- Remove a specific employee
+DELETE FROM Employee WHERE EmpId = 103;
+
+-- Remove employees who have resigned before 2020
+DELETE FROM Employee WHERE DOJ < '2020-01-01';
+
+-- Clear all rows using DML (Table schema persists)
+DELETE FROM Employee;
+
+-- Comparison with DDL:
+-- TRUNCATE TABLE Employee; -- Fast schema reset (DDL)
+-- DROP TABLE Employee;     -- Destroys table completely (DDL)
+
+4. CBSE COMMON PITFALLS:
+Remember to test conditions carefully and use parentheses to disambiguate AND/OR connectives.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between DML and DDL commands.
+  [ ] Master WHERE condition construction using relational and logical operators.
+  [ ] Be confident in NULL handling using IS NULL and IS NOT NULL.
+  [ ] Remember default ordering for ORDER BY is ASC.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 3 · CODER & ACCOTAX BARRACKPORE
+================================================================================

@@ -1,0 +1,33 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: MODULE 2 - TOPIC 0: MODEM (MODULATION / DEMODULATION, TYPES)
+
+1. DEFINITION AND ROLE OF A MODEM:
+   - Acronym: MOdulator / DEModulator.
+   - Core Purpose: Bridges the gap between digital computer signals and analog transmission media (telephone copper lines, cable TV lines).
+   - Computers work strictly with discrete digital binary signals (0s and 1s, square waves).
+   - Traditional telephone lines and coaxial networks are engineered to transmit continuous analog audio/RF sine waves.
+   - Without a modem, digital computers cannot communicate across analog transmission infrastructure.
+
+2. TWO BASIC FUNCTIONS:
+   1. Modulation:
+      - Occurs at the SENDER side.
+      - Converts digital binary signals from the computer into analog audio/radio frequency signals suitable for transmission over analog lines.
+      - Techniques: Amplitude Shift Keying (ASK), Frequency Shift Keying (FSK), Phase Shift Keying (PSK), QAM.
+   2. Demodulation:
+      - Occurs at the RECEIVER side.
+      - Intercepts incoming analog carrier waves from the line and converts them back into original digital binary bits for the computer.
+
+3. CLASSIFICATION OF MODEMS:
+   - By Form Factor / Housing:
+     * Internal Modem: Expansion card fitted into a PCIe slot or integrated directly onto the motherboard. Draws power directly from the system bus; compact but harder to troubleshoot.
+     * External Modem: Standalone hardware unit enclosed in its own chassis with independent power supply. Connects to PC via Ethernet cable or USB; status indicator LEDs make diagnostics easy.
+   - By Transmission Technology:
+     * Dial-up Modem: Standard legacy telephone line (PSTN) modem, maximum theoretical speed of 56 Kbps (V.90 / V.92). Occupies the voice line during use.
+     * DSL Modem (Digital Subscriber Line): Operates on higher non-voice frequencies over copper telephone wires. Supports simultaneous voice calls and broadband data (ADSL up to 24+ Mbps).
+     * Cable Modem: Connects to broadband 75-Ohm coaxial TV cables (DOCSIS standard) supporting hundreds of Mbps.
+     * Cellular / Wireless Modem: 4G/5G USB dongle or pocket Wi-Fi router communicating over cellular radio spectrum.
+
+4. KEY CBSE BOARD QUESTIONS:
+   - Why is a modem needed to connect a computer to the Internet via telephone lines?
+     Ans: Because computers generate digital pulses while telephone lines only carry analog voice signals. The modem modulates digital to analog at transmission and demodulates analog to digital at reception.

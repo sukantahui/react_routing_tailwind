@@ -1,0 +1,40 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 6: ELIMINATING DUPLICATE ROWS: THE DISTINCT KEYWORD
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Relational tables may produce duplicate values when projecting non-key columns. DISTINCT removes duplicates from the result set.
+
+2. KEY EXAMINATION POINTS:
+  (1) Syntax: 'SELECT DISTINCT column_name FROM table_name;'
+  (2) Default Behavior: 'SELECT ALL column_name' or simply 'SELECT column_name' retains all duplicate rows.
+  (3) DISTINCT applies to the combination of ALL columns listed in the SELECT clause, not just the first column.
+  (4) CBSE Exam Classic: If a table has 10 rows with Dept values ('IT', 'IT', 'HR', 'HR', 'IT'), 'SELECT DISTINCT Dept' returns exactly 2 rows.
+
+3. SYNTAX & CODE SNIPPET:
+-- Default query: shows duplicate departments for every employee
+SELECT Dept FROM Employee;
+-- Result: IT, Sales, IT, HR, Sales (5 rows)
+
+-- DISTINCT query: collapses duplicates into unique values
+SELECT DISTINCT Dept FROM Employee;
+-- Result: IT, Sales, HR (3 rows)
+
+-- Multi-column DISTINCT: unique pairs of Dept and Designation
+SELECT DISTINCT Dept, Designation FROM Employee;
+
+4. CBSE COMMON PITFALLS:
+Remember to test conditions carefully and use parentheses to disambiguate AND/OR connectives.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between DML and DDL commands.
+  [ ] Master WHERE condition construction using relational and logical operators.
+  [ ] Be confident in NULL handling using IS NULL and IS NOT NULL.
+  [ ] Remember default ordering for ORDER BY is ASC.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 6 · CODER & ACCOTAX BARRACKPORE
+================================================================================

@@ -208,6 +208,54 @@ Data Integrity & Forensics: SHA-256 / SHA-3 (FIPS 180-4 / FIPS 202)
 Message Authentication:     HMAC-SHA256 (RFC 2104)
 Password Storage:           Argon2id (Memory-Hard)
 Deprecated & Banned:        MD5 & SHA-1 (ZERO TOLERANCE)`
+  },
+  {
+    question: "What are the three fundamental security properties required of a Cryptographic Hash Function?",
+    shortAnswer: "1. Pre-image Resistance (one-way: hard to find m given h(m)); 2. Second Pre-image Resistance (hard to find m2 != m1 such that h(m1) = h(m2)); 3. Collision Resistance (hard to find any m1, m2 such that h(m1) = h(m2)).",
+    explanation: "These properties guarantee that hashes cannot be reversed, forged, or duplicated across differing data.",
+    hint: "Pre-image resistance, second pre-image resistance, and collision resistance.",
+    level: "advanced",
+    codeExample: "HashProperties = ['PreimageResistance', 'SecondPreimageResistance', 'CollisionResistance'];"
+  },
+  {
+    question: "What is the 'Avalanche Effect' in cryptographic hashing algorithms?",
+    shortAnswer: "A property where flipping even a single input bit causes approximately 50% of the output hash bits to change drastically and unpredictably.",
+    explanation: "Prevents cryptanalysts from inferring relationships between inputs based on output similarities.",
+    hint: "Changing 1 bit in input causes ~50% of output hash bits to flip randomly.",
+    level: "moderate",
+    codeExample: "sha256('cat') -> 77af778b51...\nsha256('dat') -> 241ffae97b... # Completely different hash"
+  },
+  {
+    question: "Why was MD5 deprecated and what was the significance of the 2008 Rogue CA demonstration?",
+    shortAnswer: "MD5's collision resistance was completely shattered; in 2008, researchers generated an MD5 collision to create a counterfeit, valid intermediate SSL Certificate Authority trusted by browsers.",
+    explanation: "Today MD5 collisions can be generated in seconds on a standard smartphone, making it completely unsafe for security or digital certificates.",
+    hint: "Collision resistance broken, allowing creation of forged SSL certificates.",
+    level: "moderate",
+    codeExample: "md5('file1') == md5('file2') # Easily fabricated collision using HashClash"
+  },
+  {
+    question: "What is the Birthday Paradox and how does it limit hash collision resistance?",
+    shortAnswer: "Finding a collision among any two arbitrary inputs requires only ~2^(n/2) operations for an n-bit hash, rather than 2^n operations.",
+    explanation: "Just as only 23 people are needed in a room for a 50% chance of shared birthdays, finding matching hashes requires testing the square root of total hash space.",
+    hint: "Collision search takes 2^(n/2) operations instead of 2^n due to birthday probability.",
+    level: "advanced",
+    codeExample: "SHA1_Collision_Space = 2**(160/2) # 2^80 operations (achieved in 2017 SHAttered attack)"
+  },
+  {
+    question: "What is an HMAC (Hash-based Message Authentication Code) and why is plain `H(Key + Message)` insecure?",
+    shortAnswer: "HMAC is a keyed cryptographic hash: HMAC(K, m) = H((K' ⊕ opad) || H((K' ⊕ ipad) || m)). Plain H(Key + Message) is vulnerable to Length Extension Attacks in Merkle-Damgård hashes.",
+    explanation: "HMAC double-hashes data with inner and outer padding, preventing attackers from appending data and computing valid hashes without the secret key.",
+    hint: "Keyed hash construction preventing Length Extension attacks.",
+    level: "advanced",
+    codeExample: "import hmac, hashlib\nmac = hmac.new(b'secret_key', b'message_data', hashlib.sha256).hexdigest()"
+  },
+  {
+    question: "How does SHA-3 differ fundamentally in internal architecture from SHA-2?",
+    shortAnswer: "SHA-2 uses the Merkle-Damgård iterative compression structure; SHA-3 uses the Keccak Sponge Construction (absorbing data into state, then squeezing output).",
+    explanation: "Because SHA-3 uses sponge functions rather than Merkle-Damgård, it is inherently immune to length extension attacks without needing HMAC structures.",
+    hint: "Keccak Sponge construction (absorb and squeeze) instead of Merkle-Damgard compression.",
+    level: "advanced",
+    codeExample: "sha3 = hashlib.sha3_256(b'data').hexdigest()"
   }
 ];
 

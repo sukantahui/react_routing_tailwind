@@ -1,0 +1,42 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 2: MODIFYING EXISTING DATA: UPDATE ... SET ... WHERE (THE CRITICAL ROLE OF WHERE)
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+The UPDATE statement modifies attribute values of existing records. Combining it with a precise WHERE clause ensures only target rows are changed.
+
+2. KEY EXAMINATION POINTS:
+  (1) Syntax: 'UPDATE table_name SET col1 = val1, col2 = val2 WHERE condition;'
+  (2) Multiple columns can be updated simultaneously separated by commas in the SET clause.
+  (3) If the WHERE clause is omitted, EVERY single row in the entire table will be updated with the new values!
+  (4) Calculations in the SET clause are dynamic: e.g. 'SET Salary = Salary * 1.10' performs an in-place 10% raise across qualifying employees.
+
+3. SYNTAX & CODE SNIPPET:
+-- Update a single employee's salary and department
+UPDATE Employee 
+SET Salary = 65000.00, Dept = 'Operations' 
+WHERE EmpId = 102;
+
+-- Increase salary by 10% for all employees in 'IT' department
+UPDATE Employee 
+SET Salary = Salary * 1.10 
+WHERE Dept = 'IT';
+
+-- CAUTION: Missing WHERE clause updates the entire table!
+-- UPDATE Employee SET Salary = 50000; -- Changes EVERY employee salary to 50000!
+
+4. CBSE COMMON PITFALLS:
+Remember to test conditions carefully and use parentheses to disambiguate AND/OR connectives.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between DML and DDL commands.
+  [ ] Master WHERE condition construction using relational and logical operators.
+  [ ] Be confident in NULL handling using IS NULL and IS NOT NULL.
+  [ ] Remember default ordering for ORDER BY is ASC.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 2 · CODER & ACCOTAX BARRACKPORE
+================================================================================

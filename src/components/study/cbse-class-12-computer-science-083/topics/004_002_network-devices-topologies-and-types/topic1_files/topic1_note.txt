@@ -1,0 +1,41 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: MODULE 2 - TOPIC 1: ETHERNET CARD (NIC) & MAC ADDRESS REPRESENTATION
+
+1. NETWORK INTERFACE CARD (NIC / ETHERNET CARD):
+   - Definition: A dedicated hardware circuit board that provides the physical interface connecting a computer to a local network (LAN).
+   - Also Known As: Ethernet Card, Network Adapter, LAN Card, or Network Interface Controller.
+   - Operating Layer: Data Link Layer (Layer 2) and Physical Layer (Layer 1).
+   - Form Factors:
+     * Integrated Onboard: Embedded directly into modern desktop motherboards and laptop SOCs.
+     * PCIe Expansion Card: Add-in card plugged into a desktop motherboard.
+     * USB Ethernet Adapter: External dongle used on thin laptops lacking physical RJ-45 ports.
+     * Wireless NIC (Wi-Fi Card): Contains an internal antenna for 802.11 wireless connectivity.
+
+2. MEDIA ACCESS CONTROL (MAC) ADDRESS:
+   - Fundamental Definition: A permanent, globally unique physical hardware address burned into the Read-Only Memory (ROM) of every NIC during manufacturing.
+   - Often referred to as the Physical Address or Hardware Address of a computer.
+   - Bit Length: Exactly 48 bits (6 Bytes / 6 Octets).
+   - Representation Format: Twelve (12) hexadecimal digits grouped into six pairs separated by colons (:) or hyphens (-).
+     * Example: 00:1A:2B:3C:4D:5E  or  00-1A-2B-3C-4D-5E
+
+3. ANATOMY OF A 48-BIT MAC ADDRESS:
+   - First 24 Bits (First 3 Bytes / 6 Hex Digits):
+     * Organizationally Unique Identifier (OUI).
+     * Assigned by the IEEE (Institute of Electrical and Electronics Engineers) to the specific hardware manufacturer (e.g., Intel, Cisco, Realtek, Apple).
+   - Last 24 Bits (Last 3 Bytes / 6 Hex Digits):
+     * Network Interface Controller (NIC) Specific Identifier.
+     * Serialized uniquely by the manufacturer for that individual network adapter card.
+
+4. IP ADDRESS VS MAC ADDRESS (CRITICAL CBSE COMPARISON):
+   +------------------------+------------------------------------+------------------------------------+
+   | Feature                | MAC Address                        | IP Address                         |
+   +------------------------+------------------------------------+------------------------------------+
+   | Address Type           | Physical / Hardware Address        | Logical / Network Address          |
+   | Address Length         | 48 bits (6 Bytes)                  | 32 bits (IPv4) or 128 bits (IPv6)  |
+   | Representation         | Hexadecimal (e.g. 00:1A:2B:3C:4D:5E| Dotted decimal (e.g. 192.168.1.1)  |
+   | Permanence             | Burned into ROM; permanent         | Dynamically assigned via DHCP; var |
+   | Assignment Authority   | Manufacturer via IEEE OUI          | Network Administrator / ISP / IANA |
+   | Operating OSI Layer    | Data Link Layer (Layer 2)          | Network Layer (Layer 3)            |
+   | Network Scope          | Local Area Network (Hop-to-Hop)    | Global Internet (End-to-End Routing|
+   +------------------------+------------------------------------+------------------------------------+

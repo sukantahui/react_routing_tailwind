@@ -1,0 +1,40 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 18: PRACTICAL 18: SQL SET 3: AGGREGATE FUNCTIONS, GROUP BY, AND HAVING FILTER QUERIES
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Collection of practical SQL queries using COUNT(), SUM(), AVG(), MIN(), MAX(), GROUP BY single/multiple columns, and group filtering using HAVING.
+
+2. KEY EXAMINATION POINTS:
+  (1) Count employees in each department: SELECT DeptId, COUNT(*) FROM Employee GROUP BY DeptId;.
+  (2) Compute total payroll and average salary per department.
+  (3) Filter groups: HAVING COUNT(*) >= 2 or HAVING AVG(Salary) > 50000.
+  (4) Standard 4-mark SQL lab test question in CBSE practical examinations.
+
+3. PRACTICAL CODE SNIPPET:
+-- SQL Practical Set 3: Aggregates & Grouping
+SELECT DeptId, COUNT(*) AS TotalStaff, SUM(Salary) AS TotalPayroll, AVG(Salary) AS AveragePay 
+FROM Employee 
+GROUP BY DeptId;
+
+-- Group Filtering with HAVING
+SELECT DeptId, AVG(Salary) AS MeanSalary 
+FROM Employee 
+GROUP BY DeptId 
+HAVING AVG(Salary) > 50000.00;
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 18 · CODER & ACCOTAX BARRACKPORE
+================================================================================

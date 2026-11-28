@@ -1,0 +1,32 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: EXAMINATION MASTERY (MODULE 1)
+TOPIC 15: SAMPLE QUESTION PAPER (10 SETS · 20 MARKS EACH)
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+EXAMINATION BLUEPRINT & STRUCTURE (45 MINUTES PER SET · 20 MARKS TOTAL):
+- Section A: 4 Questions × 1 Mark = 4 Marks (MCQs, Assertion-Reasoning, Token identification)
+- Section B: 2 Questions × 2 Marks = 4 Marks (Syntax error correction & Output prediction)
+- Section C: 2 Questions × 3 Marks = 6 Marks (Text File Word/Line Filter & Linear Stack Operations)
+- Section D: 1 Question × 6 Marks = 6 Marks (Comprehensive Case Study: Campus Network Layout or Relational SQL)
+
+SCOPE OF SYLLABUS FOR THIS MODULE (TOPICS 0 TO 14 ONLY):
+- Official CBSE Examination Pattern: 70 Marks Theory, 35 Questions, 5 Sections (A to E)
+- Section A Strategies: Rapid MCQ solving, Assertion-Reasoning evaluation method
+- Section B Strategies: Trace tables for loops, spotting 4 intentional syntax errors
+- Section C Strategies: Text file handling functions with 'with open()', Stack LIFO append/pop
+- Section D Strategies: Binary file in-place update with seek/tell, multi-table SQL queries
+- Section E Strategies: Campus network layout, server block (80-20 rule), switch/repeater criteria
+- Marking Scheme Nuances: Step-marking rubrics, presentation guidelines, time management plan
+
+MASTER TEACHER SUKANTA HUI'S GOLDEN RULES FOR 100/100 IN CBSE COMPUTER SCIENCE:
+1. TIME MANAGEMENT: Section A (30m), Section B (30m), Section C (45m), Section D (40m), Section E (25m), Revision (10m).
+2. PRESENTATION: Always rewrite the entire program in code correction and underline corrections.
+3. DRY-RUN TABLES: Keep pencil trace tables in the rough margin; write only final output in the main space.
+4. COMMITS & QUOTES: In SQL, enclose strings/dates in quotes; in Python-MySQL, never forget con.commit().
+5. NEVER LEAVE BLANKS: Step-marking rewards every correct line of code or formula written.
+
+================================================================================
+END OF REVISION SHEET · 10 SAMPLE SETS · CODER & ACCOTAX BARRACKPORE
+================================================================================

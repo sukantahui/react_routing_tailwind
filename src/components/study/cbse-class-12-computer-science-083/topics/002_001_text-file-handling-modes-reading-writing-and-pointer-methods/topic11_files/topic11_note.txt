@@ -1,0 +1,22 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 11: PRACTICE YOUR SKILL - TIMED DIAGNOSTIC QUIZ REVISION
+======================================================================
+
+1. DIAGNOSTIC CHECKLIST BEFORE STARTING THE QUIZ
+   - Have you memorized the 6 access modes ('r', 'w', 'a', 'r+', 'w+', 'a+')?
+   - Do you know which modes truncate ('w', 'w+') and which raise errors ('r', 'r+')?
+   - Can you explain read() vs readline() vs readlines() return types?
+   - Do you remember that write() and writelines() NEVER add automatic newlines?
+   - Can you explain seek(offset, whence) and whence values 0, 1, 2?
+   - Do you understand how 'with open(...) as f:' guarantees closure?
+
+2. BOARD EXAM STRATEGY
+   - Read question headers carefully (e.g. "case-insensitive", "starting with").
+   - Watch out for IndexError on empty lines: always use line.startswith()!
+   - Underline whether you are counting characters, words, or lines.
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

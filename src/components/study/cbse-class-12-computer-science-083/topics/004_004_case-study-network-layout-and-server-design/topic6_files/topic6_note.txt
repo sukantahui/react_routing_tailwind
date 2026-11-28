@@ -1,0 +1,39 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 4: 4-MARK NETWORK CASE STUDY & INFRASTRUCTURE DESIGN
+TOPIC 6: SELECTING TRANSMISSION MEDIUM (FIBER VS TWISTED PAIR VS WIRELESS)
+
+================================================================================
+1. THE THREE CORE MEDIA SELECTION CRITERIA
+================================================================================
+Criterion 1: DISTANCE
+- Distance < 100 meters: Twisted Pair (Cat6 UTP) is completely adequate and economical.
+- Distance 100m - 2000m: Fiber Optic Cable is superior (avoids repeaters).
+- Distance > 2 km / Rough Terrain: Wireless (Radio/Microwave/Satellite).
+
+Criterion 2: TRANSMISSION SPEED & BANDWIDTH
+- Gigabit to 100 Gbps: Fiber Optic Cable (highest throughput).
+- Standard 1 Gbps: Category 6 Twisted Pair.
+
+Criterion 3: BUDGET & COST
+- Lowest Cost: Unshielded Twisted Pair (Cat6 UTP).
+- Higher Cost: Fiber Optic Cable (requires optical transceivers & splicing).
+
+Criterion 4: INTERFERENCE IMMUNITY
+- Absolute Immunity: Fiber Optic Cable (uses light, completely immune to EMI/Lightning).
+- Moderate Immunity: Shielded Twisted Pair (STP) / Coaxial.
+- Susceptible: Unshielded Twisted Pair (UTP).
+
+================================================================================
+2. CBSE BOARD MARKING SCHEME DECISION MATRIX
+================================================================================
+Exam Scenario                               Recommended Transmission Medium
+--------------------------------------------------------------------------------
+"Economical / Low-cost wired connection"    Twisted Pair (Cat6 UTP) Cable
+"Fastest / Maximum speed wired connection"  Fiber Optic Cable
+"Connection immune to noise/lightning"      Fiber Optic Cable
+"Distance exceeds 100m without repeaters"   Fiber Optic Cable
+"Across a busy highway / River / Obstacle"  Radio Wave / Microwave (Line-of-Sight)
+"Auditorium / Mobile laptop access"         Wi-Fi (Wireless Radio Waves)
+"Remote branch in hilly / mountainous area" Radio Wave / Microwave / Satellite
+"Remote branch 1,000+ km away"             Satellite Link / Leased Telecom Line

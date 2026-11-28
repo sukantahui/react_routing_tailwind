@@ -1,0 +1,27 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: MODULE 2 - TOPIC 8: WIRELESS ACCESS POINT (WAP) & WI-FI CARDS
+
+1. WIRELESS ACCESS POINT (WAP / AP):
+   - Definition: A dedicated networking hardware device that creates a wireless local area network (WLAN) by broadcasting radio signals, allowing Wi-Fi-enabled devices to connect to a wired network.
+   - Operating Layer: Data Link Layer (Layer 2) and Physical Layer (Layer 1).
+   - Bridge Function:
+     * Connects directly to a wired switch or router via an Ethernet cable (RJ-45).
+     * Converts wired 802.3 Ethernet frames into wireless 802.11 radio frequency frames and vice versa.
+
+2. WI-FI CARDS (WIRELESS NIC):
+   - A network interface controller equipped with a radio transceiver and antenna that allows desktop computers, laptops, and mobile devices to transmit and receive wireless signals.
+   - Form Factors: Integrated internal chipsets (M.2 / PCIe in laptops) or external USB Wi-Fi dongles.
+
+3. CORE WIRELESS TERMINOLOGY:
+   - SSID (Service Set Identifier): The 32-character human-readable name of the wireless network (e.g., "School_Campus_WiFi").
+   - BSSID (Basic Service Set Identifier): The 48-bit MAC address of the AP's physical radio interface.
+   - Frequency Bands:
+     * 2.4 GHz Band: Longer range, better wall penetration, but crowded (only 3 non-overlapping channels: 1, 6, 11).
+     * 5 GHz Band: Shorter range, higher bandwidth, 24+ non-overlapping channels, less interference.
+   - Security Standards: WPA2 (AES-CCMP) and modern WPA3 (SAE - Simultaneous Authentication of Equals).
+
+4. WHEN TO RECOMMEND AN ACCESS POINT IN CBSE CASE STUDIES:
+   - In 5-mark Case Studies, when a question asks:
+     "Which device should be installed in the Auditorium / Conference Hall / Library to provide internet access to students using smartphones, tablets, and laptops without laying cables to every seat?"
+     Answer: Wireless Access Point (WAP / AP).

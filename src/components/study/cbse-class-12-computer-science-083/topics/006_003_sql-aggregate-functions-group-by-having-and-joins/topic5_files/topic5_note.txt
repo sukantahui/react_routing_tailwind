@@ -1,0 +1,39 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 5: RULES FOR GROUP BY: COLUMNS IN SELECT VS GROUPING ATTRIBUTES
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+SQL enforces strict projection rules when GROUP BY is used: any column in the SELECT list MUST either be in GROUP BY or inside an aggregate function.
+
+2. KEY EXAMINATION POINTS:
+  (1) Cardinality Rule: A query with GROUP BY returns one row per group. Projecting a non-grouped individual column would be ambiguous.
+  (2) Valid in SELECT: Grouping attributes, aggregate function expressions, and literal constants.
+  (3) Invalid in SELECT: Any individual attribute not listed in the GROUP BY clause (in ANSI SQL and strict MySQL mode).
+  (4) CBSE Exam Classic: 'SELECT Dept, EName, AVG(Salary) FROM Employee GROUP BY Dept;' is ILLEGAL because EName is neither in GROUP BY nor inside an aggregate.
+
+3. SYNTAX & CODE SNIPPET:
+-- INVALID QUERY (CBSE Board Exam Error Identification):
+-- SELECT Dept, EName, COUNT(*) FROM Employee GROUP BY Dept;
+-- Error: EName is not in GROUP BY!
+
+-- VALID QUERY:
+SELECT Dept, COUNT(*) AS TotalEmp, AVG(Salary) AS AvgSal 
+FROM Employee 
+GROUP BY Dept;
+
+4. CBSE COMMON PITFALLS:
+Ensure correct placement of WHERE before GROUP BY and HAVING after GROUP BY.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between COUNT(*) and COUNT(col).
+  [ ] Master GROUP BY rules regarding non-aggregated columns.
+  [ ] Remember WHERE cannot contain aggregate functions; use HAVING.
+  [ ] Know Cartesian Product formulas: Cardinality = R1 * R2, Degree = C1 + C2.
+  [ ] Always include (N - 1) join conditions when joining N tables.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 5 · CODER & ACCOTAX BARRACKPORE
+================================================================================

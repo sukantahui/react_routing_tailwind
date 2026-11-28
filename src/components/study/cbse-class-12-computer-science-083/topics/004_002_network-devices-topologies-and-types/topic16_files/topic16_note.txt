@@ -1,0 +1,26 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: NETWORK DEVICES, TOPOLOGIES & TYPES (SAMPLE PAPERS)
+===========================================================
+10 Mock Test Papers · 20 Marks Each · Duration: 45 Minutes
+
+KEY TECHNICAL CONCEPTS:
+1. Network Devices:
+   - Hub: Layer 1, blind broadcast to all ports, 1 collision domain.
+   - Switch: Layer 2, intelligent unicast using MAC address table, separate collision domain per port.
+   - Router: Layer 3, forwards packets between subnets using IP addresses, breaks broadcast domains.
+   - Gateway: Protocol converter connecting dissimilar network architectures.
+   - Repeater: Layer 1, regenerates attenuated signals beyond 100m.
+2. MAC vs IP:
+   - MAC: 48 bits (6 bytes), physical/hardware address, hexadecimal.
+   - IP: 32 bits (IPv4) or 128 bits (IPv6), logical/software address.
+3. Topologies:
+   - Star: Central switch/hub, easy fault isolation, single point of failure at center.
+   - Bus: Single backbone cable with terminators, cheap, single cable break stops network.
+   - Ring: Unidirectional token passing.
+   - Mesh: n*(n-1)/2 links, maximum redundancy, expensive.
+   - Tree: Hierarchical star-bus combination.
+4. Types:
+   - PAN (<10m, Bluetooth)
+   - LAN (<1km, school/office)
+   - MAN (5-50km, city CATV)
+   - WAN (national/global, Internet)

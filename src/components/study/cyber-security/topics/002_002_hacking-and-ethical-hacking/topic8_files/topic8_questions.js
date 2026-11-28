@@ -216,6 +216,46 @@ FORBIDDEN: Modifying live production configuration files or deleting services yo
     codeExample: `// The Golden Law of Cybersecurity:
 No_Signed_RoE == NO PACKETS SENT;
 Signed_RoE + Strict_Scope + Uncompromising_Integrity == LAWFUL DEFENSE OF DIGITAL SOCIETY;`
+  },
+  {
+    question: "What is Section 66F of the Indian Information Technology Act (IT Act 2000)?",
+    shortAnswer: "It defines and criminalizes Cyber Terrorism, carrying a mandatory statutory penalty of up to life imprisonment.",
+    explanation: "Section 66F penalizes acts committed with intent to threaten the unity, integrity, security, or sovereignty of India, or strike terror by denying access to authorized computer resources.",
+    hint: "Section penalizing Cyber Terrorism with imprisonment up to life.",
+    level: "moderate",
+    codeExample: "IT_Act_2000_Sec66F = { Offense: 'Cyber Terrorism', MaxPenalty: 'Life Imprisonment' };"
+  },
+  {
+    question: "What is a 'Get Out of Jail Free Card' in penetration testing terminology?",
+    shortAnswer: "A written, signed authorization letter from executive leadership carried by physical and technical penetration testers during active engagements.",
+    explanation: "If security guards or police intervene during testing, this document confirms that the tester is an authorized contractor acting lawfully under executive management direction.",
+    hint: "Formal executive letter carried by penetration testers to prove authorization.",
+    level: "basic",
+    codeExample: "AuthorizationLetter: 'Tester X is contracted by Board of Directors to perform security audit.'"
+  },
+  {
+    question: "How does the Budapest Convention on Cybercrime facilitate international law enforcement coordination?",
+    shortAnswer: "It provides a standardized legal framework for cross-border criminalization of hacking, real-time collection of internet traffic data, and mutual legal assistance across signatory nations.",
+    explanation: "Because internet infrastructure is global, the Budapest Convention harmonizes cyber laws, allowing police in one nation to request digital evidence preservation in another.",
+    hint: "International treaty harmonizing cyber laws and cross-border evidence sharing.",
+    level: "advanced",
+    codeExample: "MLAT_Request: 'Mutual Legal Assistance Treaty request for server logs in jurisdiction B'"
+  },
+  {
+    question: "What is Section 43 of the Indian Information Technology Act 2000?",
+    shortAnswer: "It prescribes civil penalties and damages (compensation up to ₹1 Crore to affected victims) for unauthorized access, data copying, virus introduction, or damage to computer systems.",
+    explanation: "Section 43 deals with civil liability for computer damage and data theft; when committed dishonestly or fraudulently, Section 66 converts it into a criminal offense.",
+    hint: "Civil liability and compensation for unauthorized computer access and damage.",
+    level: "moderate",
+    codeExample: "IT_Act_Sec43: Compensation for unauthorized downloading, copying, or extracting data"
+  },
+  {
+    question: "Why must penetration testers never test third-party cloud infrastructure (like AWS or Azure) without proper provider notification?",
+    shortAnswer: "Because cloud infrastructure is shared (multi-tenant); unauthorized probing may degrade adjacent tenant workloads and violates the cloud provider's Acceptable Use Policy (AUP).",
+    explanation: "Major cloud providers (AWS, Microsoft Azure, Google Cloud) have specific penetration testing policies defining permissible targets and prohibiting DDoS or stress tests.",
+    hint: "Multi-tenant cloud risks and violations of cloud Acceptable Use Policies.",
+    level: "moderate",
+    codeExample: "AWS_PenTest_Policy: 'Testing permitted on customer EC2; prohibited against Route53 or CloudFront.'"
   }
 ];
 

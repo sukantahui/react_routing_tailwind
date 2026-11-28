@@ -1,0 +1,36 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 7: UPDATING RECORDS IN BINARY FILES - TEMPORARY FILE STAGING
+======================================================================
+
+1. WHY THE TEMPORARY FILE PATTERN IS THE GOLD STANDARD
+   - Serialized pickle records have variable byte lengths.
+   - If an updated record has a different byte size, in-place overwriting ('rb+')
+     will corrupt the following record or leave trailing garbage bytes.
+   - Staging through 'temp.dat' guarantees 100% data integrity!
+
+2. STEP-BY-STEP ALGORITHM (CBSE BOARD BLUEPRINT)
+   Step 1: Open 'student.dat' in 'rb' mode and 'temp.dat' in 'wb' mode.
+   Step 2: Read records one by one using pickle.load(fin) in a try-while-except EOFError loop.
+   Step 3: If record matches target roll number:
+           - Update the required field (e.g. rec['marks'] = new_marks).
+           - Set found = True.
+   Step 4: Dump the record (whether updated or unchanged) into 'temp.dat'.
+   Step 5: Catch EOFError and CLOSE BOTH FILES (exiting 'with' block).
+   Step 6: If found is True:
+           - os.remove('student.dat')
+           - os.rename('temp.dat', 'student.dat')
+           - Print "Record updated successfully."
+           Else:
+           - os.remove('temp.dat')  # Clean up staging file
+           - Print "Record not found."
+
+3. CRITICAL WINDOWS WARNING
+   - Never call os.remove() or os.rename() inside the 'with' block!
+   - On Windows, open file locks cause:
+     PermissionError: [WinError 32] The process cannot access the file.
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

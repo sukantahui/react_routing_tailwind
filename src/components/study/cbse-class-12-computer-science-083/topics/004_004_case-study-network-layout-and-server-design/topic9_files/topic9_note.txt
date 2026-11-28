@@ -1,0 +1,45 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - QUICK REVISION NOTE
+TOPIC 9: 10 SOLVED PAST CBSE BOARD 4-MARK CASE STUDIES & MODEL ANSWERS
+
+=============================================================================
+THE UNIVERSAL 4-MARK CBSE CASE STUDY QUESTION STRUCTURE:
+A company / school / hospital has 4-5 wings or blocks with:
+1. Table 1: Distances between blocks (in meters or km).
+2. Table 2: Number of computers installed in each block.
+
+Standard 4 Sub-questions (1 Mark each):
+(a) Suggest the most suitable block to install the SERVER with justification.
+(b) Suggest the best CABLE LAYOUT (Star or Bus) to connect all blocks. Draw layout.
+(c) Suggest the placement of REPEATER and HUB/SWITCH with justification.
+(d) Suggest one hardware/software/service recommendation (e.g. Video conferencing,
+    VoIP, Firewall, High-speed medium, Remote branch link, or Intranet).
+=============================================================================
+
+MODEL SOLUTIONS TEMPLATE (100% EXAM ACCURACY):
+
+1. SERVER PLACEMENT:
+   - Rule: Always place the server in the block with the MAXIMUM NUMBER OF COMPUTERS.
+   - Justification: "As per the 80-20 rule of network traffic, placing the server where maximum
+     computers are located minimizes inter-building data traffic and avoids network bottlenecks."
+
+2. CABLE LAYOUT:
+   - Star Layout: Connect each peripheral block directly to the central Server Block.
+     Total Length = Sum of distances from Server Block to each other block.
+     Advantage: Fault-tolerant, independent links, high performance.
+   - Bus Layout: Connect all blocks linearly using the shortest total path (Minimum Spanning Tree).
+     Advantage: Minimizes total cable installation cost.
+
+3. REPEATER & HUB/SWITCH PLACEMENT:
+   - Repeater: Required only when the distance between any two directly connected blocks
+     EXCEEDS 100 meters (or 70-80 meters as per some board rubrics).
+     Reason: "To regenerate and amplify weakened signals over long distances."
+   - Hub/Switch: Required in EVERY BLOCK having multiple computers.
+     Reason: "To interconnect all local workstations within that block into a local LAN segment."
+
+4. HARDWARE / PROTOCOL / SERVICE RECOMMENDATIONS:
+   - Inter-block high-speed link: Optical Fiber Cable.
+   - Indoor LAN cabling: UTP (Cat6) Twisted Pair Cable.
+   - Voice/Video meetings: VoIP protocol, Webcams, Microphones, Video Conferencing service.
+   - Perimeter Security: Hardware or Software Firewall.
+   - Remote branch in hilly/distant area: Radio waves, Microwave link, or Satellite link (VSAT).
+   - Secure remote employee access: VPN (Virtual Private Network).

@@ -1,0 +1,52 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 9: WORD SEARCH AND FILE CONTENT REPLACEMENT ALGORITHMS
+======================================================================
+
+1. WHY DIRECT IN-PLACE INSERTION/DELETION IS IMPOSSIBLE
+   - Disk files are linear, contiguous streams of bytes.
+   - Writing into the middle of an open file overwrites existing bytes.
+   - To insert or delete text without overwriting adjacent data, the remaining
+     bytes must be shifted, or the file must be rewritten.
+
+2. CORE ALGORITHM 1: IN-MEMORY STRING REPLACEMENT (FOR MODERATE FILES)
+   def replace_text(filename, old_word, new_word):
+       # Step 1: Read all content
+       with open(filename, 'r', encoding='utf-8') as f:
+           content = f.read()
+       
+       # Step 2: Perform string substitution
+       updated_content = content.replace(old_word, new_word)
+       
+       # Step 3: Rewrite file in 'w' mode
+       with open(filename, 'w', encoding='utf-8') as f:
+           f.write(updated_content)
+
+3. CORE ALGORITHM 2: LINE FILTERING & COPYING (CBSE PRACTICAL FAVORITE)
+   # Copy lines excluding lines containing 'this' or 'that'
+   def filter_copy(source_file, target_file):
+       with open(source_file, 'r', encoding='utf-8') as fin, \
+            open(target_file, 'w', encoding='utf-8') as fout:
+           for line in fin:
+               lower_line = line.lower()
+               if 'this' not in lower_line and 'that' not in lower_line:
+                   fout.write(line)
+
+4. CORE ALGORITHM 3: STREAMING REPLACEMENT VIA TEMPORARY FILE (LARGE FILES)
+   import os
+
+   def replace_streaming(filename, old_word, new_word):
+       temp_filename = "temp_" + filename
+       with open(filename, 'r', encoding='utf-8') as fin, \
+            open(temp_filename, 'w', encoding='utf-8') as fout:
+           for line in fin:
+               fout.write(line.replace(old_word, new_word))
+       
+       # Atomic replacement
+       os.remove(filename)
+       os.rename(temp_filename, filename)
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

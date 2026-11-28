@@ -1,0 +1,30 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - QUICK REVISION NOTE
+TOPIC 1: KEY ADVANTAGES OF DATABASE MANAGEMENT SYSTEMS (DBMS)
+
+1. FIVE CORE ADVANTAGES (CBSE 3-MARK RUBRIC):
+   A. Controlled Data Redundancy:
+      - Eliminates duplicate storage across departments; data is stored once centrally.
+   B. Data Consistency:
+      - Updates occur in one central location, preventing conflicting records.
+   C. Data Sharing:
+      - Multiple authorized users and applications can access and query the same data concurrently.
+   D. Data Integrity:
+      - Enforces constraints centrally: NOT NULL, UNIQUE, CHECK, PRIMARY KEY, FOREIGN KEY.
+      - Invalid or out-of-range data is rejected automatically at the database engine level.
+   E. Data Security & Privacy:
+      - Fine-grained access control (GRANT/REVOKE) down to tables, columns, and views.
+
+2. ACID PROPERTIES OF TRANSACTIONS:
+   - A - Atomicity: "All or Nothing" execution. Either all steps succeed or all rollback.
+   - C - Consistency: Database transitions from one valid state to another, obeying all rules.
+   - I - Isolation: Concurrent transactions do not interfere; intermediate states are hidden.
+   - D - Durability: Once committed, data changes are permanent and survive system crashes.
+
+3. DATA INDEPENDENCE:
+   - Physical Data Independence: Modifying physical storage/indexing without changing conceptual schema.
+   - Logical Data Independence: Modifying conceptual schema (adding columns/tables) without breaking
+     existing application views.
+
+4. DATABASE ADMINISTRATOR (DBA):
+   - Person/team responsible for schema design, access security, backup & disaster recovery,
+     and performance monitoring.

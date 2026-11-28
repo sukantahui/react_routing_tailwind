@@ -196,6 +196,54 @@ Layer 3: Air-gapped isolation of core banking settlement mainframes.`
     level: "expert",
     codeExample: `// The Master Resilient Defense Equation:
 (Recon_Minimization + Scanning_IPS + Memory_Hardening + Zero_Trust_LAPS + Immutable_WORM_SIEM) = TOTAL_CYBER_SOVEREIGNTY;`
+  },
+  {
+    question: "What defensive countermeasures disrupt the Reconnaissance phase?",
+    shortAnswer: "Restricting public WHOIS privacy records, disabling DNS zone transfers, sanitizing public job postings, and monitoring threat intelligence and paste sites for brand leaks.",
+    explanation: "Minimizing the public digital footprint starves adversaries of easy target profiling.",
+    hint: "WHOIS privacy, disabling DNS AXFR, and removing sensitive technical job specs.",
+    level: "basic",
+    codeExample: "options { allow-transfer { none; }; }; # Named.conf disabling DNS zone transfers"
+  },
+  {
+    question: "What defensive countermeasures disrupt Phase 2: Scanning and Enumeration?",
+    shortAnswer: "Port-knocking, rate-limiting ICMP/TCP connections, closing unnecessary ports, and deploying Intrusion Prevention Systems (IPS) that auto-ban scanning IPs.",
+    explanation: "IPS tools (like fail2ban or Snort) identify SYN flood patterns and dynamically inject firewall drop rules.",
+    hint: "Intrusion prevention systems, firewalls, and automated scanning IP blocking.",
+    level: "moderate",
+    codeExample: "iptables -A INPUT -p tcp --dport 22 -m state --state NEW -m recent --set --name SSH"
+  },
+  {
+    question: "What defensive countermeasures neutralize Phase 3: Gaining Access?",
+    shortAnswer: "Multi-Factor Authentication (MFA), timely security patch management, input validation (WAF), email sandboxing, and disabling macro execution.",
+    explanation: "MFA blocks >99% of automated credential stuffing attacks; automated patching eliminates known N-day vulnerability windows.",
+    hint: "Enforcing MFA on all logins, automated patching, and WAF input validation.",
+    level: "basic",
+    codeExample: "WAF_Rule: 'SecRule REQUEST_COOKIES|REQUEST_COOKIES_NAMES|REQUEST_FILENAME \"@rx select.+from\" ...'"
+  },
+  {
+    question: "What defensive countermeasures break Phase 4: Maintaining Access?",
+    shortAnswer: "EDR process monitoring, application whitelisting (AppLocker), restricting scheduled task creation, and auditing startup registry run keys.",
+    explanation: "Preventing unauthorized binaries from registering autostart keys blocks backdoors from surviving reboots.",
+    hint: "Application whitelisting and auditing auto-start extensibility points.",
+    level: "moderate",
+    codeExample: "Get-ItemProperty HKLM:\\Software\\Microsoft\\Windows\\CurrentVersion\\Run # Audit startup keys"
+  },
+  {
+    question: "What defensive countermeasures counter Phase 5: Covering Tracks?",
+    shortAnswer: "Write-once central logging (WORM storage), SIEM log forwarding over TLS, file integrity monitoring (FIM like Tripwire), and strict user privileges.",
+    explanation: "File integrity monitors immediately alert if system binaries or audit logs are modified or deleted.",
+    hint: "File Integrity Monitoring (FIM) and remote append-only log collectors.",
+    level: "moderate",
+    codeExample: "auditctl -w /var/log/auth.log -p wa -k auth_log_tamper # Auditd rule detecting tampering"
+  },
+  {
+    question: "What is the 'Defense-in-Depth' security principle across the 5 phases?",
+    shortAnswer: "Implementing multiple layered, overlapping defensive controls (perimeter, network, endpoint, application, and data) so that failure of one control does not result in compromise.",
+    explanation: "If perimeter firewalls fail during scanning, endpoint EDR blocks exploitation; if exploitation succeeds, network segmentation blocks lateral movement.",
+    hint: "Layered defensive security ensuring no single point of failure.",
+    level: "basic",
+    codeExample: "Layers = ['Perimeter Firewall', 'Network Segmentation', 'EDR', 'Access Control', 'Data Encryption'];"
   }
 ];
 

@@ -1,0 +1,33 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: MODULE 2 - TOPIC 7: GATEWAY (PROTOCOL TRANSLATION, ARCHITECTURES)
+
+1. FUNDAMENTAL DEFINITION:
+   - A network node that serves as an entrance and translator between two completely dissimilar network architectures using fundamentally different communication protocol suites.
+   - Operating OSI Layer: Operates at ALL layers of the OSI model, especially the Transport, Session, Presentation, and Application Layers (Layers 4 through 7).
+   - "Protocol Converter": The defining characteristic of a Gateway is its ability to translate data formats, control codes, and addressing between incompatible protocol stacks.
+
+2. ROUTER VS GATEWAY (MASTER CBSE COMPARISON):
+   +------------------------+------------------------------------+------------------------------------+
+   | Feature                | Router                             | Gateway                            |
+   +------------------------+------------------------------------+------------------------------------+
+   | Primary Role           | Routes packets between subnets     | Translates between incompatible pro|
+   | Protocol Compatibility | Requires same protocol (TCP/IP)    | Converts dissimilar protocols (e.g.|
+   | Operating OSI Layers   | Up to Layer 3 (Network Layer)      | All layers (Layers 1 through 7)    |
+   | Internal Processing    | Inspects IP header, keeps payload  | Re-encapsulates and converts data f|
+   | Typical Examples       | Enterprise Edge Router             | VoIP to PSTN Gateway, SMS Gateway  |
+   +------------------------+------------------------------------+------------------------------------+
+
+3. COMMON REAL-WORLD GATEWAYS:
+   - Voice over IP (VoIP) Gateway:
+     * Converts digital IP voice packets (SIP/RTP) into traditional analog circuit-switched telephone voice signals (PSTN / PBX).
+   - Email Gateway:
+     * Translates messages between dissimilar mail messaging systems (e.g. SMTP to X.400 or proprietary messaging).
+   - Payment Gateway:
+     * Securely encrypts and translates payment authorization messages between merchant websites and banking transaction networks.
+   - Cloud / API Gateway:
+     * Acts as an entry point for external client HTTP/REST requests, translating them into internal microservice protocols (gRPC, message queues).
+
+4. TERMINOLOGY CLARIFICATION (CBSE BOARD CONTEXT):
+   - In basic home/office networking, the term "Default Gateway" often colloquially refers to the local router connecting the LAN to the ISP.
+   - In theoretical Computer Science board examination definitions, a true "Gateway" is strictly a PROTOCOL CONVERTER connecting dissimilar network architectures!

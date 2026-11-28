@@ -1,0 +1,44 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 6: SEARCHING RECORDS - SEARCH BY ROLL NUMBER, ID, OR NAME
+======================================================================
+
+1. THE LINEAR SEARCH ALGORITHM IN BINARY FILES
+   - Sequentially deserialize records one by one using pickle.load(f).
+   - Compare the search key against the record attribute.
+   - Maintain a boolean flag: found = False.
+   - When a match is found:
+     * Display record details.
+     * Set found = True.
+     * If the key is UNIQUE (e.g. Roll No): execute 'break'.
+     * If the key is NON-UNIQUE (e.g. City/Stream): DO NOT break.
+   - When EOF is reached (except EOFError):
+     * If found is still False: display "Record not found".
+
+2. CANONICAL SEARCH FUNCTION TEMPLATE (CBSE 3-MARK QUESTION)
+   import pickle
+
+   def search_by_roll(filename="student.dat", target_roll=101):
+       found = False
+       try:
+           with open(filename, "rb") as f:
+               try:
+                   while True:
+                       rec = pickle.load(f)
+                       if rec["roll"] == target_roll:
+                           print(f"[+] Record Found: Roll {rec['roll']} | {rec['name']} | Marks: {rec['marks']}")
+                           found = True
+                           break
+               except EOFError:
+                   pass
+       except FileNotFoundError:
+           print("[!] Error: File does not exist yet.")
+           return
+
+       if not found:
+           print(f"[-] Record with Roll {target_roll} not found.")
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

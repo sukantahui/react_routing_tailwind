@@ -1,0 +1,38 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: TOPIC 10 - COMPREHENSIVE COMPARATIVE ANALYSIS OF ALL TRANSMISSION MEDIA
+
+1. MASTER COMPARISON MATRIX ACROSS ALL 6 MAJOR TRANSMISSION MEDIA:
+   +--------------------+----------------+-------------------+--------------------+--------------------+--------------------+
+   | Medium             | Type           | Bandwidth / Speed | Max Distance/Hop   | EMI Immunity       | Cost & Complexity  |
+   +--------------------+----------------+-------------------+--------------------+--------------------+--------------------+
+   | Twisted Pair (UTP) | Guided (Wired) | 100 Mbps - 1 Gbps | 100 meters         | Moderate           | Lowest cost, easy  |
+   | Shielded TP (STP)  | Guided (Wired) | 1 Gbps - 10 Gbps  | 100 meters         | Very High          | Moderate, needs gnd|
+   | Coaxial Cable      | Guided (Wired) | 10 Mbps - 100 Mbps| 185m - 500m        | High               | Moderate, bulky    |
+   | Optical Fiber      | Guided (Wired) | 1 Gbps - 100+ Tbps| 2 km - 100+ km     | 100% Total Immunity| High cost, skilled |
+   | Radio Waves        | Unguided (Air) | 1 Mbps - 100 Mbps | Citywide / Global  | Prone to noise/EMI | Low infra, license |
+   | Terrestrial Micro. | Unguided (Air) | 100 Mbps - 10 Gbps| 40 - 50 km (LoS)   | Prone to rain fade | High towers, LoS   |
+   | Satellite Link     | Unguided (Air) | 10 Mbps - 1 Gbps  | Global footprint   | Rain fade, latency | Highest cost, delay|
+   +--------------------+----------------+-------------------+--------------------+--------------------+--------------------+
+
+2. CBSE 5-MARK CASE STUDY DECISION MATRIX:
+   Rule 1 (Indoor & Under 100m):
+     * Distance: <= 100 meters inside same building.
+     * Recommendation: Unshielded Twisted Pair (Cat-6 UTP with RJ-45).
+     * Justification: Most economical, flexible, standard Ethernet speed.
+   Rule 2 (Inter-Building Campus 100m to 5 km):
+     * Distance: Between 100m and 5 km across campus grounds.
+     * Recommendation: Optical Fiber Cable (Multi-Mode or Single-Mode).
+     * Justification: High bandwidth, immune to lightning/ground loops between buildings, low loss.
+   Rule 3 (Hilly Terrain / Busy Roadways 5 km to 30 km):
+     * Distance: Up to 30 km where digging trenches or laying cables is prohibited.
+     * Recommendation: Terrestrial Microwave Link.
+     * Justification: Unidirectional line of sight bridges obstacles without cabling permissions.
+   Rule 4 (Remote / Desert / Island / Offshore > 100 km):
+     * Distance: Remote isolated branches without telecom infrastructure.
+     * Recommendation: Satellite Communication (VSAT).
+     * Justification: Ubiquitous coverage independent of terrestrial physical cabling.
+   Rule 5 (In-Room Device Control < 5m):
+     * Distance: Within single room without leaking outside.
+     * Recommendation: Infrared Transmission.
+     * Justification: Contained within room by walls, zero interference, high security.

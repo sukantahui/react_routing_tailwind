@@ -1,0 +1,26 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: PERSISTENT DATA STORAGE - CSV FILE HANDLING
+TOPIC 0: INTRODUCTION TO CSV (COMMA SEPARATED VALUES)
+
+1. WHAT IS A CSV FILE?
+- CSV stands for Comma Separated Values.
+- A CSV file is a plain text file that stores tabular data (numbers and text) in plain text.
+- Each line in the file corresponds to a data record (row).
+- Each record consists of one or more fields, separated by commas (the default delimiter).
+- It is universally supported across spreadsheet tools (MS Excel, Google Sheets, Apple Numbers), relational databases (MySQL, PostgreSQL), data science libraries (Pandas), and programming languages.
+
+2. WHY CSV OVER PLAIN TEXT AND BINARY FILES?
+- Text files: Lack standardized columns and tabular record structures unless manually parsed.
+- Binary files: Highly efficient for Python-to-Python communication using pickle, but human unreadable and incompatible with external software.
+- CSV files: Human readable, structured as rows and columns, lightweight, and cross-platform interoperable.
+
+3. STRUCTURE OF A CSV FILE:
+- Optional Header Row: Field names (e.g., RollNo, Name, Marks).
+- Subsequent Rows: Individual records matching the schema of the header.
+- Delimiter: Standard is comma (','). Fields containing commas or line breaks must be enclosed in quotation marks (RFC 4180 standard).
+
+4. CBSE BOARD EXAM QUICK POINTS:
+- File extension: .csv
+- MIME type: text/csv
+- Default separator: Comma (',')
+- Human readable? YES. Can be opened in Notepad as well as MS Excel.

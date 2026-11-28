@@ -1,0 +1,31 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 9: PARAMETER PASSING MECHANICS (PASS-BY-OBJECT-REFERENCE)
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. PYTHON'S PARAMETER PASSING MODEL:
+   - Neither purely "Pass-by-Value" nor purely "Pass-by-Reference".
+   - Official Term: PASS-BY-OBJECT-REFERENCE (or Call-by-Sharing).
+   - The memory address (reference) of the actual argument object is passed to the
+     formal parameter. Both point to the exact same object initially.
+
+2. BEHAVIOR WITH IMMUTABLE OBJECTS (Numbers, Strings, Tuples):
+   - Because immutable objects cannot change in-place, any modification statement
+     (like 'x += 1' or 's = s.upper()') creates a NEW object and re-binds the local parameter.
+   - The caller's original object is COMPLETELY UNTOUCHED.
+   - Behaves identically to Pass-by-Value!
+
+3. BEHAVIOR WITH MUTABLE OBJECTS (Lists, Dictionaries, Sets):
+   - In-place modifications (like 'L.append(x)', 'L[0] = 99', 'd[k] = v'):
+     Modify the shared object directly at its existing memory address.
+     THE CALLER OBSERVES THE MODIFICATIONS IMMEDIATELY!
+   - HOWEVER, if the parameter is REBOUND using '=' ('L = [1, 2, 3]'):
+     The local parameter now points to a brand-new list object, breaking the connection
+     with the caller's original object.
+
+4. BOARD EXAMINATION GOLDEN SUMMARY:
+   - In-place method call on mutable argument -> CALLER IS MODIFIED.
+   - Reassignment (=) to parameter -> CALLER IS NOT MODIFIED.
+   - Operation on immutable argument -> CALLER IS NOT MODIFIED.
+===============================================================================

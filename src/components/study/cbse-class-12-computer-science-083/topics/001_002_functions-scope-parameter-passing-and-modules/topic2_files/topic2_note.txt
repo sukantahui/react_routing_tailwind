@@ -1,0 +1,30 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 2: FUNCTION CALL, CONTROL FLOW & VALUE RETURNING MECHANISM
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. EXECUTION CONTROL FLOW:
+   - When a function call statement is reached:
+     1. Python pauses execution of the caller block.
+     2. A new local stack frame is pushed onto the call stack.
+     3. Actual arguments are evaluated and bound to formal parameters.
+     4. Control transfers to the first statement of the function body.
+     5. Statements in the function body execute sequentially.
+     6. When a 'return' statement is encountered (or the function suite ends):
+        - The evaluated return value is passed back to the caller.
+        - The local stack frame is popped and destroyed.
+        - Execution resumes immediately in the caller block where it left off.
+
+2. RETURN STATEMENT MECHANICS:
+   - return expression: Evaluates expression, halts function execution immediately, and returns value.
+   - return (bare): Immediately halts function and returns None.
+   - No return statement: Function runs to the end and returns None implicitly.
+   - Early Exit: 'return' can be used inside loops or conditionals to exit early (acting like a super-break).
+
+3. CALL STACK & CALL FRAMES:
+   - Each active function invocation maintains its own isolated stack frame storing:
+     * Formal parameters
+     * Local variables
+     * Return address in caller
+===============================================================================

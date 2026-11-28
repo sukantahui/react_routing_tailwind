@@ -1,0 +1,23 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+SEGMENT 3: DATA STRUCTURES (LINEAR LISTS & STACKS)
+TOPIC 1: THE STACK DATA STRUCTURE & THE LIFO PRINCIPLE
+
+1. FORMAL DEFINITION OF A STACK:
+- A Stack is a linear, ordered collection of homogeneous/heterogeneous elements.
+- It operates strictly on the LIFO (Last In, First Out) or FILO (First In, Last Out) principle.
+- All additions (insertions) and deletions (removals) are performed exclusively at a single accessible end, designated as the TOP of the stack.
+- The opposite end is the fixed bottom of the stack.
+
+2. REAL-WORLD ANALOGIES:
+- A stack of clean cafeteria dinner plates: The plate washed and placed on top last is the first one picked up by a diner.
+- A stack of currency coins: Coins are added to the top and removed from the top.
+- Tennis balls inside a cylindrical container closed at one end: Only the top ball can be removed without disturbing the rest.
+- Bangle stand: Bangles are slipped on from the top and removed from the top.
+
+3. REAL-WORLD APPLICATIONS IN COMPUTING:
+- Function Call Stack (Recursion & Runtime Execution): The CPU maintains an execution stack of activation records. When funcA calls funcB, funcB's stack frame is pushed onto the top. Upon return, funcB's frame is popped.
+- Undo / Redo Mechanisms: In text editors and graphics software (Ctrl+Z), the last action performed is the first action undone.
+- Expression Evaluation: Compilers convert human-friendly Infix expressions (A + B) to Postfix (A B +) using a stack and evaluate arithmetic.
+- Backtracking: Maze solving and Depth First Search (DFS) in graph algorithms.
+- Syntax & Parenthesis Matching: Compilers verify balanced brackets '({[]})' using a stack.

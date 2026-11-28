@@ -218,6 +218,46 @@ Hospital Decrypts:   Decrypt(Cipher_Result) → 200 (100% Privacy Preserved!)`
     level: "expert",
     codeExample: `// The Master Cryptographic Integrity Paradigm:
 Open_Standard_Math(AES_256) + Hardware_TRNG_Key + Constant_Time_Code + Authenticated_GCM = UNBREAKABLE_SYSTEM;`
+  },
+  {
+    question: "What is Kerckhoffs's Principle and why is it fundamental to modern cryptographic security?",
+    shortAnswer: "A cryptosystem must remain secure even if everything about the system (including the algorithm source code) is public knowledge, with security depending solely on the secrecy of the key.",
+    explanation: "Security by obscurity (hiding algorithm details) always fails. Publicly scrutinized algorithms (like AES and RSA) prove resilience against global cryptanalytic attacks.",
+    hint: "Security must depend only on key secrecy, not on keeping the algorithm secret.",
+    level: "moderate",
+    codeExample: "// Kerckhoffs rule: AES-256 algorithm is open source; only the 256-bit key is confidential."
+  },
+  {
+    question: "What is the difference between Confusion and Diffusion as formulated by Claude Shannon?",
+    shortAnswer: "Confusion obscures the mathematical relationship between the ciphertext and the key (via S-boxes); Diffusion spreads statistical influence of a single plaintext bit across many ciphertext bits (via P-boxes/permutations).",
+    explanation: "If one bit in plaintext changes, diffusion causes roughly half of all ciphertext bits to flip (the Avalanche effect).",
+    hint: "Confusion hides key relationship; diffusion spreads plaintext bits across ciphertext.",
+    level: "advanced",
+    codeExample: "Shannon_Primitives: { Confusion: 'Substitution (S-Box)', Diffusion: 'Permutation (P-Box)' }"
+  },
+  {
+    question: "What is a Known-Plaintext Attack (KPA) in cryptanalysis?",
+    shortAnswer: "An attack model where the cryptanalyst possesses both the plaintext samples and their corresponding ciphertext versions, using them to deduce the secret key.",
+    explanation: "For example, in WWII, Bletchley Park cryptanalysts used known daily weather forecast phrases ('WETTERVORHERSAGE') to deduce German Enigma rotor key settings.",
+    hint: "Attacker has samples of both plaintext and corresponding ciphertext.",
+    level: "moderate",
+    codeExample: "KPA_Model: Deduce K from known pairs (P1, C1), (P2, C2)..."
+  },
+  {
+    question: "What is a Chosen-Ciphertext Attack (CCA) and how does CCA2 (Adaptive CCA) work?",
+    shortAnswer: "In CCA, the attacker chooses arbitrary ciphertexts and receives decrypted plaintexts; in Adaptive CCA (CCA2), choices can be made iteratively based on previous decryption results.",
+    explanation: "Bleichenbacher's attack on RSA PKCS#1 v1.5 is a famous adaptive chosen-ciphertext attack that extracts private keys via error responses from SSL servers.",
+    hint: "Attacker submits chosen ciphertexts to a decryption oracle to deduce the key.",
+    level: "advanced",
+    codeExample: "CCA2_Oracle: plaintext = DecryptOracle(chosen_c_prime)"
+  },
+  {
+    question: "What is the 'One-Time Pad' (OTP) and why is it mathematically unbreakable (Information-Theoretically Secure)?",
+    shortAnswer: "A cipher where a truly random key as long as the plaintext is XORed once and never reused; every possible plaintext is equally probable given a specific ciphertext.",
+    explanation: "Shannon mathematically proved that if key length equals plaintext length, key is truly random, and used only once, ciphertext reveals zero information about plaintext.",
+    hint: "Truly random key as long as message, used exactly once via XOR.",
+    level: "moderate",
+    codeExample: "C = P ^ K; // If K is uniform random and len(K) == len(P), entropy(P|C) == entropy(P)"
   }
 ];
 

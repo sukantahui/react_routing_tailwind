@@ -1,0 +1,26 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 4: CONDITIONAL EXECUTION (NESTED IF-ELIF-ELSE DECISION TREES)
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. CONDITIONAL STRUCTURES IN PYTHON:
+   - if statement: Simple single-alternative selection.
+   - if-else statement: Dual-alternative selection.
+   - if-elif-else ladder: Multi-alternative selection. Evaluated top-to-bottom; once a condition is True, subsequent elif/else blocks are SKIPPED.
+   - Nested if: An if statement placed inside the suite of another if, elif, or else block.
+
+2. THE "DANGLING ELSE" RESOLUTION IN PYTHON:
+   - In languages like C/Java, an 'else' matches the closest unmatched 'if'.
+   - In Python, INDENTATION unequivocally binds the 'else' to its parent 'if'.
+   - Changing indentation alters program execution logic completely!
+
+3. TERNARY CONDITIONAL OPERATOR:
+   - Syntax: variable = value_if_true if condition else value_if_false
+   - Example: status = "Pass" if marks >= 33 else "Fail"
+
+4. COMMON BOARD EXAMINATION ERRORS:
+   - Using '=' instead of '==' in conditions ('if x = 10:' raises SyntaxError).
+   - Forgetting the trailing colon (':') at the end of if/elif/else statements.
+   - Misaligned indentation tabs/spaces causing IndentationError.
+===============================================================================

@@ -1,0 +1,41 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 7: FILTERING ROWS WITH THE WHERE CLAUSE: RELATIONAL OPERATORS
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+The WHERE clause filters rows returned by SELECT, updated by UPDATE, or deleted by DELETE based on boolean conditions.
+
+2. KEY EXAMINATION POINTS:
+  (1) Selection: Filtering rows horizontally based on specified predicate conditions.
+  (2) Relational Operators in SQL: '=' (equal), '!=' or '<>' (not equal), '<' (less than), '<=' (less or equal), '>' (greater than), '>=' (greater or equal).
+  (3) String comparisons are case-insensitive in standard MySQL default collations, but always enclose strings in quotes.
+  (4) Date comparisons use 'YYYY-MM-DD' format: e.g. WHERE HireDate >= '2023-01-01'.
+
+3. SYNTAX & CODE SNIPPET:
+-- Exact equality match
+SELECT * FROM Student WHERE Stream = 'Science';
+
+-- Strict inequality (<> or !=)
+SELECT * FROM Employee WHERE Dept <> 'Sales';
+
+-- Numeric threshold comparison
+SELECT SName, Marks FROM Student WHERE Marks >= 90.0;
+
+-- Date comparison
+SELECT EName, DOJ FROM Employee WHERE DOJ < '2022-01-01';
+
+4. CBSE COMMON PITFALLS:
+Remember to test conditions carefully and use parentheses to disambiguate AND/OR connectives.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between DML and DDL commands.
+  [ ] Master WHERE condition construction using relational and logical operators.
+  [ ] Be confident in NULL handling using IS NULL and IS NOT NULL.
+  [ ] Remember default ordering for ORDER BY is ASC.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 7 · CODER & ACCOTAX BARRACKPORE
+================================================================================

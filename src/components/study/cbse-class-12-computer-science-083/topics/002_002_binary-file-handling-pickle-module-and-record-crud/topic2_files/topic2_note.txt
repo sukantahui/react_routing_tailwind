@@ -1,0 +1,42 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 2: THE 'pickle' MODULE - pickle.dump() SYNTAX AND MECHANICS
+======================================================================
+
+1. SYNTAX OF pickle.dump()
+   pickle.dump(object_to_serialize, file_handle, protocol=None)
+   - Parameters:
+     * object_to_serialize: Any picklable Python object (dict, list, int, etc.).
+     * file_handle: An open, writable binary file object ('wb' or 'ab' mode).
+     * protocol: Optional integer specifying pickle protocol (default: 4/5).
+
+2. COMMON BOARD EXAM MISTAKES TO AVOID
+   - WRONG: pickle.dump(f, record) -> Argument order reversed!
+   - WRONG: open('student.dat', 'w') -> Mode must be 'wb' or 'ab'!
+   - WRONG: f.write(pickle.dump(record, f)) -> dump() returns None!
+
+3. STANDARD CBSE BOARD FUNCTION TEMPLATE: INSERTING RECORDS
+   import pickle
+
+   def add_student_record(filename="student.dat"):
+       with open(filename, "ab") as f:
+           while True:
+               roll = int(input("Enter Roll Number: "))
+               name = input("Enter Student Name: ")
+               marks = float(input("Enter Marks: "))
+               
+               # Packaging into a dictionary record
+               record = {"roll": roll, "name": name, "marks": marks}
+               
+               # Writing serialized binary record to disk
+               pickle.dump(record, f)
+               print("[+] Record dumped successfully.")
+               
+               choice = input("Add another record (y/n)? ").strip().lower()
+               if choice != 'y':
+                   break
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

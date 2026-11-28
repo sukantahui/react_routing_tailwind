@@ -1,0 +1,32 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 3: NETWORK PROTOCOLS, WEB SERVICES & CYBER SECURITY
+DIAGNOSTIC ASSESSMENT SYLLABUS & BLUEPRINT (TOPIC 13)
+
+================================================================================
+EXAMINATION BLUEPRINT FOR MODULE 3
+================================================================================
+Total Diagnostic Questions: 25 Authentic CBSE Board Examination Questions
+Marks per Question: 1 Mark (Objective Multiple Choice with In-Depth Explanations)
+Passing Criteria: 75% (19/25 Correct) for Module Mastery
+
+Topics Assessed:
+1. Topic 0: Understanding Protocols (Syntax, Semantics, Timing, Encapsulation)
+2. Topic 1: TCP/IP Suite (TCP Reliability, 3-Way Handshake, IP Addressing & Routing)
+3. Topic 2: Web Protocols: HTTP (Port 80) vs HTTPS (Port 443, SSL/TLS, GET vs POST)
+4. Topic 3: FTP (Dual Connections: Port 21 Control, Port 20 Data, Active vs Passive)
+5. Topic 4: Email Protocols (SMTP Push Port 25/587 vs POP3 Port 110 vs IMAP Port 143)
+6. Topic 5: VoIP (Internet Telephony, G.711 Codecs, SIP Port 5060, RTP over UDP)
+7. Topic 6: Remote Access: Telnet (Insecure Port 23) vs SSH (Encrypted Port 22)
+8. Topic 7: Web Architecture (WWW vs Internet, HTML vs XML, Browsers, Web Hosting)
+9. Topic 8: Addressing Schemes (DNS Hierarchy, URL Structure, IPv4 vs IPv6, Private IPs)
+10. Topic 9: Malware (Viruses, Worms, Trojans, Spyware, Keyloggers, Ransomware)
+11. Topic 10: Cyber Attacks (Phishing/Spear Phishing, DoS vs DDoS Botnets, Spoofing)
+12. Topic 11: Network Defense (Hardware vs Software Firewalls, Cookies, Hackers vs Crackers)
+
+================================================================================
+EXAMINER'S SCORING BENCHMARK
+================================================================================
+Score 23-25: Outstanding! Perfect candidate for 100/100 in CBSE Board CS Exam.
+Score 19-22: Solid Mastery. Review minor edge cases in Email and Remote access ports.
+Score Below 19: Re-read Topic 12 Revision Compendium and retake test.

@@ -1,0 +1,28 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 6: VARIABLE SCOPE & LIFETIME (LOCAL VS GLOBAL SCOPE)
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. SCOPE (VISIBILITY / ACCESSIBILITY):
+   The region or textual block of a program where an identifier (variable name)
+   can be directly accessed and referenced.
+
+2. LOCAL SCOPE & LIFETIME:
+   - Scope: Variables defined inside a function (including its formal parameters).
+   - Visibility: Accessible ONLY inside that specific function body.
+   - Lifetime: Created when the function invocation begins; destroyed and memory reclaimed
+     as soon as the function returns.
+   - Accessing a local variable from outside raises: 'NameError: name '...' is not defined'.
+
+3. GLOBAL SCOPE & LIFETIME:
+   - Scope: Variables defined at the top level of the module (outside all functions/classes).
+   - Visibility: Accessible throughout the entire source file.
+   - Lifetime: Persists for the entire duration of the program execution until Python exits.
+
+4. VARIABLE SHADOWING (NAME MASKING):
+   - When a local variable inside a function shares the same identifier as a global variable,
+     the local variable SHADOWS (masks) the global variable within that function.
+   - Referencing the name inside the function resolves to the local object.
+   - The global variable remains unchanged in the outer scope.
+===============================================================================

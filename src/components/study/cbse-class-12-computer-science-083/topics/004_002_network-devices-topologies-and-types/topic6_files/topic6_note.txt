@@ -1,0 +1,34 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: MODULE 2 - TOPIC 6: ROUTER (ROUTING PACKETS, IP ADDRESSING)
+
+1. FUNDAMENTAL DEFINITION:
+   - An intelligent hardware networking device that forwards data packets between computer networks based on their logical IP addresses.
+   - Operating OSI Layer: Network Layer (Layer 3).
+   - Core Mission: Connects separate, dissimilar logical subnets and local networks (LANs) to Wide Area Networks (WANs) and the global Internet.
+
+2. HOW A ROUTER OPERATES (THE ROUTING TABLE):
+   - A router maintains a Routing Table containing network destination prefixes, subnet masks, interface ports, next-hop IP addresses, and routing metrics (cost / hop count).
+   - Packet Inspection:
+     * When a packet arrives, the router strips the Layer-2 frame header.
+     * It examines the Layer-3 DESTINATION IP ADDRESS.
+     * It performs a Longest Prefix Match against its routing table.
+     * It decrements the Time-To-Live (TTL) field by 1 (dropping packets with TTL=0 to prevent infinite loops).
+     * It re-encapsulates the packet into a new Layer-2 frame with the next-hop MAC address and forwards it.
+
+3. BREAKING BROADCAST DOMAINS (CRITICAL CBSE CONCEPT):
+   - By default, a router does NOT forward broadcast packets (e.g. 255.255.255.255 or FF:FF:FF:FF:FF:FF).
+   - Each interface (port) of a router creates an independent, isolated BROADCAST DOMAIN and an isolated COLLISION DOMAIN.
+   - This isolates broadcast chatter to individual departments and prevents network paralysis.
+
+4. SWITCH VS ROUTER (CBSE COMPARISON):
+   +------------------------+------------------------------------+------------------------------------+
+   | Feature                | Switch                             | Router                             |
+   +------------------------+------------------------------------+------------------------------------+
+   | Operating OSI Layer    | Layer 2 (Data Link Layer)          | Layer 3 (Network Layer)            |
+   | Addressing Used        | Physical MAC Addresses (48-bit)    | Logical IP Addresses (32/128-bit)  |
+   | Network Scope          | Intranet / Local Area Network (LAN)| Inter-network / WAN / Internet     |
+   | Broadcast Domains      | Single broadcast domain by default | Breaks & isolates broadcast domains|
+   | Routing Protocols      | Does not use routing protocols     | Uses RIP, OSPF, BGP routing algos  |
+   | Key Responsibility     | Forwards frames inside ONE subnet  | Routes packets BETWEEN two subnets |
+   +------------------------+------------------------------------+------------------------------------+

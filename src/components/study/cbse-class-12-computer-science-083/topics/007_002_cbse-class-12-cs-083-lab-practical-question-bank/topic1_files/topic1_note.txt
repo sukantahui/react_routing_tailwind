@@ -1,0 +1,41 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 1: PRACTICAL 1: TEXT FILE CHARACTER, WORD & LINE COUNTER WITH VOWEL FREQUENCY
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Complete production-ready Python practical program to read a text file and calculate total characters, total words, total lines, and frequencies of each individual vowel.
+
+2. KEY EXAMINATION POINTS:
+  (1) Reads text file using 'with open('data.txt', 'r') as f:'.
+  (2) Calculates lines via f.readlines(), words via text.split(), and characters via len(text).
+  (3) Dictionary or tuple counter to track vowels 'A', 'E', 'I', 'O', 'U' case-insensitively.
+  (4) Standard lab test problem frequently assigned by CBSE external examiners.
+
+3. PRACTICAL CODE SNIPPET:
+def analyze_text_file(filename):
+    with open(filename, 'r') as f:
+        lines = f.readlines()
+        num_lines = len(lines)
+        num_words = sum(len(line.split()) for line in lines)
+        text = "".join(lines)
+        num_chars = len(text)
+        vowels = {v: text.lower().count(v) for v in 'aeiou'}
+        
+    print(f"Lines: {num_lines}, Words: {num_words}, Characters: {num_chars}")
+    print("Vowel Frequencies:", vowels)
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 1 · CODER & ACCOTAX BARRACKPORE
+================================================================================

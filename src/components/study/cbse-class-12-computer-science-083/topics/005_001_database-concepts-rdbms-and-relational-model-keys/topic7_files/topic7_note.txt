@@ -1,0 +1,31 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - QUICK REVISION NOTE
+TOPIC 7: CONCEPT OF KEYS IN RDBMS & UNIQUE IDENTIFICATION
+
+1. WHY DO WE NEED KEYS?
+   - In the real world, entities frequently share identical names (e.g. multiple "Rohit Sharma").
+   - Keys guarantee unique row identification (Entity Integrity).
+   - Prevent duplicate records and enable relational links (Referential Integrity).
+
+2. THE HIERARCHY OF KEYS:
+   A. SUPER KEY (Broadest Concept):
+      - Any set of one or more attributes that collectively uniquely identifies a tuple.
+      - Can contain redundant attributes (e.g. if RollNo is unique, then (RollNo, Name) is a Super Key).
+   B. CANDIDATE KEY (Minimal Super Key):
+      - A Super Key that contains NO REDUNDANT attributes.
+      - If any attribute is removed, it loses its uniqueness property.
+      - A relation can have multiple candidate keys (e.g. AdmissionNo, RollNo, Email).
+   C. PRIMARY KEY (The Chosen One):
+      - Exactly ONE Candidate Key chosen by the database designer to uniquely identify tuples.
+      - Mandatory Properties: MUST be UNIQUE and CANNOT BE NULL.
+   D. ALTERNATE KEY (The Unchosen Candidate Keys):
+      - Candidate Keys that were NOT selected as the Primary Key.
+      - Alternate Keys = (All Candidate Keys) - (Primary Key).
+   E. COMPOSITE KEY:
+      - A key composed of two or more attributes combined together.
+
+3. REAL-WORLD EXAMPLES:
+   - Citizen Database: Aadhaar Number (UIDAI)
+   - Income Tax Database: PAN (Permanent Account Number)
+   - Vehicle Database: Registration Number (RegNo), Engine Number, Chassis Number
+   - Bank Account: Account Number
+   - Student Table: Admission Number / Roll Number

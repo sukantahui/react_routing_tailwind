@@ -1,0 +1,36 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: COMPUTER NETWORKS ARCHITECTURE & MEDIA
+TOPIC 2: BANDWIDTH & DATA TRANSFER RATES
+
+1. BANDWIDTH (TWO DISTINCT DEFINITIONS):
+A. In Analog / Telecommunications:
+   - The width of the allocated frequency band.
+   - Measured in Hertz (Hz), KHz, MHz, GHz.
+   - Formula: Bandwidth = Highest Frequency (f_max) - Lowest Frequency (f_min).
+   - Example: A telephone voice channel operating between 300 Hz and 3400 Hz has a bandwidth of 3400 - 300 = 3100 Hz (3.1 KHz).
+B. In Digital Computing / Networking:
+   - The maximum data-carrying capacity of a communication channel per second.
+   - Measured in bits per second (bps) or multiples (Mbps, Gbps).
+
+2. DATA TRANSFER RATE (DTR):
+- The actual volume of digital data transmitted over a network channel per unit time.
+- Base Unit: bps (bits per second).
+- Crucial Metric Prefixes:
+  * 1 Kbps (Kilobits per second) = 1,000 bps (or 1,024 bps in binary)
+  * 1 Mbps (Megabits per second) = 1,000,000 bps (10^6 bps)
+  * 1 Gbps (Gigabits per second) = 1,000,000,000 bps (10^9 bps)
+  * 1 Tbps (Terabits per second) = 10^12 bps
+
+3. THE FATAL TRAP: BITS VS BYTES
+- Lowercase 'b' = bit (binary digit, 0 or 1).
+- Uppercase 'B' = Byte (8 bits).
+- Data Transfer Rates are quoted in bits/sec (e.g. 100 Mbps).
+- Storage file sizes are quoted in Bytes (e.g. 50 MB).
+
+4. CBSE NUMERICAL FORMULA:
+   Time to Transmit = (File Size in Bytes * 8) / (Bandwidth in bps)
+   Example: Time to transfer 10 MB file over 8 Mbps link:
+   Total bits = 10 * 8 * 10^6 = 80,000,000 bits.
+   Bandwidth = 8 * 10^6 = 8,000,000 bps.
+   Time = 80,000,000 / 8,000,000 = 10 seconds!

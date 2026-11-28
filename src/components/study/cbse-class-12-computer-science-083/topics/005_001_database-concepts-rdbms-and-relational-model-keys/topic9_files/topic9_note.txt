@@ -1,0 +1,36 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - QUICK REVISION NOTE
+TOPIC 9: PRIMARY KEY (SELECTION, PROPERTIES & INTEGRITY RULES)
+
+1. DEFINITION OF PRIMARY KEY:
+   - A Primary Key is the designated Candidate Key selected by the database designer to
+     uniquely identify each tuple (row) in a relation.
+   - Exactly ONE Primary Key is chosen per table.
+
+2. TWO GOLDEN PROPERTIES (ENTITY INTEGRITY):
+   A. UNIQUENESS:
+      - No two tuples in the table can have the same primary key value.
+   B. NOT NULL:
+      - A primary key attribute CAN NEVER BE NULL (no row can have an unknown or blank primary key).
+
+3. COMPOSITE PRIMARY KEY:
+   - When no single attribute is unique, two or more attributes are combined to form the primary key.
+   - Example in Table ATTENDANCE: PRIMARY KEY (StudentId, Date)
+   - Rule: NO component of a composite primary key can be NULL!
+
+4. CRITERIA FOR CHOOSING A PRIMARY KEY AMONG CANDIDATE KEYS:
+   - Compactness: Small integer data types (INT) provide faster B-tree indexing than strings.
+   - Immutability: The value should NEVER or rarely change (e.g. AccountNumber vs PhoneNumber).
+   - Simplicity: Easy for users and applications to reference.
+
+5. PRIMARY KEY VS UNIQUE CONSTRAINT IN SQL:
+   * Characteristic       PRIMARY KEY                   UNIQUE
+   --------------------------------------------------------------------------
+   Allowed per table      Exactly ONE                   Multiple permitted
+   NULL values allowed    STRICTLY FORBIDDEN (NOT NULL) Permitted (one or more)
+   Clustered Index        Created by default            Non-clustered index
+   Foreign Key target     Standard default target       Can be referenced
+
+6. SQL SYNTAX:
+   - Column level:  RollNo INT PRIMARY KEY
+   - Table level:   PRIMARY KEY (RollNo)
+   - Composite:     PRIMARY KEY (OrderId, ItemId)

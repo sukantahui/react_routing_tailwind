@@ -1,0 +1,36 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 1: OBJECT SERIALIZATION AND DESERIALIZATION (PICKLING VS UNPICKLING)
+======================================================================
+
+1. DEFINITIONS (CORE CBSE BOARD EXAM REQUIREMENT)
+   - Serialization (Pickling):
+     * The process of converting an in-memory Python object hierarchy
+       (list, dict, tuple, object) into a contiguous byte stream.
+     * Used for saving objects to secondary storage files or network sockets.
+   - Deserialization (Unpickling):
+     * The inverse process: reading a serialized byte stream and reconstructing
+       the original Python object hierarchy in program RAM.
+
+2. THE 'pickle' MODULE METHODS SUMMARY
+   ----------------------------------------------------------------------
+   Method                  Target          Description
+   ----------------------------------------------------------------------
+   pickle.dump(obj, f)     Disk File       Serializes obj and writes to open binary file f.
+   pickle.load(f)          Disk File       Reads byte stream from f and reconstructs obj.
+   pickle.dumps(obj)       In-Memory bytes Serializes obj and returns a bytes object.
+   pickle.loads(bytes_obj) In-Memory bytes Deserializes bytes_obj into a live Python object.
+   ----------------------------------------------------------------------
+
+3. PICKLE VS JSON COMPARISON
+   - pickle: Python-proprietary, binary format, supports complex Python objects.
+   - json  : Universal standard, plain text format, supports basic types only.
+
+4. SAFETY WARNING
+   - Never unpickle data received from untrusted or unauthenticated networks,
+     as unpickling can execute arbitrary system commands.
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

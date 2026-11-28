@@ -221,6 +221,46 @@ Storage:       Evidence Locker #4 (Tamper-Evident Seal #98241)`
     level: "expert",
     codeExample: `// Locard's Exchange Principle in Digital Forensics:
 Adversary_Intrusion() + Anti_Forensics_Attempts() = RESIDUAL_ARTIFACTS(MFT + USN + Prefetch + SIEM);`
+  },
+  {
+    question: "What is the primary objective of Phase 5: Covering Tracks in the hacking lifecycle?",
+    shortAnswer: "To erase evidence of the intrusion, tamper with audit logs, delete temporary staging files, and remove forensic artifacts to prolong attacker persistence and evade law enforcement.",
+    explanation: "Covering tracks hinders incident responders from reconstructing attack timelines, scoping compromised data, or attributing the intrusion to specific threat actors.",
+    hint: "Deleting logs, removing staging files, and preventing incident reconstruction.",
+    level: "basic",
+    codeExample: "rm -rf /var/log/auth.log && history -c"
+  },
+  {
+    question: "What is Timestomping and how does it confound digital forensic timelines?",
+    shortAnswer: "A technique that modifies the file timestamp metadata (MACB: Modified, Accessed, Created, Born) to match surrounding legitimate system files, concealing recent malware installation.",
+    explanation: "Incident responders sort files chronologically to find recently dropped binaries. Timestomping changes the file creation date to years prior, disguising it as an original OS binary.",
+    hint: "Altering file creation and modification dates to match legitimate system files.",
+    level: "moderate",
+    codeExample: "timestomp target_file.exe -m '01/15/2018 10:20:00 AM' # Meterpreter timestomp"
+  },
+  {
+    question: "How do attackers manipulate Windows Event Logs without crashing the EventLog service?",
+    shortAnswer: "By selectively clearing specific event records (via direct API memory manipulation or tools like Mimikatz `event::drop`) rather than wiping the entire log file.",
+    explanation: "Completely clearing event logs generates Event ID 1102 ('The audit log was cleared'), which triggers high-priority alerts in modern SIEM systems.",
+    hint: "Selectively deleting intrusion events rather than clearing the entire log.",
+    level: "advanced",
+    codeExample: "mimikatz \"event::drop\" # Disables event log service thread from recording further events"
+  },
+  {
+    question: "What is 'Log Tampering' in Linux environments and how is bash history concealed?",
+    shortAnswer: "Manipulating `/var/log` files (syslog, auth.log, wtmp) and disabling command line logging by unsetting the `HISTFILE` environment variable or executing commands with a leading space.",
+    explanation: "Setting `export HISTSIZE=0` or executing `kill -9 $$` terminates the shell without writing cached command lines to `~/.bash_history`.",
+    hint: "Disabling HISTFILE or unsetting history so executed shell commands are not saved.",
+    level: "moderate",
+    codeExample: "export HISTFILE=/dev/null # Redirects shell history to null device"
+  },
+  {
+    question: "What defensive architectural measure prevents attackers from successfully covering tracks on local endpoints?",
+    shortAnswer: "Centralized, real-time log forwarding to a write-only, tamper-resistant SIEM/Syslog server or immutable WORM (Write Once, Read Many) cloud storage.",
+    explanation: "Even if an attacker wipes local logs with root/SYSTEM privileges, logs already transmitted to a remote SIEM cannot be deleted from the compromised endpoint.",
+    hint: "Real-time forwarding of logs to an isolated, immutable remote SIEM server.",
+    level: "moderate",
+    codeExample: "*.* @@log-collector.corp.internal:514 # Rsyslog forwarding all events immediately over TLS"
   }
 ];
 

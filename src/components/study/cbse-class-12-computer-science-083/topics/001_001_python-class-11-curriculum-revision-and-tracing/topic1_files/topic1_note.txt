@@ -1,0 +1,30 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 1: VARIABLES, DYNAMIC TYPING & L-VALUE VS R-VALUE MECHANICS
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. VARIABLES IN PYTHON:
+   - In Python, variables are NOT typed memory boxes. They are NAMES (references / pointers)
+     bound to objects in memory.
+   - Dynamic Typing: A variable can reference an integer at one moment and be re-bound to a
+     string or list later without explicit declaration.
+
+2. L-VALUE VS R-VALUE:
+   - l-value (Locator Value): Refers to an expression that refers to a writable memory location.
+     Must appear on the LEFT side of the assignment operator (=).
+     Examples of valid l-values: variable name (x), list subscript (my_list[0]), dictionary key (d['name']).
+   - r-value (Read Value): Represents the data value stored in memory or the result of evaluating an expression.
+     Must appear on the RIGHT side of the assignment operator.
+     Examples: 42, a + b, len(s), [1, 2, 3].
+   - Common Error: 'cannot assign to expression / literal' occurs when an expression or literal is placed on the left side (e.g., 'x + 1 = 10').
+
+3. SIMULTANEOUS ASSIGNMENTS:
+   - x, y = 10, 20
+   - Python evaluates all r-values first, then binds them simultaneously to l-values.
+   - Elegant swapping: a, b = b, a (no temporary variable needed!).
+
+4. OBJECT IDENTITY AND MEMORY:
+   - id(obj): Returns the unique integer identifier (memory address in CPython).
+   - is operator: Checks if two references point to the exact same object: 'a is b' <==> 'id(a) == id(b)'.
+===============================================================================

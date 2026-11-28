@@ -1,0 +1,34 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 2: NETWORK DEVICES, TOPOLOGIES & NETWORK CLASSIFICATION
+DIAGNOSTIC ASSESSMENT SYLLABUS & BLUEPRINT (TOPIC 15)
+
+================================================================================
+EXAMINATION BLUEPRINT FOR MODULE 2
+================================================================================
+Total Diagnostic Questions: 25 Authentic CBSE Board Examination Questions
+Marks per Question: 1 Mark (Objective Multiple Choice with In-Depth Explanations)
+Passing Criteria: 75% (19/25 Correct) for Module Mastery
+
+Topics Assessed:
+1. Topic 0: Modem (Modulation/Demodulation, Types of Modems)
+2. Topic 1: Ethernet Card (NIC) & 48-bit MAC Address Format
+3. Topic 2: RJ45 Connector & Modular 8P8C Architecture
+4. Topic 3: Hub (Active vs Passive, Shared Collision Domain)
+5. Topic 4: Switch (Layer-2 Switching, Packet Forwarding, CAM Table)
+6. Topic 5: Repeater (Signal Regeneration, 100m UTP Limit, 5-4-3 Rule)
+7. Topic 6: Router (Layer-3 IP Routing across Dissimilar Subnets)
+8. Topic 7: Gateway (Protocol Translation between Heterogeneous Systems)
+9. Topic 8: Access Point (AP) & Wi-Fi Cards in Wireless Infrastructure
+10. Topic 9: Bus Topology (Backbone Cable, BNC Terminators, Signal Bounce)
+11. Topic 10: Star Topology (Central Switch, Point-to-Point Links, Fault Isolation)
+12. Topic 11: Tree Topology (Hierarchical Star-Bus Combination, Scalability)
+13. Topic 12: Mesh and Ring Topologies (N*(N-1)/2 Formula, Token Passing)
+14. Topic 13: Network Classification (PAN, LAN, MAN, WAN by Geographical Distance)
+
+================================================================================
+EXAMINER'S SCORING BENCHMARK
+================================================================================
+Score 23-25: Outstanding! Perfect candidate for 100/100 in CBSE Board CS Exam.
+Score 19-22: Solid Mastery. Review minor edge cases in Repeater and Gateway rules.
+Score Below 19: Re-read Topic 14 Revision Compendium and retake test.

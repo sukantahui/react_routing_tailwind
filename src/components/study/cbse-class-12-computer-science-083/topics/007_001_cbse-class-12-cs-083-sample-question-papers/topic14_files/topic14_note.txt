@@ -1,0 +1,38 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: EXAMINATION MASTERY (FULL BOARD PATTERN)
+TOPIC 14: PRACTICE YOUR SKILL HERE: FULL-LENGTH CBSE BOARD SIMULATION LABORATORY
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Interactive examination practice engine featuring 25 board-pattern questions covering all five sections of the CBSE Class 12 Computer Science paper.
+
+2. KEY EXAMINATION POINTS:
+  (1) Solve mixed MCQs, output tracing, file handling algorithms, and SQL queries.
+  (2) Test your speed under realistic board exam pressure.
+  (3) Review detailed explanations and marking rubrics for every question.
+  (4) Identify weak areas across Units I, II, and III before the final board examination.
+
+3. CODE & STRATEGY SNIPPET:
+# Practice Challenge: Identify output of the following recursive function
+def mystery(n):
+    if n <= 1:
+        return 1
+    else:
+        return n * mystery(n - 1)
+
+print(mystery(5))  # Output: 120
+
+4. CBSE COMMON PITFALLS:
+Adhere strictly to step-marking rubrics and never leave questions unattempted.
+
+5. REVISION CHECKLIST:
+  [ ] Understand 70-mark theory distribution across Sections A to E.
+  [ ] Practice dry-run trace tables for Section B output questions.
+  [ ] Memorize standard templates for Stack and Text file questions.
+  [ ] Know the 80-20 rule and repeater/switch criteria for Section E.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 14 · CODER & ACCOTAX BARRACKPORE
+================================================================================

@@ -1,0 +1,37 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 7: SAFE RESOURCE MANAGEMENT - THE 'with' STATEMENT
+======================================================================
+
+1. THE 'with' STATEMENT (PEP 343)
+   - Syntax:
+     with open(filename, access_mode, encoding='utf-8') as file_handle:
+         # Perform file operations
+         file_handle.write(...)
+         data = file_handle.read()
+     # Outside with block: file is ALREADY CLOSED!
+
+2. HOW CONTEXT MANAGERS WORK
+   - Invokes __enter__() upon entering the block:
+     * Sets up the file stream and assigns it to 'file_handle'.
+   - Invokes __exit__() upon exiting the block:
+     * Flushes buffers and calls close() automatically.
+     * Guaranteed execution EVEN IF:
+       - An unhandled exception occurs (e.g. ZeroDivisionError).
+       - A break, continue, or return statement executes.
+
+3. ADVANTAGES OVER MANUAL open() / close()
+   - Zero Risk of Resource Leaks: Eliminates forgotten f.close() bugs.
+   - Exception Safe: Closes properly during unexpected crashes.
+   - Cleaner Code: Eliminates repetitive try...finally boilerplate.
+   - Highly Recommended for CBSE Class 12 Board Examinations!
+
+4. MULTIPLE FILES IN ONE 'with' STATEMENT
+   with open("input.txt", "r") as fin, open("output.txt", "w") as fout:
+       for line in fin:
+           fout.write(line.upper())
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

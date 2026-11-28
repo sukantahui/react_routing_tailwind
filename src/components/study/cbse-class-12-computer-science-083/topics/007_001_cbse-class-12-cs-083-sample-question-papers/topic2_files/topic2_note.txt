@@ -1,0 +1,41 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: EXAMINATION MASTERY (FULL BOARD PATTERN)
+TOPIC 2: CODER & ACCOTAX SUGGESTED MOCK PAPER 1: FULL-LENGTH 70-MARK SIMULATION
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Rigorous 70-mark mock paper created by Sukanta Hui replicating authentic board difficulty across Python programming, network design, and SQL connectivity.
+
+2. KEY EXAMINATION POINTS:
+  (1) Section A: 18 high-discrimination MCQs covering mutable defaults, pickle methods, and SQL NULL logic.
+  (2) Section B: Output prediction on nested loops, string slicing, and variable scope (LEGB).
+  (3) Section C: CSV file processing and Stack push/pop operations with dictionary elements.
+  (4) Section D: Binary file record update with seek() and tell(), plus 5-mark SQL join table problem.
+
+3. CODE & STRATEGY SNIPPET:
+# Mock Paper 1 - CSV Filtering Challenge (3 Marks)
+import csv
+
+def count_members():
+    with open('members.csv', 'r') as f:
+        reader = csv.reader(f)
+        count = 0
+        for row in reader:
+            if row[2] == 'Gold':
+                count += 1
+        print("Gold Members:", count)
+
+4. CBSE COMMON PITFALLS:
+Adhere strictly to step-marking rubrics and never leave questions unattempted.
+
+5. REVISION CHECKLIST:
+  [ ] Understand 70-mark theory distribution across Sections A to E.
+  [ ] Practice dry-run trace tables for Section B output questions.
+  [ ] Memorize standard templates for Stack and Text file questions.
+  [ ] Know the 80-20 rule and repeater/switch criteria for Section E.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 2 · CODER & ACCOTAX BARRACKPORE
+================================================================================

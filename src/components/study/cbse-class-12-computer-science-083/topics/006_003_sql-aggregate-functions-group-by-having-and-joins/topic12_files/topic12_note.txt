@@ -1,0 +1,35 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 12: DOWNLOADABLE DOCUMENTS: SQL AGGREGATES, GROUP BY & JOINS REFERENCE GUIDE
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Printable revision notes containing execution order rules, Cartesian product calculations, join condition templates, and aggregate function behavior.
+
+2. KEY EXAMINATION POINTS:
+  (1) Summaries of COUNT(*), COUNT(col), SUM, AVG, MIN, and MAX behavior with NULL.
+  (2) Cartesian product formulas: Cardinality = R1 * R2, Degree = C1 + C2.
+  (3) Golden rules for GROUP BY and HAVING vs WHERE clauses.
+  (4) Master teacher tips by Sukanta Hui for scoring 100% in Section C and D join questions.
+
+3. SYNTAX & CODE SNIPPET:
+-- Multi-Table Reference Summary:
+-- Cardinality(T1 x T2) = Card(T1) * Card(T2)
+-- Degree(T1 x T2) = Deg(T1) + Deg(T2)
+-- Joins: (N - 1) join conditions for N tables.
+
+4. CBSE COMMON PITFALLS:
+Ensure correct placement of WHERE before GROUP BY and HAVING after GROUP BY.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between COUNT(*) and COUNT(col).
+  [ ] Master GROUP BY rules regarding non-aggregated columns.
+  [ ] Remember WHERE cannot contain aggregate functions; use HAVING.
+  [ ] Know Cartesian Product formulas: Cardinality = R1 * R2, Degree = C1 + C2.
+  [ ] Always include (N - 1) join conditions when joining N tables.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 12 · CODER & ACCOTAX BARRACKPORE
+================================================================================

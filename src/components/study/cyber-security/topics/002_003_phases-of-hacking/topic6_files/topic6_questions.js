@@ -212,6 +212,46 @@ Password Dumping / Hash Harvesting    → Section 66C Identity Theft (Up to 3 Ye
     level: "expert",
     codeExample: `// The Secure Engineering Synthesis:
 Memory_Safe_Code(Rust) + Compiler_Protections(Canaries_ASLR_DEP) + Modern_Crypto(Argon2id_FIDO2) = UNBREAKABLE_DEFENSE;`
+  },
+  {
+    question: "What is a Buffer Overflow and how does it overwrite the Instruction Pointer (EIP/RIP)?",
+    shortAnswer: "Writing more data to a memory buffer than it is allocated to hold, overflowing adjacent stack memory to overwrite the saved return address (EIP/RIP) with an address pointing to malicious shellcode.",
+    explanation: "Classic stack-based buffer overflows exploit unsafe C library functions like `strcpy()`, `gets()`, and `sprintf()` which fail to perform array bounds checking.",
+    hint: "Writing past memory boundaries to overwrite the function return address.",
+    level: "advanced",
+    codeExample: "char buf[64]; gets(buf); // Unsafe: no boundary check allows stack corruption"
+  },
+  {
+    question: "What modern compiler and OS defenses mitigate buffer overflow exploits?",
+    shortAnswer: "ASLR (Address Space Layout Randomization), DEP/NX (Data Execution Prevention / No-Execute), Stack Canaries, and SafeSEH.",
+    explanation: "ASLR randomizes memory offsets on boot; DEP marks stack and heap memory pages as non-executable, preventing injected shellcode from executing.",
+    hint: "ASLR, Stack Canaries, and non-executable stack memory (DEP/NX).",
+    level: "advanced",
+    codeExample: "gcc -fstack-protector-all -Wl,-z,relro,-z,now -D_FORTIFY_SOURCE=2 app.c"
+  },
+  {
+    question: "What is 'Pass-the-Hash' (PtH) in Windows Active Directory environments?",
+    shortAnswer: "An attack technique where an adversary uses an extracted NTLM password hash directly to authenticate against remote network services via SMB without needing the plaintext password.",
+    explanation: "Windows NTLM authentication verifies hash values; the attacker does not need to crack the hash to gain access to remote servers.",
+    hint: "Using stolen NTLM hashes directly to authenticate over SMB without cracking.",
+    level: "moderate",
+    codeExample: "crackmapexec smb 192.168.1.0/24 -u Administrator -H 'aad3b435b51404eeaad3b435b51404ee:31d6cfe0d16ae931b73c59d7e0c089c0'"
+  },
+  {
+    question: "How does the Mimikatz post-exploitation tool extract plaintext passwords from LSASS memory?",
+    shortAnswer: "By reading the memory space of `lsass.exe` (Local Security Authority Subsystem Service), which caches plaintext passwords and Kerberos tickets for single sign-on services (WDigest).",
+    explanation: "Benjamin Delpy developed Mimikatz to show that Windows held plaintext credentials in memory; modern Windows versions disable WDigest caching by default.",
+    hint: "Dumping LSASS memory to extract cached credentials and Kerberos tickets.",
+    level: "advanced",
+    codeExample: "sekurlsa::logonpasswords # Mimikatz command dumping cached credentials"
+  },
+  {
+    question: "What is an SQL Injection (SQLi) attack and how does it compromise authentication portals?",
+    shortAnswer: "Inserting malicious SQL query fragments into input fields that alter backend query logic (e.g. `' OR '1'='1`), tricking the database into validating logins without a password.",
+    explanation: "SQLi occurs when user input is concatenated directly into query strings rather than bound using parameterized Prepared Statements.",
+    hint: "Injecting SQL commands like ' OR '1'='1 to bypass authentication.",
+    level: "basic",
+    codeExample: "SELECT * FROM users WHERE username = 'admin' AND password = '' OR '1'='1';"
   }
 ];
 

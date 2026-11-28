@@ -1,0 +1,45 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 9: PRACTICAL 9: CSV FILE FILTER & NUMERIC AGGREGATOR USING CSV.READER
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Python practical program to parse 'employees.csv' using csv.reader, filter employees by department, and calculate total and average salaries.
+
+2. KEY EXAMINATION POINTS:
+  (1) Reads file via reader = csv.reader(f).
+  (2) Extracts and skips header row using next(reader).
+  (3) Casts string data to numeric types: float(row[3]) for salary arithmetic.
+  (4) Computes statistical aggregates (sum, average, count) for qualifying department records.
+
+3. PRACTICAL CODE SNIPPET:
+import csv
+
+def filter_and_aggregate_csv(target_dept):
+    with open('employees.csv', 'r') as f:
+        reader = csv.reader(f)
+        header = next(reader)
+        total_sal, count = 0.0, 0
+        for row in reader:
+            if row[2].upper() == target_dept.upper():
+                total_sal += float(row[3])
+                count += 1
+                print(f"{row[0]} | {row[1]} | Rs. {row[3]}")
+                
+    avg_sal = (total_sal / count) if count > 0 else 0
+    print(f"Department: {target_dept} -> Total: Rs.{total_sal}, Average: Rs.{avg_sal}")
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 9 · CODER & ACCOTAX BARRACKPORE
+================================================================================

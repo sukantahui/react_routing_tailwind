@@ -1,0 +1,34 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - QUICK REVISION NOTE
+TOPIC 6: CALCULATING DEGREE AND CARDINALITY AFTER OPERATIONS
+
+=============================================================================
+MASTER FORMULAS FOR CBSE BOARD EXAMINATIONS:
+=============================================================================
+
+1. TABLE MODIFICATIONS:
+   - Initial Table: Degree = D, Cardinality = C
+   - Insert n rows                  ===> Degree = D,       Cardinality = C + n
+   - Delete m rows                  ===> Degree = D,       Cardinality = C - m
+   - Add k columns (ALTER TABLE)    ===> Degree = D + k,   Cardinality = C
+   - Drop p columns (ALTER TABLE)   ===> Degree = D - p,   Cardinality = C
+   - TRUNCATE TABLE                 ===> Degree = D,       Cardinality = 0
+
+2. CARTESIAN PRODUCT (CROSS JOIN: A x B):
+   - Degree(A x B)      = Degree(A) + Degree(B)          [ADD COLUMNS]
+   - Cardinality(A x B) = Cardinality(A) * Cardinality(B) [MULTIPLY ROWS]
+   * Note: If either table has Cardinality = 0, product Cardinality = 0.
+
+3. NATURAL JOIN (EQUI-JOIN on 1 common attribute):
+   - Degree(A ⨝ B) = Degree(A) + Degree(B) - 1  [Common column not duplicated]
+   - Cardinality(A ⨝ B) = Number of rows satisfying join equality condition.
+
+4. SET OPERATIONS (Tables must be Union-Compatible, Degree = D):
+   - UNION:        Degree = D, Cardinality <= C(A) + C(B)   (Duplicates eliminated)
+   - INTERSECT:    Degree = D, Cardinality <= min(C(A), C(B))
+   - SET MINUS:    Degree = D, Cardinality = C(A) - (matching rows in B)
+
+5. QUERY PROJECTIONS:
+   - SELECT * FROM T WHERE condition;
+     -> Degree = Total columns in T; Cardinality = Matching rows count.
+   - SELECT col1, col2 FROM T WHERE condition;
+     -> Degree = 2 (number of projected columns); Cardinality = Matching rows count.

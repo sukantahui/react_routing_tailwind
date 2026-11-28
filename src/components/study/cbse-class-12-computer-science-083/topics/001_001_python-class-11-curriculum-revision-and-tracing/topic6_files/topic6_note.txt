@@ -1,0 +1,32 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 6: STRING PROCESSING (INDEXING, SLICING & BUILT-IN METHODS)
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. STRING FUNDAMENTALS:
+   - Strings are IMMUTABLE ordered sequences of Unicode characters.
+   - Forward indexing starts at 0 up to len-1.
+   - Backward (negative) indexing starts at -1 (last char) down to -len.
+   - Strings cannot be modified in-place: s[0] = 'X' raises TypeError.
+
+2. SLICING FORMULA: s[start:stop:step]
+   - 'start' is INCLUSIVE, 'stop' is EXCLUSIVE.
+   - If step is omitted, default step is +1.
+   - Negative step traverses in reverse direction:
+     * s[::-1] reverses the string.
+     * In negative slicing (step < 0), start must be > stop, otherwise returns empty string ''.
+   - Slicing NEVER raises IndexError (bounds are safely clamped).
+
+3. ESSENTIAL BUILT-IN STRING METHODS:
+   - Case Conversion: upper(), lower(), title(), capitalize(), swapcase()
+   - Inspection: isalpha(), isdigit(), isalnum(), isspace(), islower(), isupper()
+   - Search:
+     * find(sub): Returns lowest index of sub; returns -1 if not found (NO error!).
+     * index(sub): Returns lowest index; raises ValueError if not found.
+     * count(sub): Returns total occurrences of sub.
+   - Whitespace Removal: strip(), lstrip(), rstrip()
+   - Tokenization: split([sep]) -> returns list of strings.
+   - Aggregation: sep.join(iterable) -> joins sequence of strings with sep.
+   - Replacement: replace(old, new[, count])
+===============================================================================

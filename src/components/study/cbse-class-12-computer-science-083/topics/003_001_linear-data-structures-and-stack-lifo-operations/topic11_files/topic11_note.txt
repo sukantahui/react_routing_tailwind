@@ -1,0 +1,20 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+SEGMENT 3: DATA STRUCTURES (LINEAR LISTS & STACKS)
+TOPIC 11: DOWNLOADABLE DOCUMENTS & COMPLETE STACK MASTER COMPENDIUM
+
+1. COMPLETE SEGMENT REVISION SUMMARY:
+- Data Structure Taxonomy: Primitive (int, float, str, bool) vs Non-Primitive (linear: lists, stacks, queues; non-linear: trees, graphs).
+- Stack Definition: Linear data structure adhering strictly to LIFO (Last In First Out) / FILO (First In Last Out) principle.
+- TOP Pointer: Single accessible endpoint where all Push and Pop operations take place (index -1 in Python).
+- Core Operations:
+  * Push: stk.append(item) -> O(1) amortized time.
+  * Pop: stk.pop() -> O(1) constant time with Underflow guard.
+  * Peek: stk[-1] -> O(1) read-only inspection with empty guard.
+  * Display: Traversal in reverse order from index len(stk)-1 down to 0, marking '<-- TOP'.
+- Empty Guard: if len(stk) == 0: or if not stk: prevents IndexError crashes.
+- Record Stacks: Storing composite records [Roll, Name, Marks] as nested sub-lists or tuples.
+- Board Exam Patterns: Filtering dictionaries (d.items()), numbers (% 5 == 0), strings (vowel start/end), and draining stacks.
+
+2. MASTER LAB SCRIPT:
+- Complete standalone Python lab: stack_data_structures_complete_master_lab.py

@@ -1,0 +1,31 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: MODULE 2 - TOPIC 5: REPEATER (SIGNAL REGENERATION, AMPLIFIER VS REPEATER)
+
+1. FUNDAMENTAL DEFINITION:
+   - A hardware device that operates at the Physical Layer (Layer 1) to regenerate, clean, reshape, and retransmit attenuated digital signals.
+   - Purpose: Extends the maximum physical transmission distance of network cabling beyond standard segment limits.
+   - Operating Layer: Layer 1 (Physical Layer). Does NOT inspect MAC or IP addresses.
+
+2. AMPLIFIER VS REPEATER (CRITICAL CBSE DISTINCTION):
+   +------------------------+------------------------------------+------------------------------------+
+   | Parameter              | Analog Amplifier                   | Digital Repeater                   |
+   +------------------------+------------------------------------+------------------------------------+
+   | Signal Type            | Analog continuous wave signals     | Digital binary bitstreams (pulses) |
+   | Noise Handling         | Amplifies BOTH the signal AND noise| Filters out noise completely       |
+   | Signal Output          | Larger version of distorted wave   | Brand-new, clean, reshaped square w|
+   | Distortion Accumulation| Noise accumulates over cascade     | Zero noise accumulation across hops|
+   +------------------------+------------------------------------+------------------------------------+
+   * How a Repeater Works: It compares incoming distorted electrical voltages against a threshold voltage. Voltages above threshold are converted to a clean 1; voltages below are converted to a clean 0. It then transmits a crisp, brand-new digital square wave!
+
+3. WHEN TO RECOMMEND A REPEATER IN CBSE CASE STUDIES:
+   - In 5-mark Case Studies, when connecting two buildings using copper cables (e.g. UTP):
+     * If distance between buildings exceeds 100 meters (e.g. 140 meters, 170 meters), a Repeater must be placed at or before the 100-meter mark to prevent signal loss from attenuation.
+     * Alternative recommendation: Replace copper with Optical Fiber (which covers kilometers without repeaters).
+
+4. THE CLASSIC 5-4-3 RULE (LEGACY ETHERNET):
+   In 10 Mbps shared-medium coaxial Ethernet, signal propagation delay across repeaters must not exceed the collision detection window.
+   - Rule Definition:
+     * Maximum 5 network segments in the path between any two furthest nodes.
+     * Connected by a maximum of 4 repeaters.
+     * Only 3 of the 5 segments may be populated with active computers (the other 2 must be unpopulated link segments).

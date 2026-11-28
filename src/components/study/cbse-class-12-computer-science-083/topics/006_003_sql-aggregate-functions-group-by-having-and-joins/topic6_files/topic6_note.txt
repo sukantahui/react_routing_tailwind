@@ -1,0 +1,38 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 6: FILTERING GROUPED DATA: THE HAVING CLAUSE VS THE WHERE CLAUSE
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+WHERE filters individual rows BEFORE grouping occurs, whereas HAVING filters groups AFTER group aggregation has been computed.
+
+2. KEY EXAMINATION POINTS:
+  (1) WHERE operates on individual records and CANNOT contain aggregate functions.
+  (2) HAVING operates on summary groups and CAN contain aggregate functions: e.g. 'HAVING COUNT(*) > 5'.
+  (3) Execution Order: WHERE filters tuples -> GROUP BY creates groups -> HAVING filters groups.
+  (4) Both can coexist in the same query: WHERE filters eligible rows, then GROUP BY groups them, then HAVING filters group aggregates.
+
+3. SYNTAX & CODE SNIPPET:
+-- Combining WHERE and HAVING:
+-- Find departments where average salary of confirmed employees is above 60000
+SELECT Dept, COUNT(*) AS EmpCount, AVG(Salary) AS AvgSal 
+FROM Employee 
+WHERE Status = 'Confirmed'          -- Individual row filter
+GROUP BY Dept                      -- Grouping
+HAVING AVG(Salary) > 60000.00;     -- Group aggregate filter
+
+4. CBSE COMMON PITFALLS:
+Ensure correct placement of WHERE before GROUP BY and HAVING after GROUP BY.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between COUNT(*) and COUNT(col).
+  [ ] Master GROUP BY rules regarding non-aggregated columns.
+  [ ] Remember WHERE cannot contain aggregate functions; use HAVING.
+  [ ] Know Cartesian Product formulas: Cardinality = R1 * R2, Degree = C1 + C2.
+  [ ] Always include (N - 1) join conditions when joining N tables.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 6 · CODER & ACCOTAX BARRACKPORE
+================================================================================

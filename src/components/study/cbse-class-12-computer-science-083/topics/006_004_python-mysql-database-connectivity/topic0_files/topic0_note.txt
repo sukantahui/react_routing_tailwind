@@ -1,0 +1,35 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 0: NEED FOR DATABASE CONNECTIVITY: INTEGRATING PYTHON FRONT-END WITH MYSQL BACK-END
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Python acts as a versatile front-end programming language while MySQL provides a robust, multi-user relational database management back-end.
+
+2. KEY EXAMINATION POINTS:
+  (1) In enterprise software, Python handles user interaction, validation, and business logic, while MySQL handles persistent tabular storage.
+  (2) Two-tier client-server architecture: Python client communicates with MySQL server daemon via TCP/IP sockets (default port 3306).
+  (3) Eliminates data volatility: In-memory Python data structures (lists, dicts) vanish upon program termination; MySQL guarantees persistence.
+  (4) CBSE Exam Syllabus: Python-MySQL connectivity carries 5 to 7 marks in Section C & Section D of the CBSE Class 12 board examination.
+
+3. SYNTAX & CODE SNIPPET:
+# Conceptual Two-Tier Data Flow:
+# [ User / Terminal ] <---> [ Python Application Layer ] <---> [ MySQL Database Server ]
+# Input: RollNo, Marks       Validates & Builds Query           Executes SQL, Stores in B-Tree
+# Displays Formatted Table   Fetches Tuples via Cursor          Returns Recordset via TCP/IP
+
+4. CBSE COMMON PITFALLS:
+Writing Python file handling code when the exam question explicitly asks for MySQL database connectivity using mysql.connector.
+
+5. REVISION CHECKLIST:
+  [ ] Understand connect() parameters: host, user, password, database.
+  [ ] Know the difference between fetchone(), fetchmany(), and fetchall().
+  [ ] Remember that fetchone() returns None and fetchall() returns [] when exhausted.
+  [ ] Master con.commit() for INSERT/UPDATE/DELETE.
+  [ ] Know that '%s' is the universal placeholder in mysql.connector.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 0 · CODER & ACCOTAX BARRACKPORE
+================================================================================

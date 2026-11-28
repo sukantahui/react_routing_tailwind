@@ -1,0 +1,41 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 6: MANIPULATING THE FILE POINTER - tell() AND seek()
+======================================================================
+
+1. THE FILE POINTER CONCEPT
+   - An internal cursor pointing to the exact byte offset where the next read
+     or write operation will occur.
+   - Moves forward automatically as data is read or written.
+
+2. THE tell() METHOD
+   - Syntax: current_pos = f.tell()
+   - Parameters: NONE. Takes zero arguments.
+   - Return Value: Integer representing current byte offset from start (byte 0).
+   - Usage: Check where the cursor currently is.
+
+3. THE seek() METHOD
+   - Syntax: new_pos = f.seek(offset, whence=0)
+   - Parameters:
+     * offset: Number of bytes to move.
+     * whence: Reference point for movement:
+       - 0 (or os.SEEK_SET): From beginning of file (Default).
+       - 1 (or os.SEEK_CUR): From current pointer position.
+       - 2 (or os.SEEK_END): From end of file.
+   - Return Value: Integer representing new absolute byte position.
+
+4. COMMON SEEK OPERATIONS (CBSE BOARD FAVORITES)
+   - f.seek(0)     : Rewinds pointer to start of file.
+   - f.seek(0, 2)  : Moves pointer to the end of file (EOF).
+   - f.seek(15)    : Moves pointer to byte 15 from beginning.
+
+5. PYTHON 3 TEXT MODE RESTRICTIONS
+   - In text mode ('r', 'w', etc.), Python disallows non-zero offsets from
+     current (1) or end (2).
+   - f.seek(5, 1) raises: io.UnsupportedOperation.
+   - For arbitrary offsets from current or end, open file in binary mode ('rb', 'wb').
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

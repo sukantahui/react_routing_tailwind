@@ -1,0 +1,34 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 3: FILE ACCESS MODES - 'r', 'w', 'a', 'r+', 'w+', 'a+'
+======================================================================
+
+1. MASTER ACCESS MODES MATRIX (MUST MEMORIZE FOR CBSE 083)
+   -------------------------------------------------------------------------
+   Mode  Meaning            File Must Exist?  Initial Pointer  Truncates?
+   -------------------------------------------------------------------------
+   'r'   Read-only          YES (Error)       Beginning (0)    NO
+   'w'   Write-only         NO (Creates)      Beginning (0)    YES (Empties file!)
+   'a'   Append-only        NO (Creates)      End of File      NO (Preserves)
+   'r+'  Read & Write       YES (Error)       Beginning (0)    NO (Overwrites in-place)
+   'w+'  Write & Read       NO (Creates)      Beginning (0)    YES (Empties file!)
+   'a+'  Append & Read      NO (Creates)      End of File      NO (Seeks to read)
+   -------------------------------------------------------------------------
+
+2. CRITICAL BOARD EXAM DISTINCTIONS
+   A. 'r+' vs 'w+':
+      - 'r+': Does NOT truncate existing data. If missing, raises FileNotFoundError.
+      - 'w+': TRUNCATES existing data immediately to 0 bytes! If missing, creates file.
+
+   B. 'w' vs 'a':
+      - 'w': Overwrites everything from scratch.
+      - 'a': Retains historical data, appends at the bottom.
+
+   C. The '+' modifier:
+      - Adds dual capability: Read AND Write.
+      - Never changes the base file creation/truncation behavior of the root letter!
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

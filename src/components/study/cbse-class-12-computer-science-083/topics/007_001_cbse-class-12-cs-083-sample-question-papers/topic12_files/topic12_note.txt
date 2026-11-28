@@ -1,0 +1,35 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: EXAMINATION MASTERY (FULL BOARD PATTERN)
+TOPIC 12: CBSE BOARD MARKING SCHEME ANALYSIS & STEP-MARKING STRATEGIES
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Behind-the-scenes look at the official CBSE evaluation process, step-marking breakdowns, common reasons for 0.5/1 mark deductions, and presentation tips.
+
+2. KEY EXAMINATION POINTS:
+  (1) CBSE follows strictly positive step-marking: you earn marks for every correct syntactic construct even if the final result is flawed.
+  (2) In SQL: Keywords can be upper or lower case; column aliases do not require AS; semicolons at the end of queries are expected.
+  (3) In Python: Indentation MUST be visibly consistent; function definitions must include def keyword and arguments.
+  (4) Underline final output values and enclose dry-run trace tables in neat pencil borders.
+
+3. CODE & STRATEGY SNIPPET:
+# Presentation Checklist for 100/100:
+# [x] Always write question numbers clearly in the margin (e.g. Q28(a)).
+# [x] In output tracing questions, write ONLY the final output in the main answer area; keep trace tables in the rough margin.
+# [x] In code correction questions, rewrite the FULL code and underline each corrected token.
+# [x] In SQL queries, qualify ambiguous column names with table prefixes.
+
+4. CBSE COMMON PITFALLS:
+Adhere strictly to step-marking rubrics and never leave questions unattempted.
+
+5. REVISION CHECKLIST:
+  [ ] Understand 70-mark theory distribution across Sections A to E.
+  [ ] Practice dry-run trace tables for Section B output questions.
+  [ ] Memorize standard templates for Stack and Text file questions.
+  [ ] Know the 80-20 rule and repeater/switch criteria for Section E.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 12 · CODER & ACCOTAX BARRACKPORE
+================================================================================

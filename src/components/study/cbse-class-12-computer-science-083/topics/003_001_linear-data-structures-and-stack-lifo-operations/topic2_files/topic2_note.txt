@@ -1,0 +1,31 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+SEGMENT 3: DATA STRUCTURES (LINEAR LISTS & STACKS)
+TOPIC 2: STACK TERMINOLOGY & OPERATIONAL CONCEPTS
+
+1. CORE TERMINOLOGY:
+- TOP:
+  * The pointer/index identifying the uppermost element of the stack.
+  * In a 0-indexed list of size N, TOP = N - 1 (or index -1 in Python).
+  * In an empty stack, TOP is conceptualized as -1 or None.
+- PUSH:
+  * The operation of inserting/adding a new element onto the TOP of the stack.
+  * Increases the stack size by 1.
+- POP:
+  * The operation of removing and returning the top-most element from the stack.
+  * Decreases the stack size by 1.
+- PEEK / TOP:
+  * The inspection operation: returns the value of the top-most element WITHOUT removing it.
+  * Does NOT alter the stack size.
+- DISPLAY / TRAVERSE:
+  * Printing the contents of the stack from TOP down to the bottom.
+
+2. BOUNDARY CONDITIONS:
+- OVERFLOW:
+  * Occurs when attempting to PUSH an element into a stack that has reached its maximum allocated capacity.
+  * In static array implementations (like in C/C++ or fixed-size hardware buffers), overflow is a fatal error.
+  * In Python: Because lists are dynamic and expand automatically in virtual RAM, a traditional overflow error does not occur unless the system physically runs out of memory (MemoryError).
+- UNDERFLOW:
+  * Occurs when attempting to POP or PEEK from an EMPTY stack (size == 0).
+  * In Python: Calling list.pop() on an empty list [] raises 'IndexError: pop from empty list'.
+  * Proper defensive code must always check for underflow before popping.

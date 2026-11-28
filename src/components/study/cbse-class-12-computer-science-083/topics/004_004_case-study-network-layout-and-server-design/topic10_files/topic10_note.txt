@@ -1,0 +1,51 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - MASTER REVISION HANDBOOK
+MODULE 4: CASE STUDY NETWORK LAYOUT & SERVER DESIGN (UNIT II - 10 MARKS)
+
+=============================================================================
+COMPLETE 4-MARK EXAMINATION CHECKLIST & CHEAT SHEET:
+=============================================================================
+
+1. QUESTION BREAKDOWN:
+   - Part (a): Server Placement & Justification (1 Mark)
+   - Part (b): Cable Layout Diagram & Total Length (1 Mark)
+   - Part (c): Placement of Repeaters & Hub/Switch (1 Mark)
+   - Part (d): Communication Medium / Protocol / Security Device (1 Mark)
+
+2. CORE MARKING CRITERIA:
+   A. Server Placement:
+      - Winner: Block with MAXIMUM computers.
+      - Reason: "According to the 80-20 rule, 80% of network traffic remains local.
+        Placing the server in the block with the largest number of workstations
+        minimizes inter-block traffic and avoids network bottlenecks."
+
+   B. Cable Layout:
+      - Star Topology: Central server block connected to every other block.
+        * Distance = Sum of (Server -> Block_i) distances.
+        * Pros: Highly reliable, fault in one link does not affect others.
+      - Bus Topology: Linear link connecting all blocks with shortest path.
+        * Distance = Minimum Spanning Tree (MST) sum.
+        * Pros: Minimum total cable length, most economical.
+
+   C. Device Placement:
+      - Repeater:
+        * Required when distance between two directly connected blocks > 100 meters
+          (or > 70-80 meters in older rubrics).
+        * Reason: To regenerate and amplify attenuated signals over long distances.
+      - Hub / Switch:
+        * Required in EVERY BLOCK having multiple computers.
+        * Reason: To connect local workstations into a local area network (LAN).
+
+   D. Media & Protocols:
+      - High Speed Inter-block link: Optical Fiber Cable.
+      - Indoor LAN cabling: UTP (Unshielded Twisted Pair / Cat6).
+      - Remote Branch (Hilly/Rough terrain > 10 km): Radio Waves / Microwaves / Satellite.
+      - Remote Branch (Global / Intercontinental): Satellite / Undersea Fiber VPN.
+      - Voice / Video Calling: VoIP (Voice over Internet Protocol) / Webcams & Microphones.
+      - Perimeter Security: Firewall (Hardware/Software).
+      - Remote Secure Access: VPN (Virtual Private Network).
+
+=============================================================================
+TEACHER'S ADVICE (Sukanta Hui):
+Always label all block names clearly on your diagram and write the distance in meters
+along each link. Never leave distances blank!
+=============================================================================

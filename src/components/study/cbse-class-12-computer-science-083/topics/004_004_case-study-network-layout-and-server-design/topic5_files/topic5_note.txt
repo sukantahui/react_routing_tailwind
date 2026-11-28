@@ -1,0 +1,43 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 4: 4-MARK NETWORK CASE STUDY & INFRASTRUCTURE DESIGN
+TOPIC 5: HUB / SWITCH PLACEMENT RULES (REQUIRED IN EVERY BLOCK)
+
+================================================================================
+1. THE UNIVERSAL RULE OF SWITCH PLACEMENT
+================================================================================
+Rule: A SWITCH (or Hub) must be placed in EACH AND EVERY BLOCK (or Wing)
+that contains multiple computers.
+
+Reason / Justification for Full Marks:
+"To connect all the local computers in that block together into a local Star topology,
+and to provide an uplink connection to the central campus backbone network."
+
+Why Multiple Blocks Need Their Own Switches:
+- Workstations inside a building cannot connect directly to a distant building's
+  switch without running separate 100-meter cables for every single PC!
+- Instead, all local PCs connect via short drop cables into the local building switch.
+- A single high-speed uplink cable then connects the building switch to the central server.
+
+================================================================================
+2. SWITCH VS HUB COMPARISON FOR CBSE EXAMS
+================================================================================
+Parameter          Network Switch (Recommended)     Network Hub (Legacy / Obsolete)
+--------------------------------------------------------------------------------
+OSI Layer          Layer 2 (Data Link Layer)        Layer 1 (Physical Layer)
+Intelligence       Intelligent (Maintains CAM Table) Dumb (Zero intelligence)
+Transmission       Unicast (Selective forwarding)   Broadcast (Floods to all ports)
+Bandwidth          Dedicated bandwidth per port     Shared bandwidth across all ports
+Collision Domains  Each port is an isolated domain  Single shared collision domain
+Security           High (Prevents casual sniffing)  Low (All nodes receive all packets)
+Standard Advice    ALWAYS recommend a Switch        Mention Hub only as legacy
+
+================================================================================
+3. GOLDEN ANSWER TEMPLATE FOR CBSE EXAM
+================================================================================
+"A Switch (or Hub) should be installed in EACH AND EVERY BLOCK of the campus
+([Block A], [Block B], [Block C], [Block D]).
+
+Reason: A switch is required in each block to connect all local workstations
+together into a local network and to enable them to communicate with the central
+server via the inter-building backbone cable."

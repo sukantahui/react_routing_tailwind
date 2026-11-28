@@ -1,0 +1,37 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - QUICK REVISION NOTE
+TOPIC 8: VIDEO CONFERENCING HARDWARE, SOFTWARE & PROTOCOL RECOMMENDATIONS
+
+1. CONTEXT IN CBSE 4-MARK CASE STUDY:
+   - Typical Board Question Sub-part:
+     "The company plans to conduct interactive meetings/training sessions between the Head Office
+      and its regional branches.
+      (i) Suggest the technology/service required.
+      (ii) Suggest any two hardware devices required (other than computers).
+      (iii) Suggest the network protocol used."
+
+2. KEY EXAMINATION ANSWERS & KEYWORDS:
+   A. Technology / Service:
+      - Video Conferencing / Web Conferencing / VoIP Calling / Live Interactive Webcast.
+   B. Hardware Required (Choose any two):
+      - High-definition Video Camera / Webcam.
+      - Microphone (Omnidirectional / Boundary microphone).
+      - Speakers / Audio Headsets.
+      - Large Display Screen / Interactive Flat Panel (IFP) / Multimedia Projector.
+   C. Protocols Used:
+      - VoIP (Voice over Internet Protocol): Core protocol for packetized voice transmission.
+      - SIP (Session Initiation Protocol): Signaling protocol for call setup and termination.
+      - RTP (Real-time Transport Protocol): Real-time delivery of audio/video payloads.
+      - WebRTC (Web Real-Time Communication): Plugin-free browser-to-browser conferencing.
+   D. Software Examples Accepted:
+      - Zoom, Microsoft Teams, Google Meet, Cisco Webex, Skype.
+
+3. NETWORK REQUIREMENTS:
+   - Bandwidth: Dedicated symmetric broadband (minimum 2-4 Mbps per HD stream).
+   - Low Latency: Round trip delay < 150 ms to prevent unnatural conversational delays.
+   - Low Jitter: Consistent packet delivery to avoid audio clipping or choppy video.
+   - QoS (Quality of Service): Router prioritization for voice/video packets over background downloads.
+
+4. COMMON CBSE EXAM TRAPS:
+   - Do NOT suggest "FTP" or "SMTP" for real-time video meetings.
+   - Always state "VoIP" or "SIP/RTP" when asked for the specific protocol.
+   - For hardware, ensure you name devices outside the standard PC chassis (Webcam, Mic, Speakers).

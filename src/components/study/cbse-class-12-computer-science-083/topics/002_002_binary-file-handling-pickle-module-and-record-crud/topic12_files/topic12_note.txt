@@ -1,0 +1,19 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: BINARY FILE HANDLING & PICKLE MODULE (SAMPLE PAPERS)
+============================================================
+10 Mock Test Papers · 20 Marks Each · Duration: 45 Minutes
+
+KEY POINTS:
+1. Module: pickle
+2. Functions:
+   - pickle.dump(object, file_pointer) -> serializes to binary
+   - pickle.load(file_pointer) -> deserializes one object
+3. Modes: 'rb', 'wb', 'ab', 'rb+', 'wb+', 'ab+'
+4. Reading all records:
+   try:
+       while True:
+           record = pickle.load(f)
+   except EOFError:
+       pass
+5. Updating / Deleting:
+   Use temporary file strategy (read from original, write modified to temp, os.remove, os.rename).

@@ -1,0 +1,39 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 17: PRACTICAL 17: SQL SET 2: DML QUERIES WITH WHERE, LIKE, BETWEEN, AND ORDER BY
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Collection of authentic SQL DML queries for populating tables, updating records, filtering with WHERE, pattern matching with LIKE, and multi-column ORDER BY.
+
+2. KEY EXAMINATION POINTS:
+  (1) INSERT queries adding sample data into Department and Employee.
+  (2) Pattern matching: LIKE 'A%' (starts with A), LIKE '%sharma' (ends with sharma).
+  (3) Range query: WHERE Salary BETWEEN 40000 AND 80000.
+  (4) Multi-column sorting: ORDER BY DeptId ASC, Salary DESC.
+
+3. PRACTICAL CODE SNIPPET:
+-- SQL Practical Set 2: DML & Filtering
+INSERT INTO Department VALUES (1, 'IT', 'Bengaluru'), (2, 'HR', 'Kolkata'), (3, 'Sales', 'Mumbai');
+INSERT INTO Employee VALUES (101, 'Aarav Roy', 1, 65000.00), (102, 'Priya Sen', 2, 48000.00), (103, 'Ankit Das', 1, 72000.00);
+
+-- Filter with LIKE and BETWEEN
+SELECT EName, Salary FROM Employee WHERE EName LIKE 'A%' AND Salary BETWEEN 50000 AND 80000;
+
+-- Sorting
+SELECT * FROM Employee ORDER BY DeptId ASC, Salary DESC;
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 17 · CODER & ACCOTAX BARRACKPORE
+================================================================================

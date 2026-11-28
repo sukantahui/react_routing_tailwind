@@ -1,0 +1,27 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: PROTOCOLS, WEB SERVICES & CYBER SECURITY (SAMPLE PAPERS)
+================================================================
+10 Mock Test Papers · 20 Marks Each · Duration: 45 Minutes
+
+KEY TECHNICAL RULES:
+1. Application Protocols:
+   - HTTP (Port 80) vs HTTPS (Port 443 - SSL/TLS encrypted).
+   - FTP (Port 20/21) for bulk file transfer.
+   - SMTP (Port 25) for sending emails.
+   - POP3 (Port 110) downloads & deletes; IMAP (Port 143) syncs across devices.
+   - Telnet (Port 23 - plain text) vs SSH (Port 22 - encrypted).
+   - VoIP: Voice calls over IP networks.
+2. Web Services:
+   - DNS: Translates domain names to IP addresses.
+   - URL: Protocol + Domain Name + Path.
+3. Cyber Security Threats:
+   - Virus: Needs host file and human trigger to spread.
+   - Worm: Self-replicating, spreads autonomously over network.
+   - Trojan: Disguised as legitimate software, non-replicating.
+   - Ransomware: Encrypts files and demands ransom.
+   - Phishing: Deceptive emails/sites stealing credentials.
+4. Security & Law:
+   - Firewalls: Packet filtering and stateful inspection.
+   - Cookies: Session (temporary) vs Persistent (stored).
+   - IT Act 2000: Cyber law in India (Section 66C - ID theft, 66D - Cheating).
+   - IPR: Patents, Copyrights, Trademarks.

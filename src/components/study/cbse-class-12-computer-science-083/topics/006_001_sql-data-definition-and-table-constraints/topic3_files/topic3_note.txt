@@ -1,0 +1,29 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT III: SQL DDL & TABLE CONSTRAINTS
+TOPIC 3: TABLE INSPECTION COMMANDS: SHOW TABLES & DESCRIBE / DESC
+=====================================================
+Once a database is active, inspecting its schema and structure is a fundamental administrative task.
+
+1. SHOW TABLES:
+   Syntax:
+   SHOW TABLES;
+   Displays an alphabetical list of all tables and views present in the currently selected database.
+
+2. DESCRIBE / DESC:
+   Syntax:
+   DESCRIBE table_name;
+   or
+   DESC table_name;
+   Example:
+   DESC student;
+
+OUTPUT TABLE COLUMNS:
+- Field: The name of the column (e.g. RollNo, Name, Fee).
+- Type: The allocated data type and length (e.g. int(11), varchar(40), decimal(8,2)).
+- Null: 'YES' if the column accepts NULL values; 'NO' if constrained by NOT NULL or PRIMARY KEY.
+- Key:
+  - 'PRI': Primary Key column.
+  - 'UNI': Unique column constraint.
+  - 'MUL': Non-unique index or foreign key column.
+- Default: The default value assigned when no value is supplied during INSERT (e.g. NULL, 'General', 0.0).
+- Extra: Additional properties like 'auto_increment'.

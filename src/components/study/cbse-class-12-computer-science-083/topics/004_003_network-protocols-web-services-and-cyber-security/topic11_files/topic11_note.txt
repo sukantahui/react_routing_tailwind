@@ -1,0 +1,37 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 3: NETWORK PROTOCOLS, WEB SERVICES & CYBER SECURITY
+TOPIC 11: NETWORK DEFENSE MECHANISMS (FIREWALLS, COOKIES, ETHICAL HACKERS)
+
+================================================================================
+1. FIREWALLS: PERIMETER SECURITY
+================================================================================
+Definition: A hardware device or software program that monitors and filters incoming
+and outgoing network traffic based on defined security rules (Access Control Lists).
+
+Types of Firewalls:
+1. Hardware Firewall: Dedicated physical appliance protecting an entire network perimeter.
+2. Software Firewall: Installed on individual host OS (e.g. Windows Defender Firewall).
+3. Packet Filtering: Inspects IP addresses, port numbers, and protocol types.
+4. Stateful Inspection: Tracks established connection states (handshakes) dynamically.
+
+================================================================================
+2. HTTP COOKIES: SESSION MANAGEMENT & PRIVACY
+================================================================================
+Definition: Small text files stored on client devices by web browsers on behalf of servers.
+- Session Cookies: Stored in volatile RAM; deleted upon closing the browser.
+- Persistent Cookies: Stored on the local drive until a specified expiration date.
+- Security Flags:
+  * HttpOnly: Prevents client-side JavaScript access (mitigates XSS attacks).
+  * Secure: Mandates transmission only across encrypted HTTPS channels.
+  * SameSite: Restricts cross-site transmission (mitigates CSRF attacks).
+- Privacy Concern: Third-party tracking cookies track cross-site user behavior.
+
+================================================================================
+3. HACKERS VS CRACKERS (ETHICAL TAXONOMY)
+================================================================================
+Category        Authorization?  Intent / Motivation        Role in Society
+--------------------------------------------------------------------------------
+Hacker (White)  YES             Defensive, Legal, Ethical  Security Auditor, Pen Tester
+Cracker (Black) NO (Illegal)    Malicious, Extortion, Harm Cybercriminal, Data Thief
+Grey Hat        NO (Unauthorized) Mixed / Bug Bounties     Finds flaws; reports publicly

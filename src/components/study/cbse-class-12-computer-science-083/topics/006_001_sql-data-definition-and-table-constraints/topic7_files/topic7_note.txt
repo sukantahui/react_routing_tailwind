@@ -1,0 +1,26 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT III: SQL DDL & TABLE CONSTRAINTS
+TOPIC 7: DATA INTEGRITY CONSTRAINTS: NOT NULL, UNIQUE, CHECK, AND DEFAULT
+=====================================================
+1. NOT NULL:
+   - Ensures that a column cannot store NULL values.
+   - Every INSERT statement must provide an explicit non-null value for this column.
+   Example: name VARCHAR(50) NOT NULL
+
+2. UNIQUE:
+   - Ensures that all non-null values in the column are distinct and duplicate values are rejected.
+   - Multiple NULL values are permitted (in MySQL standard) unless combined with NOT NULL.
+   Example: aadhar_no CHAR(12) UNIQUE
+
+3. CHECK:
+   - Enforces a boolean condition that every row's value must satisfy upon INSERT or UPDATE.
+   - Prevents invalid data out of business range.
+   Example:
+   age INT CHECK (age >= 18 AND age <= 65),
+   salary DECIMAL(10, 2) CHECK (salary > 0)
+
+4. DEFAULT:
+   - Provides an automatic fallback value for the column if an INSERT statement omits a value for that column.
+   Example:
+   status VARCHAR(15) DEFAULT 'Active',
+   created_at DATE DEFAULT (CURRENT_DATE)

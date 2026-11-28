@@ -1,0 +1,30 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 0: UNDERSTANDING FUNCTIONS (NEED, ADVANTAGES & 'DEF' SYNTAX)
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. DEFINITION OF A FUNCTION:
+   A named, reusable block of statements that performs a well-defined subtask.
+   Functions are defined using the 'def' keyword followed by the function identifier,
+   parentheses enclosing optional parameters, and a concluding colon (:).
+
+2. ADVANTAGES OF MODULAR PROGRAMMING (FUNCTIONS):
+   a. Code Reusability: Write once, invoke multiple times across different modules.
+   b. Reduced Code Redundancy: Avoids duplicating large blocks of repetitive code.
+   c. Easier Debugging & Maintenance: Errors are isolated to individual logical units.
+   d. Divide and Conquer: Large complex problems are broken into manageable sub-tasks.
+   e. Information Hiding (Abstraction): The caller only needs to know what the function does,
+      not its internal implementation details.
+
+3. TYPES OF FUNCTIONS IN PYTHON:
+   - Built-in Functions: Pre-defined in the standard library (e.g. print(), len(), type(), id()).
+   - User-Defined Functions: Authored by the programmer using 'def'.
+   - Functions in Modules: Imported from external files/libraries (e.g. math.sqrt(), random.randint()).
+
+4. VOID VS FRUITFUL FUNCTIONS:
+   - Fruitful Functions: Terminate with 'return expression', sending a computed value back to the caller.
+   - Void (Non-Fruitful) Functions: Perform an action (like printing or file writing) without returning an explicit value.
+     * In Python, EVERY function returns a value!
+     * If a function has no 'return' statement (or a bare 'return'), it implicitly returns 'None'!
+===============================================================================

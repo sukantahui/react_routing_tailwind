@@ -1,0 +1,21 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT III: SQL DDL & TABLE CONSTRAINTS
+TOPIC 12: PRACTICE YOUR SKILL HERE: SQL DDL INTERACTIVE EXERCISES
+=====================================================
+PRACTICE LAB EXERCISES ON SQL DDL & TABLE CONSTRAINTS
+======================================================
+Topic 12: Interactive Coding Practice & Schema Engineering
+
+EXERCISE 1: Create a table 'LIBRARY' with:
+- BookID (integer, primary key)
+- Title (varchar 50, not null)
+- Author (varchar 40)
+- Price (decimal 6,2, check price > 0)
+- PubDate (date)
+
+EXERCISE 2: Write ALTER TABLE statements to:
+(a) Add column 'Quantity' of integer type with default value 1.
+(b) Modify 'Title' column to hold up to 80 characters.
+(c) Drop the 'PubDate' column.
+
+EXERCISE 3: Write SQL statement to remove all book records from LIBRARY while keeping the structure for next semester.

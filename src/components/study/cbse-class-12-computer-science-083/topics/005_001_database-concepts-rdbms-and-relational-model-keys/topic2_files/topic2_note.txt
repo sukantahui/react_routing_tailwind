@@ -1,0 +1,36 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - QUICK REVISION NOTE
+TOPIC 2: RDBMS CONCEPTS & THREE-SCHEMA ARCHITECTURE
+
+1. DEFINITION OF RDBMS:
+   - Relational Database Management System: A software system based on the Relational Data Model
+     invented by Dr. E.F. Codd (1970).
+   - Data is stored in 2D tables (Relations) linked by common attributes (Keys).
+   - Examples: MySQL, Oracle, PostgreSQL, MS SQL Server, SQLite.
+
+2. ANSI-SPARC THREE-LEVEL ARCHITECTURE:
+   A. External Level (View Level):
+      - Highest level closest to end-users.
+      - Consists of customized views tailored for specific users or roles.
+      - Hides rest of the database for security and simplicity.
+   B. Conceptual Level (Logical Level):
+      - Middle level describing the GLOBAL logical structure of the entire database.
+      - Defines all entities, attributes, relationships, data types, and integrity constraints.
+      - Independent of physical storage devices.
+   C. Internal Level (Physical Level):
+      - Lowest level closest to physical storage hardware (HDD, SSD).
+      - Describes how data is physically laid out: data blocks, B-tree indexes, compression, encryption.
+
+3. DATA INDEPENDENCE:
+   - Physical Data Independence: Modifying internal/physical storage without affecting conceptual schema.
+   - Logical Data Independence: Modifying conceptual schema without affecting external views or applications.
+
+4. SCHEMA VS INSTANCE:
+   - Schema (Intension): The structural design/blueprint of the database (tables, columns, constraints). Rarely changes.
+   - Instance (Extension): The actual data content stored in the database at a specific instant of time. Changes frequently.
+
+5. MAJOR RDBMS COMPONENTS:
+   - DDL Compiler: Translates schema definitions into metadata in the Data Dictionary.
+   - DML Compiler & Query Optimizer: Analyzes and chooses the fastest execution path for queries.
+   - Transaction Manager: Coordinates ACID properties and recovery.
+   - Buffer Manager: Caches disk pages in RAM to accelerate data access.
+   - Data Dictionary / System Catalog: Stores all metadata.

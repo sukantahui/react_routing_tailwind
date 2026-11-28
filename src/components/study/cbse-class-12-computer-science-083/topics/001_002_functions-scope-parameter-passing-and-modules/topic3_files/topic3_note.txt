@@ -1,0 +1,29 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 3: POSITIONAL ARGUMENTS VS KEYWORD (NAMED) ARGUMENTS
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. POSITIONAL ARGUMENTS:
+   - Arguments passed into a function in exact left-to-right order.
+   - The first actual argument binds to the first formal parameter, the second to the second, etc.
+   - Order is CRITICAL: Swapping argument positions alters logic or causes TypeErrors.
+   - Number of arguments must match unless default parameters exist.
+
+2. KEYWORD (NAMED) ARGUMENTS:
+   - Arguments passed using the explicit syntax: 'parameter_name = value'.
+   - The caller specifies which parameter each argument belongs to by name.
+   - Order DOES NOT MATTER: 'func(b=20, a=10)' is completely equivalent to 'func(a=10, b=20)'.
+
+3. THE GOLDEN SYNTACTIC RULE OF MIXING:
+   - Positional arguments MUST ALWAYS PRECEDE any keyword arguments in a function call!
+   - Writing a positional argument AFTER a keyword argument raises:
+     'SyntaxError: positional argument follows keyword argument'.
+   - Example:
+     * func(10, b=20)   -> LEGAL!
+     * func(a=10, 20)   -> SYNTAX ERROR!
+
+4. DUPLICATE ARGUMENT TRAP:
+   - Passing a value for a parameter positionally and then supplying it again via keyword raises:
+     'TypeError: func() got multiple values for argument '...''
+===============================================================================

@@ -1,0 +1,32 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 8: THE 'GLOBAL' KEYWORD & COMMON SCOPE PITFALLS
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. PURPOSE OF THE 'GLOBAL' KEYWORD:
+   - In Python, reading a global variable inside a function is permitted by default.
+   - HOWEVER, assigning to a variable inside a function ('var = ...') causes Python
+     to treat that variable as LOCAL to that function throughout its entire body.
+   - To REBIND or MODIFY a global variable from inside a function, the 'global' statement
+     MUST be declared before any assignment:
+     'global var_name'
+
+2. SYNTAX:
+   global var1, var2, var3
+   - Must appear inside the function suite BEFORE using or assigning to the variable.
+   - Multiple variables can be declared in a single line separated by commas.
+
+3. UNBOUNDLOCALERROR EXPLANATION (VERY COMMON CBSE BOARD EXAM TRAP):
+   Consider:
+     x = 10
+     def func():
+         print(x)
+         x = 20
+   - Why does print(x) crash with UnboundLocalError?
+   - Reason: Python analyzes functions at compile time. Because 'x = 20' assigns to x,
+     Python marks 'x' as LOCAL for the entire function.
+   - When 'print(x)' attempts to read local 'x' before it has been assigned, Python halts:
+     'UnboundLocalError: cannot access local variable 'x' where it is not associated with a value'.
+   - Fix: Add 'global x' at the top of func().
+===============================================================================

@@ -1,0 +1,36 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - MASTER REVISION BUNDLE
+MODULE 1: PYTHON CLASS XI CORE REVISION & OUTPUT TRACING
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+CONSOLIDATED CHEATSHEET FOR BOARD EXAMINATIONS:
+
+1. TOKENS & IDENTIFIERS:
+   - 35 Keywords. Only 'True', 'False', and 'None' start with uppercase letters.
+   - Identifiers: Cannot start with a digit; cannot use hyphens or spaces.
+
+2. VARIABLES & MEMORY:
+   - Variables are name bindings (references) to objects.
+   - l-value: assignable target on left of = (e.g. x, L[0]).
+   - r-value: evaluated expression on right of =.
+
+3. DATA TYPES HIERARCHY:
+   - Immutable: int, float, complex, bool, str, tuple, frozenset.
+   - Mutable: list, dict, set.
+   - Keys in dictionaries must be immutable and hashable.
+
+4. OPERATORS & PRECEDENCE:
+   - Exponentiation (**) has right-to-left associativity: 2 ** 3 ** 2 = 512.
+   - Floor division (//) rounds down towards negative infinity: -7 // 2 = -4.
+   - Short-circuit: 'and' halts on first False; 'or' halts on first True.
+
+5. SEQUENCES:
+   - Slicing: seq[start:stop:step] (stop is exclusive; step < 0 reverses).
+   - In-place list methods (sort, reverse, append, extend) return None!
+   - Tuples: singleton requires comma: (5,).
+   - Dictionaries: d.get(k, default) avoids KeyError.
+
+6. DRY-RUN TABLE STANDARD:
+   - Always trace iterations in a 4-column table: Step, Var State, Condition, Output.
+===============================================================================

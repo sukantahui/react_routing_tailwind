@@ -1,0 +1,34 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT III: SQL DDL & TABLE CONSTRAINTS
+TOPIC 11: DOWNLOADABLE DOCUMENTS: DDL QUICK REFERENCE & CHEAT CODES
+=====================================================
+DOWNLOADABLE CBSE CS CLASS 12 DDL CHEAT SHEET & QUICK REFERENCE
+==================================================================
+Topic 11: Downloadable Materials & Complete SQL DDL Syntax Reference
+
+1. DATABASE OPERATIONS:
+   CREATE DATABASE school_db;
+   SHOW DATABASES;
+   USE school_db;
+   DROP DATABASE school_db;
+
+2. TABLE CREATION TEMPLATE:
+   CREATE TABLE student (
+       roll_no INT PRIMARY KEY,
+       name VARCHAR(40) NOT NULL,
+       stream VARCHAR(20) DEFAULT 'Science',
+       fee DECIMAL(8, 2) CHECK (fee >= 0),
+       email VARCHAR(60) UNIQUE,
+       admission_date DATE
+   );
+
+3. ALTER TABLE COMMANDS:
+   ALTER TABLE student ADD phone VARCHAR(15);
+   ALTER TABLE student DROP COLUMN stream;
+   ALTER TABLE student MODIFY name VARCHAR(60);
+   ALTER TABLE student ADD PRIMARY KEY (roll_no);
+   ALTER TABLE student DROP PRIMARY KEY;
+
+4. TABLE CLEANUP COMMANDS:
+   TRUNCATE TABLE student;  -- Empties data, keeps schema
+   DROP TABLE student;      -- Deletes schema and data permanently

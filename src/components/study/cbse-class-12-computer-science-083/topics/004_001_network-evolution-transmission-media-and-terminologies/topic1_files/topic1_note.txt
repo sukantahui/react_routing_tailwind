@@ -1,0 +1,33 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: COMPUTER NETWORKS ARCHITECTURE & MEDIA
+TOPIC 1: DATA COMMUNICATION SYSTEM COMPONENTS
+
+1. WHAT IS DATA COMMUNICATION?
+- Data communication refers to the exchange of data between two or more devices via some transmission medium (such as a copper wire, fiber cable, or air).
+- It relies on physical hardware, transmission channels, and software rules.
+
+2. THE 5 ESSENTIAL COMPONENTS OF DATA COMMUNICATION:
+1. SENDER (Transmitter / Source):
+   - The device that generates and transmits the data message.
+   - Examples: PC, workstation, smartphone, security camera, web server.
+2. RECEIVER (Sink / Destination):
+   - The device that accepts and receives the transmitted data message.
+   - Examples: Network printer, user computer, television display, database server.
+3. MESSAGE (Data Payload):
+   - The actual information to be communicated.
+   - Can take the form of text, numbers, images, audio, video, or sensor packets.
+4. TRANSMISSION MEDIUM (Communication Channel):
+   - The physical communication path over which the message travels from sender to receiver.
+   - Guided (Wired): Twisted Pair Cable, Coaxial Cable, Fiber Optic Cable.
+   - Unguided (Wireless): Radio waves, Microwaves, Infrared, Satellite.
+5. PROTOCOL:
+   - A standardized set of rules and conventions that govern data communications.
+   - Without a protocol, two connected devices are like two people speaking different languages—signals flow, but no meaningful communication can occur!
+   - Examples: TCP/IP, HTTP, FTP, SMTP, DNS.
+
+3. CRITERIA FOR AN EFFECTIVE DATA COMMUNICATION SYSTEM:
+- Delivery: Must deliver data to the correct destination and only that destination.
+- Accuracy: Must deliver data without corruption or alteration (checked via parity/checksums).
+- Timeliness: Must deliver data in a timely manner without disruptive delay (crucial for real-time video/audio).
+- Jitter: Variation in the packet arrival time should be minimal.

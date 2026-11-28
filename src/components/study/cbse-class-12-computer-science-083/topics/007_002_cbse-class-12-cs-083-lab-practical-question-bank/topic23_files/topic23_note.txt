@@ -1,0 +1,36 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 23: PRACTICE YOUR SKILL HERE: INTERACTIVE PYTHON & SQL PRACTICAL SIMULATOR
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Interactive simulator featuring 25 practical programming challenges, output predictions, and viva voce practice questions to prepare students for the 30-mark lab test.
+
+2. KEY EXAMINATION POINTS:
+  (1) Complete code completion and debugging challenges for file handling and stacks.
+  (2) Write SQL statements for multi-criteria conditional queries.
+  (3) Test your understanding of connection commits and transaction rollbacks.
+  (4) Simulate examiner viva voce questioning with instant feedback.
+
+3. PRACTICAL CODE SNIPPET:
+# Practice Challenge: Complete the Stack Pop function
+def pop_element(stk):
+    # Complete the underflow check and return statement
+    if len(stk) == 0:
+        return "Underflow"
+    return stk.pop()
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 23 · CODER & ACCOTAX BARRACKPORE
+================================================================================

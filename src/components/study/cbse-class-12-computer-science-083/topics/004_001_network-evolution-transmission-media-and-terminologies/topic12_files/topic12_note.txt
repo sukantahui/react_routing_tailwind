@@ -1,0 +1,22 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: TOPIC 12 - DIAGNOSTIC MCQ ASSESSMENT & CASE-STUDY DRILL
+
+1. ASSESSMENT OBJECTIVES:
+   - Verify comprehensive mastery across all topics of Segment 4 Module 1:
+     * Evolution of networking milestones (ARPANET, NSFNET, Internet).
+     * Data communication components (Sender, Receiver, Medium, Message, Protocol).
+     * Bandwidth, transfer rate conversions (bytes to bits, transfer time calculations).
+     * Simplex, Half-Duplex, Full-Duplex transmission modes.
+     * Twisted Pair (UTP vs STP, Cat-5e/Cat-6, RJ-45, 100m segment limit).
+     * Coaxial Cable (4 layers, Baseband 50 Ohm vs Broadband 75 Ohm, BNC terminators).
+     * Optical Fiber (Core, Cladding, Buffer, Total Internal Reflection, SMF vs MMF, SC/ST/LC).
+     * Radio Waves (3 kHz - 1 GHz, omnidirectional, obstacle penetration, licensing).
+     * Microwaves (1 - 300 GHz, unidirectional, line of sight, 40-50 km repeater towers).
+     * Infrared (300 GHz - 400 THz, short range < 10m, wall blocked, high security).
+     * Satellite Communication (GEO at 35,786 km, Uplink != Downlink, Transponder, Latency, VSAT).
+     * Case Study Media Selection Rules (Distance, terrain, budget, EMI, and security criteria).
+
+2. PASSING CRITERIA:
+   - Target Score: 19 / 25 (76%+) for CBSE Board Examination Distinction standard.
+   - Review all question explanations and hints to reinforce tricky conceptual distinctions.

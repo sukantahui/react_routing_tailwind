@@ -1,0 +1,57 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 8: STANDARD BOARD PROBLEMS - WORDS, LINES, CHARACTERS, VOWELS
+======================================================================
+
+1. THE TOP 5 STANDARD CBSE BOARD PROBLEMS (SECTION C - 3 MARKS)
+
+   PROBLEM 1: COUNT OCCURRENCES OF A SPECIFIC WORD
+   def count_word(filename, target_word):
+       count = 0
+       with open(filename, 'r', encoding='utf-8') as f:
+           for word in f.read().split():
+               if word.lower() == target_word.lower():
+                   count += 1
+       return count
+
+   PROBLEM 2: DISPLAY LINES STARTING WITH 'A' OR 'M'
+   def display_lines(filename):
+       with open(filename, 'r', encoding='utf-8') as f:
+           for line in f:
+               if line and line[0].upper() in ['A', 'M']:
+                   print(line.strip())
+
+   PROBLEM 3: COUNT VOWELS AND CONSONANTS
+   def count_vowels_consonants(filename):
+       vowels, consonants = 0, 0
+       with open(filename, 'r', encoding='utf-8') as f:
+           for ch in f.read():
+               if ch.isalpha():
+                   if ch.lower() in 'aeiou':
+                       vowels += 1
+                   else:
+                       consonants += 1
+       return vowels, consonants
+
+   PROBLEM 4: CHARACTER STATISTICS (UPPER, LOWER, DIGIT, SPECIAL)
+   def char_stats(filename):
+       u, l, d, s = 0, 0, 0, 0
+       with open(filename, 'r', encoding='utf-8') as f:
+           for ch in f.read():
+               if ch.isupper(): u += 1
+               elif ch.islower(): l += 1
+               elif ch.isdigit(): d += 1
+               elif not ch.isspace(): s += 1
+       return u, l, d, s
+
+   PROBLEM 5: DISPLAY WORDS WITH LENGTH LESS THAN 4
+   def display_short_words(filename):
+       with open(filename, 'r', encoding='utf-8') as f:
+           for w in f.read().split():
+               if len(w) < 4:
+                   print(w)
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

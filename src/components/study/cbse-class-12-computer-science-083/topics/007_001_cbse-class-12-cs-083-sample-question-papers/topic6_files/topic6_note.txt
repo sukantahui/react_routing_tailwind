@@ -1,0 +1,40 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: EXAMINATION MASTERY (FULL BOARD PATTERN)
+TOPIC 6: KENDRIYA VIDYALAYA SANGATHAN (KVS) PRE-BOARD MODEL PAPER (SOLVED)
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Exhaustive model solutions for the Kendriya Vidyalaya Sangathan (KVS) national pre-board examination paper, a direct bellwether for CBSE board trends.
+
+2. KEY EXAMINATION POINTS:
+  (1) Heavy emphasis on textbook NCERT questions and official CBSE sample paper patterns.
+  (2) Stack implementation using list of lists with student roll numbers and marks.
+  (3) Campus network layout questions using 80-20 rule and repeaters at > 70m.
+  (4) Python-MySQL parameterized search script with formatted output presentation.
+
+3. CODE & STRATEGY SNIPPET:
+# KVS Pre-Board - Stack with List of Lists (3 Marks)
+def Push_Student(stk, student):
+    if student[2] >= 75:  # Push only students scoring >= 75
+        stk.append(student)
+
+def Pop_Student(stk):
+    if not stk:
+        print("Stack is Empty")
+    else:
+        print("Popped:", stk.pop())
+
+4. CBSE COMMON PITFALLS:
+Adhere strictly to step-marking rubrics and never leave questions unattempted.
+
+5. REVISION CHECKLIST:
+  [ ] Understand 70-mark theory distribution across Sections A to E.
+  [ ] Practice dry-run trace tables for Section B output questions.
+  [ ] Memorize standard templates for Stack and Text file questions.
+  [ ] Know the 80-20 rule and repeater/switch criteria for Section E.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 6 · CODER & ACCOTAX BARRACKPORE
+================================================================================

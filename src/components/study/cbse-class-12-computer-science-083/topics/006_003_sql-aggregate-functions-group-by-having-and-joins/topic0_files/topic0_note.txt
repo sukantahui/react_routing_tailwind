@@ -1,0 +1,39 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 0: INTRODUCTION TO AGGREGATE / GROUP FUNCTIONS: WORKING ON MULTI-ROW SETS
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Aggregate functions (also called group functions) operate on collections of values across multiple rows and return a single summary value per group.
+
+2. KEY EXAMINATION POINTS:
+  (1) Aggregate functions compute a single summary result from multiple input row values.
+  (2) The five core SQL aggregate functions in CBSE syllabus: COUNT(), SUM(), AVG(), MIN(), MAX().
+  (3) All aggregate functions except COUNT(*) automatically ignore NULL values during calculation.
+  (4) Aggregate functions cannot be placed directly inside the WHERE clause; they belong in SELECT or HAVING.
+
+3. SYNTAX & CODE SNIPPET:
+-- Core Aggregate Functions in Action
+SELECT 
+  COUNT(*) AS TotalEmployees,
+  SUM(Salary) AS TotalPayroll,
+  AVG(Salary) AS AverageSalary,
+  MIN(Salary) AS LowestSalary,
+  MAX(Salary) AS HighestSalary
+FROM Employee;
+
+4. CBSE COMMON PITFALLS:
+Writing aggregate functions in the WHERE clause (e.g. 'WHERE Salary > AVG(Salary)') causes a SQL syntax error: Invalid use of group function. Use a subquery or HAVING instead.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between COUNT(*) and COUNT(col).
+  [ ] Master GROUP BY rules regarding non-aggregated columns.
+  [ ] Remember WHERE cannot contain aggregate functions; use HAVING.
+  [ ] Know Cartesian Product formulas: Cardinality = R1 * R2, Degree = C1 + C2.
+  [ ] Always include (N - 1) join conditions when joining N tables.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 0 · CODER & ACCOTAX BARRACKPORE
+================================================================================

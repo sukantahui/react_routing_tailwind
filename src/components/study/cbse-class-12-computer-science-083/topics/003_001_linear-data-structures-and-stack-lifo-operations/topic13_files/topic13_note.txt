@@ -1,0 +1,19 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: DATA STRUCTURES - STACKS (SAMPLE QUESTION PAPERS)
+=========================================================
+10 Mock Test Papers · 20 Marks Each · Duration: 45 Minutes
+
+KEY CONCEPTS:
+1. Principle: LIFO (Last In First Out).
+2. Push: stack.append(item) -> O(1)
+3. Pop:
+   if not stack:
+       print('Stack Underflow!')
+       return None
+   return stack.pop()
+4. Peek: stack[-1] (reads top element without removing)
+5. Underflow: Trying to pop from an empty stack (len(stk) == 0).
+6. Traversal / Display: From top to bottom (range(len(stk)-1, -1, -1)).
+7. CBSE Standard Questions:
+   - Filter items from list/tuple/dict and push onto stack based on condition.
+   - Pop and display elements until empty.

@@ -1,0 +1,25 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: PERSISTENT DATA STORAGE - CSV FILE HANDLING
+TOPIC 4: CUSTOM DELIMITERS (delimiter PARAMETER)
+
+1. WHAT IS A DELIMITER?
+- A delimiter is one or more characters used to specify the boundary between separate, independent regions in plain text or other data streams.
+- Default delimiter in CSV is a comma (',').
+- Other common delimiters:
+  * Tab ('\t') -> TSV (Tab Separated Values)
+  * Pipe ('|') -> PSV (Pipe Separated Values)
+  * Semicolon (';') -> Standard in European countries where comma is the decimal mark.
+  * Colon (':') -> Commonly used in Unix configuration files like /etc/passwd.
+
+2. SPECIFYING DELIMITER IN PYTHON:
+- In csv.writer():
+  writer = csv.writer(file_handle, delimiter='|')
+  writer = csv.writer(file_handle, delimiter='\t')
+- In csv.reader():
+  reader = csv.reader(file_handle, delimiter='|')
+  reader = csv.reader(file_handle, delimiter='\t')
+
+3. IMPORTANT RULES:
+- The delimiter must be a 1-character string in Python standard csv module (multi-character delimiters are not allowed).
+- The reader must use the EXACT same delimiter that was used to write the file, otherwise the entire row will be treated as a single long string!
+- skipinitialspace=True: When True, whitespace immediately following the delimiter is ignored.

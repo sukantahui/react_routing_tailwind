@@ -1,0 +1,35 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 1: THE COUNT() FUNCTION: DIFFERENCE BETWEEN COUNT(*), COUNT(COL), AND COUNT(DISTINCT COL)
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+COUNT() returns the number of rows or values matching a criterion. Understanding how NULL values interact with COUNT is a favorite CBSE exam topic.
+
+2. KEY EXAMINATION POINTS:
+  (1) COUNT(*): Returns the total number of rows in the table/result set, INCLUDING rows with NULL values.
+  (2) COUNT(column_name): Returns the number of non-NULL values present in that specific column.
+  (3) COUNT(DISTINCT column_name): Returns the number of unique, non-duplicate, non-NULL values in the column.
+  (4) Classic Board Traps: If a column has values [100, 200, 200, NULL], COUNT(*) = 4, COUNT(col) = 3, COUNT(DISTINCT col) = 2.
+
+3. SYNTAX & CODE SNIPPET:
+-- Assuming table Student with 5 rows and Stream: ('Sci', 'Com', 'Sci', NULL, 'Com')
+SELECT COUNT(*) FROM Student;           -- Output: 5 (all rows counted)
+SELECT COUNT(Stream) FROM Student;       -- Output: 4 (NULL is ignored)
+SELECT COUNT(DISTINCT Stream) FROM Student; -- Output: 2 ('Sci' and 'Com')
+
+4. CBSE COMMON PITFALLS:
+Ensure correct placement of WHERE before GROUP BY and HAVING after GROUP BY.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between COUNT(*) and COUNT(col).
+  [ ] Master GROUP BY rules regarding non-aggregated columns.
+  [ ] Remember WHERE cannot contain aggregate functions; use HAVING.
+  [ ] Know Cartesian Product formulas: Cardinality = R1 * R2, Degree = C1 + C2.
+  [ ] Always include (N - 1) join conditions when joining N tables.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 1 · CODER & ACCOTAX BARRACKPORE
+================================================================================

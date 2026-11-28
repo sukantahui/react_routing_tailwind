@@ -1,0 +1,43 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 2: OPENING AND CLOSING FILES - open(), FILE HANDLES, AND close()
+======================================================================
+
+1. THE open() FUNCTION SYNTAX
+   - Syntax:
+     file_object = open(file_name, access_mode='r', buffering=-1, encoding=None)
+   - Parameters:
+     * file_name: String representing absolute or relative disk path.
+     * access_mode: Operation mode ('r', 'w', 'a', etc.). Default is 'r'.
+     * encoding: Text character encoding (e.g. 'utf-8').
+
+2. THE FILE OBJECT (HANDLE)
+   - When open() succeeds, it returns a file object representing the active stream.
+   - Core File Attributes:
+     * f.name    : String returning the name of the file.
+     * f.mode    : String returning the access mode mode.
+     * f.closed  : Boolean (True if closed, False if open).
+     * f.readable(): Returns True if stream can be read.
+     * f.writable(): Returns True if stream can be written.
+
+3. THE close() METHOD
+   - Syntax: f.close()
+   - Why closing is mandatory:
+     * Flushes internal memory buffers to physical disk.
+     * Releases OS file descriptor table entries.
+     * Unlocks file locks so other processes can access the file.
+   - Calling f.close() multiple times is safe (idempotent, no error).
+   - Calling read/write on a closed file raises:
+     ValueError: I/O operation on closed file.
+
+4. SAFE RESOURCE MANAGEMENT PATTERN
+   f = open("scores.txt", "w")
+   try:
+       f.write("Score: 99\n")
+   finally:
+       f.close()
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

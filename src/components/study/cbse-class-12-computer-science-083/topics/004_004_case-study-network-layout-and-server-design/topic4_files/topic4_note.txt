@@ -1,0 +1,44 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 4: 4-MARK NETWORK CASE STUDY & INFRASTRUCTURE DESIGN
+TOPIC 4: REPEATER PLACEMENT RULES (>70-100 METERS THRESHOLD)
+
+================================================================================
+1. THE 100-METER REPEATER RULE
+================================================================================
+Standard Rule:
+Under the international TIA/EIA-568 standard, the maximum certified cable length
+for Category 5e / 6 Unshielded Twisted Pair (UTP) is 100 METERS.
+
+Why Signals Attenuate:
+- As digital electrical square pulses travel through copper wires, electrical
+  resistance and capacitance cause ATTENUATION (loss of signal amplitude) and
+  dispersion.
+- Past 100 meters, pulses degrade below the threshold voltage required by NICs,
+  resulting in packet corruption, CRC failures, and connection drops.
+
+Function of a Repeater:
+- A Repeater operates at the PHYSICAL LAYER (Layer 1).
+- It receives weak, attenuated digital signals, cleans out background noise,
+  reshapes the pulses into sharp square waves, and retransmits fresh bits.
+
+================================================================================
+2. CBSE BOARD MARKING SCHEME DECISION MATRIX
+================================================================================
+Distance on Link           Repeater Recommendation
+--------------------------------------------------------------------------------
+Distance <= 70 meters      NO Repeater needed (Signals travel reliably).
+Distance 70 - 100 meters   Borderline (Usually NO repeater needed, but accepted if reasoned).
+Distance > 100 meters      MANDATORY REPEATER REQUIRED (Marks awarded for naming link).
+
+EXCEPTIONS TO NOTE IN EXAMS:
+- Fiber Optic Cable: If the school chooses Fiber Optic, NO repeater is needed
+  even for distances of 500m - 2km, because fiber has virtually zero attenuation.
+
+================================================================================
+3. GOLDEN ANSWER TEMPLATE FOR CBSE EXAM
+================================================================================
+"A Repeater should be placed along the link between Block [A] and Block [B] because
+the distance between them is [N] meters, which exceeds the standard 100-meter
+transmission limit for UTP cabling. The repeater will regenerate attenuated
+signals and prevent packet loss across the link."

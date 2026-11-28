@@ -1,0 +1,33 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT III: SQL DDL & TABLE CONSTRAINTS
+TOPIC 6: PRIMARY KEY AND FOREIGN KEY (REFERENCES PARENT_TABLE(KEY))
+=====================================================
+1. PRIMARY KEY Constraint:
+   - Enforces Entity Integrity: every tuple must be uniquely identifiable.
+   - Automatically implies UNIQUE and NOT NULL.
+   - A table can have at most ONE primary key (which can be composite).
+   Syntax:
+   PRIMARY KEY (col1, col2)
+
+2. FOREIGN KEY Constraint:
+   - Enforces Referential Integrity between parent and child tables.
+   - The foreign key in the child table references the Primary Key (or Unique key) of the parent table.
+   - Values in the foreign key column must either match an existing parent primary key value or be NULL.
+   Syntax:
+   FOREIGN KEY (child_col) REFERENCES parent_table(parent_col)
+       [ON DELETE CASCADE | ON DELETE RESTRICT | ON DELETE SET NULL]
+       [ON UPDATE CASCADE | ON UPDATE RESTRICT]
+
+COMPLETE EXAMPLE:
+CREATE TABLE department (
+    dept_id INT PRIMARY KEY,
+    dept_name VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE employee (
+    emp_id INT PRIMARY KEY,
+    name VARCHAR(40) NOT NULL,
+    salary DECIMAL(10, 2),
+    dept_id INT,
+    FOREIGN KEY (dept_id) REFERENCES department(dept_id)
+);

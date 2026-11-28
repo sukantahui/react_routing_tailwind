@@ -1,0 +1,28 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - MASTER SAMPLE QUESTION PAPERS
+MODULE 1: PYTHON CLASS 11 CURRICULUM REVISION & TRACING (10 SETS · 20 MARKS EACH)
+
+=============================================================================
+EXAMINATION BLUEPRINT (20 MARKS PER SET · 45 MINUTES):
+=============================================================================
+* Section A: 4 Objective / Conceptual Questions (1 Mark each = 4 Marks)
+* Section B: 2 Short Answer / Code Debugging Questions (2 Marks each = 4 Marks)
+* Section C: 2 Tracing & Analytical Questions (3 Marks each = 6 Marks)
+* Section D: 1 Comprehensive Programming Problem (6 Marks = 6 Marks)
+* TOTAL: 20 MARKS
+
+=============================================================================
+COVERED TOPICS (Strictly based on Module 1 previous topics):
+=============================================================================
+1. Python Tokens: Keywords, Identifiers, Literals, Operators, Delimiters.
+2. Data Types: Numbers, Strings, Lists, Tuples, Dictionaries (Mutable vs Immutable).
+3. Expressions: Arithmetic, Relational, Logical, Membership ('in'), Identity ('is').
+4. Conditionals: if-elif-else, nested decisions, chained comparisons.
+5. Loops: while and for loops, range() syntax, break and continue, nested iterations.
+6. Strings: Slicing [start:stop:step], built-in methods (split, join, find, isdigit).
+7. Lists & Tuples: In-place mutations, packing/unpacking, aliasing vs copying.
+8. Dictionaries: Key-value operations, get(), pop(), items(), frequency maps.
+9. Error Debugging: Syntax, Logical, and Runtime errors, try-except-finally blocks.
+
+TEACHER'S ADVICE (Sukanta Hui):
+Take each set with a strict 45-minute timer. Write all code snippets on paper first
+before checking the model answer. Underline syntax corrections in debugging questions!

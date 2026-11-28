@@ -1,0 +1,47 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 12: PRACTICAL 12: PYTHON-MYSQL DATABASE AND TABLE INITIALIZATION SCRIPT
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Python script connecting to MySQL Server, creating a new database 'SchoolDB', and creating table 'Student' with PRIMARY KEY and column integrity constraints.
+
+2. KEY EXAMINATION POINTS:
+  (1) Connects to MySQL server without database argument first to create database.
+  (2) Executes 'CREATE DATABASE IF NOT EXISTS SchoolDB;'.
+  (3) Switches to SchoolDB or connects with database='SchoolDB'.
+  (4) Executes CREATE TABLE with RollNo INT PRIMARY KEY, SName VARCHAR(30), Marks DECIMAL(5,2).
+
+3. PRACTICAL CODE SNIPPET:
+import mysql.connector
+
+def setup_database():
+    con = mysql.connector.connect(host='localhost', user='root', password='password')
+    cur = con.cursor()
+    cur.execute("CREATE DATABASE IF NOT EXISTS SchoolDB;")
+    cur.execute("USE SchoolDB;")
+    cur.execute("""
+        CREATE TABLE IF NOT EXISTS Student (
+            RollNo INT PRIMARY KEY,
+            SName VARCHAR(30) NOT NULL,
+            Stream VARCHAR(15),
+            Marks DECIMAL(5,2)
+        );
+    """)
+    print("Database & Student table initialized successfully!")
+    cur.close(); con.close()
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 12 · CODER & ACCOTAX BARRACKPORE
+================================================================================

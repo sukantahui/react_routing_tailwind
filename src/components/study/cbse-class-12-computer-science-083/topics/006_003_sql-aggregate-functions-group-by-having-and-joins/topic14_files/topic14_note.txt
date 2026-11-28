@@ -1,0 +1,33 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 14: SAMPLE QUESTION PAPER (10 SETS · 20 MARKS EACH)
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+EXAMINATION BLUEPRINT & STRUCTURE (45 MINUTES PER SET · 20 MARKS TOTAL):
+- Section A: 4 Questions × 1 Mark = 4 Marks (Short answer / MCQs / 1-line syntax)
+- Section B: 2 Questions × 2 Marks = 4 Marks (Differentiate / Tracing / Error detection)
+- Section C: 2 Questions × 3 Marks = 6 Marks (SQL query writing from given tables)
+- Section D: 1 Question × 6 Marks = 6 Marks (Comprehensive Multi-Table Case Study, 6 sub-parts)
+
+SCOPE OF SYLLABUS FOR THIS MODULE (TOPICS 0 TO 13 ONLY):
+- Aggregate Functions: COUNT(*), COUNT(col), COUNT(DISTINCT col), SUM, AVG, MIN, MAX
+- NULL Handling in Aggregates: All functions except COUNT(*) ignore NULLs
+- Grouping Data: GROUP BY single & multiple columns, rules for non-aggregated columns
+- Filtering Groups: The HAVING Clause vs The WHERE Clause
+- Logical Query Processing: FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY
+- Multi-Table Querying: Cartesian Product (Cross Join), Cardinality (R1*R2) and Degree (C1+C2)
+- Equi-Joins & Table Aliases: Linking tables on common attributes (WHERE T1.id = T2.id)
+- Multi-Table Queries: Combining joins with WHERE, GROUP BY, HAVING, and ORDER BY
+
+MASTER TEACHER SUKANTA HUI'S GOLDEN RULES FOR 100% MARKS IN AGGREGATES & JOINS:
+1. Never put aggregate functions (SUM, AVG, MIN, MAX, COUNT) in the WHERE clause; always use HAVING.
+2. In queries with GROUP BY, ensure every non-aggregated column in the SELECT list appears in GROUP BY.
+3. To join N tables, you MUST include at least (N - 1) join conditions in the WHERE clause.
+4. When qualifying columns in multi-table queries, use concise table aliases (e.g. E.DeptId = D.DeptId).
+5. In Cartesian Products: Degree adds (Columns), Cardinality multiplies (Rows).
+
+================================================================================
+END OF REVISION SHEET · 10 SAMPLE SETS · CODER & ACCOTAX BARRACKPORE
+================================================================================

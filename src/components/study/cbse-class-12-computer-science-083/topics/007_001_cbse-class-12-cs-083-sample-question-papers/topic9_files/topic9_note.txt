@@ -1,0 +1,39 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: EXAMINATION MASTERY (FULL BOARD PATTERN)
+TOPIC 9: SECTION C MASTERY: 5 SHORT ANSWER (3 MARKS) TEXT FILE & STACK PROGRAMMING DRILL
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Rigorous step-by-step programming patterns for Text File handling functions and Linear Stack Push/Pop implementations.
+
+2. KEY EXAMINATION POINTS:
+  (1) Text File Questions: Always use 'with open(filename, mode) as f:' for automatic resource closing.
+  (2) Line processing (f.readlines()) vs Word processing (f.read().split()) vs Character processing (f.read()).
+  (3) Stack Questions: Define Stack as a Python list; Push uses .append(); Pop checks for underflow (len == 0) and uses .pop().
+  (4) CBSE Marking Scheme: 1 mark for function header & opening file, 1 mark for loop/logic, 1 mark for output/close.
+
+3. CODE & STRATEGY SNIPPET:
+# Section C Standard Stack Template (3 Marks)
+def Push_Book(Stk, Book):
+    Stk.append(Book)
+
+def Pop_Book(Stk):
+    if len(Stk) == 0:
+        print("Underflow")
+    else:
+        return Stk.pop()
+
+4. CBSE COMMON PITFALLS:
+Adhere strictly to step-marking rubrics and never leave questions unattempted.
+
+5. REVISION CHECKLIST:
+  [ ] Understand 70-mark theory distribution across Sections A to E.
+  [ ] Practice dry-run trace tables for Section B output questions.
+  [ ] Memorize standard templates for Stack and Text file questions.
+  [ ] Know the 80-20 rule and repeater/switch criteria for Section E.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 9 · CODER & ACCOTAX BARRACKPORE
+================================================================================

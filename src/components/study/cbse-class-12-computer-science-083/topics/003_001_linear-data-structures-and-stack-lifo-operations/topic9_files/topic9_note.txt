@@ -1,0 +1,44 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+SEGMENT 3: DATA STRUCTURES (LINEAR LISTS & STACKS)
+TOPIC 9: RECORD-BASED STACK IMPLEMENTATION
+
+1. WHAT IS A RECORD-BASED STACK?
+- In real-world applications and CBSE board exams, a stack rarely stores single scalar integers.
+- Instead, each element in the stack is a composite record (e.g., a sub-list or tuple):
+  * Student record: [RollNo, Name, Marks]
+  * Book record: [BookNo, Title, Price]
+  * Employee record: [EmpID, EmpName, Salary]
+
+2. PUSHING COMPOSITE RECORDS:
+  def Push(stk):
+      rno = int(input("Enter Roll No: "))
+      name = input("Enter Name: ")
+      marks = float(input("Enter Marks: "))
+      record = [rno, name, marks]
+      stk.append(record)
+
+3. POPPING COMPOSITE RECORDS:
+  def Pop(stk):
+      if len(stk) == 0:
+          print("Underflow: Stack is empty")
+          return None
+      record = stk.pop()
+      print(f"Popped Record -> Roll: {record[0]}, Name: {record[1]}, Marks: {record[2]}")
+      return record
+
+4. DISPLAYING COMPOSITE RECORDS:
+  def Display(stk):
+      if len(stk) == 0:
+          print("Stack Empty")
+          return
+      top = len(stk) - 1
+      print(f"{'Roll':<8} {'Name':<20} {'Marks':<8}")
+      print("-" * 40)
+      for i in range(top, -1, -1):
+          rec = stk[i]
+          marker = "<-- TOP" if i == top else ""
+          print(f"{rec[0]:<8} {rec[1]:<20} {rec[2]:<8} {marker}")
+
+5. TIME COMPLEXITY:
+- Appending and popping composite lists runs in O(1) constant time, as only object references are manipulated.

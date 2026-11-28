@@ -1,0 +1,35 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: MODULE 2 - TOPIC 3: NETWORK HUB (ACTIVE VS PASSIVE, COLLISION DOMAIN)
+
+1. FUNDAMENTAL DEFINITION OF A NETWORK HUB:
+   - A multi-port hardware device used to connect multiple computers together to form a local area network in a physical star topology.
+   - Operating OSI Layer: Physical Layer (Layer 1).
+   - "Dumb" Device Characteristic:
+     * A hub has NO intelligence, NO memory, and NO routing capability.
+     * It does NOT inspect, read, or understand MAC addresses or IP addresses.
+     * When a data frame arrives on one port, the hub blindly broadcasts (repeats) the exact electrical signal out to ALL other connected ports.
+
+2. ACTIVE HUB VS PASSIVE HUB (HIGH-FREQUENCY CBSE 2-MARK QUESTION):
+   +------------------------+------------------------------------+------------------------------------+
+   | Feature                | Active Hub                         | Passive Hub                        |
+   +------------------------+------------------------------------+------------------------------------+
+   | Signal Regeneration    | Regenerates, cleans & amplifies sig| Simply splits signals physically   |
+   | External Power Needed  | Requires external electrical power | Operates without external power    |
+   | Cable Length Extension | Acts as a multiport repeater       | Reduces maximum allowable distance |
+   | Internal Electronics   | Contains active logic circuits     | Purely passive physical wiring     |
+   | Cost                   | More expensive                     | Extremely cheap                    |
+   +------------------------+------------------------------------+------------------------------------+
+
+3. COLLISION DOMAIN LIMITATIONS:
+   - What is a Collision? In Ethernet, when two workstations transmit frames simultaneously on a shared medium, their electrical signals collide and corrupt the data.
+   - Single Collision Domain: All ports on a hub belong to ONE single, shared collision domain.
+     * If Port 1 and Port 4 transmit at the exact same moment, a collision occurs across the ENTIRE network.
+     * Total network bandwidth is divided (shared) among all connected devices.
+     * Example: On a 10 Mbps hub with 10 computers, if all transmit, each gets an average of only ~1 Mbps!
+
+4. SECURITY VULNERABILITY (EAVESDROPPING):
+   - Because a hub broadcasts every single packet to every connected computer, any workstation running packet sniffer software (e.g. Wireshark) in promiscuous mode can capture confidential traffic intended for other computers.
+
+5. OBSOLESCENCE:
+   - Hubs are obsolete in modern networking and have been completely replaced by intelligent Layer-2 Switches.

@@ -1,0 +1,29 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 7: THE LEGB RULE (NAMESPACE RESOLUTION ORDER)
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. WHAT IS THE LEGB RULE?
+   When an identifier is referenced inside a function, Python searches through
+   four concentric namespace scopes in strict sequential order:
+   L -> E -> G -> B
+
+2. THE FOUR CONCENTRIC SCOPES:
+   - L (Local): Defined inside the current executing function or lambda.
+   - E (Enclosing): Defined in the local namespace of any enclosing (outer) functions,
+     from inner to outer (relevant in nested functions / closures).
+   - G (Global): Defined at the top-level of the current module file.
+   - B (Built-in): Built-in module pre-loaded by Python (e.g. range, len, int, print, NameError).
+
+3. RESOLUTION MECHANICS:
+   - Python checks L first. If found, search stops.
+   - If not in L, checks E.
+   - If not in E, checks G.
+   - If not in G, checks B.
+   - If not found in B, Python raises: 'NameError: name '...' is not defined'.
+
+4. SHADOWING BUILT-IN IDENTIFIERS:
+   - Because G is checked before B, defining a global variable named 'max = 100' or 'sum = 0'
+     shadows the built-in function max() or sum() in that module!
+===============================================================================

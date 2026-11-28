@@ -1,0 +1,40 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 15: PRACTICE YOUR SKILL HERE: SQL DML TRACING, QUERY WRITING & OUTPUT PREDICTION
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Solve 20 authentic CBSE Class 12 Computer Science board examination problems including write-query and predict-output formats.
+
+2. KEY EXAMINATION POINTS:
+  (1) Predict output for tables with NULL values and pattern matching queries.
+  (2) Write SQL statements for multi-criteria conditional queries.
+  (3) Analyze updates with arithmetic expressions and bulk modifications.
+  (4) Test boundary conditions in BETWEEN ... AND and LIKE patterns.
+
+3. SYNTAX & CODE SNIPPET:
+-- Practice Challenge Schema
+CREATE TABLE Hospital (
+  PId INT PRIMARY KEY,
+  PName VARCHAR(30) NOT NULL,
+  Age INT,
+  Department VARCHAR(20),
+  DateOfAdm DATE,
+  Charges DECIMAL(8,2),
+  Sex CHAR(1)
+);
+
+4. CBSE COMMON PITFALLS:
+Remember to test conditions carefully and use parentheses to disambiguate AND/OR connectives.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between DML and DDL commands.
+  [ ] Master WHERE condition construction using relational and logical operators.
+  [ ] Be confident in NULL handling using IS NULL and IS NOT NULL.
+  [ ] Remember default ordering for ORDER BY is ASC.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 15 · CODER & ACCOTAX BARRACKPORE
+================================================================================

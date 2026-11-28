@@ -1,0 +1,31 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: PERSISTENT DATA STORAGE - CSV FILE HANDLING
+TOPIC 5: READING CSV FILES (csv.reader, ITERABLE TRAVERSAL)
+
+1. THE csv.reader() FUNCTION:
+- Syntax: reader_obj = csv.reader(file_handle, delimiter=',', ...)
+- The file_handle should be opened in read mode ('r') with newline=''.
+- Returns an iterable reader object.
+
+2. TRAVERSING RECORDS:
+- Using a for loop:
+  with open('students.csv', 'r', newline='') as f:
+      reader = csv.reader(f)
+      for row in reader:
+          print(row)
+- Each 'row' is returned as a Python list of strings:
+  e.g., ['101', 'Aarav Sharma', 'Science', '95.5']
+
+3. SKIPPING THE HEADER ROW:
+- If the first line contains column names, use the built-in next() function:
+  header = next(reader)  # Reads and discards or stores header
+  for row in reader:     # Iterates through data rows only
+      ...
+
+4. HANDLING BLANK LINES:
+- If a CSV contains stray blank lines, reader returns an empty list [].
+- Guard with: if not row: continue (prevents IndexError on row[0]).
+
+5. KEY POINTS FOR CBSE:
+- All values in 'row' are strings (type str).
+- Number of items in 'row' is given by len(row).

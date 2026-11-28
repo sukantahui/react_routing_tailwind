@@ -1,0 +1,20 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - QUICK REVISION NOTE
+TOPIC 11: DIAGNOSTIC EXAMINATION ON CASE STUDY NETWORK LAYOUT & SERVER DESIGN
+
+SUMMARY OF MASTER CONCEPTS TESTED:
+1. Server Placement:
+   - 80-20 rule dictates placing server in the block with MAXIMUM computers.
+2. Cable Layout:
+   - Star Topology: Central server block connected to every other block.
+   - Bus Topology: Minimum Spanning Tree connecting all blocks with shortest path.
+3. Network Devices:
+   - Repeater: Placed on links > 100 meters to amplify attenuated signals.
+   - Switch: Placed in EVERY block having multiple computers to create local LAN.
+4. Media Selection:
+   - Inter-block campus backbone: Optical Fiber (High speed, zero EMI).
+   - Intra-block local LAN: Cat6 UTP twisted pair (cost-effective).
+   - Long-distance hilly remote branch (>15 km): Radio Waves, Microwave, or Satellite.
+   - Global / Overseas branch: Satellite or Transoceanic Fiber VPN.
+5. Real-time Applications:
+   - Video Conferencing: VoIP protocol, Webcams, Microphones, Display screen.
+   - Perimeter Security: Firewall at network gateway.

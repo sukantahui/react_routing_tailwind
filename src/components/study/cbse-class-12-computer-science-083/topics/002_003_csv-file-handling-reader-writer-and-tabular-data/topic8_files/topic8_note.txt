@@ -1,0 +1,34 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: PERSISTENT DATA STORAGE - CSV FILE HANDLING
+TOPIC 8: MENU-DRIVEN CSV MANAGEMENT SYSTEM (CRUD OPERATIONS)
+
+1. CRUD ARCHITECTURE IN CSV FILES:
+- CREATE (Append Record):
+  * Open file in 'a' mode with newline=''.
+  * Take user input for fields.
+  * Use csv.writer(f).writerow([id, name, score]).
+- READ (Display Records):
+  * Open in 'r' mode with newline=''.
+  * Skip header using next(reader).
+  * Loop through rows, guard empty lines (if not row: continue).
+- SEARCH (Find Record):
+  * Input search key (e.g. Roll No).
+  * Loop through rows, match row[0] == search_key.
+  * Use found = False flag; break on unique match.
+- UPDATE / MODIFY (Edit Record):
+  * CSV files cannot be modified in-place at arbitrary byte positions.
+  * Strategy A: Load all rows into memory list, modify matching row, overwrite file with 'w' mode and writerows().
+  * Strategy B (Large files): Read from original file, write unmodified/updated rows to 'temp.csv', remove original with os.remove(), rename temp with os.rename().
+- DELETE (Remove Record):
+  * Load all rows, filter out target record, rewrite file; or use temp file strategy omitting target row.
+
+2. MENU LOOP PATTERN:
+  while True:
+      print("1. Add Record\n2. Display All\n3. Search\n4. Update\n5. Delete\n6. Exit")
+      ch = int(input("Enter choice: "))
+      if ch == 1: Add()
+      elif ch == 2: Display()
+      elif ch == 3: Search()
+      elif ch == 4: Update()
+      elif ch == 5: Delete()
+      elif ch == 6: break

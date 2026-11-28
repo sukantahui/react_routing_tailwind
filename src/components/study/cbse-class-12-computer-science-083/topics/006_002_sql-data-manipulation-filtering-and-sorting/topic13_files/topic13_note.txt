@@ -1,0 +1,44 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 13: SORTING QUERY RESULTS: ORDER BY COLUMN [ASC | DESC] AND MULTI-COLUMN SORTING
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+The ORDER BY clause sorts query result sets in ascending or descending order based on one or more columns.
+
+2. KEY EXAMINATION POINTS:
+  (1) Syntax: 'SELECT ... FROM table WHERE condition ORDER BY col1 [ASC | DESC], col2 [ASC | DESC];'
+  (2) Default Sorting: If neither ASC nor DESC is specified, SQL sorts in ASCENDING (ASC) order by default.
+  (3) Multi-Column Sorting: Rows are sorted primarily by col1; if duplicate values exist for col1, they are broken by col2.
+  (4) Placement in SQL query: ORDER BY is ALWAYS the final clause in a SELECT query.
+
+3. SYNTAX & CODE SNIPPET:
+-- Basic ascending sort by name (default ASC)
+SELECT RollNo, SName, Marks 
+FROM Student 
+ORDER BY SName;
+
+-- Descending sort by Marks (Toppers first)
+SELECT RollNo, SName, Marks 
+FROM Student 
+ORDER BY Marks DESC;
+
+-- Multi-column sort: Group by Department ASC, and within Department by Salary DESC
+SELECT EName, Dept, Salary 
+FROM Employee 
+ORDER BY Dept ASC, Salary DESC;
+
+4. CBSE COMMON PITFALLS:
+Remember to test conditions carefully and use parentheses to disambiguate AND/OR connectives.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between DML and DDL commands.
+  [ ] Master WHERE condition construction using relational and logical operators.
+  [ ] Be confident in NULL handling using IS NULL and IS NOT NULL.
+  [ ] Remember default ordering for ORDER BY is ASC.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 13 · CODER & ACCOTAX BARRACKPORE
+================================================================================

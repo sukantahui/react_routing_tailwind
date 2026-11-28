@@ -1,0 +1,50 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 6: PRACTICAL 6: BINARY FILE RECORD MODIFIER UPDATING MARKS IN STUDENT.DAT
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Python practical program to locate a student by Roll Number in 'student.dat' and update their marks in-place using f.tell() and f.seek(pos).
+
+2. KEY EXAMINATION POINTS:
+  (1) Opens file in read-write binary mode: open('student.dat', 'rb+').
+  (2) Records starting byte position using pos = f.tell() BEFORE calling pickle.load().
+  (3) Upon finding target roll, modifies marks, rewinds pointer via f.seek(pos), and calls pickle.dump().
+  (4) Examiner-favorite question testing deep understanding of file pointers.
+
+3. PRACTICAL CODE SNIPPET:
+import pickle
+
+def update_marks(roll, new_marks):
+    found = False
+    with open('student.dat', 'rb+') as f:
+        try:
+            while True:
+                pos = f.tell()
+                rec = pickle.load(f)
+                if rec[0] == roll:
+                    rec[2] = new_marks
+                    f.seek(pos)
+                    pickle.dump(rec, f)
+                    found = True
+                    print("Marks updated successfully!")
+                    break
+        except EOFError:
+            pass
+    if not found:
+        print("Record not found.")
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 6 · CODER & ACCOTAX BARRACKPORE
+================================================================================

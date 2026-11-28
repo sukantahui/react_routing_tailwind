@@ -1,0 +1,42 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 4: PRACTICAL 4: BINARY FILE RECORD WRITER (ROLLNO, NAME, MARKS) USING PICKLE.DUMP()
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Python practical program to accept student records (RollNo, Name, Marks) interactively from the user and serialize them as lists/tuples into a binary file using pickle.dump().
+
+2. KEY EXAMINATION POINTS:
+  (1) Opens file in binary append mode: open('student.dat', 'ab').
+  (2) Repeatedly prompts user for student data inside a while loop with a continuation prompt.
+  (3) Serializes each record using pickle.dump(record, file).
+  (4) Essential foundation for all subsequent binary file search, update, and delete practicals.
+
+3. PRACTICAL CODE SNIPPET:
+import pickle
+
+def write_student_records():
+    with open('student.dat', 'ab') as f:
+        while True:
+            roll = int(input("Roll No: "))
+            name = input("Name: ")
+            marks = float(input("Marks: "))
+            pickle.dump([roll, name, marks], f)
+            if input("Add another? (y/n): ").lower() != 'y':
+                break
+    print("Records saved to student.dat!")
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 4 · CODER & ACCOTAX BARRACKPORE
+================================================================================

@@ -1,0 +1,42 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 3: PRACTICAL 3: TEXT FILE WORD SEARCH, COUNT, AND CASE REPLACEMENT
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Python program to count occurrences of a specific search word in a text file and create a new version of the file with the target word replaced by another term.
+
+2. KEY EXAMINATION POINTS:
+  (1) Splits file content into tokens using split() for exact word-boundary matching.
+  (2) Uses word.lower() comparison to avoid false negatives due to capitalization.
+  (3) Performs case replacement using string.replace() or regex.
+  (4) Standard practical question testing file manipulation and string methods.
+
+3. PRACTICAL CODE SNIPPET:
+def search_and_replace(filename, old_word, new_word):
+    with open(filename, 'r') as f:
+        content = f.read()
+    
+    words = content.split()
+    occurrences = sum(1 for w in words if w.lower().strip(".,!?;:") == old_word.lower())
+    modified_content = content.replace(old_word, new_word)
+    
+    with open('updated_' + filename, 'w') as f:
+        f.write(modified_content)
+        
+    print(f"Word '{old_word}' occurred {occurrences} times. Updated file saved.")
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 3 · CODER & ACCOTAX BARRACKPORE
+================================================================================

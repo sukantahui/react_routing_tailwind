@@ -1,0 +1,27 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT III: SQL DDL & TABLE CONSTRAINTS
+TOPIC 10: DELETING TABLES: DROP TABLE VS TRUNCATE TABLE
+=====================================================
+Both DROP TABLE and TRUNCATE TABLE are DDL commands, but they have completely different effects on the database schema.
+
+1. DROP TABLE:
+   - Permanently deletes the table structure (schema), all its rows, all constraints, and all indexes from the database dictionary.
+   - After execution, the table ceases to exist (SELECT * FROM table raises Table doesn't exist error).
+   Syntax:
+   DROP TABLE [IF EXISTS] table_name;
+   Example:
+   DROP TABLE temp_records;
+
+2. TRUNCATE TABLE:
+   - Deletes ALL rows from the table, but PRESERVES the empty table structure (schema), column names, data types, constraints, and indexes.
+   - De-allocates data pages and resets AUTO_INCREMENT counters back to 1.
+   - Operates much faster than DELETE FROM table because it drops and recreates the underlying data pages without logging individual row deletions.
+   Syntax:
+   TRUNCATE TABLE table_name;
+   Example:
+   TRUNCATE TABLE log_entries;
+
+SUMMARY COMPARISON:
+- DROP TABLE: Schema removed? YES. Rows removed? YES. Reusable? NO.
+- TRUNCATE TABLE: Schema removed? NO. Rows removed? YES. Reusable? YES.
+- DELETE FROM: Schema removed? NO. Rows removed? YES (or filtered with WHERE). Auto-commit? NO (can be rolled back in transaction).

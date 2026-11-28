@@ -1,0 +1,39 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: MODULE 2 - TOPIC 4: NETWORK SWITCH (LAYER-2 SWITCHING, MAC TABLE)
+
+1. FUNDAMENTAL DEFINITION:
+   - An intelligent multi-port hardware connecting device that inspects incoming data frames, reads destination MAC addresses, and forwards each frame ONLY to the specific intended port.
+   - Operating OSI Layer: Data Link Layer (Layer 2).
+   - Also known as an Intelligent Hub or Multi-port Bridge.
+
+2. HOW A SWITCH LEARNS AND FORWARDS (CAM / MAC ADDRESS TABLE):
+   A switch maintains a dynamic Content Addressable Memory (CAM) table mapping MAC addresses to physical switch port numbers.
+   Three Core Operations:
+   1. Learning:
+      - Whenever a frame enters Port X, the switch inspects its SOURCE MAC address.
+      - It records (Source MAC <-> Port X) in its MAC table with a timestamp.
+   2. Forwarding (Filtering):
+      - The switch looks up the DESTINATION MAC address in its MAC table.
+      - If found on Port Y, it forwards the frame solely to Port Y (Unicast). All other ports remain silent and clear.
+   3. Flooding:
+      - If the Destination MAC is unknown (not yet in the table) OR if the destination is a Broadcast (FF:FF:FF:FF:FF:FF), the switch floods the frame out of all ports except the incoming port.
+
+3. COLLISION DOMAIN VS BROADCAST DOMAIN:
+   - Collision Domain: Every single port on a switch is its OWN dedicated collision domain.
+     * Collisions are completely eliminated in Full-Duplex mode!
+     * Each connected workstation enjoys full dedicated port bandwidth (e.g., 100 Mbps or 1 Gbps).
+   - Broadcast Domain: By default, all ports on a standard switch belong to ONE shared broadcast domain (a broadcast frame on Port 1 is flooded to all ports).
+
+4. HUB VS SWITCH (MASTER CBSE COMPARISON):
+   +------------------------+------------------------------------+------------------------------------+
+   | Feature                | Hub                                | Switch                             |
+   +------------------------+------------------------------------+------------------------------------+
+   | Operating OSI Layer    | Layer 1 (Physical)                 | Layer 2 (Data Link)                |
+   | Intelligence           | "Dumb" (blind repeater)            | "Intelligent" (MAC address aware)  |
+   | Traffic Forwarding     | Always broadcasts to ALL ports     | Unicasts to destination port only  |
+   | Collision Domains      | 1 Single shared collision domain   | Each port is a separate collision d|
+   | Bandwidth Allocation   | Shared among all connected devices | Full dedicated bandwidth per port  |
+   | Data Transmission Mode | Half-Duplex only                   | Full-Duplex or Half-Duplex         |
+   | Security               | Highly insecure (packets sniffable)| Secure (ports isolated)            |
+   +------------------------+------------------------------------+------------------------------------+

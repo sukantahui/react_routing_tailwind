@@ -1,0 +1,47 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 0: REVIEW OF PYTHON TOKENS (LEXICAL UNITS)
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. DEFINITION OF TOKEN:
+   The smallest individual unit in a Python source program recognized by the interpreter.
+   Also referred to as a "Lexical Unit".
+
+2. THE 5 CATEGORIES OF PYTHON TOKENS:
+   a. KEYWORDS: Reserved words with pre-defined meanings. Cannot be used as identifiers.
+      - Exactly 35 keywords in modern Python 3.
+      - Case-sensitive: Only THREE keywords begin with an uppercase letter: 'True', 'False', and 'None'.
+      - All other keywords are lowercase ('def', 'return', 'global', 'import', 'class', etc.).
+
+   b. IDENTIFIERS: User-defined names for variables, functions, lists, dictionaries, etc.
+      - Rule 1: Can contain uppercase (A-Z), lowercase (a-z), digits (0-9), and underscore (_).
+      - Rule 2: MUST NOT begin with a digit (e.g., '2nd_score' is INVALID).
+      - Rule 3: Case-sensitive ('Total' and 'total' are distinct).
+      - Rule 4: Must NOT be a Python keyword.
+      - Rule 5: Cannot contain spaces or special symbols like @, $, %, &, -.
+
+   c. LITERALS: Constant values assigned to variables.
+      - Integer: Decimal (45), Binary (0b1011), Octal (0o52), Hexadecimal (0x2A).
+      - Floating-Point: Fractional (3.14) and Exponent notation (2.5e-3 = 0.0025).
+      - Complex: a + bj (where j represents sqrt(-1)).
+      - String: Single/Double quoted, Triple-quoted (multi-line), Raw strings (r"path\name").
+      - Boolean: True or False.
+      - Special Literal: None (represents absence of value or null state).
+
+   d. OPERATORS: Symbols that trigger computations on operands.
+      - Arithmetic: +, -, *, /, // (floor div), % (modulo), ** (exponentiation).
+      - Relational: ==, !=, >, <, >=, <=.
+      - Logical: and, or, not.
+      - Identity: is, is not (compares memory address / object identity).
+      - Membership: in, not in (checks membership in sequences).
+
+   e. PUNCTUATORS (DELIMITERS):
+      - Symbols used to organize code structure, grouping, and statements.
+      - Examples: ( ) [ ] { } , : . @ = ; += -= *= /=
+
+3. BOARD EXAM COMMON TRAPS:
+   - Writing 'true' or 'false' in code (raises NameError; must be 'True' and 'False').
+   - Using hyphens in variable names: 'total-marks' evaluates as subtraction, not an identifier!
+   - Confusing 'is' with '==': '==' checks value equality, 'is' checks memory reference identity.
+===============================================================================

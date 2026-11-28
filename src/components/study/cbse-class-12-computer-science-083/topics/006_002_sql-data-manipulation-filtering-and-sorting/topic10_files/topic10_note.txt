@@ -1,0 +1,49 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 10: RANGE SEARCH: BETWEEN ... AND AND NOT BETWEEN ... AND OPERATORS
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+The BETWEEN operator selects values within a continuous range. In SQL, the boundaries are INCLUSIVE on both ends.
+
+2. KEY EXAMINATION POINTS:
+  (1) Syntax: 'WHERE column BETWEEN low_val AND high_val;' — lower value MUST appear first.
+  (2) Inclusive Nature: Equivalent to '(column >= low_val AND column <= high_val)'. Both end points are included.
+  (3) NOT BETWEEN ... AND: Selects values outside the specified range: '(column < low_val OR column > high_val)'.
+  (4) Works on Numbers, Dates ('YYYY-MM-DD'), and Alphabetical text ranges.
+
+3. SYNTAX & CODE SNIPPET:
+-- Marks between 80 and 95 (inclusive of 80 and 95)
+SELECT SName, Marks 
+FROM Student 
+WHERE Marks BETWEEN 80.0 AND 95.0;
+
+-- Equivalent explicit relational logic:
+SELECT SName, Marks 
+FROM Student 
+WHERE Marks >= 80.0 AND Marks <= 95.0;
+
+-- Joining dates between two fiscal quarters
+SELECT EName, DOJ 
+FROM Employee 
+WHERE DOJ BETWEEN '2022-01-01' AND '2022-06-30';
+
+-- NOT BETWEEN: Marks strictly below 50 or above 90
+SELECT SName, Marks 
+FROM Student 
+WHERE Marks NOT BETWEEN 50.0 AND 90.0;
+
+4. CBSE COMMON PITFALLS:
+Remember to test conditions carefully and use parentheses to disambiguate AND/OR connectives.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between DML and DDL commands.
+  [ ] Master WHERE condition construction using relational and logical operators.
+  [ ] Be confident in NULL handling using IS NULL and IS NOT NULL.
+  [ ] Remember default ordering for ORDER BY is ASC.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 10 · CODER & ACCOTAX BARRACKPORE
+================================================================================

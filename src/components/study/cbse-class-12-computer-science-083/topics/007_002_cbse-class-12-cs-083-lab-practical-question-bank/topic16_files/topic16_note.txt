@@ -1,0 +1,44 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 16: PRACTICAL 16: SQL SET 1: DDL TABLE CREATION WITH PRIMARY KEY AND FOREIGN KEY
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+SQL practical script creating parent table 'Department' and child table 'Employee' with PRIMARY KEY, FOREIGN KEY (REFERENCES), NOT NULL, and DEFAULT constraints.
+
+2. KEY EXAMINATION POINTS:
+  (1) Parent table: Department(DeptId INT PRIMARY KEY, DeptName VARCHAR(30) NOT NULL).
+  (2) Child table: Employee with Foreign Key: FOREIGN KEY (DeptId) REFERENCES Department(DeptId).
+  (3) Inspection using DESCRIBE Department and DESCRIBE Employee.
+  (4) Essential DDL practical set required in every CBSE Class 12 practical record file.
+
+3. PRACTICAL CODE SNIPPET:
+-- SQL Practical Set 1: DDL Script
+CREATE TABLE Department (
+    DeptId INT PRIMARY KEY,
+    DeptName VARCHAR(30) NOT NULL,
+    Location VARCHAR(20) DEFAULT 'Kolkata'
+);
+
+CREATE TABLE Employee (
+    EmpId INT PRIMARY KEY,
+    EName VARCHAR(30) NOT NULL,
+    DeptId INT,
+    Salary DECIMAL(8,2),
+    FOREIGN KEY (DeptId) REFERENCES Department(DeptId)
+);
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 16 · CODER & ACCOTAX BARRACKPORE
+================================================================================

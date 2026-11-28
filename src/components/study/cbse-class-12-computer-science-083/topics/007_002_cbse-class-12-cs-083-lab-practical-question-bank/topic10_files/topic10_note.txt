@@ -1,0 +1,48 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 10: PRACTICAL 10: LINEAR STACK IMPLEMENTATION FOR NUMBERS WITH PUSH, POP, PEEK & DISPLAY
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Python practical program implementing a full Linear Stack Abstract Data Type (ADT) for numeric values with Push, Pop, Peek, and Display operations.
+
+2. KEY EXAMINATION POINTS:
+  (1) Uses a standard Python list as the underlying storage buffer.
+  (2) Push: append(item) at top of stack.
+  (3) Pop: underflow check (if len == 0), then pop() and return element.
+  (4) Peek: returns topmost item without removal (stk[-1]); Display traverses stack from top to bottom.
+
+3. PRACTICAL CODE SNIPPET:
+def push(stk, val):
+    stk.append(val)
+
+def pop(stk):
+    if len(stk) == 0:
+        print("Stack Underflow!")
+        return None
+    return stk.pop()
+
+def peek(stk):
+    return stk[-1] if stk else None
+
+def display(stk):
+    if not stk:
+        print("Stack is Empty")
+    else:
+        for i in range(len(stk) - 1, -1, -1):
+            print(stk[i])
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 10 · CODER & ACCOTAX BARRACKPORE
+================================================================================

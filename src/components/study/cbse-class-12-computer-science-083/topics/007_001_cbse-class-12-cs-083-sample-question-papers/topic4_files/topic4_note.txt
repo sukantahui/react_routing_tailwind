@@ -1,0 +1,38 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: EXAMINATION MASTERY (FULL BOARD PATTERN)
+TOPIC 4: CODER & ACCOTAX SUGGESTED MOCK PAPER 3: FULL-LENGTH 70-MARK SIMULATION
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Final suggested mock paper simulating the exact pressure and timing of the CBSE annual board examination.
+
+2. KEY EXAMINATION POINTS:
+  (1) 18 rapid-fire Section A MCQs with tight Assertion-Reasoning statements.
+  (2) 7 Section B output tracing questions with nested dictionaries and modular math.
+  (3) Section C text file word frequency and character classification algorithms.
+  (4) Section E multi-wing university campus layout with fiber-optic cable economics.
+
+3. CODE & STRATEGY SNIPPET:
+# Mock Paper 3 - Text File Word Filter (3 Marks)
+def display_four_letter_words():
+    with open('article.txt', 'r') as f:
+        text = f.read()
+        words = text.split()
+        for w in words:
+            if len(w) == 4:
+                print(w)
+
+4. CBSE COMMON PITFALLS:
+Adhere strictly to step-marking rubrics and never leave questions unattempted.
+
+5. REVISION CHECKLIST:
+  [ ] Understand 70-mark theory distribution across Sections A to E.
+  [ ] Practice dry-run trace tables for Section B output questions.
+  [ ] Memorize standard templates for Stack and Text file questions.
+  [ ] Know the 80-20 rule and repeater/switch criteria for Section E.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 4 · CODER & ACCOTAX BARRACKPORE
+================================================================================

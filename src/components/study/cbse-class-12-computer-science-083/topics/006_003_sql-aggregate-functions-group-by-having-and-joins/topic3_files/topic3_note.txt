@@ -1,0 +1,39 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 3: BOUNDARY AGGREGATES: MIN(COLUMN) AND MAX(COLUMN) ON NUMBERS, DATES, AND STRINGS
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+MIN() and MAX() find the minimum and maximum values in a column. Unlike SUM/AVG, they work on numbers, dates, and text strings.
+
+2. KEY EXAMINATION POINTS:
+  (1) Numeric data: MIN returns lowest number, MAX returns highest number.
+  (2) Date data: MIN returns earliest/oldest date (chronologically first), MAX returns latest/most recent date.
+  (3) String/Text data: MIN returns alphabetically first string (ASCII order), MAX returns alphabetically last string.
+  (4) NULL values are ignored by both MIN() and MAX().
+
+3. SYNTAX & CODE SNIPPET:
+-- Numbers: Min and Max Price
+SELECT MIN(Price) AS CheapestItem, MAX(Price) AS MostExpensive FROM Item;
+
+-- Dates: Oldest and Youngest Employee Joining Date
+SELECT MIN(DOJ) AS SeniorMostJoinDate, MAX(DOJ) AS LatestJoinDate FROM Employee;
+
+-- Strings: Alphabetical boundaries
+SELECT MIN(EName) AS FirstAlphaName, MAX(EName) AS LastAlphaName FROM Employee;
+
+4. CBSE COMMON PITFALLS:
+Ensure correct placement of WHERE before GROUP BY and HAVING after GROUP BY.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between COUNT(*) and COUNT(col).
+  [ ] Master GROUP BY rules regarding non-aggregated columns.
+  [ ] Remember WHERE cannot contain aggregate functions; use HAVING.
+  [ ] Know Cartesian Product formulas: Cardinality = R1 * R2, Degree = C1 + C2.
+  [ ] Always include (N - 1) join conditions when joining N tables.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 3 · CODER & ACCOTAX BARRACKPORE
+================================================================================

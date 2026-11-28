@@ -1,0 +1,43 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - MASTER REVISION BUNDLE
+MODULE 2: FUNCTIONS, SCOPE RULES (LEGB), PARAMETER PASSING & MODULES
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+CONSOLIDATED CHEATSHEET FOR BOARD EXAMINATIONS:
+
+1. FUNCTION HEADER & DEFINITION:
+   - Keyword: 'def' followed by function identifier, formal parameters, and colon (:).
+   - Void functions return 'None' implicitly.
+
+2. PARAMETERS VS ARGUMENTS:
+   - Formal Parameters: In the function def header (local placeholders).
+   - Actual Arguments: In the function call (values, variables, or expressions).
+
+3. CALL SEMANTICS:
+   - Positional arguments MUST precede keyword arguments (func(10, b=20)).
+   - Default parameters MUST appear at the end of the parameter list (def f(a, b=10):).
+   - Non-default arguments cannot follow default arguments.
+
+4. MULTIPLE RETURN VALUES:
+   - Comma-separated returns trigger implicit TUPLE PACKING (return a, b, c).
+   - Unpacking into multiple variables: x, y, z = func().
+
+5. SCOPE & THE LEGB RULE:
+   - Local -> Enclosing -> Global -> Built-in.
+   - Search stops at the first namespace where the name is found.
+   - If not found in any of the four, raises NameError.
+
+6. THE 'GLOBAL' KEYWORD:
+   - Required ONLY when rebinding (= or +=) a global variable from inside a local function.
+   - Reading global variables does not require the global statement.
+
+7. PARAMETER PASSING (PASS-BY-OBJECT-REFERENCE):
+   - In-place mutation of mutable arguments (lists, dicts) modifies caller's object.
+   - Rebinding parameter or operations on immutable arguments leaves caller untouched.
+
+8. MODULES & IMPORTING:
+   - 'import module': requires 'module.func()' prefix.
+   - 'from module import func': direct 'func()' access.
+   - Guard idiom: 'if __name__ == "__main__":'
+===============================================================================

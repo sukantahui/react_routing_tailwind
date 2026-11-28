@@ -223,6 +223,46 @@ GET /taxii2/collections/certin-threat-intel/objects/
     level: "expert",
     codeExample: `// The Modern Cyber Defense Equation:
 (Kill_Chain_Perimeter_Breaker + MITRE_ATTACK_Granular_Coverage + Continuous_Atomic_Testing) = TOTAL_ENTERPRISE_RESILIENCE;`
+  },
+  {
+    question: "What is the Lockheed Martin Cyber Kill Chain and what are its 7 stages?",
+    shortAnswer: "A military-derived model for identifying cyber attacks: 1. Reconnaissance, 2. Weaponization, 3. Delivery, 4. Exploitation, 5. Installation, 6. Command & Control (C2), 7. Actions on Objectives.",
+    explanation: "The core defensive philosophy is that disrupting any single stage breaks the entire attack chain, protecting enterprise assets.",
+    hint: "Recon, Weaponization, Delivery, Exploitation, Installation, C2, Actions on Objectives.",
+    level: "basic",
+    codeExample: "CyberKillChain = ['Recon', 'Weaponize', 'Deliver', 'Exploit', 'Install', 'C2', 'Actions'];"
+  },
+  {
+    question: "How does the MITRE ATT&CK framework differ from the Cyber Kill Chain?",
+    shortAnswer: "The Cyber Kill Chain is a high-level sequential linear progression; MITRE ATT&CK is an exhaustive, non-linear matrix of real-world adversary Tactics, Techniques, and Procedures (TTPs).",
+    explanation: "MITRE ATT&CK catalogs hundreds of granular techniques (e.g. T1059 Command and Scripting Interpreter) and sub-techniques, mapping real-world APT behavioral patterns.",
+    hint: "Linear high-level model vs granular non-linear matrix of real-world tactics & techniques.",
+    level: "moderate",
+    codeExample: "MITRE_Technique = { ID: 'T1059.001', Name: 'PowerShell Execution', Tactic: 'Execution' };"
+  },
+  {
+    question: "What does 'Actions on Objectives' mean in the Cyber Kill Chain?",
+    shortAnswer: "The ultimate goal of the adversary once access is secured: data exfiltration, ransomware encryption, financial theft, or operational disruption.",
+    explanation: "Everything preceding this stage represents preparation; Actions on Objectives is where the victim experiences tangible financial or operational damage.",
+    hint: "The final attack phase where data is stolen, encrypted, or destroyed.",
+    level: "basic",
+    codeExample: "ActionsOnObjectives: 'Encrypt DB with AES-256 and transmit ransom note to printers'"
+  },
+  {
+    question: "What is the Diamond Model of Intrusion Analysis?",
+    shortAnswer: "A threat analysis framework linking four core facets of every cyber incident: Adversary, Capability, Infrastructure, and Victim.",
+    explanation: "The Diamond Model tracks how adversaries use specific technical capabilities over external infrastructure to compromise designated victims.",
+    hint: "Four-node model analyzing Adversary, Capability, Infrastructure, and Victim.",
+    level: "moderate",
+    codeExample: "DiamondModel = { Adversary: 'APT29', Capability: 'CobaltStrike', Infra: 'Tor Nodes', Victim: 'Gov Agency' };"
+  },
+  {
+    question: "How do defensive security operations centers (SOCs) use MITRE ATT&CK matrices?",
+    shortAnswer: "To map existing SIEM/EDR detection rules across the matrix, identifying defensive coverage gaps and prioritizing new detection engineering rules.",
+    explanation: "SOC analysts visualize techniques in green (detected) and red (undetected), ensuring balanced defenses across all attack stages.",
+    hint: "Mapping detection coverage across attack techniques to spot blind spots.",
+    level: "moderate",
+    codeExample: "HeatmapCoverage: { 'T1059': 'Covered', 'T1003': 'Covered', 'T1055': 'BlindSpot' }"
   }
 ];
 

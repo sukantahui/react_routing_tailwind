@@ -1,0 +1,37 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+SEGMENT 3: DATA STRUCTURES (LINEAR LISTS & STACKS)
+TOPIC 0: INTRODUCTION TO DATA STRUCTURES & CLASSIFICATIONS
+
+1. WHAT IS A DATA STRUCTURE?
+- A data structure is a specialized format for organizing, processing, accessing, and storing data in computer memory efficiently.
+- It defines not only the storage scheme, but also the relationships between data elements and legal operations permitted on them.
+
+2. CLASSIFICATION OF DATA STRUCTURES:
+A. Primitive Data Structures:
+   - Basic data types supported directly by the programming language or machine hardware.
+   - Examples: integer (int), floating-point (float), character/string (str), boolean (bool).
+B. Non-Primitive Data Structures:
+   - Complex data structures derived from primitive data types.
+   - Grouped into two major classes:
+     1. Linear Data Structures:
+        * Elements form a sequential sequence or line.
+        * Every element has a unique predecessor and successor (except first and last).
+        * Memory relationship is linear: single level of traversal.
+        * Examples: Arrays, Python Lists, Stacks, Queues, Linked Lists.
+     2. Non-Linear Data Structures:
+        * Elements do not form a sequence; multiple levels or hierarchical branching exists.
+        * One element can be connected to multiple elements.
+        * Examples: Trees (Binary Trees, BST), Graphs.
+
+3. STATIC VS DYNAMIC DATA STRUCTURES:
+- Static: Memory size is fixed at compile-time (e.g. C/C++ arrays).
+- Dynamic: Memory can shrink or expand dynamically at runtime (e.g. Python lists, linked structures).
+
+4. STANDARD OPERATIONS ON DATA STRUCTURES:
+- Insertion: Adding a new element into the structure.
+- Deletion: Removing an existing element from the structure.
+- Traversal: Accessing/visiting each element exactly once.
+- Searching: Finding the location of a target element.
+- Sorting: Arranging elements in ascending or descending order.
+- Merging: Combining two sorted structures into a single sorted structure.

@@ -1,0 +1,44 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 4: THE CURSOR OBJECT: PURPOSE, CREATION USING CONNECTION.CURSOR(), AND LIFECYCLE
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+A cursor object acts as an operational handle or workhorse. It sends SQL statements to MySQL and holds the resulting record set in client memory.
+
+2. KEY EXAMINATION POINTS:
+  (1) Creation: 'cur = con.cursor()' creates a cursor bound to that specific connection.
+  (2) Primary Responsibilities: Executing SQL queries via .execute(), retrieving result rows via fetch methods, and reporting row counts.
+  (3) Buffered vs Unbuffered cursors: By default, MySQL connector cursors fetch all rows from the server into memory buffer.
+  (4) Always close cursors when done using 'cur.close()' to free server memory.
+
+3. SYNTAX & CODE SNIPPET:
+import mysql.connector
+
+con = mysql.connector.connect(host="localhost", user="root", password="tiger", database="SchoolDB")
+
+# Create the cursor
+cur = con.cursor()
+
+# Use cursor to send SQL command
+cur.execute("SHOW TABLES;")
+
+# Clean up
+cur.close()
+con.close()
+
+4. CBSE COMMON PITFALLS:
+Always remember to commit transactions and close both cursor and connection.
+
+5. REVISION CHECKLIST:
+  [ ] Understand connect() parameters: host, user, password, database.
+  [ ] Know the difference between fetchone(), fetchmany(), and fetchall().
+  [ ] Remember that fetchone() returns None and fetchall() returns [] when exhausted.
+  [ ] Master con.commit() for INSERT/UPDATE/DELETE.
+  [ ] Know that '%s' is the universal placeholder in mysql.connector.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 4 · CODER & ACCOTAX BARRACKPORE
+================================================================================

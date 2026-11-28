@@ -211,6 +211,54 @@ C^d ≡ (M^e)^d ≡ M^(e*d) ≡ M^(1 + k*phi(N)) ≡ M * (M^phi(N))^k ≡ M * (1
     level: "expert",
     codeExample: `// The Master RSA Equation:
 (Prime_Factorization_Hardness + Euler_Totient_Math + PKI_Trust) = UNIVERSAL_DIGITAL_COMMERCE;`
+  },
+  {
+    question: "Who are the inventors of the RSA algorithm and in what year was it published?",
+    shortAnswer: "Ron Rivest, Adi Shamir, and Leonard Adleman; published in 1977 at MIT (patented in 1983).",
+    explanation: "Clifford Cocks at the British intelligence agency GCHQ discovered an equivalent system in 1973, but it was classified until 1997.",
+    hint: "Rivest, Shamir, and Adleman at MIT in 1977.",
+    level: "basic",
+    codeExample: "Inventors = ['Ron Rivest', 'Adi Shamir', 'Leonard Adleman']; Year = 1977;"
+  },
+  {
+    question: "What fundamental mathematical hard problem underpins the security of the RSA cryptosystem?",
+    shortAnswer: "The Integer Factorization Problem: multiplying two large primes is trivial, but factoring their product n = p × q is computationally intractable.",
+    explanation: "No known classical polynomial-time algorithm exists to factor large composite integers on classical computers.",
+    hint: "The computational difficulty of factoring the product of two large prime numbers.",
+    level: "basic",
+    codeExample: "Factor(n) -> p, q # Sub-exponential complexity: General Number Field Sieve (GNFS)"
+  },
+  {
+    question: "What are the components of the RSA Public Key and Private Key?",
+    shortAnswer: "Public Key consists of the pair (e, n); Private Key consists of the pair (d, n) (where n is the modulus, e is public exponent, and d is private exponent).",
+    explanation: "Modulus n is shared between both keys; e is public for encryption/verification, while d is kept confidential for decryption/signing.",
+    hint: "Public key is (e, n); Private key is (d, n).",
+    level: "basic",
+    codeExample: "PublicKey = (e, n); PrivateKey = (d, n);"
+  },
+  {
+    question: "What is Euler's Totient Function φ(n) and what is its formula when n = p × q for prime p and q?",
+    shortAnswer: "φ(n) counts the number of positive integers up to n that are coprime to n. For primes p and q, φ(n) = (p - 1)(q - 1).",
+    explanation: "Knowledge of φ(n) allows calculating the private exponent d; knowing n alone without p and q makes calculating φ(n) as hard as factoring n.",
+    hint: "Euler totient formula: phi(n) = (p - 1) * (q - 1).",
+    level: "moderate",
+    codeExample: "phi = (p - 1) * (q - 1)"
+  },
+  {
+    question: "What is the mathematical condition required between public exponent e and φ(n)?",
+    shortAnswer: "gcd(e, φ(n)) = 1 (they must be coprime) and 1 < e < φ(n).",
+    explanation: "Coprimality is mandatory to ensure that the modular multiplicative inverse d = e^(-1) mod φ(n) exists.",
+    hint: "e and phi(n) must be coprime: gcd(e, phi(n)) == 1.",
+    level: "moderate",
+    codeExample: "assert math.gcd(e, phi) == 1 and 1 < e < phi"
+  },
+  {
+    question: "What is the universally adopted standard value for public exponent e in modern RSA implementations?",
+    shortAnswer: "65537 (0x10001, the 4th Fermat prime F4 = 2^16 + 1).",
+    explanation: "65537 has only two '1' bits in binary (10000000000000001), requiring only 17 squarings and 1 multiplication, making public-key operations extremely fast while resisting low-exponent attacks.",
+    hint: "65537 (0x10001), offering fast exponentiation and resistance to small-exponent attacks.",
+    level: "moderate",
+    codeExample: "RSA_Standard_e = 65537 # Binary: 0b10000000000000001"
   }
 ];
 

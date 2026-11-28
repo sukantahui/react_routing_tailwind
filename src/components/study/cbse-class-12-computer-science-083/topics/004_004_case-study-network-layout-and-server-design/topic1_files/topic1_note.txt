@@ -1,0 +1,46 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 4: 4-MARK NETWORK CASE STUDY & INFRASTRUCTURE DESIGN
+TOPIC 1: ANALYZING DISTANCE MATRICES & COMPUTER DISTRIBUTION TABLES
+
+================================================================================
+1. TABLE 1: COMPUTER DISTRIBUTION ANALYSIS
+================================================================================
+Sample Table:
+Wing / Block Name       Number of Computers
+------------------------------------------------
+Admin Wing              30
+Technical Wing          110  <--- MAXIMUM COMPUTERS
+Finance Wing            25
+Academic Wing           45
+
+Golden Decision:
+- SERVER PLACEMENT: Technical Wing (110 PCs).
+- REASON: Maximum number of computers (80-20 Rule). Reduces inter-building traffic.
+- HIGHEST BANDWIDTH: Technical Wing.
+
+================================================================================
+2. TABLE 2: DISTANCE MATRIX ANALYSIS
+================================================================================
+Sample Table:
+From Block              To Block                Distance
+--------------------------------------------------------
+Admin Wing              Technical Wing          140 m  <--- >100m (Repeater needed!)
+Admin Wing              Finance Wing            50 m
+Technical Wing          Finance Wing            85 m
+Academic Wing           Technical Wing          95 m
+Academic Wing           Finance Wing            60 m
+
+Key Decisions:
+- REPEATER: Required on Admin <-> Technical link (140 m > 100 m) if UTP cable is used.
+- STAR LAYOUT (from Server in Technical Wing):
+  * Technical <---> Admin:    140 m
+  * Technical <---> Finance:  85 m
+  * Technical <---> Academic: 95 m
+  * Total Cable Required: 140 + 85 + 95 = 320 meters.
+
+- BUS / TREE LAYOUT (Connecting shortest adjacent distances):
+  * Admin <---> Finance:     50 m
+  * Finance <---> Academic:  60 m
+  * Finance <---> Technical: 85 m
+  * Total Cable Required: 50 + 60 + 85 = 195 meters.

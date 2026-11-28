@@ -1,0 +1,49 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 15: PRACTICAL 15: PYTHON-MYSQL RECORD UPDATE AND DELETION WITH ERROR HANDLING
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Python program implementing update and deletion of records in MySQL with try-except error handling, transaction rollback, and rowcount verification.
+
+2. KEY EXAMINATION POINTS:
+  (1) Updates student marks or deletes records based on primary key RollNo.
+  (2) Checks cur.rowcount to determine if any record actually matched.
+  (3) Calls con.rollback() inside except block if a database exception occurs.
+  (4) Safely closes resources in a finally block.
+
+3. PRACTICAL CODE SNIPPET:
+import mysql.connector
+
+def delete_student(roll):
+    con = None
+    try:
+        con = mysql.connector.connect(host='localhost', user='root', password='password', database='SchoolDB')
+        cur = con.cursor()
+        cur.execute("DELETE FROM Student WHERE RollNo = %s;", (roll,))
+        con.commit()
+        if cur.rowcount > 0:
+            print(f"Roll No {roll} deleted successfully!")
+        else:
+            print(f"Roll No {roll} not found.")
+    except mysql.connector.Error as err:
+        if con: con.rollback()
+        print("Database error:", err)
+    finally:
+        if con and con.is_connected():
+            cur.close(); con.close()
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 15 · CODER & ACCOTAX BARRACKPORE
+================================================================================

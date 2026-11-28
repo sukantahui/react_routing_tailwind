@@ -1,0 +1,34 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+SEGMENT 3: DATA STRUCTURES (LINEAR LISTS & STACKS)
+TOPIC 5: IMPLEMENTING THE POP OPERATION (UNDERFLOW GUARD)
+
+1. WHAT IS THE POP OPERATION?
+- POP is the operation of removing and returning the top-most element from the stack.
+- Decreases the stack length by 1.
+- In Python, the built-in list method pop() (without arguments) removes and returns the last element (index -1) in O(1) time.
+
+2. THE UNDERFLOW CONDITION:
+- Attempting to call list.pop() on an empty list [] triggers:
+  IndexError: pop from empty list
+- In CBSE board examination coding rubrics, guarding against Underflow carries 1 full mark.
+
+3. STANDARD CBSE POP IMPLEMENTATION PATTERNS:
+Pattern A (Returning the popped value):
+  def Pop(stk):
+      if len(stk) == 0:
+          print("Underflow: Stack is empty")
+          return None
+      else:
+          return stk.pop()
+
+Pattern B (Printing popped value inside function):
+  def Pop(stk):
+      if not stk:
+          print("Stack Empty")
+      else:
+          item = stk.pop()
+          print("Popped item is:", item)
+
+4. TIME COMPLEXITY:
+- Calling stk.pop() on the last element takes O(1) constant time because zero element shifting is required in memory.

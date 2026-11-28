@@ -1,0 +1,28 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+SEGMENT 3: DATA STRUCTURES (LINEAR LISTS & STACKS)
+TOPIC 6: IMPLEMENTING THE PEEK OPERATION (TOP INSPECTION)
+
+1. WHAT IS THE PEEK OPERATION?
+- PEEK (also known as Top) inspects or returns the value of the top-most element WITHOUT removing it from the stack.
+- The size and contents of the stack remain 100% unchanged.
+
+2. IMPLEMENTATION IN PYTHON:
+- In Python, negative index -1 directly references the last element of the list.
+- Standard signature:
+  def Peek(stk):
+      if len(stk) == 0:
+          print("Stack is empty")
+          return None
+      else:
+          return stk[-1]
+
+3. DIFFERENCE BETWEEN POP AND PEEK:
+- Pop(): Removes the top element (size decreases by 1).
+- Peek(): Inspects the top element without deletion (size remains same).
+- Pop() mutates the stack; Peek() is a read-only operation.
+
+4. BOUNDARY GUARDS:
+- Like Pop, calling stk[-1] on an empty list [] triggers:
+  IndexError: list index out of range
+- An empty guard (if len(stk) == 0) is mandatory.

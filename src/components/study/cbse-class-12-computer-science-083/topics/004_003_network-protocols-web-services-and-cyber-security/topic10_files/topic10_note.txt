@@ -1,0 +1,44 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 3: NETWORK PROTOCOLS, WEB SERVICES & CYBER SECURITY
+TOPIC 10: CYBER ATTACKS - PHISHING, DOS, DDOS & SPOOFING
+
+================================================================================
+1. PHISHING (SOCIAL ENGINEERING)
+================================================================================
+Definition: Fraudulent attempts to steal sensitive credentials (usernames, passwords,
+credit cards) by masquerading as a trustworthy institution in electronic communication.
+
+Variants:
+- Spear Phishing: Highly targeted attack tailored to specific individuals or organizations.
+- Whaling: Spear phishing specifically aimed at top corporate executives (C-level) or VIPs.
+- Smishing: Phishing conducted via SMS text messaging.
+- Vishing: Phishing conducted via voice telephone calls.
+- Pharming: Tampering with DNS records or hosts files to silently redirect users to fake sites.
+
+================================================================================
+2. DOS VS DDOS ATTACKS
+================================================================================
+Parameter          DoS (Denial of Service)          DDoS (Distributed DoS)
+--------------------------------------------------------------------------------
+Origin / Source    Single attacking machine / IP    Vast botnet of compromised zombie hosts
+Traffic Volume     Moderate (Gbps range)            Extreme (Tbps range)
+Mitigation         Simple (Block attacking IP)      Complex (Requires cloud scrubbing)
+Coordination       Manual script from one host      Coordinated via Command & Control (C2)
+Primary Attackers  Script kiddies, direct attackers Nation-states, extortionist syndicates
+
+================================================================================
+3. SPOOFING TAXONOMY
+================================================================================
+- IP Spoofing: Modifying packet headers with forged source IP addresses.
+- Email Spoofing: Forging 'From:' header addresses to impersonate legitimate senders.
+- DNS Spoofing: Injecting false IP mappings into DNS resolver caches (cache poisoning).
+- MAC Spoofing: Changing reported hardware NIC address to bypass LAN access controls.
+
+================================================================================
+4. DEFENSIVE MITIGATIONS
+================================================================================
+- Multi-Factor Authentication (MFA): Prevents compromised passwords from giving access.
+- Cloud DDoS Scrubbing (Cloudflare/Akamai): Absorbs volumetric packet floods.
+- Email Security (SPF, DKIM, DMARC): Authenticates email senders and drops spoofed mail.
+- User Awareness Training: Inspecting URLs, verifying sender domains, avoiding unknown links.

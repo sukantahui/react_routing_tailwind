@@ -1,0 +1,48 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 20: PRACTICAL 20: CAPSTONE PROJECT: END-TO-END PYTHON FRONT-END WITH MYSQL BACK-END
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Complete 8-mark project implementation: Student Management System featuring modular architecture, database persistence, user validation, and full CRUD operations.
+
+2. KEY EXAMINATION POINTS:
+  (1) Full menu-driven interface implementing: 1. Add, 2. Search, 3. View All, 4. Update, 5. Delete, 6. Exit.
+  (2) Robust exception handling preventing crashes on invalid input or duplicate primary keys.
+  (3) Clear separation of concerns: database connection layer, business logic layer, user interface layer.
+  (4) Meets all official CBSE Class 12 Computer Science project assessment rubrics (8 Marks).
+
+3. PRACTICAL CODE SNIPPET:
+# Capstone Project Menu Architecture (8 Marks)
+def main():
+    while True:
+        print("\n================ STUDENT MANAGEMENT SYSTEM ================")
+        print("1. Enroll New Student")
+        print("2. Search Student by Roll No")
+        print("3. Display All Students (Tabular)")
+        print("4. Update Student Marks")
+        print("5. Delete Student Record")
+        print("6. Exit")
+        ch = input("Enter choice (1-6): ")
+        if ch == '1': enroll_student()
+        elif ch == '2': search_student_ui()
+        elif ch == '3': view_all_ui()
+        elif ch == '4': update_marks_ui()
+        elif ch == '5': delete_student_ui()
+        elif ch == '6': print("Goodbye!"); break
+        else: print("Invalid option! Try again.")
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 20 · CODER & ACCOTAX BARRACKPORE
+================================================================================

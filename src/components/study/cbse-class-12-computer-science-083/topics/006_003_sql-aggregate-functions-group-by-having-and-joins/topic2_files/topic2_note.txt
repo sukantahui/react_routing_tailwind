@@ -1,0 +1,38 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 2: MATHEMATICAL AGGREGATES: SUM(COLUMN) AND AVG(COLUMN) (IGNORING NULL VALUES)
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+SUM() computes the mathematical sum of numeric values, while AVG() calculates the arithmetic mean. Both ignore NULL values entirely.
+
+2. KEY EXAMINATION POINTS:
+  (1) Both SUM() and AVG() operate strictly on numeric attributes (INT, FLOAT, DECIMAL).
+  (2) NULL values are completely omitted from both the numerator (sum) and denominator (count) in AVG().
+  (3) CBSE Exam Classic: If Marks column has [80, 90, NULL], SUM(Marks) is 170. AVG(Marks) is 170 / 2 = 85.0 (NOT 170 / 3!).
+  (4) SUM(DISTINCT col) sums only the unique values in the column.
+
+3. SYNTAX & CODE SNIPPET:
+-- Computing total and average sales commissions
+SELECT 
+  SUM(Commission) AS TotalCommissionPaid,
+  AVG(Commission) AS AvgCommissionPerSalesperson
+FROM Salesperson;
+
+-- Notice: Salespeople with NULL Commission are excluded from both SUM and AVG.
+
+4. CBSE COMMON PITFALLS:
+Ensure correct placement of WHERE before GROUP BY and HAVING after GROUP BY.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between COUNT(*) and COUNT(col).
+  [ ] Master GROUP BY rules regarding non-aggregated columns.
+  [ ] Remember WHERE cannot contain aggregate functions; use HAVING.
+  [ ] Know Cartesian Product formulas: Cardinality = R1 * R2, Degree = C1 + C2.
+  [ ] Always include (N - 1) join conditions when joining N tables.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 2 · CODER & ACCOTAX BARRACKPORE
+================================================================================

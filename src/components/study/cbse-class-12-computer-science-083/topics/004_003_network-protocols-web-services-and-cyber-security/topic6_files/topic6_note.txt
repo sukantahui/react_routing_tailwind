@@ -1,0 +1,47 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 3: NETWORK PROTOCOLS, WEB SERVICES & CYBER SECURITY
+TOPIC 6: REMOTE ACCESS PROTOCOLS - TELNET VS SECURE SHELL (SSH)
+
+================================================================================
+1. OVERVIEW OF REMOTE ACCESS
+================================================================================
+Remote access protocols enable a user or administrator on a local workstation to
+log into a remote computer, server, router, or switch over a TCP/IP network and
+execute commands inside a virtual terminal as if physically present.
+
+================================================================================
+2. TELNET (TELECOMMUNICATION NETWORK)
+================================================================================
+- Protocol Name: Telnet (RFC 854)
+- Default Port: TCP Port 23
+- Architecture: Client-Server character-based Network Virtual Terminal (NVT).
+- CRITICAL FLAW: Zero encryption. Usernames, administrative passwords, and
+  command outputs are transmitted in cleartext ASCII. Easily intercepted by
+  packet sniffers (e.g. Wireshark, tcpdump). Obsolete and deprecated.
+
+================================================================================
+3. SSH (SECURE SHELL)
+================================================================================
+- Protocol Name: Secure Shell (SSH-2, RFC 4251)
+- Default Port: TCP Port 22
+- Architecture: Cryptographic client-server protocol.
+- KEY SECURITY ADVANTAGES:
+  1. Confidentiality: Strong symmetric encryption (AES, ChaCha20) for all data.
+  2. Authentication: Server host keys prevent spoofing; public-key authentication
+     (RSA, Ed25519) eliminates weak passwords.
+  3. Integrity: Cryptographic HMAC tags detect message tampering.
+  4. Port Forwarding / Tunneling: Securely tunnels arbitrary TCP connections.
+  5. Secure File Transfer: Powers SCP (Secure Copy) and SFTP.
+
+================================================================================
+4. SUMMARY COMPARISON FOR CBSE EXAMINATIONS
+================================================================================
+Parameter          Telnet                          SSH (Secure Shell)
+--------------------------------------------------------------------------------
+TCP Port           Port 23                         Port 22
+Security Posture   Completely Insecure (Cleartext) Highly Secure (Encrypted)
+Password Safety    Transmitted in readable ASCII   Encrypted via TLS/SSH ciphers
+Integrity Check    None                            HMAC cryptographic verification
+Authentication     Password only                   Password, Public-Key, Kerberos
+Current Status     Deprecated / Obsolete           Industry Standard for Admin

@@ -1,0 +1,43 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 13: PRACTICE YOUR SKILL HERE: PYTHON-MYSQL CODING LAB & OUTPUT PREDICTION
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Solve 20 authentic CBSE Class 12 Computer Science board problems including write-function, complete-the-code, and output-prediction questions.
+
+2. KEY EXAMINATION POINTS:
+  (1) Fill in missing connection and cursor statements in incomplete scripts.
+  (2) Write complete Python functions to query tables and display formatted records.
+  (3) Debug scripts failing due to missing con.commit() or invalid placeholders.
+  (4) Implement parameterized updates with user input.
+
+3. SYNTAX & CODE SNIPPET:
+# Practice Challenge: Complete the function to display employees in Dept 'IT'
+import mysql.connector
+
+def display_it_employees():
+    con = mysql.connector.connect(host="localhost", user="root", password="tiger", database="CompanyDB")
+    cur = con.cursor()
+    # Write the execute statement and loop here:
+    cur.execute("SELECT EmpId, EName, Salary FROM Employee WHERE Dept = 'IT';")
+    for row in cur.fetchall():
+        print(row[0], row[1], row[2])
+    cur.close()
+    con.close()
+
+4. CBSE COMMON PITFALLS:
+Always remember to commit transactions and close both cursor and connection.
+
+5. REVISION CHECKLIST:
+  [ ] Understand connect() parameters: host, user, password, database.
+  [ ] Know the difference between fetchone(), fetchmany(), and fetchall().
+  [ ] Remember that fetchone() returns None and fetchall() returns [] when exhausted.
+  [ ] Master con.commit() for INSERT/UPDATE/DELETE.
+  [ ] Know that '%s' is the universal placeholder in mysql.connector.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 13 · CODER & ACCOTAX BARRACKPORE
+================================================================================

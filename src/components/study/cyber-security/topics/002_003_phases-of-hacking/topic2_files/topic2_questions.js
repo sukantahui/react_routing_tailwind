@@ -228,6 +228,46 @@ for paste in get_recent_pastes():
     level: "expert",
     codeExample: `// The OSINT Intelligence Equation:
 (Public_Data_Fragments + Visual_Link_Analysis + Dark_Web_Monitoring) * OPSEC_Discipline = STRATEGIC_SECURITY_IMMUNITY;`
+  },
+  {
+    question: "What is the purpose of the Maltego intelligence mapping tool in OSINT investigations?",
+    shortAnswer: "To graphically map and visualize relationships between people, domains, DNS records, email addresses, IP ranges, and social media entities using automated data transforms.",
+    explanation: "Maltego automates complex queries to public APIs (HaveIBeenPwned, VirusTotal, Censys), drawing node-link relationship diagrams that uncover hidden infrastructure links.",
+    hint: "Visual node-link graphing tool automating transforms across public datasets.",
+    level: "moderate",
+    codeExample: "maltego_transform: domain_to_dns_records(target.com) -> [mx, ns, txt, a]"
+  },
+  {
+    question: "How does `theHarvester` automate OSINT gathering for penetration testers?",
+    shortAnswer: "It queries dozens of public search engines, PGP key servers, and LinkedIn APIs to extract employee email addresses, employee names, virtual hosts, and open ports.",
+    explanation: "Provides quick reconnaissance lists of valid corporate email addresses that can be tested for credential stuffing or spear-phishing.",
+    hint: "Python tool harvesting emails, employee names, and subdomains from search engines.",
+    level: "basic",
+    codeExample: "theHarvester -d target.com -b google,linkedin,bing -l 500"
+  },
+  {
+    question: "What is Certificate Transparency (CT) logging and how is it used in subdomain enumeration?",
+    shortAnswer: "CT logs are publicly auditable, append-only cryptographic records of all issued SSL/TLS certificates; querying them reveals every registered subdomain within seconds.",
+    explanation: "Sites like `crt.sh` allow attackers and defenders to discover newly created development and staging subdomains (e.g. `dev-api.target.com`) as soon as certificates are generated.",
+    hint: "Public cryptographic ledger of all issued SSL certificates revealing subdomains.",
+    level: "moderate",
+    codeExample: "curl -s 'https://crt.sh/?q=%.target.com&output=json' | jq -r '.[].name_value' | sort -u"
+  },
+  {
+    question: "How does Wayback Machine (Internet Archive) assist OSINT research on modernized websites?",
+    shortAnswer: "It stores historical snapshots of web pages, allowing researchers to view decommissioned directories, old employee rosters, deleted API documentation, and past email addresses.",
+    explanation: "Developers often delete links from current navigation while leaving the underlying scripts, endpoints, or database dumps accessible on live web servers.",
+    hint: "Historical website snapshots revealing deleted files and old documentation.",
+    level: "moderate",
+    codeExample: "waybackurls target.com | grep -E '\\.(sql|bak|env|conf)$'"
+  },
+  {
+    question: "What ethical and legal boundaries govern Open-Source Intelligence (OSINT) collection?",
+    shortAnswer: "OSINT collection must strictly utilize publicly accessible information; bypassing login portals, accessing paywalled databases with stolen credentials, or stalking individuals crosses into illegal activity.",
+    explanation: "Passively viewing public records is lawful; weaponizing personal details to harass, impersonate, or execute social engineering attacks is legally actionable.",
+    hint: "Only public data is permitted; no bypassing authentication or stalking.",
+    level: "basic",
+    codeExample: "Ethical_OSINT_Rule: 'Never attempt unauthorized login or probe behind firewalls.'"
   }
 ];
 

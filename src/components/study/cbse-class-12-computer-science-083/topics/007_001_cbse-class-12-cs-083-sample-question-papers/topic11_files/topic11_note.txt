@@ -1,0 +1,36 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: EXAMINATION MASTERY (FULL BOARD PATTERN)
+TOPIC 11: SECTION E MASTERY: 3 CASE-BASED (4 MARKS) NETWORK LAYOUT & DATABASE DRILL
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Mastering the 4-mark case-based questions: Campus Network Layout (Server placement, topology, cable media, networking devices) and Database Schema design.
+
+2. KEY EXAMINATION POINTS:
+  (1) Server Placement: Always place server in the block/wing with the MAXIMUM number of computers (80-20 rule).
+  (2) Topology Selection: Star topology (using central switch/hub) is standard; Bus topology for straight line layout.
+  (3) Transmission Media: Fiber Optic Cable for high speed between blocks (> 100m); Coaxial/Twisted Pair within blocks.
+  (4) Device Placement: Hub/Switch in EVERY block; Repeater when cable distance between blocks exceeds 70-80 meters.
+
+3. CODE & STRATEGY SNIPPET:
+# Campus Network Layout Decision Matrix:
+# 1. Server Block: Block with MAX computers (reduces overall network traffic).
+# 2. Topology: Star Topology (connect each block to the server block).
+# 3. Cable: Optical Fiber (for high-speed, noise-free inter-building backbone).
+# 4. Repeaters: Required if distance between blocks > 70 meters.
+# 5. Switches: Required in EVERY block to network internal client machines.
+
+4. CBSE COMMON PITFALLS:
+Adhere strictly to step-marking rubrics and never leave questions unattempted.
+
+5. REVISION CHECKLIST:
+  [ ] Understand 70-mark theory distribution across Sections A to E.
+  [ ] Practice dry-run trace tables for Section B output questions.
+  [ ] Memorize standard templates for Stack and Text file questions.
+  [ ] Know the 80-20 rule and repeater/switch criteria for Section E.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 11 · CODER & ACCOTAX BARRACKPORE
+================================================================================

@@ -1,0 +1,24 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: PERSISTENT DATA STORAGE - CSV FILE HANDLING
+TOPIC 2: OPENING CSV FILES & THE newline='' PARAMETER
+
+1. THE BLANK LINE PROBLEM (WINDOWS OS):
+- On Windows systems, line termination is standard Carriage Return + Line Feed (\r\n).
+- By default, Python's open() in text mode translates '\n' written by the program into the platform-specific line ending ('\r\n').
+- However, Python's csv.writer module internally appends '\r\n' to each written record (following the 'excel' dialect).
+- When open() translates '\n' inside '\r\n', it produces '\r\r\n'!
+- This results in an extra blank line between every pair of records when the file is viewed in Notepad or Excel.
+
+2. THE SOLUTION: newline=''
+- Always pass the newline='' parameter when opening files for CSV operations:
+  with open('students.csv', 'w', newline='', encoding='utf-8') as f:
+      writer = csv.writer(f)
+      writer.writerow(['101', 'Aarav', '95'])
+- Setting newline='' suppresses automatic universal newline translation in Python's file layer, allowing the csv module to control line terminators cleanly.
+
+3. READ MODE IMPLICATIONS:
+- In read mode, opening with newline='' ensures that embedded newlines inside quoted fields are correctly interpreted and not mistakenly split into separate rows.
+
+4. CBSE BOARD EXAM QUICK POINTS:
+- Question: "Why do we specify newline='' when opening a CSV file in Python?"
+- Answer: "To prevent Python's file stream from translating '\n' into '\r\n' on Windows platforms, which would cause an unwanted blank line between consecutive records written by csv.writer."

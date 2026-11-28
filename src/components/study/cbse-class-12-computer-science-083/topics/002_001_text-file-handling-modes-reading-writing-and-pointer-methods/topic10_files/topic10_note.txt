@@ -1,0 +1,40 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 10: DOWNLOADABLE DOCUMENTS & MASTER REVISION REPOSITORY
+======================================================================
+
+1. COMPLETE MODULE 1 CONCEPTS RECAPITULATION
+   - Stream abstraction: Flow of characters between RAM and secondary storage.
+   - Access Modes:
+     * 'r'  : Read-only (requires file to exist).
+     * 'w'  : Write-only (creates or truncates to 0 bytes).
+     * 'a'  : Append-only (creates if missing, appends at EOF).
+     * 'r+' : Read and Write (preserves data, overwrites in-place).
+     * 'w+' : Write and Read (wipes to 0 bytes upon opening!).
+     * 'a+' : Append and Read (creates if missing, reads via seek).
+   - Reading:
+     * read()      -> Full string.
+     * read(n)     -> Up to n characters.
+     * readline()  -> One line (preserves \n, '' at EOF).
+     * readlines() -> List of lines.
+     * for line in f -> Memory-efficient streaming.
+   - Writing:
+     * write(s)    -> Writes string, no automatic \n.
+     * writelines(L) -> Writes list of strings, NO automatic newlines between items!
+   - File Pointer:
+     * tell()      -> Current byte position.
+     * seek(offset, whence=0) -> Moves cursor. (0: start, 1: curr, 2: end).
+   - Safe Management:
+     * with open(...) as f -> Context manager ensuring automatic closure.
+
+2. STANDARD BOARD ALGORITHMS CHECKLIST
+   [x] Word counter (f.read().split())
+   [x] Line filter (startswith('A') or startswith('M'))
+   [x] Vowel & consonant analyzer (ch.lower() in 'aeiou')
+   [x] Character classifier (isupper, islower, isdigit, isspace)
+   [x] Exclusion line copying ('this' not in line and 'that' not in line)
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

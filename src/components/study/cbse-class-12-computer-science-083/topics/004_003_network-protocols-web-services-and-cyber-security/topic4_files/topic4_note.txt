@@ -1,0 +1,42 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 3: NETWORK PROTOCOLS, WEB SERVICES & CYBER SECURITY
+TOPIC 4: EMAIL PROTOCOLS - SMTP VS POP3 VS IMAP
+
+================================================================================
+1. EMAIL TRANSMISSION WORKFLOW
+================================================================================
+Sender Client ------------[SMTP]------------> Sender Mail Server (MTA)
+                                                      |
+                                                   [SMTP] (Server-to-Server)
+                                                      |
+                                                      v
+Receiver Client <---[POP3 or IMAP (Pull)]--- Receiver Mail Server (MDA)
+
+Key Principle:
+- SMTP is the ONLY protocol used to SEND (push) emails from client to server,
+  and between mail servers across the Internet.
+- POP3 and IMAP are PULL protocols used by receiver clients to RETRIEVE emails
+  from their mailbox on the receiving server.
+
+================================================================================
+2. DETAILED PROTOCOL COMPARISON
+================================================================================
+Parameter          SMTP                     POP3                     IMAP
+--------------------------------------------------------------------------------
+Primary Function   Sending / Pushing Mail   Retrieving / Pulling     Retrieving / Syncing
+Default Port       Port 25 (Cleartext)      Port 110 (Cleartext)     Port 143 (Cleartext)
+Encrypted Port     Port 465 / 587 (TLS)     Port 995 (POP3S)         Port 993 (IMAPS)
+Server Storage     Ephemeral in transit     Deletes by default       Maintains on server
+Multi-Device Sync  N/A                      Poor (device silos)      Excellent (Real-time sync)
+Bandwidth Usage    Depends on outgoing size High initially          Optimized (header first)
+
+================================================================================
+3. CORE SMTP COMMAND DIALOGUE
+================================================================================
+- HELO / EHLO <domain> : Greet and identify client host
+- MAIL FROM:<sender>   : Specify sender address
+- RCPT TO:<recipient>  : Specify recipient mailbox
+- DATA                 : Begin message payload (headers + body)
+- . (dot on line)      : End of message payload
+- QUIT                 : Close SMTP connection

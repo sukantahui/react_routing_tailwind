@@ -1,0 +1,43 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: TOPIC 9 - UNGUIDED MEDIA: SATELLITE COMMUNICATION (GEO, UPLINK, DOWNLINK, TRANSPONDERS)
+
+1. FUNDAMENTALS OF SATELLITE COMMUNICATION:
+   - A communication satellite acts as a giant microwave relay station in space.
+   - Eliminates the need for dozens of terrestrial relay towers by elevating the relay point into Earth orbit.
+   - Geostationary Earth Orbit (GEO):
+     * Altitude: Exactly 35,786 km (approx. 36,000 km) above the Earth's equator.
+     * Orbital Period: Exactly 23 hours, 56 minutes, 4 seconds (~24 hours), matching Earth's rotational period.
+     * Stationary Appearance: Because orbital speed matches planetary rotation, the satellite appears fixed at one constant position in the sky to earth station dishes.
+     * Global Coverage: Exactly 3 GEO satellites spaced 120 degrees apart can cover almost the entire Earth (excluding extreme polar regions).
+
+2. UPLINK VS DOWNLINK FREQUENCIES:
+   +------------------------+------------------------------------+------------------------------------+
+   | Feature                | Uplink Transmission                | Downlink Transmission              |
+   +------------------------+------------------------------------+------------------------------------+
+   | Signal Direction       | Earth Station Dish -> Satellite    | Satellite -> Earth Station Dish    |
+   | Frequency Level        | HIGHER frequency (e.g. 6 GHz, 14GHz| LOWER frequency (e.g. 4 GHz, 12GHz)|
+   | Power Availability     | Abundant terrestrial electrical grid| Limited solar panels & batteries   |
+   | Path Attenuation       | Higher attenuation overcome by dish| Lower attenuation saves power      |
+   +------------------------+------------------------------------+------------------------------------+
+   * WHY ARE UPLINK AND DOWNLINK FREQUENCIES DIFFERENT?
+     CRITICAL CBSE QUESTION: If the satellite received and transmitted on the exact same frequency, the powerful output downlink signal would immediately bleed into and swamp its own ultra-sensitive receiving antenna (self-interference / feedback).
+
+3. THE ROLE OF A SATELLITE TRANSPONDER:
+   A transponder (Transmitter + Responder) performs four vital functions:
+   1. Receives weak incoming uplink signal from Earth station.
+   2. Filters noise and isolates the channel.
+   3. Frequency Translator: Shifts the signal from Uplink frequency down to Downlink frequency.
+   4. Power Amplifier: Amplifies signal using Traveling Wave Tube Amplifiers (TWTA) and retransmits it to Earth.
+
+4. PROPAGATION DELAY (LATENCY):
+   - Round trip distance: Earth -> GEO Satellite (36,000 km) -> Earth (36,000 km) = 72,000 km.
+   - One-way travel time: 72,000 km / 300,000 km/s = ~240 to 270 milliseconds.
+   - Full round-trip ping latency: ~500 milliseconds (half a second!).
+   - Consequence: Noticeable delay during interactive real-time telephone / video calls; excellent for broadcast (DTH TV).
+
+5. KEY APPLICATIONS:
+   - Direct-To-Home (DTH) Satellite Television (Tata Play, Dish TV).
+   - Global Positioning System (GPS).
+   - VSAT (Very Small Aperture Terminal) for banking ATMs, petrol pumps, and remote rural clinics.
+   - Weather forecasting, disaster management, and ocean maritime communication.

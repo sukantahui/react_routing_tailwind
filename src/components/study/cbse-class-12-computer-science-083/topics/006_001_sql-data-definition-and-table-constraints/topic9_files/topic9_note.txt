@@ -1,0 +1,31 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT III: SQL DDL & TABLE CONSTRAINTS
+TOPIC 9: ADDING AND DROPPING TABLE CONSTRAINTS USING ALTER TABLE
+=====================================================
+Constraints can be added or dropped from an existing table using ALTER TABLE.
+
+1. Adding Primary Key:
+   Syntax:
+   ALTER TABLE table_name ADD PRIMARY KEY (column_name);
+   Example:
+   ALTER TABLE student ADD PRIMARY KEY (roll_no);
+   (Requires the column to already be NOT NULL and contain zero duplicate entries).
+
+2. Adding Foreign Key:
+   Syntax:
+   ALTER TABLE child_table
+   ADD CONSTRAINT fk_name
+   FOREIGN KEY (child_col) REFERENCES parent_table(parent_col);
+   Example:
+   ALTER TABLE orders
+   ADD CONSTRAINT fk_cust_orders
+   FOREIGN KEY (cust_id) REFERENCES customer(cust_id);
+
+3. Dropping Primary Key:
+   Syntax:
+   ALTER TABLE table_name DROP PRIMARY KEY;
+   (If the primary key is referenced by foreign keys in other tables, foreign keys must be dropped first).
+
+4. Dropping Foreign Key:
+   Syntax:
+   ALTER TABLE child_table DROP FOREIGN KEY fk_name;

@@ -1,0 +1,28 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 2: DATA TYPES HIERARCHY: MUTABLE VS IMMUTABLE
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. BUILT-IN PYTHON DATA TYPES HIERARCHY:
+   - Numbers: int (arbitrary precision), float (IEEE 754 double precision), complex (real + imag*j), bool (subclass of int).
+   - Sequences: str (Unicode text), list, tuple.
+   - Sets: set (mutable, unique items), frozenset (immutable set).
+   - Mappings: dict (key-value pairs, keys must be immutable/hashable).
+
+2. MUTABILITY CONCEPT (VITAL FOR CBSE BOARD EXAMS):
+   - IMMUTABLE TYPES: Objects whose values CANNOT be altered in-place after creation.
+     * Examples: int, float, bool, complex, str, tuple, frozenset.
+     * Any operation that appears to modify an immutable object actually creates a NEW object with a new memory address (id).
+     * Item assignment like 's[0] = 'A'' or 't[1] = 99' raises:
+       'TypeError: 'str'/'tuple' object does not support item assignment'.
+
+   - MUTABLE TYPES: Objects whose contents CAN be altered in-place without changing memory identity.
+     * Examples: list, dict, set.
+     * Methods like append(), extend(), pop(), clear(), and subscript assignment alter the object in-place (id remains identical).
+
+3. SHALLOW COPY VS DEEP COPY:
+   - Assignment (b = a): No copy; both names point to the same object.
+   - Shallow Copy (copy.copy(L) or L[:]): Creates a new outer container, but nested elements share the same references.
+   - Deep Copy (copy.deepcopy(L)): Recursively copies all nested objects, providing complete memory isolation.
+===============================================================================

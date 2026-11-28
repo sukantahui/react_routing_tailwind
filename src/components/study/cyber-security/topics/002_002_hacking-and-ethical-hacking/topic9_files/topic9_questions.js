@@ -264,6 +264,46 @@ Target Org: West Bengal FinTech Enterprise
     level: "expert",
     codeExample: `// The Resilient Enterprise Equation:
 Cyber_Resilience = (Continuous_Exposure_Management * Zero_Trust_Architecture * Immutable_Recovery) / Total_Blast_Radius;`
+  },
+  {
+    question: "How does an Ethical Hacker contribute to an enterprise's Attack Surface Reduction (ASR)?",
+    shortAnswer: "By identifying and retiring obsolete outward-facing services, unused IP addresses, legacy API endpoints, and unnecessary open firewall ports.",
+    explanation: "Every exposed service is an entry vector. Ethical hacking exercises map the entire external perimeter, allowing IT teams to close down unmaintained services.",
+    hint: "Closing unused open ports, shutting down legacy servers, and removing old APIs.",
+    level: "moderate",
+    codeExample: "nmap -p- -sS -T4 target.com # Identifies rogue forgotten listening ports"
+  },
+  {
+    question: "What is the difference between Black Box, White Box, and Grey Box security testing?",
+    shortAnswer: "Black Box: zero prior knowledge of internal architecture; White Box: full access to source code, network diagrams, and credentials; Grey Box: partial knowledge (e.g. user credentials).",
+    explanation: "Black Box simulates an external adversary; White Box maximizes vulnerability discovery via code audits; Grey Box provides the best balance of time and realistic privilege simulation.",
+    hint: "Zero knowledge (Black), full knowledge and source code (White), partial access (Grey).",
+    level: "basic",
+    codeExample: "TestingModes = { BlackBox: 'No info', GreyBox: 'User creds', WhiteBox: 'Source code' };"
+  },
+  {
+    question: "What is DevSecOps and how do security assessments integrate into CI/CD pipelines?",
+    shortAnswer: "Integrating automated security testing (SAST, DAST, dependency scanning) directly into the Continuous Integration / Continuous Deployment software release pipeline.",
+    explanation: "Security is 'shifted left'; code commits are automatically analyzed for vulnerabilities before deployment, preventing flawed software from reaching production.",
+    hint: "Automated security tests executing on every git commit in the build pipeline.",
+    level: "moderate",
+    codeExample: "gitlab-ci.yml: sast_scan: script: ['trivy fs --exit-code 1 --severity CRITICAL .']"
+  },
+  {
+    question: "What is the role of an ethical hacker during an enterprise 'Threat Modeling' exercise?",
+    shortAnswer: "To adopt an adversary mindset, decomposing the application architecture to identify potential threat agents, attack vectors, and missing defensive controls using frameworks like STRIDE.",
+    explanation: "Ethical hackers highlight non-obvious trust boundary crossings and logical flaws before developers write production code.",
+    hint: "Applying adversary thinking to architecture diagrams using frameworks like STRIDE.",
+    level: "advanced",
+    codeExample: "STRIDE = ['Spoofing', 'Tampering', 'Repudiation', 'Info Disclosure', 'DoS', 'Elevation'];"
+  },
+  {
+    question: "Why are third-party ethical hacking audits mandatory under compliance standards like PCI-DSS and SOC 2?",
+    shortAnswer: "To provide independent, objective, unbiased verification that internal security controls function effectively and have not been bypassed by internal personnel.",
+    explanation: "Self-audits suffer from cognitive bias and institutional blind spots. External audits guarantee that payment card data and customer records meet rigorous security thresholds.",
+    hint: "Independent third-party validation required by financial compliance frameworks.",
+    level: "moderate",
+    codeExample: "PCI_DSS_Requirement_11_3: 'Perform external and internal penetration testing annually.'"
   }
 ];
 

@@ -1,0 +1,29 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 10: SECTION A BOARD EXAM OUTPUT TRACING PROBLEMS & DRY-RUN TABLES
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. WHAT IS A DRY-RUN TABLE?
+   - A tabular record constructed during examination to simulate the CPU execution cycle.
+   - Essential columns:
+     * Step / Line Number
+     * Loop Variable(s)
+     * Condition Evaluated (True/False)
+     * Variable Mutations
+     * Output Stream Generated
+
+2. COMMON SECTION A OUTPUT QUESTION PATTERNS:
+   Pattern A: String Character-by-Character Transformation:
+     - Tests isupper(), islower(), isdigit(), chr(), and ord().
+     - Remember: ord('A')=65, ord('Z')=90; ord('a')=97, ord('z')=122; ord('0')=48, ord('9')=57.
+   Pattern B: List in-place Modulo Mutation:
+     - Tests if-elif-else priority inside range(len(L)).
+     - Check: does an element satisfy MULTIPLE conditions? (elif ensures only first runs!).
+   Pattern C: Reverse Step Loops:
+     - range(start, stop, -step). Check boundary exclusions carefully!
+
+3. EXAM SUCCESS CHECKLIST:
+   - Always copy the exact spacing and punctuation (sep and end values) into your final answer.
+   - Do NOT omit '#' or newline characters when asked for exact output.
+===============================================================================

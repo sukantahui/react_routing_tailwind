@@ -1,0 +1,42 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - MASTER REVISION HANDBOOK
+MODULE 1: DATABASE CONCEPTS, RDBMS ARCHITECTURE & RELATIONAL MODEL KEYS (UNIT III - 20 MARKS)
+
+=============================================================================
+COMPLETE 20-MARK EXAMINATION CHEAT SHEET:
+=============================================================================
+
+1. FILE SYSTEM LIMITATIONS VS DBMS:
+   - Data Redundancy: Duplicate storage of identical data across departments.
+   - Data Inconsistency: Conflicting values across files due to uncoordinated updates.
+   - Data Isolation: Data trapped in disparate, incompatible proprietary file formats.
+   - Data Dependence: Application code tightly coupled to physical file layout.
+
+2. DBMS ADVANTAGES & ACID PROPERTIES:
+   - Advantages: Controlled redundancy, data sharing, data integrity, security, crash recovery.
+   - ACID:
+     * A - Atomicity: "All or Nothing" execution.
+     * C - Consistency: Database transitions from one valid state to another.
+     * I - Isolation: Concurrent transactions do not interfere with each other.
+     * D - Durability: Committed data permanently survives system crashes.
+
+3. RELATIONAL TERMINOLOGY:
+   * Table  <=======> Relation
+   * Row    <=======> Tuple (Record)
+   * Column <=======> Attribute (Field)
+   * Domain <=======> Set of legal atomic values for an attribute
+
+4. DEGREE VS CARDINALITY (THE EXAM FAVORITE):
+   - DEGREE: Total number of ATTRIBUTES (Columns). Changes only with ALTER TABLE.
+   - CARDINALITY: Total number of TUPLES (Rows). Changes with INSERT / DELETE / TRUNCATE.
+   - Cartesian Product (A x B):
+     * Degree(A x B)      = Degree(A) + Degree(B)          [ADD (+)]
+     * Cardinality(A x B) = Cardinality(A) * Cardinality(B) [MULTIPLY (*)]
+
+5. THE HIERARCHY OF KEYS:
+   - Super Key: Any set of attributes that uniquely identifies a tuple.
+   - Candidate Key: A MINIMAL Super Key with NO redundant attributes.
+   - Primary Key: Exactly ONE Candidate Key chosen by the designer (UNIQUE + NOT NULL).
+   - Alternate Key: Candidate Keys NOT chosen as Primary Key (Alt = CK - PK).
+   - Foreign Key: Attribute in child table referencing Primary Key of parent table.
+   - Referential Integrity: Foreign key must match existing parent PK or be NULL.
+=============================================================================

@@ -1,0 +1,31 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT III: SQL DDL & TABLE CONSTRAINTS
+TOPIC 2: DATABASE COMMANDS: CREATE, SHOW, USE, AND DROP DATABASE
+=====================================================
+In an RDBMS like MySQL, a database is a named container holding tables, views, and integrity constraints.
+
+1. CREATE DATABASE:
+   Syntax:
+   CREATE DATABASE [IF NOT EXISTS] db_name;
+   Example:
+   CREATE DATABASE school_db;
+   The 'IF NOT EXISTS' clause prevents runtime errors if a database with that name already exists.
+
+2. SHOW DATABASES:
+   Syntax:
+   SHOW DATABASES;
+   Lists all databases currently accessible to the logged-in user on the MySQL server instance.
+
+3. USE DATABASE:
+   Syntax:
+   USE db_name;
+   Example:
+   USE school_db;
+   Sets the specified database as the active current default database for all subsequent table and query operations.
+
+4. DROP DATABASE:
+   Syntax:
+   DROP DATABASE [IF EXISTS] db_name;
+   Example:
+   DROP DATABASE temp_db;
+   PERMANENTLY and irreversibly deletes the specified database along with all its tables, indexes, and stored data.

@@ -1,0 +1,40 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: TOPIC 4 - GUIDED MEDIA: TWISTED PAIR CABLE (UTP VS STP, CAT-5/6, RJ45)
+
+1. FUNDAMENTAL PRINCIPLE OF TWISTED PAIR CABLE:
+   - Consists of two insulated copper wires (typically 22-26 AWG) twisted together in a helical spiral.
+   - Purpose of Twisting:
+     * Minimizes Electromagnetic Interference (EMI) and Radio Frequency Interference (RFI).
+     * Cancels out Crosstalk: When signals flow in opposing directions through the twisted pair, their respective electromagnetic fields cancel each other out.
+     * More twists per unit length (twist density) = Greater crosstalk reduction = Higher data rate support.
+
+2. UNENSHIELDED TWISTED PAIR (UTP) VS SHIELDED TWISTED PAIR (STP):
+   +------------------------+-------------------------------+---------------------------------+
+   | Parameter              | UTP (Unshielded Twisted Pair) | STP (Shielded Twisted Pair)     |
+   +------------------------+-------------------------------+---------------------------------+
+   | Outer Shielding        | Plastic jacket only           | Metal foil or braided mesh wrap |
+   | Cost                   | Very low and economical       | Expensive                       |
+   | Flexibility & Handling | Highly flexible, easy to pull | Stiff, bulkier, harder to route |
+   | EMI / Noise Immunity   | Moderate (suitable for LANs)  | Extremely high (industrial)     |
+   | Grounding Requirement  | No electrical grounding needed| Requires proper chassis ground  |
+   | Maximum Segment Length | 100 meters (328 feet)         | 100 meters (328 feet)           |
+   | Common Use Case        | Standard office & school LANs | Factories, noisy EMI zones      |
+   +------------------------+-------------------------------+---------------------------------+
+
+3. ETHERNET CABLE CATEGORIES (CBSE CURRICULUM):
+   - Category 3 (Cat-3): 10 Mbps bandwidth (16 MHz) - Legacy 10BASE-T voice & slow data.
+   - Category 5 (Cat-5): 100 Mbps bandwidth (100 MHz) - Fast Ethernet (100BASE-TX).
+   - Category 5e (Enhanced): 1 Gbps (1000 Mbps) at 100 MHz - Gigabit Ethernet with tighter crosstalk specs.
+   - Category 6 (Cat-6): 1 Gbps to 10 Gbps (up to 55m) at 250 MHz - Has a plastic cross-filler (spline) separating pairs.
+   - Category 6a (Augmented): 10 Gbps up to 100 meters at 500 MHz.
+
+4. CONNECTIVITY HARDWARE:
+   - RJ-45 Connector: Registered Jack 45 (8-pin modular connector used with 4-pair 8-wire UTP/STP).
+   - Pinout standards: T568A and T568B.
+   - Straight-through cable: Used to connect dissimilar devices (PC to Switch, Router to Switch).
+   - Crossover cable: Used to connect similar devices directly (PC to PC, Switch to Switch) without Auto-MDIX.
+
+5. ADVANTAGES & LIMITATIONS:
+   - Advantages: Inexpensive, easy to install, lightweight, easy termination, standard across Ethernet.
+   - Limitations: Max segment length limited to 100m without repeaters, prone to high attenuation over long distances.

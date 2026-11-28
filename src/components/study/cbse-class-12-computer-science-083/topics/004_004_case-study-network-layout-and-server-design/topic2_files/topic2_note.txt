@@ -1,0 +1,42 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 4: 4-MARK NETWORK CASE STUDY & INFRASTRUCTURE DESIGN
+TOPIC 2: SERVER PLACEMENT STRATEGY (THE 80-20 RULE)
+
+================================================================================
+1. THE 80-20 RULE OF NETWORK TRAFFIC
+================================================================================
+Definition: In a properly designed hierarchical network, approximately 80% of
+traffic should remain local to the user's immediate workgroup or building switch,
+and only 20% should traverse the inter-building backbone links.
+
+Why It Dictates Server Placement:
+- If the server is in the block with the MAXIMUM number of workstations, that
+  dominant group accesses data over high-speed local switches (1 Gbps / 10 Gbps).
+- The outdoor inter-building cables (often lower bandwidth or longer runs) carry
+  traffic only for the smaller, secondary blocks (~20% of total load).
+
+================================================================================
+2. CBSE BOARD MARKING SCHEME FORMULA
+================================================================================
+Standard Question:
+"Suggest the most suitable place (block/wing) to house the server, and give reasons."
+
+Marking Breakdown (1 Mark total):
+- 0.5 Mark: Correctly naming the block with the maximum computers.
+- 0.5 Mark: Stating the technical justification: "Because it contains the maximum
+  number of computers (80-20 rule), minimizing inter-block network traffic."
+
+GOLDEN TEMPLATE ANSWER:
+"The server should be housed in Block [X] because it has the maximum number of
+computers ([N] computers). According to the 80-20 networking rule, placing the
+server here ensures that the bulk of data traffic remains local, minimizing
+traffic congestion and latency over inter-building backbone cables."
+
+================================================================================
+3. COMMON EXAM PITFALLS TO AVOID
+================================================================================
+- NEVER choose the "Admin" or "Administrative" block unless it actually has the
+  highest computer count!
+- Do not omit the reason; naming the block alone gives only 0.5 mark.
+- If two blocks tie for maximum computers, name either one and provide the reason.

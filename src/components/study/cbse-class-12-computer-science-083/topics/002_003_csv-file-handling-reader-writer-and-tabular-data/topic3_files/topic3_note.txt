@@ -1,0 +1,30 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: PERSISTENT DATA STORAGE - CSV FILE HANDLING
+TOPIC 3: WRITING TO CSV FILES (csv.writer, writerow, writerows)
+
+1. INITIALIZING THE WRITER OBJECT:
+- Syntax: writer_obj = csv.writer(file_handle, delimiter=',', ...)
+- The file_handle must be opened in write ('w') or append ('a') mode with newline=''.
+
+2. writerow(record_sequence):
+- Writes a single record (row) to the CSV file.
+- The argument must be a sequence (list or tuple) representing individual column values.
+- Example:
+  writer_obj.writerow(['RollNo', 'Name', 'Marks'])
+  writer_obj.writerow([101, 'Ananya', 95.5])
+
+3. writerows(list_of_sequences):
+- Writes multiple records at once to the CSV file.
+- The argument must be an iterable of sequences (e.g. a nested list of rows).
+- Example:
+  records = [
+      [101, 'Ananya', 95.5],
+      [102, 'Bikram', 89.0],
+      [103, 'Chitrangada', 92.5]
+  ]
+  writer_obj.writerows(records)
+
+4. DIFFERENCE BETWEEN writerow() AND writerows():
+- writerow() takes a 1D sequence and writes 1 row.
+- writerows() takes a 2D sequence (matrix/list of lists) and writes multiple rows.
+- If you accidentally pass a 1D list to writerows(['101', 'Ananya']), it iterates through individual strings and writes each string's characters across separate rows!

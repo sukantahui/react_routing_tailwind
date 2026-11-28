@@ -247,6 +247,46 @@ ret`
     level: "expert",
     codeExample: `// The Purple Team Security Creed:
 "Red without Blue is just vandalism; Blue without Red is blind complacency; Red and Blue united as Purple is unbreakable defense."`
+  },
+  {
+    question: "What is the primary role of a 'Purple Team' in an enterprise security organization?",
+    shortAnswer: "A collaborative function that integrates Red Team offensive tactics with Blue Team defensive capabilities in real-time to rapidly test, validate, and tune detection rules.",
+    explanation: "Instead of adversarial silos, Purple Teaming runs tabletop and live exercises where an attack technique is executed and defensive logs (SIEM/EDR) are checked and tuned simultaneously.",
+    hint: "Facilitating real-time collaboration between offensive Red and defensive Blue teams.",
+    level: "moderate",
+    codeExample: "PurpleTeamLoop = () => { RedExecuteTactic(); BlueVerifyDetection(); TuneEDRRule(); };"
+  },
+  {
+    question: "What are the core technical tools commonly utilized by a Blue Team (Defenders)?",
+    shortAnswer: "SIEM (Splunk, Elastic), EDR (CrowdStrike, SentinelOne), NDR (Zeek, Suricata), Firewalls/WAFs, and SOAR automation platforms.",
+    explanation: "Blue teams monitor telemetry streams, correlate indicators of compromise (IoCs), triage alerts, and execute automated containment playbooks.",
+    hint: "SIEM, EDR, network sensors, and incident response playbooks.",
+    level: "basic",
+    codeExample: "index=firewall action=blocked src_ip=192.168.1.100 | stats count by dest_ip"
+  },
+  {
+    question: "What is an 'Atomic Red Team' test in purple teaming methodologies?",
+    shortAnswer: "A library of simple, scripted, highly focused open-source tests mapped directly to the MITRE ATT&CK framework used to test whether specific defensive telemetry alerts fire.",
+    explanation: "Developed by Red Canary, Atomic tests execute specific techniques (e.g. T1003 OS Credential Dumping) in seconds to confirm detection coverage.",
+    hint: "Scripted unit tests mapped to MITRE ATT&CK techniques to verify EDR alerts.",
+    level: "moderate",
+    codeExample: "Invoke-AtomicTest T1003.001 -TestNumbers 1 # Tests LSASS dump detection"
+  },
+  {
+    question: "What metrics evaluate the operational effectiveness of a Blue Team Security Operations Center (SOC)?",
+    shortAnswer: "MTTD (Mean Time to Detect) and MTTR (Mean Time to Respond / Remediate).",
+    explanation: "Top-tier SOCs aim for the '1-10-60 rule': 1 minute to detect an intrusion, 10 minutes to investigate, and 60 minutes to remediate and contain.",
+    hint: "Mean Time to Detect (MTTD) and Mean Time to Respond (MTTR).",
+    level: "moderate",
+    codeExample: "SOC_Metrics = { MTTD_Target: '15_minutes', MTTR_Target: '60_minutes' };"
+  },
+  {
+    question: "What is the role of a Yellow Team or Orange Team in specialized cyber team taxonomy?",
+    shortAnswer: "Yellow Teams consist of software developers and architects building security into application code; Orange Teams focus on education, training, and building security awareness across developers.",
+    explanation: "Modern DevSecOps taxonomies define teams across the color spectrum: Red (Offense), Blue (Defense), Yellow (Builders), Orange (Trainers), Green (Automation).",
+    hint: "Software developers building secure systems (Yellow) and trainers (Orange).",
+    level: "advanced",
+    codeExample: "DevSecOpsPipeline: git commit -> SAST (Yellow) -> DAST (Red) -> WAF Rules (Blue)"
   }
 ];
 

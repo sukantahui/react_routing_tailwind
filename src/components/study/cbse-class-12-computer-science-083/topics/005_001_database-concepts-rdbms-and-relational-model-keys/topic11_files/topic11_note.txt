@@ -1,0 +1,38 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - QUICK REVISION NOTE
+TOPIC 11: FOREIGN KEY & REFERENTIAL INTEGRITY
+
+=============================================================================
+MASTER CONCEPTS FOR CBSE BOARD EXAMINATIONS:
+=============================================================================
+
+1. DEFINITION OF FOREIGN KEY:
+   - An attribute (or set of attributes) in a child table whose values reference and match
+     the Primary Key of a parent table.
+   - Purpose: Links tables together to establish relationships and maintain referential integrity.
+
+2. PARENT VS CHILD RELATION:
+   - Parent Relation (Referenced Table): The table that contains the Primary Key.
+   - Child Relation (Referencing Table): The table that contains the Foreign Key.
+
+3. THE REFERENTIAL INTEGRITY RULE:
+   - A foreign key value MUST either:
+     (a) Match an existing primary key value in the referenced parent table, OR
+     (b) Be NULL (if the foreign key column is defined without NOT NULL).
+
+4. REFERENTIAL ACTIONS ON PARENT DELETION:
+   - RESTRICT / NO ACTION (Default): Blocks deleting parent record if child records exist.
+   - CASCADE: Automatically deletes all child records when the parent record is deleted.
+   - SET NULL: Sets child foreign key values to NULL when the parent record is deleted.
+
+5. EXECUTION ORDERS:
+   - INSERT Order: Insert PARENT record first, then CHILD record.
+   - DROP Order:   Drop CHILD table first, then PARENT table.
+
+6. CLASSIC CBSE EXAM QUESTION:
+   Table DEPARTMENT (DeptId [PK], DeptName)
+   Table EMPLOYEE (EmpId [PK], Name, DeptId [FK])
+   - Q1: Identify Parent and Child tables -> Parent: DEPARTMENT, Child: EMPLOYEE.
+   - Q2: Identify Primary and Foreign keys -> Primary Keys: DeptId (in Dept) and EmpId (in Emp);
+                                             Foreign Key: DeptId in EMPLOYEE.
+   - Q3: Can DeptId in EMPLOYEE have duplicate values? -> YES (Many employees can work in 1 Dept).
+   - Q4: Can an employee have DeptId = NULL? -> YES (unassigned department).

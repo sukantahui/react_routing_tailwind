@@ -1,0 +1,27 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - QUICK REVISION NOTE
+TOPIC 4: DOMAIN OF AN ATTRIBUTE & ATOMIC VALUES
+
+1. DEFINITION OF DOMAIN:
+   - A Domain is the set or pool of all permissible, legal atomic values from which an attribute
+     draws its actual value.
+   - Example 1: Domain of 'Gender' = {'M', 'F', 'O'}
+   - Example 2: Domain of 'Marks' = Real numbers in the range [0.0, 100.0]
+   - Example 3: Domain of 'RollNo' = Positive integers [1, 2, 3, ...]
+
+2. ATOMIC VALUES & FIRST NORMAL FORM (1NF):
+   - In relational databases, all attribute values must be ATOMIC (indivisible).
+   - Each cell in a table must contain exactly ONE single scalar value.
+   - Disallowed in Relational Tables:
+     * Multi-valued attributes (e.g. multiple phone numbers in one cell).
+     * Composite attributes (e.g. complete address with street, city, pin in one cell).
+
+3. HOW TO HANDLE NON-ATOMIC ATTRIBUTES:
+   A. Composite Attributes (e.g. Address):
+      - Decompose into separate atomic columns: HouseNo, Street, City, State, Pincode.
+   B. Multi-valued Attributes (e.g. Hobbies, Skills, Phone Numbers):
+      - Create a separate related table linking each individual value back to the primary key.
+
+4. DOMAIN INTEGRITY:
+   - Enforced in SQL via:
+     * Data Types (INT, VARCHAR, DATE, DECIMAL)
+     * Constraints (NOT NULL, UNIQUE, CHECK, FOREIGN KEY)

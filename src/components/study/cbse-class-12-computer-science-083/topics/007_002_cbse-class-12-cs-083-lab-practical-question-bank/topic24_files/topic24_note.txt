@@ -1,0 +1,34 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 24: SAMPLE QUESTION PAPER (10 SETS · 20 MARKS EACH)
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+EXAMINATION BLUEPRINT & STRUCTURE (45 MINUTES PER SET · 20 MARKS TOTAL):
+- Section A: 4 Questions × 1 Mark = 4 Marks (Practical rules, method returns, constraints, modes)
+- Section B: 2 Questions × 2 Marks = 4 Marks (Viva Voce questions & 2-line practical code snippets)
+- Section C: 2 Questions × 3 Marks = 6 Marks (Python practical programming functions: Files, Stack, MySQL)
+- Section D: 1 Question × 6 Marks = 6 Marks (Comprehensive Practical Case Study: Full SQL Lab Set or Capstone Project)
+
+SCOPE OF SYLLABUS FOR THIS MODULE (TOPICS 0 TO 23 ONLY):
+- CBSE Practical Exam Structure: 30 Marks Total (Lab Test 12M, Report File 7M, Project 8M, Viva 3M)
+- Practicals 1-3: Text file processing (character/word/line count, line filtering, search & replace)
+- Practicals 4-7: Binary file handling (pickle.dump, pickle.load with EOFError, update with seek/tell, deletion via temp file)
+- Practicals 8-9: CSV file processing (csv.writer with newline='', csv.reader with aggregation)
+- Practicals 10-11: Linear Stack implementations (numeric stack, book record stack with Underflow check)
+- Practicals 12-15: Python-MySQL connectivity (database setup, parameterized insert with commit, fetchall formatted display, update & delete with rollback)
+- Practicals 16-19: SQL lab sets (DDL with primary/foreign keys, DML with WHERE/LIKE/BETWEEN/ORDER BY, aggregate queries with GROUP BY/HAVING, two-table equi-joins)
+- Practical 20: Capstone Project (Python front-end with MySQL back-end)
+- Practical Examination Viva Voce: Top 50 questions & model answers
+
+MASTER TEACHER SUKANTA HUI'S GOLDEN RULES FOR 30/30 IN PRACTICAL EXAM:
+1. PRACTICAL NOTEBOOK: Ensure all 15 Python programs and 5 SQL sets are neatly printed, certified, and signed.
+2. LIVE CODE EXECUTION: Always test code on Python IDLE and MySQL terminal before presenting to the examiner.
+3. VIVA CONFIDENCE: Speak clearly and concisely; explain your project's architecture, table structures, and commit logic.
+4. ERROR HANDLING: Always include try-except for EOFError in binary files and underflow check in stacks.
+5. CLEAN PRESENTATION: Format output with clear headers and record counters.
+
+================================================================================
+END OF REVISION SHEET · 10 SAMPLE SETS · CODER & ACCOTAX BARRACKPORE
+================================================================================

@@ -178,6 +178,94 @@ function constant_time_lookup(table, index):
 1. KeyGen:      d = Extended_Euclidean_Inverse( e, (p-1)*(q-1) )
 2. Encryption:  C = Montgomery_Exp( M, e, N )
 3. Decryption:  M = CRT_Garner_Recombination( Blinded_C, d_p, d_q, q_inv )`
+  },
+  {
+    question: "What is Modular Congruence in number theory?",
+    shortAnswer: "Two integers a and b are congruent modulo n (written a ≡ b mod n) if their difference (a - b) is divisible by n.",
+    explanation: "Equivalently, both a and b yield identical remainders when divided by positive integer n.",
+    hint: "a and b leave the same remainder when divided by modulus n.",
+    level: "basic",
+    codeExample: "assert (38 % 12) == (14 % 12) # 38 = 14 mod 12 (both remainder 2)"
+  },
+  {
+    question: "What is the Modular Multiplicative Inverse?",
+    shortAnswer: "An integer x such that (a · x) ≡ 1 (mod m); in RSA, the private exponent d is the modular multiplicative inverse of e modulo φ(n).",
+    explanation: "The inverse exists if and only if a and m are coprime (gcd(a, m) = 1).",
+    hint: "Integer x such that (a * x) mod m == 1.",
+    level: "moderate",
+    codeExample: "(e * d) % phi == 1"
+  },
+  {
+    question: "How does Modular Exponentiation (Square-and-Multiply) prevent integer overflow during RSA calculations?",
+    shortAnswer: "By reducing intermediate results modulo n after every single squaring and multiplication operation, keeping numbers from exceeding n^2.",
+    explanation: "Calculating m^e first on 2048-bit numbers would produce an integer with hundreds of thousands of digits, exhausting computer memory. Modular exponentiation keeps memory usage negligible.",
+    hint: "Applying modulo n after each step to prevent massive integer expansion.",
+    level: "moderate",
+    codeExample: "pow(base, exp, mod) # Python internal binary square-and-multiply"
+  },
+  {
+    question: "Why is division NOT a standard operation in modular arithmetic?",
+    shortAnswer: "Because integers modulo n do not form a field unless n is prime; 'division by b' is executed by multiplying by the modular multiplicative inverse b^(-1) mod n.",
+    explanation: "If gcd(b, n) != 1, the inverse does not exist and division is undefined.",
+    hint: "Division is performed by multiplying by the modular inverse b^(-1) mod n.",
+    level: "advanced",
+    codeExample: "def mod_div(a, b, m): return (a * pow(b, -1, m)) % m"
+  },
+  {
+    question: "Calculate the modular multiplicative inverse of 3 modulo 11.",
+    shortAnswer: "4, because (3 × 4) = 12 ≡ 1 (mod 11).",
+    explanation: "Testing values: 3×1=3, 3×2=6, 3×3=9, 3×4=12 ≡ 1 mod 11.",
+    hint: "Find x such that (3 * x) mod 11 == 1.",
+    level: "basic",
+    codeExample: "pow(3, -1, 11) == 4"
+  },
+  {
+    question: "Calculate the modular multiplicative inverse of 7 modulo 26.",
+    shortAnswer: "15, because (7 × 15) = 105 = (4 × 26) + 1 ≡ 1 (mod 26).",
+    explanation: "7 and 26 are coprime (gcd=1); Extended Euclidean algorithm yields 7(-11) + 26(3) = 1; -11 mod 26 = 15.",
+    hint: "Find x such that (7 * x) mod 26 == 1.",
+    level: "moderate",
+    codeExample: "pow(7, -1, 26) == 15"
+  },
+  {
+    question: "What happens if you attempt to calculate modular inverse when gcd(a, m) != 1?",
+    shortAnswer: "A modular inverse does not exist; mathematical algorithms fail or throw an exception.",
+    explanation: "For example, 4 mod 6 has no inverse because no multiple of 4 can ever yield a remainder of 1 when divided by 6 (multiples of 4 are always even, while 6k + 1 is always odd).",
+    hint: "No inverse exists; throws ValueError because numbers share common factors.",
+    level: "moderate",
+    codeExample: "# pow(4, -1, 6) -> ValueError: base is not invertible for the given modulus"
+  },
+  {
+    question: "How does Montgomery Multiplication optimize modular arithmetic in hardware cryptographic chips?",
+    shortAnswer: "It replaces slow division-based remainder operations with fast binary bitwise shifts and additions by transforming numbers into Montgomery representation.",
+    explanation: "Critical for smartcards and HSMs that lack dedicated multi-word hardware division circuits.",
+    hint: "Transforms numbers to replace division with fast bit shifts and additions.",
+    level: "advanced",
+    codeExample: "MontgomeryForm(x) = (x * R) % n # Accelerates modular exponentiation loops"
+  },
+  {
+    question: "What is Bézout's Identity and how is it used in RSA key generation?",
+    shortAnswer: "For any integers a and b with gcd(a, b) = d, there exist integers x and y such that a·x + b·y = d. In RSA, e·d + φ(n)·y = 1.",
+    explanation: "The Extended Euclidean Algorithm calculates the coefficients x and y; taking x mod φ(n) directly yields private exponent d.",
+    hint: "ax + by = gcd(a, b), used to extract inverse d from Extended Euclidean algorithm.",
+    level: "advanced",
+    codeExample: "gcd, d, _ = extended_gcd(e, phi); d = d % phi"
+  },
+  {
+    question: "What is the time complexity of the Extended Euclidean Algorithm for two n-bit integers?",
+    shortAnswer: "O(n^2) bit operations (or O(log(min(a, b))) divisions).",
+    explanation: "Extremely fast, executing in a fraction of a millisecond even on 4096-bit integers.",
+    hint: "O(log(min(a, b))) iterations, completing in milliseconds.",
+    level: "moderate",
+    codeExample: "ExecutionTime = '< 0.001 seconds for 4096-bit modulus'"
+  },
+  {
+    question: "Why is modular reduction distributive across addition and multiplication?",
+    shortAnswer: "(a + b) mod n = ((a mod n) + (b mod n)) mod n, and (a · b) mod n = ((a mod n) · (b mod n)) mod n.",
+    explanation: "This ring homomorphism property allows intermediate values to be kept small throughout modular exponentiation.",
+    hint: "Allows taking modulo before and after addition and multiplication.",
+    level: "basic",
+    codeExample: "assert ((a * b) % n) == (((a % n) * (b % n)) % n)"
   }
 ];
 

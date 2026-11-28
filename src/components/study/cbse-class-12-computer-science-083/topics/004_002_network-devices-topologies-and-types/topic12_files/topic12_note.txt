@@ -1,0 +1,31 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: MODULE 2 - TOPIC 12: MESH & RING TOPOLOGIES
+
+1. MESH TOPOLOGY ARCHITECTURE:
+   - Full Mesh: Every single node is connected directly to every other node in the network via a dedicated point-to-point physical link.
+   - Mathematics of Full Mesh (CBSE Numerical Questions):
+     * Number of Physical Links required for N nodes:
+       Links = N * (N - 1) / 2
+     * Number of I/O Ports required per device:
+       Ports per device = N - 1
+     * Example: For 6 computers:
+       Links = 6 * 5 / 2 = 15 cables; each computer must have 5 network cards/ports!
+   - Advantages:
+     * Ultimate Fault Tolerance: If one link fails, traffic reroutes through alternative links with zero downtime.
+     * Dedicated Bandwidth & Privacy: No shared lines; point-to-point links guarantee complete privacy and no collisions.
+   - Disadvantages:
+     * Extremely Expensive & Complex: Number of cables and ports grows quadratically (O(N^2)), making it impractical for large office LANs.
+     * Use Case: Core telecom routing backbones, nuclear power plant telemetry, air traffic control.
+
+2. RING TOPOLOGY ARCHITECTURE:
+   - Every node has exactly two neighbors, forming a continuous closed circular loop.
+   - Unidirectional Transmission: Data frames circulate in one direction (clockwise or counter-clockwise) passing from node to node.
+   - Token Passing Media Access Control:
+     * A special bit-pattern frame called a "Token" circulates endlessly around the ring.
+     * A node can ONLY transmit data when it captures the free Token.
+     * It appends its data, marks the token as "busy", and sends it forward.
+     * The destination node copies the data; the sender releases a new free token upon frame return.
+     * Advantage: Deterministic access with ZERO packet collisions.
+   - Major Vulnerability: A single cable break or failure of one workstation halts the entire ring!
+   - Dual-Ring (FDDI) Solution: Uses two counter-rotating rings. If a cable breaks, the two rings automatically wrap around the fault to form a single continuous loop (self-healing).

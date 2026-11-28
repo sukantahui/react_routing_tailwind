@@ -1,0 +1,35 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 14: SAMPLE QUESTION PAPER (10 SETS · 20 MARKS EACH)
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+EXAMINATION BLUEPRINT & STRUCTURE (45 MINUTES PER SET · 20 MARKS TOTAL):
+- Section A: 4 Questions × 1 Mark = 4 Marks (Short answer / MCQs / 1-line syntax)
+- Section B: 2 Questions × 2 Marks = 4 Marks (Differentiate / Tracing / Logic errors)
+- Section C: 2 Questions × 3 Marks = 6 Marks (Python connectivity function writing)
+- Section D: 1 Question × 6 Marks = 6 Marks (Comprehensive CRUD Application / Multi-operation Script)
+
+SCOPE OF SYLLABUS FOR THIS MODULE (TOPICS 0 TO 13 ONLY):
+- Database Connectivity Architecture: Two-tier model, Python front-end to MySQL back-end
+- mysql.connector Driver: Import, connection parameters (host, user, password, database, port)
+- Connection Verification: connection.is_connected()
+- Cursor Object: con.cursor(), execute(), rowcount, lastrowid, close()
+- Result Retrieval Methods: fetchone() [None when empty], fetchmany(size), fetchall() [[] when empty]
+- Direct Cursor Iteration: for row in cur: loop
+- Transaction Control: connection.commit() for DML, rollback() for errors
+- Parameterized Queries: Using '%s' placeholders with tuples to eliminate SQL injection
+- Exception Handling: mysql.connector.Error, errno, try-except-finally blocks
+- Complete CRUD Application Templates: Insert, Search, Update, Delete
+
+MASTER TEACHER SUKANTA HUI'S GOLDEN RULES FOR 100% MARKS IN PYTHON-MYSQL CONNECTIVITY:
+1. NEVER FORGET con.commit(): Without it, any INSERT, UPDATE, or DELETE will NOT be saved to the MySQL table!
+2. UNIVERSAL PLACEHOLDER '%s': Regardless of whether the column is INT, FLOAT, DATE, or VARCHAR, always use '%s' in mysql.connector.
+3. SINGLE-ELEMENT TUPLE: When passing one parameter, always remember the trailing comma: (param, ).
+4. ALWAYS CLOSE RESOURCES: Use cur.close() and con.close() in a finally block to avoid leaking connection sockets.
+5. EXCEPTION HANDLING: Wrap database operations in try-except catching mysql.connector.Error.
+
+================================================================================
+END OF REVISION SHEET · 10 SAMPLE SETS · CODER & ACCOTAX BARRACKPORE
+================================================================================

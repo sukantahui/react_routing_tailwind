@@ -1,0 +1,37 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 1: THE 'MYSQL.CONNECTOR' MODULE: INSTALLATION, ARCHITECTURE AND ENVIRONMENT SETUP
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+mysql.connector is a standard, pure Python driver supplied by Oracle that enables Python applications to communicate directly with MySQL servers without requiring C libraries.
+
+2. KEY EXAMINATION POINTS:
+  (1) Installation: 'pip install mysql-connector-python' downloads and registers the driver in the Python environment.
+  (2) Import statement in Python: 'import mysql.connector' or 'import mysql.connector as mycon'.
+  (3) Provides connection objects, cursor objects, error classes (mysql.connector.Error), and data type converters.
+  (4) Compatible with MySQL Server 5.7 and 8.0+ versions across Windows, macOS, and Linux platforms.
+
+3. SYNTAX & CODE SNIPPET:
+# Importing the connector module in CBSE board exam scripts
+import mysql.connector
+
+# Verifying successful module import and version
+print("Connector loaded successfully!")
+# print(mysql.connector.__version__)
+
+4. CBSE COMMON PITFALLS:
+Always remember to commit transactions and close both cursor and connection.
+
+5. REVISION CHECKLIST:
+  [ ] Understand connect() parameters: host, user, password, database.
+  [ ] Know the difference between fetchone(), fetchmany(), and fetchall().
+  [ ] Remember that fetchone() returns None and fetchall() returns [] when exhausted.
+  [ ] Master con.commit() for INSERT/UPDATE/DELETE.
+  [ ] Know that '%s' is the universal placeholder in mysql.connector.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 1 · CODER & ACCOTAX BARRACKPORE
+================================================================================

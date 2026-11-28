@@ -1,0 +1,31 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 10: DOWNLOADABLE DOCUMENTS & MASTER REVISION REPOSITORY (BINARY FILES)
+======================================================================
+
+1. COMPLETE BINARY FILE HANDLING RECAPITULATION
+   - Concept: Stores raw memory byte representation without EOL translation.
+   - Extension: Standard .dat (e.g. STUDENT.DAT).
+   - Core Tool: The 'pickle' module (import pickle).
+   - Core Operations:
+     * pickle.dump(object, file_handle) -> Serializes object into file.
+     * pickle.load(file_handle) -> Deserializes object from file.
+     * EOF Handling: pickle.load() raises EOFError; wrap in try-except EOFError!
+
+2. ACCESS MODES SUMMARY
+   - 'rb' : Read-only (error if missing).
+   - 'wb' : Write-only (creates or truncates to 0 bytes!).
+   - 'ab' : Append-only (creates if missing, preserves prior records).
+   - 'rb+': Read & Write (preserves data, in-place updates).
+
+3. CRUD ALGORITHMS CHEAT SHEET
+   - [C] Create/Append: Open 'ab' -> pickle.dump(rec, f).
+   - [R] Read All: Open 'rb' -> try: while True: rec = pickle.load(f) except EOFError: pass.
+   - [S] Search: Open 'rb' -> found = False -> if rec['roll'] == target: found = True; break -> if not found: print("Not found").
+   - [U] Update: Open 'rb' and 'wb' (temp) -> if match: update rec -> dump rec -> close -> os.remove -> os.rename.
+   - [D] Delete: Open 'rb' and 'wb' (temp) -> if match: skip -> else: dump rec -> close -> os.remove -> os.rename.
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

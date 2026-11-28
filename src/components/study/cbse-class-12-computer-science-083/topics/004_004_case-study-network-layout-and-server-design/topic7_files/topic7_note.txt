@@ -1,0 +1,42 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 4: 4-MARK NETWORK CASE STUDY & INFRASTRUCTURE DESIGN
+TOPIC 7: CONNECTING REMOTE BRANCHES (HILLY TERRAIN, CITIES & GLOBAL)
+
+================================================================================
+1. GEOGRAPHIC SCENARIOS & RECOMMENDED TECHNOLOGIES
+================================================================================
+Scenario 1: HILLY / MOUNTAINOUS REGION (e.g. Shimla, Darjeeling, Ooty)
+- Recommended Technology: Radio Wave / Microwave (Line-of-Sight) or Satellite Link (VSAT).
+- Justification: Laying physical cables across rugged, steep terrain is cost-prohibitive,
+  technically difficult, and highly vulnerable to landslides and physical severance.
+  Unguided wireless signals overcome terrain obstacles effortlessly.
+
+Scenario 2: CITY-TO-CITY WITHIN SAME METROPOLITAN AREA (5 - 50 km)
+- Network Classification: MAN (Metropolitan Area Network).
+- Recommended Technology: Metro Ethernet Leased Line / High-speed Fiber Optic / Microwave.
+- Justification: Provides high, guaranteed symmetric bandwidth with minimal latency.
+
+Scenario 3: INTER-STATE / INTERCONTINENTAL DISTANT BRANCHES (1,000+ km)
+- Network Classification: WAN (Wide Area Network).
+- Recommended Technology: Satellite Communication (VSAT) or Transoceanic Leased Lines / VPN.
+- Justification: Spans vast oceans and state borders through public carrier infrastructures.
+
+Scenario 4: SECURE REMOTE EMPLOYEE ACCESS
+- Recommended Technology: VPN (Virtual Private Network).
+- Justification: Creates an encrypted tunnel over public internet, protecting internal data.
+
+================================================================================
+2. GOLDEN ANSWER TEMPLATES FOR CBSE EXAM
+================================================================================
+Question: "Suggest a communication technology to link the Head Office to a branch
+office in a hilly region. Give reasons."
+Answer: "Radio Wave / Microwave transmission (or Satellite communication).
+Reason: Laying physical cables across rugged mountainous terrain is economically
+prohibitive and vulnerable to environmental disruptions (landslides). Wireless
+transmission travels through the air, bypassing all terrain obstacles."
+
+Question: "What hardware and software should be recommended for video conferencing?"
+Answer: "Hardware: High-definition webcams, microphones, and display screens.
+Protocol / Software: VoIP / SIP / H.323 protocols, and video conferencing software
+such as Zoom, Microsoft Teams, or Google Meet."

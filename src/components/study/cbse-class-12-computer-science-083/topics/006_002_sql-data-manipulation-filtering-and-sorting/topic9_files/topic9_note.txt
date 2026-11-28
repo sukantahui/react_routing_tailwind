@@ -1,0 +1,47 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 9: PATTERN MATCHING WITH LIKE OPERATOR: WILDCARDS % AND _
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+The LIKE operator searches for specified patterns in string columns using wildcard characters % (zero or more characters) and _ (exactly one character).
+
+2. KEY EXAMINATION POINTS:
+  (1) Percent Symbol (%): Matches any sequence of zero, one, or multiple characters.
+  (2) Underscore Symbol (_): Matches exactly one single character at that specific position.
+  (3) Case Insensitivity: In MySQL default collation, LIKE 'a%' matches both 'Apple' and 'arun'.
+  (4) CBSE Exam Classics: Name starting with 'S' ('S%'), ending with 'a' ('%a'), containing 'kumar' ('%kumar%'), exactly 5 characters long ('_____'), second letter 'a' ('_a%').
+
+3. SYNTAX & CODE SNIPPET:
+-- Names starting with 'A'
+SELECT * FROM Student WHERE SName LIKE 'A%';
+
+-- Names ending with 'sharma'
+SELECT * FROM Student WHERE SName LIKE '%sharma';
+
+-- Names containing 'singh' anywhere
+SELECT * FROM Student WHERE SName LIKE '%singh%';
+
+-- Names with exactly 4 letters
+SELECT * FROM Student WHERE SName LIKE '____';
+
+-- Names having second character as 'a'
+SELECT * FROM Student WHERE SName LIKE '_a%';
+
+-- Names starting with 'R' and having at least 4 letters
+SELECT * FROM Student WHERE SName LIKE 'R___%';
+
+4. CBSE COMMON PITFALLS:
+Remember to test conditions carefully and use parentheses to disambiguate AND/OR connectives.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between DML and DDL commands.
+  [ ] Master WHERE condition construction using relational and logical operators.
+  [ ] Be confident in NULL handling using IS NULL and IS NOT NULL.
+  [ ] Remember default ordering for ORDER BY is ASC.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 9 · CODER & ACCOTAX BARRACKPORE
+================================================================================

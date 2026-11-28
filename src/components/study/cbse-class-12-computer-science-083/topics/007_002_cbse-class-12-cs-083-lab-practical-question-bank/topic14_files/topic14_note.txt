@@ -1,0 +1,46 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 14: PRACTICAL 14: PYTHON-MYSQL QUERY EXECUTION WITH FETCHALL() AND FORMATTED DISPLAY
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Python program executing a SELECT query on table 'Student' and displaying all records in a formatted tabular layout with headings, alignments, and record counters.
+
+2. KEY EXAMINATION POINTS:
+  (1) Executes 'SELECT RollNo, SName, Stream, Marks FROM Student ORDER BY Marks DESC;'.
+  (2) Retrieves all tuples via cur.fetchall().
+  (3) Uses f-strings with width specifiers (e.g. f'{r[0]:<10}{r[1]:<25}') for clean terminal formatting.
+  (4) Displays total records count at the end.
+
+3. PRACTICAL CODE SNIPPET:
+import mysql.connector
+
+def display_all_students():
+    con = mysql.connector.connect(host='localhost', user='root', password='password', database='SchoolDB')
+    cur = con.cursor()
+    cur.execute("SELECT RollNo, SName, Stream, Marks FROM Student ORDER BY Marks DESC;")
+    rows = cur.fetchall()
+    
+    print("-" * 55)
+    print(f"{'Roll':<8}{'Name':<22}{'Stream':<15}{'Marks':>8}")
+    print("-" * 55)
+    for r in rows:
+        print(f"{r[0]:<8}{r[1]:<22}{r[2]:<15}{r[3]:>8.2f}")
+    print("-" * 55)
+    print(f"Total Students: {len(rows)}")
+    cur.close(); con.close()
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 14 · CODER & ACCOTAX BARRACKPORE
+================================================================================

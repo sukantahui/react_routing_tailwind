@@ -1,0 +1,37 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 8: DELETING RECORDS IN BINARY FILES - TEMPORARY FILE PATTERN
+======================================================================
+
+1. WHY DIRECT DELETION IS NOT POSSIBLE
+   - Binary files are sequential byte streams.
+   - Deleting a record in the middle would require shifting all subsequent bytes
+     to fill the gap, which standard file I/O does not support natively.
+   - Solution: The Temporary File Pattern.
+
+2. THE TEMPORARY FILE DELETION ALGORITHM
+   Step 1: Open 'student.dat' in 'rb' mode (source) and 'temp.dat' in 'wb' mode.
+   Step 2: Read records sequentially using pickle.load(fin) in a try-except EOFError loop.
+   Step 3: If record['roll'] == target_roll:
+           - DO NOT DUMP IT TO TEMP FILE! (Simply skip it).
+           - Set deleted = True.
+           Else:
+           - pickle.dump(record, fout)  # Preserve all other records!
+   Step 4: Close both files (exit 'with' block).
+   Step 5: If deleted is True:
+           - os.remove('student.dat')
+           - os.rename('temp.dat', 'student.dat')
+           - Print "Record deleted successfully."
+           Else:
+           - os.remove('temp.dat')
+           - Print "Record not found. Deletion aborted."
+
+3. BEST PRACTICES FOR FULL BOARD MARKS
+   - Import both 'pickle' and 'os'.
+   - Ensure 'with' block closes files BEFORE os.remove / os.rename.
+   - Track deletion status with a boolean flag.
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

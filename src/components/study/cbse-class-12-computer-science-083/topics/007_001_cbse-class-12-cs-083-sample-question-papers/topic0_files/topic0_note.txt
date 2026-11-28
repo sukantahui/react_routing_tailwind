@@ -1,0 +1,36 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: EXAMINATION MASTERY (FULL BOARD PATTERN)
+TOPIC 0: OFFICIAL CBSE CLASS XII CS 083 EXAMINATION PATTERN & SECTION-WISE MARKS DISTRIBUTION
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Complete architectural breakdown of the 70-mark theory paper: Section A (18 MCQs, 1M each), Section B (7 VSA, 2M each), Section C (5 SA, 3M each), Section D (2 LA, 5M each), and Section E (3 Case-Based, 4M each).
+
+2. KEY EXAMINATION POINTS:
+  (1) Total Marks: 70 Marks Theory (3 Hours) + 30 Marks Practical Assessment (Total 100 Marks).
+  (2) Unit I Computational Thinking and Programming - 2 carries 40 marks (Python revision, functions, files, stack).
+  (3) Unit II Computer Networks carries 10 marks (Media, devices, topologies, protocols, campus layout case study).
+  (4) Unit III Database Management carries 20 marks (Relational model, SQL DDL/DML, aggregates, joins, Python-MySQL connectivity).
+
+3. CODE & STRATEGY SNIPPET:
+# CBSE Class 12 Computer Science (083) Blueprint Breakdown:
+# Section A: Q1 - Q18  (18 x 1M = 18 Marks) -> MCQs & Assertion-Reasoning
+# Section B: Q19 - Q25 (7 x 2M  = 14 Marks) -> Output Tracing & Syntax Debugging
+# Section C: Q26 - Q30 (5 x 3M  = 15 Marks) -> Text File & Stack Coding
+# Section D: Q31 - Q32 (2 x 5M  = 10 Marks) -> Binary File & Complex SQL Joins
+# Section E: Q33 - Q35 (3 x 4M  = 13 Marks) -> Case-Based (Network Layout & RDBMS)
+
+4. CBSE COMMON PITFALLS:
+Spending disproportionate time on 1-mark MCQs in Section A; aim to finish Section A in under 30 minutes to leave ample time for 5-mark and 4-mark questions.
+
+5. REVISION CHECKLIST:
+  [ ] Understand 70-mark theory distribution across Sections A to E.
+  [ ] Practice dry-run trace tables for Section B output questions.
+  [ ] Memorize standard templates for Stack and Text file questions.
+  [ ] Know the 80-20 rule and repeater/switch criteria for Section E.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 0 · CODER & ACCOTAX BARRACKPORE
+================================================================================

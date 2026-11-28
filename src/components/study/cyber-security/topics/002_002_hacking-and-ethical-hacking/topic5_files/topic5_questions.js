@@ -214,6 +214,46 @@ curl https://example.com/.well-known/security.txt
     level: "expert",
     codeExample: `// The Channelization Equation:
 Rogue Curiosity + Legal Safe Harbor + Fair Bounty Rewards (₹) = Elite National Cyber Defenders`
+  },
+  {
+    question: "What defining characteristic distinguishes a Grey Hat hacker from a White Hat or Black Hat hacker?",
+    shortAnswer: "A Grey Hat acts without prior authorization or permission from the target system owner, but without malicious intent to steal data or cause destructive harm.",
+    explanation: "They may discover a flaw on a live website uninvited and then contact the owner offering to fix it, sometimes requesting a fee or threatening disclosure if ignored.",
+    hint: "Hacking without prior permission, but without malicious or destructive intent.",
+    level: "moderate",
+    codeExample: "EmailDraft: 'Dear Admin, I found an SQL injection on your checkout page without your consent...'"
+  },
+  {
+    question: "Why is Grey Hat activity legally considered illegal under the Computer Fraud and Abuse Act (CFAA)?",
+    shortAnswer: "Because laws against hacking do not require malicious intent; gaining unauthorized access to a protected computer is itself a statutory crime.",
+    explanation: "Courts evaluate whether authorization was granted beforehand. Good intentions do not convert unauthorized digital trespassing into lawful activity.",
+    hint: "Absence of prior authorization makes it a crime regardless of intent.",
+    level: "moderate",
+    codeExample: "// Legal violation: Accessing /admin endpoint via authentication bypass without written consent"
+  },
+  {
+    question: "What is an example of a famous Grey Hat incident in cybersecurity history?",
+    shortAnswer: "The 2002 Adrian Lamo intrusions into The New York Times, Microsoft, and Yahoo, where he searched for flaws from internet cafes and notified victims without destroying systems.",
+    explanation: "Lamo was convicted under the CFAA, received probation and restitution orders, illustrating that even helpful Grey Hat disclosure attracts criminal prosecution.",
+    hint: "Adrian Lamo penetrating The New York Times internal lexicons and networks.",
+    level: "moderate",
+    codeExample: "curl -X GET http://internal.target.com/debug/database_dump.php"
+  },
+  {
+    question: "What danger does an enterprise face when negotiating with a Grey Hat who demands a 'consulting fee'?",
+    shortAnswer: "It borders on commercial extortion; paying may incentivize future unauthorized probing and risks violating financial fraud or anti-extortion regulations.",
+    explanation: "Security teams must treat unauthorized probing as an incident, triage the reported bug, and refer monetary demands to legal and law enforcement authorities.",
+    hint: "Demanding payment for uninvited bug discoveries resembles extortion.",
+    level: "advanced",
+    codeExample: "TriagePolicy: 'Route unsolicited vulnerability demands immediately to General Counsel.'"
+  },
+  {
+    question: "How have Bug Bounty Safe Harbor policies helped convert Grey Hat activities into legitimate White Hat research?",
+    shortAnswer: "By legally pledging that security researchers who operate within scope and report flaws without exploiting data will NOT face legal prosecution under the CFAA.",
+    explanation: "Safe Harbor clauses provide legal protection, channeling inquisitive researchers into authorized vulnerability disclosure programs.",
+    hint: "Legal pledge by companies not to sue researchers adhering to program rules.",
+    level: "moderate",
+    codeExample: "SafeHarborClause: 'Company will not pursue legal action against researchers acting in good faith.'"
   }
 ];
 

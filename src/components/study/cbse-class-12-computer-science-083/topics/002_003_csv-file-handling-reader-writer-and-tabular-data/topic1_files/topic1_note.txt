@@ -1,0 +1,24 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: PERSISTENT DATA STORAGE - CSV FILE HANDLING
+TOPIC 1: THE 'csv' MODULE IN PYTHON STANDARD LIBRARY
+
+1. OVERVIEW:
+- Python provides the built-in 'csv' module for reading and writing CSV files.
+- Syntax: import csv
+- No external packages (like pip) are required.
+
+2. CORE CLASSES & FUNCTIONS:
+- csv.reader(csvfile, delimiter=',', ...): Returns a reader object which iterates over lines in the given csvfile.
+- csv.writer(csvfile, delimiter=',', ...): Returns a writer object responsible for converting the user's data into delimited strings on the given file-like object.
+- csv.DictReader(csvfile, fieldnames=None): Operates like regular reader but maps the information in each row to an OrderedDict / dict whose keys are given by the optional fieldnames parameter or inferred from the header row.
+- csv.DictWriter(csvfile, fieldnames): Writes dictionaries into CSV format based on the declared fieldnames.
+
+3. QUOTING CONSTANTS:
+- csv.QUOTE_MINIMAL: Quote fields only if they contain the delimiter or quotechar (Default).
+- csv.QUOTE_ALL: Quote all fields regardless of type.
+- csv.QUOTE_NONNUMERIC: Quote all non-numeric fields.
+- csv.QUOTE_NONE: Instructs writer never to quote fields; delimiter character in data raises an error unless escaped.
+
+4. DIALECTS:
+- A dialect is a container class defining formatting parameters (delimiter, quotechar, lineterminator, escapechar).
+- Default dialect in Python is 'excel'.

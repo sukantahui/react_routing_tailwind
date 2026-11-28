@@ -1,0 +1,48 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 7: PRACTICAL 7: BINARY FILE RECORD DELETION USING TEMPORARY FILE STRATEGY
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Python practical program to delete a specific student record from 'student.dat' by copying all non-target records to 'temp.dat' and swapping filenames via os.rename.
+
+2. KEY EXAMINATION POINTS:
+  (1) Opens 'student.dat' in 'rb' and 'temp.dat' in 'wb'.
+  (2) Loops through records: if record does not match target roll, dump into temp file.
+  (3) Handles EOFError to terminate reading.
+  (4) Uses os.remove('student.dat') and os.rename('temp.dat', 'student.dat') to finalize.
+
+3. PRACTICAL CODE SNIPPET:
+import pickle, os
+
+def delete_student(target_roll):
+    found = False
+    with open('student.dat', 'rb') as fin, open('temp.dat', 'wb') as fout:
+        try:
+            while True:
+                rec = pickle.load(fin)
+                if rec[0] == target_roll:
+                    found = True
+                else:
+                    pickle.dump(rec, fout)
+        except EOFError:
+            pass
+            
+    os.remove('student.dat')
+    os.rename('temp.dat', 'student.dat')
+    print("Deleted successfully!" if found else "Record not found.")
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 7 · CODER & ACCOTAX BARRACKPORE
+================================================================================

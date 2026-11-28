@@ -1,0 +1,48 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 8: LOGICAL OPERATORS: COMBINING CONDITIONS USING AND, OR, AND NOT
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Logical operators combine multiple search conditions into compound predicates. Understanding precedence (NOT > AND > OR) is vital for CBSE exams.
+
+2. KEY EXAMINATION POINTS:
+  (1) AND operator requires ALL connected conditions to evaluate to TRUE for a row to be selected.
+  (2) OR operator requires AT LEAST ONE connected condition to evaluate to TRUE.
+  (3) NOT operator negates the boolean value of a predicate: WHERE NOT (Dept = 'HR').
+  (4) Operator Precedence: Parentheses () have highest priority, followed by NOT, then AND, and finally OR. Use parentheses to prevent logic errors.
+
+3. SYNTAX & CODE SNIPPET:
+-- Both conditions must be TRUE
+SELECT SName, Stream, Marks 
+FROM Student 
+WHERE Stream = 'Science' AND Marks >= 90.0;
+
+-- Either condition can be TRUE
+SELECT EName, Dept, Salary 
+FROM Employee 
+WHERE Dept = 'IT' OR Salary > 70000;
+
+-- Precedence trap: AND takes precedence over OR
+SELECT * FROM Employee 
+WHERE Dept = 'Sales' OR Dept = 'HR' AND Salary > 50000;
+-- Evaluated as: Dept = 'Sales' OR (Dept = 'HR' AND Salary > 50000)
+
+-- Explicit parentheses for intended logic:
+SELECT * FROM Employee 
+WHERE (Dept = 'Sales' OR Dept = 'HR') AND Salary > 50000;
+
+4. CBSE COMMON PITFALLS:
+Remember to test conditions carefully and use parentheses to disambiguate AND/OR connectives.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between DML and DDL commands.
+  [ ] Master WHERE condition construction using relational and logical operators.
+  [ ] Be confident in NULL handling using IS NULL and IS NOT NULL.
+  [ ] Remember default ordering for ORDER BY is ASC.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 8 · CODER & ACCOTAX BARRACKPORE
+================================================================================

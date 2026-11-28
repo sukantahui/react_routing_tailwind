@@ -1,0 +1,13 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: CSV FILE HANDLING (SAMPLE QUESTION PAPERS)
+==================================================
+10 Mock Test Papers · 20 Marks Each · Duration: 45 Minutes
+
+KEY CONCEPTS:
+1. Module: import csv
+2. csv.reader(file_obj, delimiter=',') -> yields list of strings
+3. csv.writer(file_obj, delimiter=',') -> writerow(list), writerows(list_of_lists)
+4. ALWAYS use newline='' in open('file.csv', 'w', newline='') to prevent blank lines on Windows.
+5. All fields returned by reader are strings; use int() / float() for arithmetic.
+6. Headers can be skipped using next(reader).
+7. DictReader and DictWriter allow column access by name.

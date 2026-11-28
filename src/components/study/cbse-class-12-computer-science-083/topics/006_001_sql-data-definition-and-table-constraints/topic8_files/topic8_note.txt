@@ -1,0 +1,27 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT III: SQL DDL & TABLE CONSTRAINTS
+TOPIC 8: MODIFYING TABLES: ALTER TABLE STATEMENT (ADD, DROP, MODIFY)
+=====================================================
+The ALTER TABLE statement is a DDL command used to modify the schema of an existing table without dropping the table or losing existing data.
+
+1. ADD Column:
+   Adds a new column to the table.
+   Syntax:
+   ALTER TABLE table_name ADD column_name data_type [constraints] [FIRST | AFTER existing_col];
+   Example:
+   ALTER TABLE student ADD email VARCHAR(60) UNIQUE AFTER name;
+
+2. DROP Column:
+   Permanently deletes an existing column and all data stored in it.
+   Syntax:
+   ALTER TABLE table_name DROP COLUMN column_name;
+   Example:
+   ALTER TABLE student DROP COLUMN dob;
+
+3. MODIFY Column:
+   Changes the data type, size, or nullability constraint of an existing column.
+   Syntax:
+   ALTER TABLE table_name MODIFY column_name new_data_type [new_constraints];
+   Example:
+   ALTER TABLE student MODIFY name VARCHAR(60) NOT NULL;
+   Note: Shrinking column size (e.g. VARCHAR(60) to VARCHAR(20)) will fail if existing data exceeds 20 characters.

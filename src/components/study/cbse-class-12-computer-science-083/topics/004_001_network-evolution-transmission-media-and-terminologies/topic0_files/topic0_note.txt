@@ -1,0 +1,27 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: COMPUTER NETWORKS ARCHITECTURE & MEDIA
+TOPIC 0: EVOLUTION OF NETWORKING (ARPANET, NSFNET, INTERSPACE, INTERNET)
+
+1. NEED FOR NETWORKING:
+- Resource Sharing: Sharing high-cost hardware (laser printers, scanners, storage servers) and software across multiple nodes.
+- High Reliability: Alternative paths for data delivery; if one node or link fails, traffic reroutes.
+- Cost Reduction: Shared software licenses and centralized server management reduce IT expenditure.
+- Rapid Communication: Instantaneous transfer of messages, emails, sensor data, and multimedia globally.
+
+2. HISTORICAL MILESTONES:
+A. ARPANET (1969):
+   - Advanced Research Projects Agency Network, funded by US Department of Defense (DoD).
+   - Connected 4 university research nodes: UCLA, Stanford Research Institute (SRI), UC Santa Barbara (UCSB), and University of Utah.
+   - Pioneered packet switching and TCP/IP protocol suite.
+B. NSFNET (Mid-1980s):
+   - National Science Foundation Network created a high-capacity national backbone network.
+   - Connected supercomputing centers across US universities and research facilities.
+   - Far more capable and higher bandwidth than early ARPANET.
+C. INTERSPACE:
+   - Visionary multi-media software project for interconnected distributed virtual spaces.
+   - Allowed real-time cross-disciplinary communication and information retrieval.
+D. THE MODERN INTERNET (1990s - Present):
+   - Result of interconnecting ARPANET, NSFNET, and commercial private networks.
+   - In 1989-1991, Tim Berners-Lee invented the World Wide Web (WWW), HTML, and HTTP at CERN.
+   - A global network of interconnected computer networks adhering to the TCP/IP standard suite.

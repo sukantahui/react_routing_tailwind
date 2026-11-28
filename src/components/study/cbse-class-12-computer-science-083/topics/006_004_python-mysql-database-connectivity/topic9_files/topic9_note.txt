@@ -1,0 +1,52 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 9: PARAMETERIZED QUERIES: USING '%S' PLACEHOLDERS TO PREVENT SQL INJECTION ATTACKS
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Passing user input via string concatenation (e.g. f-strings) leaves databases vulnerable to SQL Injection attacks. Parameterized queries eliminate this risk.
+
+2. KEY EXAMINATION POINTS:
+  (1) Parameterized Syntax: 'cur.execute("INSERT INTO Student VALUES (%s, %s, %s);", (roll, name, marks))'
+  (2) In mysql.connector, the placeholder is ALWAYS '%s', regardless of whether the column is INT, FLOAT, DATE, or VARCHAR!
+  (3) The parameters MUST be passed as a Python tuple: '(val1, val2, val3)'. (For a single value: '(val1, )').
+  (4) The connector driver automatically quotes, sanitizes, and escapes characters, completely neutralizing SQL injection.
+
+3. SYNTAX & CODE SNIPPET:
+import mysql.connector
+
+con = mysql.connector.connect(host="localhost", user="root", password="tiger", database="SchoolDB")
+cur = con.cursor()
+
+# Accepting dynamic user input
+roll = int(input("Enter Roll No: "))
+name = input("Enter Name: ")
+marks = float(input("Enter Marks: "))
+
+# SECURE: Using %s placeholders with tuple
+query = "INSERT INTO Student (RollNo, SName, Marks) VALUES (%s, %s, %s);"
+params = (roll, name, marks)
+
+cur.execute(query, params)
+con.commit()
+
+print("Record inserted securely!")
+
+cur.close()
+con.close()
+
+4. CBSE COMMON PITFALLS:
+Always remember to commit transactions and close both cursor and connection.
+
+5. REVISION CHECKLIST:
+  [ ] Understand connect() parameters: host, user, password, database.
+  [ ] Know the difference between fetchone(), fetchmany(), and fetchall().
+  [ ] Remember that fetchone() returns None and fetchall() returns [] when exhausted.
+  [ ] Master con.commit() for INSERT/UPDATE/DELETE.
+  [ ] Know that '%s' is the universal placeholder in mysql.connector.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 9 · CODER & ACCOTAX BARRACKPORE
+================================================================================

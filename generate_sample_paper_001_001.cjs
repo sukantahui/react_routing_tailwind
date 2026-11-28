@@ -1,0 +1,1426 @@
+const fs = require('fs');
+const path = require('path');
+
+const modDir = path.join(__dirname, 'src', 'components', 'study', 'cbse-class-12-computer-science-083', 'topics', '001_001_python-class-11-curriculum-revision-and-tracing');
+const topicDir = path.join(modDir, 'topic13_files');
+fs.mkdirSync(topicDir, { recursive: true });
+
+// 10 Question Sets (20 Marks each = 200 Marks total)
+// Based ONLY on previous topics of Module 001_001 (Class 11 Python Revision: Tokens, Types, Operators, Conditionals, Loops, Strings, Lists, Tuples, Dictionaries, Errors)
+const samplePaperSets = [
+  {
+    setId: 1,
+    title: "Set 1: Python Tokens, Data Types & Expression Evaluation",
+    timeAllowed: "45 Minutes",
+    maxMarks: 20,
+    sections: [
+      {
+        name: "Section A: Objective & Conceptual Questions (4 Marks)",
+        questions: [
+          {
+            qNo: 1,
+            marks: 1,
+            question: "Which of the following is an invalid identifier in Python and why?\\n(a) _eval\\n(b) 2nd_name\\n(c) my_var\\n(d) Total_100",
+            solution: "(b) 2nd_name is invalid because Python identifier rules strictly state that variable names cannot begin with a digit (0-9).",
+            markingScheme: "1 Mark for identifying (b) with the correct reason (cannot start with a digit)."
+          },
+          {
+            qNo: 2,
+            marks: 1,
+            question: "Evaluate the following Python expression following operator precedence rules:\\nprint(16 // 3 * 2 ** 3 - 5 + 4 % 3)",
+            solution: "Step 1: Exponentiation: 2 ** 3 = 8.\\nStep 2: Floor division: 16 // 3 = 5.\\nStep 3: Multiplication: 5 * 8 = 40.\\nStep 4: Modulus: 4 % 3 = 1.\\nStep 5: Left-to-right addition/subtraction: 40 - 5 + 1 = 36.\\nOutput: 36",
+            markingScheme: "1 Mark for correct step-by-step evaluation resulting in 36."
+          },
+          {
+            qNo: 3,
+            marks: 1,
+            question: "Identify the mutable data type among the following:\\n(a) tuple\\n(b) str\\n(c) list\\n(d) int",
+            solution: "(c) list. Lists can be modified in-place (elements can be added, updated, or deleted) without changing their memory address (id). Tuples, strings, and integers are immutable.",
+            markingScheme: "1 Mark for identifying (c) list."
+          },
+          {
+            qNo: 4,
+            marks: 1,
+            question: "State the data type of the variable 'result' after executing:\\nresult = 15 > 10 and 'apple' < 'banana'",
+            solution: "Data type: bool (Boolean). Both conditions evaluate to True, so True and True yields boolean True.",
+            markingScheme: "1 Mark for stating 'bool' or 'Boolean'."
+          }
+        ]
+      },
+      {
+        name: "Section B: Short Answer & Output Tracing (4 Marks)",
+        questions: [
+          {
+            qNo: 5,
+            marks: 2,
+            question: "Predict the output of the following Python code snippet:\\ns = 'CBSE-Exam-2026'\\nprint(s[1:8:2] + ' ' + s[::-3])",
+            solution: "Part 1: s[1:8:2]\\nIndices 1, 3, 5, 7: s[1]='B', s[3]='E', s[5]='E', s[7]='a' -> 'BEEa'\\nPart 2: s[::-3]\\nStep -3 from end (length 14, last index 13):\\ns[13]='6', s[10]='0', s[7]='a', s[4]='-', s[1]='B' -> '60a-B'\\nCombined output: BEEa 60a-B",
+            markingScheme: "1 Mark for s[1:8:2] ('BEEa'), 1 Mark for s[::-3] ('60a-B'). Total: 2 Marks."
+          },
+          {
+            qNo: 6,
+            marks: 2,
+            question: "Identify and correct the syntax errors in the following code. Underline each correction:\\nval = input('Enter a number: ')\\nif val % 2 = 0:\\n    print 'Even number'\\nelse\\n    print('Odd number')",
+            solution: "Corrected Code:\\nval = int(input('Enter a number: '))     # Error 1: Must convert string to int\\nif val % 2 == 0:                         # Error 2: == for equality, not assignment =\\n    print('Even number')                 # Error 3: print() requires parentheses\\nelse:                                    # Error 4: Missing colon : after else\\n    print('Odd number')",
+            markingScheme: "0.5 Marks for each corrected and underlined error (4 errors * 0.5 = 2 Marks)."
+          }
+        ]
+      },
+      {
+        name: "Section C: Analytical Problem Solving (6 Marks)",
+        questions: [
+          {
+            qNo: 7,
+            marks: 3,
+            question: "Trace the execution of the following nested loop and write its exact output along with a dry-run table:\\ntotal = 0\\nfor i in range(1, 4):\\n    for j in range(i, 0, -1):\\n        total += i * j\\nprint('Total:', total)",
+            solution: "Dry-Run Table:\\n* i=1: j=1 -> total += 1*1 = 1\\n* i=2: j=2 -> total += 2*2 = 5; j=1 -> total += 2*1 = 7\\n* i=3: j=3 -> total += 3*3 = 16; j=2 -> total += 3*2 = 22; j=1 -> total += 3*1 = 25\\nFinal Output:\\nTotal: 25",
+            markingScheme: "1.5 Marks for step-by-step dry-run iterations, 1.5 Marks for final output Total: 25."
+          },
+          {
+            qNo: 8,
+            marks: 3,
+            question: "Differentiate between 'break' and 'continue' statements in Python. Provide a clear code example showing the distinct behavior of each.",
+            solution: "1. 'break': Terminates the loop immediately and transfers control to the statement following the loop.\\n2. 'continue': Skips the rest of the current iteration and jumps directly to the next iteration of the loop.\\nExample:\\nfor i in range(1, 6):\\n    if i == 3: break      # Output: 1, 2\\nfor i in range(1, 6):\\n    if i == 3: continue   # Output: 1, 2, 4, 5",
+            markingScheme: "1 Mark for definition of break, 1 Mark for definition of continue, 1 Mark for illustrative code snippet."
+          }
+        ]
+      },
+      {
+        name: "Section D: Programming & Comprehensive Application (6 Marks)",
+        questions: [
+          {
+            qNo: 9,
+            marks: 6,
+            question: "Write a complete Python program to do the following:\\n(a) Input a string containing mixed uppercase, lowercase, digits, and special symbols from the user.\\n(b) Count and display the total number of vowels, consonants, digits, and whitespace characters.\\n(c) Construct and print a new string where all vowels are replaced with '*', and lowercase consonants are converted to uppercase.",
+            solution: "def process_text():\\n    s = input('Enter a string: ')\\n    vowels = 'aeiouAEIOU'\\n    v_cnt = c_cnt = d_cnt = w_cnt = 0\\n    new_s = ''\\n    for ch in s:\\n        if ch.isalpha():\\n            if ch in vowels:\\n                v_cnt += 1\\n                new_s += '*'\\n            else:\\n                c_cnt += 1\\n                new_s += ch.upper()\\n        elif ch.isdigit():\\n            d_cnt += 1\\n            new_s += ch\\n        elif ch.isspace():\\n            w_cnt += 1\\n            new_s += ch\\n        else:\\n            new_s += ch\\n    print(f'Vowels: {v_cnt}, Consonants: {c_cnt}, Digits: {d_cnt}, Spaces: {w_cnt}')\\n    print('Modified String:', new_s)\\n\\nprocess_text()",
+            markingScheme: "1 Mark for input and counter initialization, 2 Marks for correct counting logic, 2 Marks for modified string construction, 1 Mark for clean display of results. Total: 6 Marks."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    setId: 2,
+    title: "Set 2: Strings, Slicing & Sequence Algorithms",
+    timeAllowed: "45 Minutes",
+    maxMarks: 20,
+    sections: [
+      {
+        name: "Section A: Objective & Conceptual Questions (4 Marks)",
+        questions: [
+          {
+            qNo: 1,
+            marks: 1,
+            question: "What is the output of: print('Cyber'[1:-1])?",
+            solution: "Index 1 is 'y'. Index -1 is the last character 'r' (exclusive). Output: 'ybe'",
+            markingScheme: "1 Mark for 'ybe'."
+          },
+          {
+            qNo: 2,
+            marks: 1,
+            question: "Which string method checks whether all characters in a string are digits?\\n(a) isalpha()\\n(b) isdigit()\\n(c) isalnum()\\n(d) isspace()",
+            solution: "(b) isdigit(). Returns True if all characters in the string are digits.",
+            markingScheme: "1 Mark for (b) isdigit()."
+          },
+          {
+            qNo: 3,
+            marks: 1,
+            question: "State whether True or False: Strings in Python are mutable and support item assignment like s[0] = 'X'.",
+            solution: "False. Strings in Python are immutable; attempting item assignment raises a TypeError.",
+            markingScheme: "1 Mark for False with reason (strings are immutable)."
+          },
+          {
+            qNo: 4,
+            marks: 1,
+            question: "What does the expression 'India' * 2 + '!' evaluate to?",
+            solution: "'IndiaIndia!'. String repetition (*) precedes concatenation (+).",
+            markingScheme: "1 Mark for 'IndiaIndia!'."
+          }
+        ]
+      },
+      {
+        name: "Section B: Short Answer & Output Tracing (4 Marks)",
+        questions: [
+          {
+            qNo: 5,
+            marks: 2,
+            question: "Predict the output of the following code:\\ntxt = 'Pre-Board-Exam'\\nlst = txt.split('-')\\nprint('#'.join(lst[::-1]))",
+            solution: "lst is ['Pre', 'Board', 'Exam'].\\nlst[::-1] is ['Exam', 'Board', 'Pre'].\\n'#'.join(...) produces 'Exam#Board#Pre'.",
+            markingScheme: "1 Mark for split and reverse list, 1 Mark for join result 'Exam#Board#Pre'."
+          },
+          {
+            qNo: 6,
+            marks: 2,
+            question: "Find the output of the following code snippet:\\ndef check(w):\\n    return w == w[::-1]\\nprint(check('Madam'.lower()), check('Python'))",
+            solution: "'Madam'.lower() is 'madam'. Reverse is 'madam', so True.\\n'Python'[::-1] is 'nohtyP', so False.\\nOutput: True False",
+            markingScheme: "1 Mark for True, 1 Mark for False."
+          }
+        ]
+      },
+      {
+        name: "Section C: Analytical Problem Solving (6 Marks)",
+        questions: [
+          {
+            qNo: 7,
+            marks: 3,
+            question: "Explain the difference between find() and index() methods in Python strings with suitable code examples.",
+            solution: "1. s.find(sub): Returns the lowest index where sub is found. If sub is NOT found, it returns -1.\\n2. s.index(sub): Similar to find(), but raises a ValueError exception if sub is NOT found.\\nExample:\\n'hello'.find('z')  # Returns -1\\n'hello'.index('z') # Raises ValueError: substring not found",
+            markingScheme: "1.5 Marks for explanation, 1.5 Marks for examples highlighting -1 vs ValueError."
+          },
+          {
+            qNo: 8,
+            marks: 3,
+            question: "Trace the output of the following program:\\nmsg = 'Computer'\\nres = ''\\nfor i in range(len(msg)):\\n    if i % 2 == 0:\\n        res += msg[i].upper()\\n    else:\\n        res += str(i)\\nprint(res)",
+            solution: "Dry-run:\\n* i=0: 'C' (msg[0].upper())\\n* i=1: '1'\\n* i=2: 'M'\\n* i=3: '3'\\n* i=4: 'U'\\n* i=5: '5'\\n* i=6: 'E'\\n* i=7: '7'\\nOutput: C1M3U5E7",
+            markingScheme: "1.5 Marks for dry-run step analysis, 1.5 Marks for final output C1M3U5E7."
+          }
+        ]
+      },
+      {
+        name: "Section D: Programming & Comprehensive Application (6 Marks)",
+        questions: [
+          {
+            qNo: 9,
+            marks: 6,
+            question: "Write a Python program to accept a line of text and do the following:\\n(a) Find and display the longest word in the sentence.\\n(b) Count the frequency of each unique word in the sentence and display it in dictionary format.",
+            solution: "sentence = input('Enter sentence: ')\\nwords = sentence.split()\\nlongest = max(words, key=len) if words else ''\\nprint('Longest Word:', longest)\\nfreq = {}\\nfor w in words:\\n    w_clean = w.lower()\\n    freq[w_clean] = freq.get(w_clean, 0) + 1\\nprint('Word Frequencies:', freq)",
+            markingScheme: "1 Mark for input and word tokenization, 2 Marks for longest word logic, 2 Marks for dictionary frequency counting, 1 Mark for formatted output. Total: 6 Marks."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    setId: 3,
+    title: "Set 3: Lists, Nested Lists & Manipulation Algorithms",
+    timeAllowed: "45 Minutes",
+    maxMarks: 20,
+    sections: [
+      {
+        name: "Section A: Objective & Conceptual Questions (4 Marks)",
+        questions: [
+          {
+            qNo: 1,
+            marks: 1,
+            question: "What is the result of [1, 2] * 3?",
+            solution: "[1, 2, 1, 2, 1, 2]. List replication repeats elements in order.",
+            markingScheme: "1 Mark for [1, 2, 1, 2, 1, 2]."
+          },
+          {
+            qNo: 2,
+            marks: 1,
+            question: "What is the difference between list.append(x) and list.extend(x) when x = [3, 4]?",
+            solution: "append adds [3, 4] as a single nested element: [..., [3, 4]]; extend adds elements individually: [..., 3, 4].",
+            markingScheme: "1 Mark for explaining nested list vs individual element appending."
+          },
+          {
+            qNo: 3,
+            marks: 1,
+            question: "Which method removes and returns the last element of a list?",
+            solution: "pop(). list.pop() removes and returns the last item.",
+            markingScheme: "1 Mark for pop()."
+          },
+          {
+            qNo: 4,
+            marks: 1,
+            question: "What does len([[1, 2], [3, 4], [5]]) return?",
+            solution: "3. The outer list contains 3 sub-lists.",
+            markingScheme: "1 Mark for 3."
+          }
+        ]
+      },
+      {
+        name: "Section B: Short Answer & Output Tracing (4 Marks)",
+        questions: [
+          {
+            qNo: 5,
+            marks: 2,
+            question: "Predict the output:\\nnums = [10, 20, 30, 40, 50]\\nnums[1:4] = [25, 35]\\nprint(nums)",
+            solution: "Slice [1:4] (elements 20, 30, 40) is replaced by [25, 35].\\nOutput: [10, 25, 35, 50]",
+            markingScheme: "2 Marks for correct list slice replacement [10, 25, 35, 50]."
+          },
+          {
+            qNo: 6,
+            marks: 2,
+            question: "Find the output of:\\na = [1, 2, 3]\\nb = a\\nb.append(4)\\nprint(a, b)",
+            solution: "Both 'a' and 'b' refer to the same mutable list in memory. Modifying 'b' also updates 'a'.\\nOutput: [1, 2, 3, 4] [1, 2, 3, 4]",
+            markingScheme: "2 Marks for identifying aliasing/reference behavior."
+          }
+        ]
+      },
+      {
+        name: "Section C: Analytical Problem Solving (6 Marks)",
+        questions: [
+          {
+            qNo: 7,
+            marks: 3,
+            question: "Write a Python function to swap adjacent elements of a list of even length. Example: [1, 2, 3, 4] -> [2, 1, 4, 3].",
+            solution: "def swap_adjacent(lst):\\n    for i in range(0, len(lst) - 1, 2):\\n        lst[i], lst[i+1] = lst[i+1], lst[i]\\n    return lst\\n# Test: print(swap_adjacent([1, 2, 3, 4, 5, 6]))",
+            markingScheme: "1 Mark for loop range(0, len, 2), 1.5 Marks for simultaneous swap, 0.5 Marks for return."
+          },
+          {
+            qNo: 8,
+            marks: 3,
+            question: "Trace the output:\\nmatrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]\\ndiag_sum = sum(matrix[i][i] for i in range(3))\\nanti_diag = sum(matrix[i][2-i] for i in range(3))\\nprint(diag_sum, anti_diag)",
+            solution: "Main diagonal: matrix[0][0] + matrix[1][1] + matrix[2][2] = 1 + 5 + 9 = 15.\\nAnti-diagonal: matrix[0][2] + matrix[1][1] + matrix[2][0] = 3 + 5 + 7 = 15.\\nOutput: 15 15",
+            markingScheme: "1.5 Marks for main diagonal calculation, 1.5 Marks for anti-diagonal calculation."
+          }
+        ]
+      },
+      {
+        name: "Section D: Programming & Comprehensive Application (6 Marks)",
+        questions: [
+          {
+            qNo: 9,
+            marks: 6,
+            question: "Write a program to input a list of integers from the user and:\\n(a) Shift all negative numbers to the left and positive numbers to the right without changing their relative order.\\n(b) Find and display the second highest number in the list without using the sort() function.",
+            solution: "def rearrange_and_second_max():\\n    nums = list(map(int, input('Enter numbers separated by space: ').split()))\\n    negs = [x for x in nums if x < 0]\\n    pos = [x for x in nums if x >= 0]\\n    rearranged = negs + pos\\n    print('Rearranged:', rearranged)\\n    unique_nums = list(set(nums))\\n    if len(unique_nums) >= 2:\\n        highest = max(unique_nums)\\n        unique_nums.remove(highest)\\n        second_highest = max(unique_nums)\\n        print('Second Highest:', second_highest)\\n    else:\\n        print('Insufficient unique numbers.')\\nrearrange_and_second_max()",
+            markingScheme: "3 Marks for correct negative/positive partition preserving order, 3 Marks for second largest determination without sort(). Total: 6 Marks."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    setId: 4,
+    title: "Set 4: Tuples, Immutability & Packing/Unpacking",
+    timeAllowed: "45 Minutes",
+    maxMarks: 20,
+    sections: [
+      {
+        name: "Section A: Objective & Conceptual Questions (4 Marks)",
+        questions: [
+          {
+            qNo: 1,
+            marks: 1,
+            question: "Which of the following creates a single-element tuple in Python?\\n(a) t = (5)\\n(b) t = (5,)\\n(c) t = tuple(5)\\n(d) t = [5]",
+            solution: "(b) t = (5,). The trailing comma distinguishes a tuple from a parenthesized integer expression.",
+            markingScheme: "1 Mark for (b) t = (5,)."
+          },
+          {
+            qNo: 2,
+            marks: 1,
+            question: "What error occurs when executing: t = (10, 20); t[0] = 99?",
+            solution: "TypeError: 'tuple' object does not support item assignment.",
+            markingScheme: "1 Mark for TypeError (immutability violation)."
+          },
+          {
+            qNo: 3,
+            marks: 1,
+            question: "What is tuple unpacking? Give a 1-line example.",
+            solution: "Extracting tuple values into multiple variables: a, b = (10, 20).",
+            markingScheme: "1 Mark for definition and 1-line example."
+          },
+          {
+            qNo: 4,
+            marks: 1,
+            question: "Can a tuple contain a mutable list as an element?",
+            solution: "Yes, e.g. t = (1, [2, 3]). The tuple reference is immutable, but the nested list can be modified.",
+            markingScheme: "1 Mark for Yes with valid explanation."
+          }
+        ]
+      },
+      {
+        name: "Section B: Short Answer & Output Tracing (4 Marks)",
+        questions: [
+          {
+            qNo: 5,
+            marks: 2,
+            question: "Find the output of:\\nt = (1, [2, 3], 4)\\nt[1].append(99)\\nprint(t)",
+            solution: "Output: (1, [2, 3, 99], 4). The list inside the tuple is mutated in place.",
+            markingScheme: "2 Marks for correct output showing modified list inside tuple."
+          },
+          {
+            qNo: 6,
+            marks: 2,
+            question: "What is the output of:\\nt = (10, 20, 30, 20, 40, 20)\\nprint(t.count(20), t.index(20))",
+            solution: "t.count(20) is 3.\\nt.index(20) is 1 (the first occurrence index).\\nOutput: 3 1",
+            markingScheme: "1 Mark for count 3, 1 Mark for index 1."
+          }
+        ]
+      },
+      {
+        name: "Section C: Analytical Problem Solving (6 Marks)",
+        questions: [
+          {
+            qNo: 7,
+            marks: 3,
+            question: "Explain why tuples can be used as dictionary keys while lists cannot. Give an example.",
+            solution: "Dictionary keys must be 'hashable' and immutable. Tuples are immutable and therefore hashable, whereas lists are mutable and unhashable (raises TypeError: unhashable type: 'list').\\nExample:\\nvalid_dict = {(1, 2): 'Point A'} # Valid\\ninvalid_dict = {[1, 2]: 'Point A'} # Raises TypeError",
+            markingScheme: "1.5 Marks for immutability & hashability explanation, 1.5 Marks for code examples."
+          },
+          {
+            qNo: 8,
+            marks: 3,
+            question: "Write a function that takes a tuple of numbers and returns a new tuple containing only the prime numbers.",
+            solution: "def filter_primes(t):\\n    def is_prime(n):\\n        if n < 2: return False\\n        for i in range(2, int(n**0.5) + 1):\\n            if n % i == 0: return False\\n        return True\\n    return tuple(x for x in t if is_prime(x))",
+            markingScheme: "1.5 Marks for is_prime logic, 1.5 Marks for tuple comprehension construction."
+          }
+        ]
+      },
+      {
+        name: "Section D: Programming & Comprehensive Application (6 Marks)",
+        questions: [
+          {
+            qNo: 9,
+            marks: 6,
+            question: "Write a program that takes a list of student records where each record is a tuple: (RollNo, Name, Marks).\\n(a) Find and print the topper's name and marks.\\n(b) Calculate and display the class average marks.\\n(c) Separate and display students who scored above average in a new tuple.",
+            solution: "students = [\\n    (101, 'Aman', 92),\\n    (102, 'Pooja', 78),\\n    (103, 'Rohan', 88),\\n    (104, 'Sneha', 95)\\n]\\ntopper = max(students, key=lambda s: s[2])\\nprint(f'Topper: {topper[1]} with {topper[2]} marks')\\navg = sum(s[2] for s in students) / len(students)\\nprint(f'Average Marks: {avg:.2f}')\\nabove_avg = tuple(s[1] for s in students if s[2] > avg)\\nprint('Above Average Students:', above_avg)",
+            markingScheme: "2 Marks for topper finding, 2 Marks for average calculation, 2 Marks for above-average tuple creation. Total: 6 Marks."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    setId: 5,
+    title: "Set 5: Dictionaries, Key-Value Pairs & Hashing",
+    timeAllowed: "45 Minutes",
+    maxMarks: 20,
+    sections: [
+      {
+        name: "Section A: Objective & Conceptual Questions (4 Marks)",
+        questions: [
+          {
+            qNo: 1,
+            marks: 1,
+            question: "Which dictionary method returns the value for a key if present, or a default value without raising KeyError?",
+            solution: "get(). d.get(key, default) avoids KeyError.",
+            markingScheme: "1 Mark for get()."
+          },
+          {
+            qNo: 2,
+            marks: 1,
+            question: "Can two different keys in a dictionary hold the same value?",
+            solution: "Yes, keys must be unique, but multiple keys can map to the same value.",
+            markingScheme: "1 Mark for Yes."
+          },
+          {
+            qNo: 3,
+            marks: 1,
+            question: "What does list(d.keys()) return for d = {'a': 1, 'b': 2}?",
+            solution: "['a', 'b'].",
+            markingScheme: "1 Mark for ['a', 'b']."
+          },
+          {
+            qNo: 4,
+            marks: 1,
+            question: "What is the output of len({'x': 1, 'x': 2, 'x': 3})?",
+            solution: "1. Duplicate keys overwrite previous entries, leaving only {'x': 3}.",
+            markingScheme: "1 Mark for 1."
+          }
+        ]
+      },
+      {
+        name: "Section B: Short Answer & Output Tracing (4 Marks)",
+        questions: [
+          {
+            qNo: 5,
+            marks: 2,
+            question: "Predict the output:\\nd = {'Math': 90, 'Science': 85}\\nfor k, v in d.items():\\n    print(k[:3], v + 5)",
+            solution: "Output:\\nMat 95\\nSci 90",
+            markingScheme: "1 Mark for 'Mat 95', 1 Mark for 'Sci 90'."
+          },
+          {
+            qNo: 6,
+            marks: 2,
+            question: "Find the output:\\nd = {1: 'A', 2: 'B', 3: 'C'}\\nprint(d.pop(2), d)",
+            solution: "pop(2) returns 'B' and removes key 2.\\nOutput: B {1: 'A', 3: 'C'}",
+            markingScheme: "1 Mark for returned value 'B', 1 Mark for remaining dictionary {1: 'A', 3: 'C'}."
+          }
+        ]
+      },
+      {
+        name: "Section C: Analytical Problem Solving (6 Marks)",
+        questions: [
+          {
+            qNo: 7,
+            marks: 3,
+            question: "Write a function invert_dict(d) that swaps keys and values of a dictionary. Assume all values are unique and hashable.",
+            solution: "def invert_dict(d):\\n    return {v: k for k, v in d.items()}\\n# Example:\\nprint(invert_dict({'a': 1, 'b': 2})) # {1: 'a', 2: 'b'}",
+            markingScheme: "1.5 Marks for dictionary comprehension or loop logic, 1.5 Marks for correct key-value inversion."
+          },
+          {
+            qNo: 8,
+            marks: 3,
+            question: "Trace the output:\\nd = {}\\nfor c in 'mississippi':\\n    d[c] = d.get(c, 0) + 1\\nprint(sorted(d.items()))",
+            solution: "Frequencies:\\n'm': 1, 'i': 4, 's': 4, 'p': 2.\\nSorted by key alphabetically:\\n[('i', 4), ('m', 1), ('p', 2), ('s', 4)]",
+            markingScheme: "1.5 Marks for frequency counts, 1.5 Marks for sorted items output."
+          }
+        ]
+      },
+      {
+        name: "Section D: Programming & Comprehensive Application (6 Marks)",
+        questions: [
+          {
+            qNo: 9,
+            marks: 6,
+            question: "Write a program to manage an employee database using a nested dictionary where EmpId is the key and details are a dictionary {'Name': str, 'Dept': str, 'Salary': float}.\\n(a) Add 3 employee records.\\n(b) Display all employees belonging to the 'IT' department.\\n(c) Increase the salary of all employees by 10% and display updated records.",
+            solution: "employees = {\\n    101: {'Name': 'Amit', 'Dept': 'IT', 'Salary': 50000},\\n    102: {'Name': 'Priya', 'Dept': 'HR', 'Salary': 45000},\\n    103: {'Name': 'Rohan', 'Dept': 'IT', 'Salary': 60000}\\n}\\nprint('IT Employees:')\\nfor emp_id, info in employees.items():\\n    if info['Dept'] == 'IT':\\n        print(f'{emp_id}: {info[\"Name\"]}')\\nprint('\\nUpdating Salaries by 10%:')\\nfor info in employees.values():\\n    info['Salary'] *= 1.10\\nprint(employees)",
+            markingScheme: "2 Marks for nested dictionary structure, 2 Marks for department filtering, 2 Marks for in-place salary increment. Total: 6 Marks."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    setId: 6,
+    title: "Set 6: Conditionals, Loops & Output Tracing Drills",
+    timeAllowed: "45 Minutes",
+    maxMarks: 20,
+    sections: [
+      {
+        name: "Section A: Objective & Conceptual Questions (4 Marks)",
+        questions: [
+          {
+            qNo: 1,
+            marks: 1,
+            question: "What is the output of print(bool(0), bool('False'), bool([]))?",
+            solution: "False True False. 0 and [] are falsy; non-empty string 'False' is truthy.",
+            markingScheme: "1 Mark for False True False."
+          },
+          {
+            qNo: 2,
+            marks: 1,
+            question: "How many times will this loop execute: for i in range(10, 2, -3)?",
+            solution: "3 times (values: 10, 7, 4).",
+            markingScheme: "1 Mark for 3 times."
+          },
+          {
+            qNo: 3,
+            marks: 1,
+            question: "What does the 'pass' statement do in a Python loop or conditional block?",
+            solution: "It acts as a null operation/placeholder; nothing happens when it executes.",
+            markingScheme: "1 Mark for null operation/placeholder."
+          },
+          {
+            qNo: 4,
+            marks: 1,
+            question: "What is the output of 5 < 10 < 15 > 8?",
+            solution: "True. Python supports chained comparisons: (5 < 10) and (10 < 15) and (15 > 8) = True.",
+            markingScheme: "1 Mark for True with chained comparison explanation."
+          }
+        ]
+      },
+      {
+        name: "Section B: Short Answer & Output Tracing (4 Marks)",
+        questions: [
+          {
+            qNo: 5,
+            marks: 2,
+            question: "Find the output:\\nx = 1\\nwhile x < 20:\\n    x = x * 2 + 1\\n    if x == 7: continue\\n    print(x, end=' ')",
+            solution: "x=1 -> x=1*2+1=3 -> print 3\\nx=3 -> x=3*2+1=7 -> continue (skipped)\\nx=7 -> x=7*2+1=15 -> print 15\\nx=15 -> x=15*2+1=31 -> print 31 -> loop ends.\\nOutput: 3 15 31 ",
+            markingScheme: "2 Marks for exact output 3 15 31."
+          },
+          {
+            qNo: 6,
+            marks: 2,
+            question: "Predict the output:\\nfor i in range(1, 4):\\n    for j in range(1, i + 1):\\n        print(j, end='')\\n    print()",
+            solution: "Output:\\n1\\n12\\n123",
+            markingScheme: "2 Marks for correct triangular pattern."
+          }
+        ]
+      },
+      {
+        name: "Section C: Analytical Problem Solving (6 Marks)",
+        questions: [
+          {
+            qNo: 7,
+            marks: 3,
+            question: "Rewrite the following nested if-else code into a single, clean if statement using logical operators:\\nif a > 0:\\n    if b > 0:\\n        if c > 0:\\n            print('All positive')",
+            solution: "if a > 0 and b > 0 and c > 0:\\n    print('All positive')",
+            markingScheme: "3 Marks for correct compound boolean expression with 'and'."
+          },
+          {
+            qNo: 8,
+            marks: 3,
+            question: "Trace the output:\\ns = 0\\nfor i in range(1, 10):\\n    if i % 3 == 0:\\n        s += i\\n    elif i % 2 == 0:\\n        continue\\n    else:\\n        s -= 1\\nprint('s =', s)",
+            solution: "Dry-run:\\n* i=1: s = -1\\n* i=2: even -> continue\\n* i=3: s += 3 -> s = 2\\n* i=4: even -> continue\\n* i=5: s -= 1 -> s = 1\\n* i=6: s += 6 -> s = 7\\n* i=7: s -= 1 -> s = 6\\n* i=8: even -> continue\\n* i=9: s += 9 -> s = 15\\nOutput: s = 15",
+            markingScheme: "1.5 Marks for dry-run trace, 1.5 Marks for s = 15."
+          }
+        ]
+      },
+      {
+        name: "Section D: Programming & Comprehensive Application (6 Marks)",
+        questions: [
+          {
+            qNo: 9,
+            marks: 6,
+            question: "Write a program to input an integer N and:\\n(a) Check and display whether N is an Armstrong number (sum of cubes of its digits equals the number, for 3-digit numbers).\\n(b) Display all Armstrong numbers between 100 and 999.",
+            solution: "def is_armstrong(n):\\n    digits = [int(d) for d in str(n)]\\n    return sum(d**3 for d in digits) == n\\nnum = int(input('Enter number: '))\\nif is_armstrong(num):\\n    print(f'{num} is an Armstrong number.')\\nelse:\\n    print(f'{num} is NOT an Armstrong number.')\\nprint('All 3-digit Armstrong numbers:')\\narmstrongs = [x for x in range(100, 1000) if is_armstrong(x)]\\nprint(armstrongs)",
+            markingScheme: "2 Marks for single number check logic, 3 Marks for finding range 100-999 (153, 370, 371, 407), 1 Mark for clean display. Total: 6 Marks."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    setId: 7,
+    title: "Set 7: Error Types, Exception Handling & Debugging",
+    timeAllowed: "45 Minutes",
+    maxMarks: 20,
+    sections: [
+      {
+        name: "Section A: Objective & Conceptual Questions (4 Marks)",
+        questions: [
+          {
+            qNo: 1,
+            marks: 1,
+            question: "Which type of error occurs when you write 'prnit('Hello')'?",
+            solution: "NameError (Runtime error, as 'prnit' is not defined).",
+            markingScheme: "1 Mark for NameError."
+          },
+          {
+            qNo: 2,
+            marks: 1,
+            question: "What exception is raised when executing int('hello')?",
+            solution: "ValueError (invalid literal for int() with base 10).",
+            markingScheme: "1 Mark for ValueError."
+          },
+          {
+            qNo: 3,
+            marks: 1,
+            question: "What exception is raised when trying to access index 5 in a 3-element list?",
+            solution: "IndexError: list index out of range.",
+            markingScheme: "1 Mark for IndexError."
+          },
+          {
+            qNo: 4,
+            marks: 1,
+            question: "What is the difference between a Syntax Error and a Logical Error?",
+            solution: "Syntax errors violate language grammar and prevent execution; logical errors produce wrong results while code runs cleanly.",
+            markingScheme: "1 Mark for grammar violation vs wrong program result."
+          }
+        ]
+      },
+      {
+        name: "Section B: Short Answer & Output Tracing (4 Marks)",
+        questions: [
+          {
+            qNo: 5,
+            marks: 2,
+            question: "Find the output:\\ntry:\\n    a = 10 / 0\\nexcept ZeroDivisionError:\\n    print('Cannot divide by zero!')\\nfinally:\\n    print('Cleanup complete.')",
+            solution: "Output:\\nCannot divide by zero!\\nCleanup complete.",
+            markingScheme: "1 Mark for except block message, 1 Mark for finally block message."
+          },
+          {
+            qNo: 6,
+            marks: 2,
+            question: "Underline and correct the errors in the following code:\\nnum = int(input(Enter value: ))\\nfor i in range(1; num):\\n    if i % 2 = 0\\n        print(i)",
+            solution: "Corrected Code:\\nnum = int(input('Enter value: ')) # 1. Quotes inside input()\\nfor i in range(1, num):           # 2. Comma instead of semicolon in range()\\n    if i % 2 == 0:                # 3. Equality == and trailing colon :\\n        print(i)",
+            markingScheme: "0.5 Marks for each corrected and underlined error."
+          }
+        ]
+      },
+      {
+        name: "Section C: Analytical Problem Solving (6 Marks)",
+        questions: [
+          {
+            qNo: 7,
+            marks: 3,
+            question: "Explain the purpose of 'try-except-else-finally' blocks in Python with a structured code example.",
+            solution: "1. try: Code that may raise an exception.\\n2. except: Code that handles the exception.\\n3. else: Runs ONLY if no exception occurred in the try block.\\n4. finally: Runs ALWAYS regardless of whether an exception occurred or not.\\nExample:\\ntry:\\n    x = int(input())\\nexcept ValueError:\\n    print('Invalid input')\\nelse:\\n    print('Valid number entered:', x)\\nfinally:\\n    print('Execution done')",
+            markingScheme: "1.5 Marks for block explanations, 1.5 Marks for structured code example."
+          },
+          {
+            qNo: 8,
+            marks: 3,
+            question: "Identify the type of error (Syntax, Logical, or Runtime) in each of the following:\\n(a) 10 * (2 + 3\\n(b) avg = sum / 0\\n(c) Calculating area of rectangle as area = 2 * (length + breadth)",
+            solution: "(a) Syntax Error (unmatched closing parenthesis).\\n(b) Runtime Error (ZeroDivisionError).\\n(c) Logical Error (calculating perimeter instead of length * breadth).",
+            markingScheme: "1 Mark each for (a) Syntax, (b) Runtime, (c) Logical. Total: 3 Marks."
+          }
+        ]
+      },
+      {
+        name: "Section D: Programming & Comprehensive Application (6 Marks)",
+        questions: [
+          {
+            qNo: 9,
+            marks: 6,
+            question: "Write a robust Python program that takes two inputs from the user and performs division (a / b):\\n(a) Handle ValueError if non-numeric values are entered.\\n(b) Handle ZeroDivisionError if b is zero.\\n(c) Ensure the program prompts repeatedly until valid inputs are provided, and displays the result with 2 decimal places.",
+            solution: "def safe_division():\\n    while True:\\n        try:\\n            a = float(input('Enter numerator: '))\\n            b = float(input('Enter denominator: '))\\n            result = a / b\\n            print(f'Result: {result:.2f}')\\n            break\\n        except ValueError:\\n            print('Error: Please enter valid numeric values!')\\n        except ZeroDivisionError:\\n            print('Error: Denominator cannot be zero!')\\nsafe_division()",
+            markingScheme: "2 Marks for while loop and input handling, 2 Marks for ValueError handling, 2 Marks for ZeroDivisionError handling. Total: 6 Marks."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    setId: 8,
+    title: "Set 8: Operators, Precedence & Type Conversions",
+    timeAllowed: "45 Minutes",
+    maxMarks: 20,
+    sections: [
+      {
+        name: "Section A: Objective & Conceptual Questions (4 Marks)",
+        questions: [
+          {
+            qNo: 1,
+            marks: 1,
+            question: "What is the difference between '/' and '//' operators in Python?",
+            solution: "'/' performs floating-point division (returns float); '//' performs floor division (truncates towards negative infinity).",
+            markingScheme: "1 Mark for float division vs floor integer division."
+          },
+          {
+            qNo: 2,
+            marks: 1,
+            question: "What is the output of print(not 0 and 1)?",
+            solution: "1. 'not 0' is True; True and 1 returns 1.",
+            markingScheme: "1 Mark for 1."
+          },
+          {
+            qNo: 3,
+            marks: 1,
+            question: "What is the associativity of the exponentiation operator (**)?\\n(a) Left to right\\n(b) Right to left",
+            solution: "(b) Right to left. 2 ** 3 ** 2 evaluates as 2 ** (3 ** 2) = 2 ** 9 = 512.",
+            markingScheme: "1 Mark for (b) Right to left."
+          },
+          {
+            qNo: 4,
+            marks: 1,
+            question: "Evaluate: print(bool(''), bool('0'), bool(None))",
+            solution: "False True False.",
+            markingScheme: "1 Mark for False True False."
+          }
+        ]
+      },
+      {
+        name: "Section B: Short Answer & Output Tracing (4 Marks)",
+        questions: [
+          {
+            qNo: 5,
+            marks: 2,
+            question: "Evaluate step-by-step: x = 2 ** 3 ** 2 // 4 + 7 % 3",
+            solution: "1. 3 ** 2 = 9\\n2. 2 ** 9 = 512\\n3. 512 // 4 = 128\\n4. 7 % 3 = 1\\n5. 128 + 1 = 129\\nOutput: 129",
+            markingScheme: "2 Marks for step-by-step evaluation yielding 129."
+          },
+          {
+            qNo: 6,
+            marks: 2,
+            question: "What is the difference between '==' and 'is' operators? Give a code example.",
+            solution: "'==' checks value equality; 'is' checks identity (same memory address).\\nExample:\\na = [1, 2]\\nb = [1, 2]\\nprint(a == b) # True (same values)\\nprint(a is b) # False (different objects in memory)",
+            markingScheme: "1 Mark for explanation, 1 Mark for code example."
+          }
+        ]
+      },
+      {
+        name: "Section C: Analytical Problem Solving (6 Marks)",
+        questions: [
+          {
+            qNo: 7,
+            marks: 3,
+            question: "Explain Implicit Type Conversion vs Explicit Type Conversion with suitable code snippets.",
+            solution: "1. Implicit: Python automatically promotes smaller types to larger types without data loss (e.g. int + float -> float: 5 + 2.0 -> 7.0).\\n2. Explicit (Type Casting): The programmer manually converts types using constructor functions like int(), float(), str() (e.g. int('123') -> 123).",
+            markingScheme: "1.5 Marks for implicit conversion explanation & example, 1.5 Marks for explicit conversion explanation & example."
+          },
+          {
+            qNo: 8,
+            marks: 3,
+            question: "Trace the output:\\na, b, c = 10, 20, 30\\nres = (a < b and b < c) or (a + b == c and c - b != a)\\nprint('Result:', res)",
+            solution: "1. (10 < 20 and 20 < 30) -> True and True -> True\\n2. Since left side of 'or' is True, short-circuit evaluation yields True immediately.\\nOutput: Result: True",
+            markingScheme: "1.5 Marks for short-circuit boolean evaluation, 1.5 Marks for output Result: True."
+          }
+        ]
+      },
+      {
+        name: "Section D: Programming & Comprehensive Application (6 Marks)",
+        questions: [
+          {
+            qNo: 9,
+            marks: 6,
+            question: "Write a menu-driven Python program to implement a temperature conversion utility:\\n1. Celsius to Fahrenheit: F = (C * 9/5) + 32\\n2. Fahrenheit to Celsius: C = (F - 32) * 5/9\\n3. Exit\\nEnsure proper input validation and clean formatted display.",
+            solution: "def temp_converter():\\n    while True:\\n        print('\\n--- TEMPERATURE CONVERTER ---')\\n        print('1. Celsius to Fahrenheit')\\n        print('2. Fahrenheit to Celsius')\\n        print('3. Exit')\\n        choice = input('Enter choice (1-3): ')\\n        if choice == '1':\\n            c = float(input('Enter temp in Celsius: '))\\n            f = (c * 9/5) + 32\\n            print(f'{c}°C = {f:.2f}°F')\\n        elif choice == '2':\\n            f = float(input('Enter temp in Fahrenheit: '))\\n            c = (f - 32) * 5/9\\n            print(f'{f}°F = {c:.2f}°C')\\n        elif choice == '3':\\n            print('Exiting utility. Goodbye!')\\n            break\\n        else:\\n            print('Invalid choice! Please select 1, 2, or 3.')\\ntemp_converter()",
+            markingScheme: "2 Marks for menu loop and input validation, 2 Marks for Celsius conversion, 2 Marks for Fahrenheit conversion. Total: 6 Marks."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    setId: 9,
+    title: "Set 9: Nested Loops, Patterns & Algorithmic Tracing",
+    timeAllowed: "45 Minutes",
+    maxMarks: 20,
+    sections: [
+      {
+        name: "Section A: Objective & Conceptual Questions (4 Marks)",
+        questions: [
+          {
+            qNo: 1,
+            marks: 1,
+            question: "What is the output of: print(*range(1, 5), sep='-')?",
+            solution: "1-2-3-4. Unpacking with sep='-' separates elements with hyphens.",
+            markingScheme: "1 Mark for 1-2-3-4."
+          },
+          {
+            qNo: 2,
+            marks: 1,
+            question: "What is an infinite loop? Give an example.",
+            solution: "A loop that never terminates because its condition is always True: while True: pass.",
+            markingScheme: "1 Mark for definition and example."
+          },
+          {
+            qNo: 3,
+            marks: 1,
+            question: "What is the output of print(list(range(5, 0, -1)))?",
+            solution: "[5, 4, 3, 2, 1].",
+            markingScheme: "1 Mark for [5, 4, 3, 2, 1]."
+          },
+          {
+            qNo: 4,
+            marks: 1,
+            question: "How many asterisks are printed by:\\nfor i in range(3):\\n    for j in range(2):\\n        print('*', end='')",
+            solution: "6 asterisks (3 * 2 = 6).",
+            markingScheme: "1 Mark for 6."
+          }
+        ]
+      },
+      {
+        name: "Section B: Short Answer & Output Tracing (4 Marks)",
+        questions: [
+          {
+            qNo: 5,
+            marks: 2,
+            question: "Predict the output:\\nfor i in range(1, 5):\\n    print(' ' * (4 - i) + '*' * (2 * i - 1))",
+            solution: "Output (Pyramid pattern):\\n   *\\n  ***\\n *****\\n*******",
+            markingScheme: "2 Marks for correct 4-line centered pyramid pattern."
+          },
+          {
+            qNo: 6,
+            marks: 2,
+            question: "Find the output:\\nk = 1\\nfor i in range(1, 4):\\n    for j in range(i):\\n        print(k, end=' ')\\n        k += 1\\n    print()",
+            solution: "Output (Floyd's triangle):\\n1 \\n2 3 \\n4 5 6 ",
+            markingScheme: "2 Marks for correct Floyd's triangle output."
+          }
+        ]
+      },
+      {
+        name: "Section C: Analytical Problem Solving (6 Marks)",
+        questions: [
+          {
+            qNo: 7,
+            marks: 3,
+            question: "Trace the output with a dry-run table:\\ncnt = 0\\nfor a in range(1, 4):\\n    for b in range(1, 4):\\n        if a == b:\\n            continue\\n        cnt += 1\\nprint('Total non-diagonal pairs:', cnt)",
+            solution: "Dry-run:\\nTotal pairs = 3 * 3 = 9.\\nDiagonal pairs where a == b are (1,1), (2,2), (3,3) = 3 pairs (skipped by continue).\\nRemaining pairs = 9 - 3 = 6.\\nOutput: Total non-diagonal pairs: 6",
+            markingScheme: "1.5 Marks for dry-run analysis, 1.5 Marks for output 6."
+          },
+          {
+            qNo: 8,
+            marks: 3,
+            question: "Write a program snippet to print the following alphabet triangle:\\nA\\nA B\\nA B C\\nA B C D",
+            solution: "for i in range(1, 5):\\n    for j in range(i):\\n        print(chr(65 + j), end=' ')\\n    print()",
+            markingScheme: "1.5 Marks for nested loop structure, 1.5 Marks for chr(65 + j) logic."
+          }
+        ]
+      },
+      {
+        name: "Section D: Programming & Comprehensive Application (6 Marks)",
+        questions: [
+          {
+            qNo: 9,
+            marks: 6,
+            question: "Write a Python program to:\\n(a) Input N rows for Pascal's Triangle.\\n(b) Generate and display Pascal's triangle up to N rows using nested lists or iterative binomial expansion.",
+            solution: "def print_pascals_triangle(n):\\n    triangle = []\\n    for i in range(n):\\n        row = [1] * (i + 1)\\n        for j in range(1, i):\\n            row[j] = triangle[i - 1][j - 1] + triangle[i - 1][j]\\n        triangle.append(row)\\n    for row in triangle:\\n        print(' '.join(map(str, row)).center(n * 4))\\nn = int(input('Enter number of rows: '))\\nprint_pascals_triangle(n)",
+            markingScheme: "2 Marks for row structure generation, 3 Marks for Pascal recurrence addition logic, 1 Mark for centered printing. Total: 6 Marks."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    setId: 10,
+    title: "Set 10: Comprehensive Diagnostic & Integrated Revision Test",
+    timeAllowed: "45 Minutes",
+    maxMarks: 20,
+    sections: [
+      {
+        name: "Section A: Objective & Conceptual Questions (4 Marks)",
+        questions: [
+          {
+            qNo: 1,
+            marks: 1,
+            question: "What is the output of print(3 in [1, 2, [3, 4]])?",
+            solution: "False. 3 is inside a nested list [3, 4], not a direct element of the outer list.",
+            markingScheme: "1 Mark for False."
+          },
+          {
+            qNo: 2,
+            marks: 1,
+            question: "Which of the following creates a shallow copy of list L?\\n(a) L[:]\\n(b) list(L)\\n(c) L.copy()\\n(d) All of the above",
+            solution: "(d) All of the above.",
+            markingScheme: "1 Mark for (d) All of the above."
+          },
+          {
+            qNo: 3,
+            marks: 1,
+            question: "What data type is returned by dict.items()?",
+            solution: "dict_items (a view object displaying list of (key, value) tuple pairs).",
+            markingScheme: "1 Mark for dict_items."
+          },
+          {
+            qNo: 4,
+            marks: 1,
+            question: "What is the output of print('Python'[-1:-4:-1])?",
+            solution: "'noh'. Slices from index -1 ('n'), -2 ('o'), -3 ('h') backwards.",
+            markingScheme: "1 Mark for 'noh'."
+          }
+        ]
+      },
+      {
+        name: "Section B: Short Answer & Output Tracing (4 Marks)",
+        questions: [
+          {
+            qNo: 5,
+            marks: 2,
+            question: "Predict the output:\\ndef modify(d, key, val):\\n    d[key] = val\\nmy_dict = {'a': 10}\\nmodify(my_dict, 'b', 20)\\nprint(my_dict)",
+            solution: "Dictionaries are mutable and passed by object reference. Output: {'a': 10, 'b': 20}",
+            markingScheme: "2 Marks for {'a': 10, 'b': 20}."
+          },
+          {
+            qNo: 6,
+            marks: 2,
+            question: "Find the output:\\ns = 'A1B2C3'\\nres = [ch for ch in s if ch.isdigit()]\\nprint(''.join(res))",
+            solution: "List comprehension filters digits: ['1', '2', '3']. Output: '123'",
+            markingScheme: "2 Marks for '123'."
+          }
+        ]
+      },
+      {
+        name: "Section C: Analytical Problem Solving (6 Marks)",
+        questions: [
+          {
+            qNo: 7,
+            marks: 3,
+            question: "Write a function remove_duplicates(lst) that removes all duplicate elements from a list while PRESERVING the original element order.",
+            solution: "def remove_duplicates(lst):\\n    seen = set()\\n    result = []\\n    for item in lst:\\n        if item not in seen:\\n            seen.add(item)\\n            result.append(item)\\n    return result\\n# Test: print(remove_duplicates([1, 2, 3, 2, 1, 4])) # [1, 2, 3, 4]",
+            markingScheme: "1.5 Marks for using set for O(1) lookup, 1.5 Marks for order preservation in result list."
+          },
+          {
+            qNo: 8,
+            marks: 3,
+            question: "Trace the output:\\ndata = [10, 20, 30, 40]\\nfor i in range(len(data)):\\n    data[i] = data[i] // 10 + i\\nprint(data)",
+            solution: "Dry-run:\\n* i=0: 10 // 10 + 0 = 1\\n* i=1: 20 // 10 + 1 = 3\\n* i=2: 30 // 10 + 2 = 5\\n* i=3: 40 // 10 + 3 = 7\\nOutput: [1, 3, 5, 7]",
+            markingScheme: "1.5 Marks for dry-run step calculations, 1.5 Marks for output [1, 3, 5, 7]."
+          }
+        ]
+      },
+      {
+        name: "Section D: Programming & Comprehensive Application (6 Marks)",
+        questions: [
+          {
+            qNo: 9,
+            marks: 6,
+            question: "Write a complete Python program to implement a banking ledger simulator:\\n(a) Store 3 accounts in a dictionary: {AccNo: {'Name': str, 'Balance': float}}.\\n(b) Implement a deposit(acc_no, amount) function that credits balance.\\n(c) Implement a withdraw(acc_no, amount) function that checks for minimum balance (Rs. 1000) before debiting.\\n(d) Display formatted account summary after transactions.",
+            solution: "accounts = {\\n    1001: {'Name': 'Mamata', 'Balance': 5000.0},\\n    1002: {'Name': 'Debangshu', 'Balance': 3200.0},\\n    1003: {'Name': 'Abhronila', 'Balance': 1500.0}\\n}\\ndef deposit(acc, amt):\\n    if acc in accounts and amt > 0:\\n        accounts[acc]['Balance'] += amt\\n        print(f'Deposited Rs.{amt} to {acc}. New Bal: {accounts[acc][\"Balance\"]}')\\n\\ndef withdraw(acc, amt):\\n    if acc in accounts:\\n        if accounts[acc]['Balance'] - amt >= 1000:\\n            accounts[acc]['Balance'] -= amt\\n            print(f'Withdrew Rs.{amt} from {acc}. Remaining: {accounts[acc][\"Balance\"]}')\\n        else:\\n            print(f'Insufficient funds in {acc}! Min balance Rs.1000 required.')\\n\\ndeposit(1001, 1500)\\nwithdraw(1003, 800) # Should fail minimum balance check\\nprint('\\nFinal Accounts Summary:')\\nfor acc, d in accounts.items():\\n    print(f'Acc {acc}: {d[\"Name\"]} | Rs.{d[\"Balance\"]:.2f}')",
+            markingScheme: "2 Marks for dictionary setup, 2 Marks for deposit logic, 2 Marks for withdraw with minimum balance check. Total: 6 Marks."
+          }
+        ]
+      }
+    ]
+  }
+];
+
+fs.writeFileSync(
+  path.join(topicDir, 'sample_paper_sets.js'),
+  'export default ' + JSON.stringify(samplePaperSets, null, 2) + ';\n'
+);
+
+// 25 Assessment Questions on Exam Blueprint & Writing Strategy
+const topic13Questions = [
+  {
+    id: 1,
+    question: "In a 20-mark CBSE periodic test on Python fundamentals, what is the ideal recommended time allocation for 45 minutes?",
+    options: ["Section A: 5 mins, Section B: 10 mins, Section C: 15 mins, Section D: 15 mins", "40 mins on Section A and 5 mins on the rest", "Spend 45 minutes on Section D only", "No time management is necessary"],
+    correctAnswer: 0,
+    explanation: "Allocating 5 minutes for Section A, 10 minutes for Section B, 15 minutes for Section C, and 15 minutes for Section D ensures thorough checking and zero unattempted questions.",
+    hint: "Balanced time allocation matching the marks distribution."
+  },
+  {
+    id: 2,
+    question: "When writing code debugging questions in CBSE board papers, what must students explicitly do to score full marks?",
+    options: ["Underline each corrected line or keyword in the rewritten code", "Delete the question", "Rewrite the code in C++", "Only write the error count without code"],
+    correctAnswer: 0,
+    explanation: "CBSE marking schemes strictly state: 'Award 1/2 mark for each error identified, corrected, and underlined.'",
+    hint: "Identify, correct, and underline the changes."
+  },
+  {
+    id: 3,
+    question: "Why should students always show a dry-run execution table for output tracing questions?",
+    options: ["Evaluators award step-marking for intermediate variable states even if the final output has a minor arithmetic slip", "It consumes extra ink", "Dry run tables are forbidden by CBSE", "It formats the answer sheet"],
+    correctAnswer: 0,
+    explanation: "Showing variable tracking columns (e.g. i, j, total) demonstrates clear algorithmic logic and earns partial credit under CBSE step-marking.",
+    hint: "Demonstrates clear logic and earns step-marking credit."
+  },
+  {
+    id: 4,
+    question: "In Python string slicing s[start:stop:step], what happens if step is negative?",
+    options: ["The slice traverses characters backwards from right to left", "It causes an immediate SyntaxError", "The string is converted to uppercase", "The slice returns an empty dictionary"],
+    correctAnswer: 0,
+    explanation: "A negative step (e.g. s[::-1]) decrements the index, reversing or extracting characters from right to left.",
+    hint: "Negative step traverses backwards."
+  },
+  {
+    id: 5,
+    question: "What is the primary difference between list.sort() and the sorted() built-in function in Python?",
+    options: ["list.sort() modifies the original list in-place and returns None; sorted() leaves the original list unchanged and returns a new sorted list", "list.sort() only works on strings", "sorted() modifies the list in-place", "There is no difference"],
+    correctAnswer: 0,
+    explanation: "list.sort() is an in-place mutating method returning None; sorted(iterable) returns a brand new sorted list.",
+    hint: "In-place modification vs returning a new sorted list."
+  },
+  {
+    id: 6,
+    question: "What exception is raised when trying to retrieve a non-existent key using square bracket syntax dict[key]?",
+    options: ["KeyError", "IndexError", "ValueError", "TypeError"],
+    correctAnswer: 0,
+    explanation: "Square bracket lookup raises KeyError if the key is absent. Using dict.get(key, default) avoids this error.",
+    hint: "KeyError for missing dictionary keys."
+  },
+  {
+    id: 7,
+    question: "In Python operator precedence, which of the following operations has the highest priority?",
+    options: ["Parentheses () and Exponentiation (**)", "Addition (+)", "Bitwise OR (|)", "Logical AND (and)"],
+    correctAnswer: 0,
+    explanation: "Parentheses () have top priority, followed immediately by exponentiation (**), which evaluates before multiplication and addition.",
+    hint: "Parentheses and Exponentiation."
+  },
+  {
+    id: 8,
+    question: "What does the floor division operator '//' return when applied to negative numbers like -7 // 2?",
+    options: ["-4 (floors towards negative infinity)", "-3", "-3.5", "3"],
+    correctAnswer: 0,
+    explanation: "Floor division rounds down towards negative infinity: -7 / 2 = -3.5, which floors down to -4.",
+    hint: "Rounds down towards negative infinity."
+  },
+  {
+    id: 9,
+    question: "Can dictionary keys be composed of lists?",
+    options: ["No, dictionary keys must be immutable and hashable; lists are mutable and raise a TypeError", "Yes, any data type can be a dictionary key", "Only if the list has 1 item", "Only in Python 2"],
+    correctAnswer: 0,
+    explanation: "Dictionary keys require hashability. Because lists can be modified, they are unhashable and cannot be used as keys.",
+    hint: "Keys must be immutable and hashable."
+  },
+  {
+    id: 10,
+    question: "What is the output of print(type((5))) vs print(type((5,)))?",
+    options: ["<class 'int'> and <class 'tuple'>", "<class 'tuple'> and <class 'int'>", "<class 'tuple'> and <class 'tuple'>", "<class 'int'> and <class 'int'>"],
+    correctAnswer: 0,
+    explanation: "(5) is an integer enclosed in parentheses; (5,) with a trailing comma is a single-element tuple.",
+    hint: "Trailing comma creates a tuple."
+  },
+  {
+    id: 11,
+    question: "What does the 'continue' statement do when encountered inside a loop?",
+    options: ["Skips the remainder of the current iteration and jumps directly to the next iteration", "Exits the loop permanently", "Terminates the entire Python program", "Re-runs the previous iteration"],
+    correctAnswer: 0,
+    explanation: "continue aborts only the active iteration, jumping to the loop update/condition step.",
+    hint: "Skips to the next iteration."
+  },
+  {
+    id: 12,
+    question: "What is the output of print('Python'.find('th', 0, 4))?",
+    options: ["2", "3", "-1", "ValueError"],
+    correctAnswer: 0,
+    explanation: "'th' starts at index 2, which falls within the slice range 0 to 4. Therefore find() returns 2.",
+    hint: "Index 2."
+  },
+  {
+    id: 13,
+    question: "What is the danger of writing 'while i < 10:' without an increment statement inside the loop body?",
+    options: ["It results in an infinite loop that freezes execution and consumes CPU resources", "It throws a SyntaxError", "It deletes variable i", "It converts the loop to a tuple"],
+    correctAnswer: 0,
+    explanation: "Without incrementing the loop variable, the condition remains True perpetually, causing an infinite loop.",
+    hint: "Creates an infinite loop."
+  },
+  {
+    id: 14,
+    question: "Which of the following functions generates a random integer between a and b (both inclusive) in Python?",
+    options: ["random.randint(a, b)", "random.random()", "random.choice()", "random.range()"],
+    correctAnswer: 0,
+    explanation: "random.randint(a, b) returns a random integer N such that a <= N <= b.",
+    hint: "random.randint(a, b)."
+  },
+  {
+    id: 15,
+    question: "What is the output of bool([]) and bool({})?",
+    options: ["False False (empty collections are falsy in Python)", "True True", "True False", "False True"],
+    correctAnswer: 0,
+    explanation: "Empty built-in sequences and collections ([], {}, '', (), set()) evaluate to boolean False.",
+    hint: "Empty collections evaluate to False."
+  },
+  {
+    id: 16,
+    question: "What does the string method 'title()' do?",
+    options: ["Capitalizes the first character of each word in the string", "Converts the whole string to uppercase", "Underlines the string", "Centers the string"],
+    correctAnswer: 0,
+    explanation: "title() converts the first character of every whitespace-separated word to uppercase.",
+    hint: "Capitalizes the first character of each word."
+  },
+  {
+    id: 17,
+    question: "In Python list slicing, what does list[::-1] produce?",
+    options: ["A reversed copy of the list", "An empty list", "The first element only", "A SyntaxError"],
+    correctAnswer: 0,
+    explanation: "The slice [::-1] steps backwards through the list, returning a new list with elements in reverse order.",
+    hint: "Reverses the list."
+  },
+  {
+    id: 18,
+    question: "What does the expression 3 * [1, 2] produce?",
+    options: ["[1, 2, 1, 2, 1, 2]", "[3, 6]", "[[1, 2], [1, 2], [1, 2]]", "[1, 2, 3]"],
+    correctAnswer: 0,
+    explanation: "Multiplying a list by an integer replicates its elements in order into a flat list.",
+    hint: "Replicates elements into a flat list."
+  },
+  {
+    id: 19,
+    question: "What is the output of print('Hello'.swapcase())?",
+    options: ["'hELLO'", "'hello'", "'HELLO'", "'Hello'"],
+    correctAnswer: 0,
+    explanation: "swapcase() converts uppercase characters to lowercase and lowercase characters to uppercase.",
+    hint: "Swaps uppercase with lowercase."
+  },
+  {
+    id: 20,
+    question: "What is the time complexity of looking up a key in a Python dictionary on average?",
+    options: ["O(1) Constant Time", "O(N) Linear Time", "O(N^2) Quadratic Time", "O(log N) Logarithmic Time"],
+    correctAnswer: 0,
+    explanation: "Python dictionaries use hash tables, providing average O(1) constant time lookup, insertion, and deletion.",
+    hint: "O(1) hash table lookup."
+  },
+  {
+    id: 21,
+    question: "What does the 'is' operator test in Python?",
+    options: ["Object identity (whether both variables point to the exact same memory address)", "Value equality", "Alphabetical order", "Data type size"],
+    correctAnswer: 0,
+    explanation: "'is' compares id(a) == id(b), verifying whether both variables reference the identical object in memory.",
+    hint: "Compares object identity and memory address."
+  },
+  {
+    id: 22,
+    question: "In a CBSE 6-mark programming question, what is the best strategy for clean code organization?",
+    options: ["Define clear function signatures, use meaningful variable names, handle edge cases, and print user-friendly output messages", "Write all code in one unindented line", "Avoid using comments or variable names", "Only write the function call"],
+    correctAnswer: 0,
+    explanation: "Examiners award marks for structure, modularity, algorithmic correctness, and proper I/O formatting.",
+    hint: "Modular functions, clear names, edge case handling."
+  },
+  {
+    id: 23,
+    question: "What error is triggered if a student writes: print('Result: ' + 10)?",
+    options: ["TypeError: can only concatenate str (not 'int') to str", "ValueError", "SyntaxError", "ZeroDivisionError"],
+    correctAnswer: 0,
+    explanation: "Python does not automatically convert numbers to strings during concatenation; str(10) is required.",
+    hint: "TypeError when concatenating string and integer."
+  },
+  {
+    id: 24,
+    question: "How does practicing with timed 20-mark sample paper sets improve examination performance?",
+    options: ["Builds speed, reduces exam anxiety, exposes conceptual blind spots, and develops structured answer-writing discipline", "Guarantees that no more studying is needed", "Replaces school teachers", "Increases typing speed only"],
+    correctAnswer: 0,
+    explanation: "Timed practice with authentic sets bridges theoretical knowledge with real examination execution and pacing.",
+    hint: "Builds exam speed, pacing, and precision under timed conditions."
+  },
+  {
+    id: 25,
+    question: "What is the final step after completing each 20-mark practice set?",
+    options: ["Carefully compare your handwritten answers with the model solution and marking scheme to analyze lost half-marks", "Throw away the answer paper", "Never look at the solution", "Skip to the next module immediately"],
+    correctAnswer: 0,
+    explanation: "Self-evaluating against the marking scheme teaches students where marks are deducted and how to achieve perfect 20/20 scores.",
+    hint: "Analyze mistakes against the official marking scheme."
+  }
+];
+
+fs.writeFileSync(
+  path.join(topicDir, 'topic13_questions.js'),
+  'export default ' + JSON.stringify(topic13Questions, null, 2) + ';\n'
+);
+
+const topic13Note = `CBSE CLASS 12 COMPUTER SCIENCE (083) - MASTER SAMPLE QUESTION PAPERS
+MODULE 1: PYTHON CLASS 11 CURRICULUM REVISION & TRACING (10 SETS · 20 MARKS EACH)
+
+=============================================================================
+EXAMINATION BLUEPRINT (20 MARKS PER SET · 45 MINUTES):
+=============================================================================
+* Section A: 4 Objective / Conceptual Questions (1 Mark each = 4 Marks)
+* Section B: 2 Short Answer / Code Debugging Questions (2 Marks each = 4 Marks)
+* Section C: 2 Tracing & Analytical Questions (3 Marks each = 6 Marks)
+* Section D: 1 Comprehensive Programming Problem (6 Marks = 6 Marks)
+* TOTAL: 20 MARKS
+
+=============================================================================
+COVERED TOPICS (Strictly based on Module 1 previous topics):
+=============================================================================
+1. Python Tokens: Keywords, Identifiers, Literals, Operators, Delimiters.
+2. Data Types: Numbers, Strings, Lists, Tuples, Dictionaries (Mutable vs Immutable).
+3. Expressions: Arithmetic, Relational, Logical, Membership ('in'), Identity ('is').
+4. Conditionals: if-elif-else, nested decisions, chained comparisons.
+5. Loops: while and for loops, range() syntax, break and continue, nested iterations.
+6. Strings: Slicing [start:stop:step], built-in methods (split, join, find, isdigit).
+7. Lists & Tuples: In-place mutations, packing/unpacking, aliasing vs copying.
+8. Dictionaries: Key-value operations, get(), pop(), items(), frequency maps.
+9. Error Debugging: Syntax, Logical, and Runtime errors, try-except-finally blocks.
+
+TEACHER'S ADVICE (Sukanta Hui):
+Take each set with a strict 45-minute timer. Write all code snippets on paper first
+before checking the model answer. Underline syntax corrections in debugging questions!
+`;
+
+fs.writeFileSync(path.join(topicDir, 'topic13_note.txt'), topic13Note);
+
+const topic13JSX = `import React, { useState, useEffect } from 'react';
+import {
+  FileText, Award, CheckCircle2, Clock, AlertTriangle,
+  HelpCircle, ChevronDown, ChevronUp, Printer, Play, Pause, RotateCcw,
+  Sparkles, Check, BookOpen, Layers
+} from 'lucide-react';
+import Teacher from "../../../../../common/TeacherSukantaHui";
+import FAQTemplate from "../../../../../common/FAQTemplate";
+import PlainTextPrint from "../../../../../common/PlainTextPrint";
+import sampleSets from "./topic13_files/sample_paper_sets";
+import questions from "./topic13_files/topic13_questions";
+import noteText from "./topic13_files/topic13_note.txt?raw";
+
+export default function Topic13() {
+  const [activeSetIndex, setActiveSetIndex] = useState(0);
+  const [expandedSolutions, setExpandedSolutions] = useState({});
+  const [timerSeconds, setTimerSeconds] = useState(45 * 60);
+  const [timerRunning, setTimerRunning] = useState(false);
+
+  const activeSet = sampleSets[activeSetIndex];
+
+  // Timer logic
+  useEffect(() => {
+    let interval = null;
+    if (timerRunning && timerSeconds > 0) {
+      interval = setInterval(() => {
+        setTimerSeconds(prev => prev - 1);
+      }, 1000);
+    } else if (timerSeconds === 0) {
+      setTimerRunning(false);
+    }
+    return () => clearInterval(interval);
+  }, [timerRunning, timerSeconds]);
+
+  const toggleSolution = (qKey) => {
+    setExpandedSolutions(prev => ({
+      ...prev,
+      [qKey]: !prev[qKey]
+    }));
+  };
+
+  const handleResetTimer = () => {
+    setTimerRunning(false);
+    setTimerSeconds(45 * 60);
+  };
+
+  const formatTime = (secs) => {
+    const mins = Math.floor(secs / 60);
+    const remSecs = secs % 60;
+    return \`\${String(mins).padStart(2, '0')}:\${String(remSecs).padStart(2, '0')}\`;
+  };
+
+  return (
+    <div className="dark bg-slate-900 text-slate-200 min-h-screen py-8 px-4 sm:px-6 lg:px-8 space-y-8 font-sans">
+      {/* 1. Header */}
+      <header className="border-b border-slate-700/60 pb-6">
+        <div className="flex items-center space-x-3 text-amber-400 mb-2">
+          <Award className="w-7 h-7" />
+          <span className="text-xs font-bold tracking-widest uppercase bg-amber-950/80 px-2.5 py-1 rounded-md border border-amber-800/60">
+            Periodic Test Series · 10 Practice Sets (20 Marks Each)
+          </span>
+        </div>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Sample Question Papers: Python Class 11 Revision & Tracing
+        </h1>
+        <p className="mt-2 text-base text-slate-400 max-w-4xl leading-relaxed">
+          Test your mastery across 10 authentic, rigorous 20-mark periodic question sets drawn strictly
+          from the topics of this module. Complete with step-by-step marking schemes, interactive solutions,
+          and a 45-minute countdown examination timer.
+        </p>
+      </header>
+
+      {/* 2. Teacher Guidance */}
+      <Teacher
+        teacherName="Sukanta Hui"
+        experienceYears="27+"
+        designation="Senior Computer Science Faculty & Academic Consultant"
+        institution="Coder & AccoTax, Barrackpore"
+        message="Periodic assessment sets are where toppers distinguish themselves from the crowd. Each 20-mark paper has been structured according to standard CBSE blue-prints: 4 marks for Section A (MCQs/concepts), 4 marks for Section B (tracing/debugging), 6 marks for Section C (algorithms), and 6 marks for Section D (programming). Set your 45-minute timer, write your code on paper first, and only then reveal the model solution to analyze your step-marking!"
+      />
+
+      {/* 3. Examination Controls: Set Selector & Timer */}
+      <section className="bg-slate-800/70 rounded-xl p-5 border border-slate-700/70 shadow-lg space-y-4">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h3 className="text-sm font-bold text-white uppercase tracking-wider flex items-center space-x-2">
+              <BookOpen className="w-4 h-4 text-sky-400" />
+              <span>Select Question Paper Set (10 Sets Total)</span>
+            </h3>
+            <p className="text-xs text-slate-400 mt-1">Each set carries exactly 20 marks · Time allowed: 45 minutes</p>
+          </div>
+
+          {/* 45-Minute Exam Timer */}
+          <div className="flex items-center space-x-3 bg-slate-900/90 px-4 py-2.5 rounded-lg border border-slate-700 self-start md:self-auto">
+            <Clock className="w-5 h-5 text-amber-400" />
+            <span className="font-mono text-xl font-bold text-white tracking-wider">
+              {formatTime(timerSeconds)}
+            </span>
+            <div className="flex items-center space-x-1 pl-2 border-l border-slate-700">
+              <button
+                onClick={() => setTimerRunning(!timerRunning)}
+                className="p-1.5 rounded hover:bg-slate-800 text-slate-300 hover:text-white transition-all"
+                title={timerRunning ? "Pause Timer" : "Start Timer"}
+              >
+                {timerRunning ? <Pause className="w-4 h-4 text-amber-400" /> : <Play className="w-4 h-4 text-emerald-400" />}
+              </button>
+              <button
+                onClick={handleResetTimer}
+                className="p-1.5 rounded hover:bg-slate-800 text-slate-300 hover:text-white transition-all"
+                title="Reset Timer (45m)"
+              >
+                <RotateCcw className="w-4 h-4 text-sky-400" />
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Set Selector Pills */}
+        <div className="flex flex-wrap gap-2 pt-2">
+          {sampleSets.map((s, idx) => {
+            const isActive = idx === activeSetIndex;
+            return (
+              <button
+                key={s.setId}
+                onClick={() => {
+                  setActiveSetIndex(idx);
+                  handleResetTimer();
+                }}
+                className={\`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all \${
+                  isActive
+                    ? 'bg-amber-500 text-slate-950 font-bold shadow-md'
+                    : 'bg-slate-900 hover:bg-slate-700 text-slate-300 border border-slate-700'
+                }\`}
+              >
+                Set {s.setId}
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* 4. Active Question Paper Sheet */}
+      <section className="bg-slate-900 rounded-xl p-6 border border-slate-700/80 shadow-2xl space-y-6">
+        {/* Paper Header */}
+        <div className="text-center border-b border-slate-700/80 pb-6 space-y-2">
+          <span className="text-xs uppercase tracking-widest text-amber-400 font-bold bg-amber-950/60 px-3 py-1 rounded-full border border-amber-800/40">
+            CBSE Class XII · Computer Science (Code 083)
+          </span>
+          <h2 className="text-2xl font-black text-white">{activeSet.title}</h2>
+          <div className="flex justify-center items-center space-x-6 text-xs text-slate-400 font-mono pt-1">
+            <span>Time Allowed: {activeSet.timeAllowed}</span>
+            <span>•</span>
+            <span className="text-amber-300 font-bold">Maximum Marks: {activeSet.maxMarks}</span>
+          </div>
+        </div>
+
+        {/* Sections & Questions */}
+        <div className="space-y-8">
+          {activeSet.sections.map((sec, secIdx) => (
+            <div key={secIdx} className="space-y-4">
+              <div className="bg-slate-800/80 px-4 py-2 rounded-lg border-l-4 border-amber-500">
+                <h3 className="text-sm font-bold text-white">{sec.name}</h3>
+              </div>
+
+              <div className="space-y-4 pl-2">
+                {sec.questions.map((q) => {
+                  const qKey = \`\${activeSet.setId}_\${q.qNo}\`;
+                  const isExpanded = expandedSolutions[qKey];
+
+                  return (
+                    <div
+                      key={q.qNo}
+                      className="bg-slate-800/40 p-4 rounded-xl border border-slate-700/60 space-y-3 hover:border-slate-600 transition-all"
+                    >
+                      <div className="flex items-start justify-between gap-3">
+                        <div className="space-y-1">
+                          <span className="text-xs font-mono text-sky-400 font-bold">
+                            Question {q.qNo}
+                          </span>
+                          <p className="text-sm font-medium text-slate-100 whitespace-pre-line leading-relaxed font-mono">
+                            {q.question}
+                          </p>
+                        </div>
+                        <span className="bg-slate-900 px-2.5 py-1 rounded text-xs font-bold text-amber-300 border border-slate-700 shrink-0">
+                          [{q.marks} {q.marks === 1 ? 'Mark' : 'Marks'}]
+                        </span>
+                      </div>
+
+                      {/* Solution Toggle */}
+                      <div className="pt-2">
+                        <button
+                          onClick={() => toggleSolution(qKey)}
+                          className="flex items-center space-x-2 text-xs font-semibold text-amber-400 hover:text-amber-300 transition-colors"
+                        >
+                          <span>{isExpanded ? "Hide Model Solution" : "View Solution & Marking Scheme"}</span>
+                          {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
+                        </button>
+
+                        {isExpanded && (
+                          <div className="mt-3 p-4 rounded-lg bg-slate-950 border border-slate-800 space-y-3 text-xs">
+                            <div>
+                              <span className="text-emerald-400 font-bold block mb-1">
+                                CBSE Model Solution / Answer:
+                              </span>
+                              <pre className="font-mono text-emerald-300 whitespace-pre-wrap bg-slate-900/60 p-2.5 rounded border border-slate-800">
+                                {q.solution}
+                              </pre>
+                            </div>
+                            <div>
+                              <span className="text-sky-400 font-bold block mb-1">
+                                Official Marking Scheme Breakdown:
+                              </span>
+                              <p className="text-slate-300 italic">
+                                {q.markingScheme}
+                              </p>
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 5. Printable Revision Note */}
+      <section className="bg-slate-800/60 rounded-xl p-6 border border-slate-700/60 space-y-4">
+        <h3 className="text-xl font-bold text-white flex items-center space-x-2">
+          <FileText className="w-5 h-5 text-emerald-400" />
+          <span>Quick Revision Blueprint & Test Compilation</span>
+        </h3>
+        <PlainTextPrint
+          title="Sample Papers 10 Sets Blueprint - Quick Reference"
+          content={noteText}
+        />
+      </section>
+
+      {/* 6. Assessment Questions on Blueprint & Strategy */}
+      <section className="bg-slate-800/60 rounded-xl p-6 border border-slate-700/60 space-y-4">
+        <div className="flex items-center space-x-2 text-amber-400 mb-2">
+          <HelpCircle className="w-6 h-6" />
+          <h3 className="text-xl font-bold text-white">25 Practice Questions on Examination Strategies & Blueprints</h3>
+        </div>
+        <p className="text-sm text-slate-300">
+          Reinforce your test-taking skills, error detection methods, and marking scheme insights:
+        </p>
+        <FAQTemplate questions={questions} />
+      </section>
+    </div>
+  );
+}
+`;
+
+fs.writeFileSync(path.join(modDir, 'Topic13.jsx'), topic13JSX);
+console.log('Successfully generated Topic 13 (Sample Question Paper - 10 Sets) for 001_001!');

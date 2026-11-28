@@ -199,6 +199,70 @@ Browser connects → Checks for valid SCT proof → Connection ALLOWED only if l
     level: "expert",
     codeExample: `// The Master Enterprise Digital Signature Blueprint:
 (Ed25519_Deterministic + FIPS_140_3_HSM + Class3_DSC_IT_Act + OCSP_Stapling) = UNBREAKABLE_LEGAL_TRUST;`
+  },
+  {
+    question: "What are the two fundamental steps involved in creating a Digital Signature?",
+    shortAnswer: "1. Compute a cryptographic hash (e.g. SHA-256) of the document; 2. Encrypt that hash using the sender's private key.",
+    explanation: "Signing the short fixed-length hash rather than the massive document maximizes processing speed while preserving mathematical proof over the entire file.",
+    hint: "Hash the document, then encrypt the hash with the sender's private key.",
+    level: "basic",
+    codeExample: "Hash = SHA256(Doc); Signature = RSA_Sign(Hash, PrivateKey_Signer);"
+  },
+  {
+    question: "How does a recipient verify a Digital Signature?",
+    shortAnswer: "1. Decrypt the signature using the sender's public key to recover the original hash; 2. Independently compute the hash of the received document; 3. Compare if both hashes match.",
+    explanation: "If both hashes match, it proves that the document was authored by the sender and was not altered in transit by even a single bit.",
+    hint: "Decrypt signature with sender's public key, compute document hash, and compare.",
+    level: "moderate",
+    codeExample: "RecoveredHash = RSA_Verify(Signature, PublicKey_Signer)\nassert RecoveredHash == SHA256(ReceivedDoc)"
+  },
+  {
+    question: "What three security goals are achieved simultaneously by Digital Signatures?",
+    shortAnswer: "1. Authentication (proves sender identity), 2. Integrity (detects unauthorized tampering), 3. Non-Repudiation (sender cannot deny signing).",
+    explanation: "Digital signatures form the legal and technical backbone of e-commerce, banking transactions, and software package integrity.",
+    hint: "Authentication, Integrity, and Non-Repudiation.",
+    level: "basic",
+    codeExample: "SignatureBenefits = ['Authentication', 'DataIntegrity', 'NonRepudiation'];"
+  },
+  {
+    question: "What is the difference between RSA signatures and ECDSA (Elliptic Curve Digital Signature Algorithm)?",
+    shortAnswer: "ECDSA uses elliptic curve discrete logarithms, generating equivalent cryptographic strength with substantially smaller keys and signatures (e.g. 64-byte ECDSA signature vs 256-byte RSA-2048 signature).",
+    explanation: "Bitcoin, Ethereum, and modern TLS certificates use ECDSA (secp256k1 / secp256r1) or Ed25519 for compact, fast signatures.",
+    hint: "ECDSA uses elliptic curves producing much smaller signatures with equivalent security.",
+    level: "moderate",
+    codeExample: "from ecdsa import SigningKey, SECP256k1\nsk = SigningKey.generate(curve=SECP256k1); sig = sk.sign(b'tx_data')"
+  },
+  {
+    question: "Why must a cryptographically secure random number (k) NEVER be reused in DSA/ECDSA signatures?",
+    shortAnswer: "Reusing the same random nonce k across two distinct signatures allows an attacker to compute the signer's private key directly with simple high-school algebra.",
+    explanation: "In 2010, Sony's PlayStation 3 security was broken because Sony used a static, hardcoded constant for k in their ECDSA implementation.",
+    hint: "Reusing k allows direct algebraic derivation of the private key (PS3 hack).",
+    level: "advanced",
+    codeExample: "k = (m1 - m2) / (s1 - s2) mod n; private_key = (s * k - m) / r mod n"
+  },
+  {
+    question: "What is Ed25519 and why is it replacing standard ECDSA in modern protocols (SSH, Signal)?",
+    shortAnswer: "An EdDSA digital signature scheme based on Curve25519 that provides high speed, immunity to timing side-channel attacks, and deterministic nonce generation (eliminating bad random number generator risks).",
+    explanation: "Ed25519 generates signatures in fractions of a millisecond and is supported in modern OpenSSH keys.",
+    hint: "Deterministic, timing-attack resistant signature algorithm using Curve25519.",
+    level: "advanced",
+    codeExample: "ssh-keygen -t ed25519 -C 'user@corp.com'"
+  },
+  {
+    question: "How does Code Signing protect software distribution pipelines?",
+    shortAnswer: "Software developers digitally sign executable binaries and installers; operating systems verify the signature against trusted root CAs before permitting execution.",
+    explanation: "Windows Defender SmartScreen and macOS Gatekeeper block or warn users if an application is unsigned or if the binary was modified after signing.",
+    hint: "Developers sign binaries so operating systems can verify origin and integrity.",
+    level: "moderate",
+    codeExample: "signtool sign /f certificate.pfx /p password /tr http://timestamp.digicert.com setup.exe"
+  },
+  {
+    question: "What is a Blind Signature and where is it applied in privacy-preserving cryptography?",
+    shortAnswer: "A digital signature where the content of the message is disguised (blinded) before signing, allowing an authority to certify a document without reading its content (used in digital voting and e-cash).",
+    explanation: "Invented by David Chaum, blind signatures prove that a digital ballot was signed by election authorities without revealing which candidate the voter selected.",
+    hint: "Authority signs a blinded document without viewing its contents (e-cash, voting).",
+    level: "advanced",
+    codeExample: "BlindedMessage = (m * r**e) % n # David Chaum blinding formula"
   }
 ];
 

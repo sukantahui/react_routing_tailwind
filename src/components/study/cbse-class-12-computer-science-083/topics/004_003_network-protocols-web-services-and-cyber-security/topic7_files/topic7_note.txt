@@ -1,0 +1,41 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 3: NETWORK PROTOCOLS, WEB SERVICES & CYBER SECURITY
+TOPIC 7: WEB ARCHITECTURE (WWW, HTML, XML, BROWSERS, SERVERS & HOSTING)
+
+================================================================================
+1. INTERNET VS WORLD WIDE WEB (WWW)
+================================================================================
+- Internet: The physical and logical global network infrastructure connecting millions
+  of computers via routers, cables, and IP protocols (ARPANET 1969).
+- World Wide Web (WWW): An application-level hypermedia information-sharing service
+  operating ON TOP OF the Internet, invented by Tim Berners-Lee in 1989 at CERN.
+
+================================================================================
+2. HTML VS XML COMPARISON
+================================================================================
+Parameter          HTML (Hypertext Markup Language) XML (eXtensible Markup Language)
+--------------------------------------------------------------------------------
+Primary Purpose    Displaying & formatting data     Storing, describing & transporting data
+Tags               Predefined standard tags (<p>, <b>) Custom, user-defined extensible tags
+Case Sensitivity   Case-Insensitive                 Strictly Case-Sensitive
+Closing Tags       Optional in older HTML           Strictly mandatory for every tag
+Nesting            Forgiving of overlapping tags    Strict hierarchical tree nesting
+Data vs Display    Focuses on HOW data looks        Focuses on WHAT data represents
+
+================================================================================
+3. WEB SERVERS & WEB BROWSERS
+================================================================================
+- Web Client / Browser: Chrome, Firefox, Safari, Edge. Parses HTML/CSS/JS, sends
+  HTTP requests, and renders web pages graphically.
+- Web Server: Apache, Nginx, Microsoft IIS. Listens on Port 80/443, handles HTTP
+  requests, executes server-side scripts (PHP, Python, Node.js), returns web pages.
+
+================================================================================
+4. WEB HOSTING MODELS
+================================================================================
+1. Shared Hosting: Multiple websites share one physical server's resources. Lowest cost.
+2. VPS (Virtual Private Server): Physical server partitioned into isolated VMs with
+   dedicated virtual CPU/RAM. Balanced performance and cost.
+3. Dedicated Hosting: Single client rents entire physical server hardware. Maximum control.
+4. Cloud Hosting: Scalable cluster of networked virtual servers across data centers.

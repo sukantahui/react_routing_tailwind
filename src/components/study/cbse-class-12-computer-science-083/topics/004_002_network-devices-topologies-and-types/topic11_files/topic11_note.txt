@@ -1,0 +1,30 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: MODULE 2 - TOPIC 11: TREE TOPOLOGY (HIERARCHICAL NETWORKS, SCALABILITY)
+
+1. ARCHITECTURE OF TREE TOPOLOGY:
+   - Also known as Hierarchical Topology.
+   - Definition: A hybrid network topology that combines the characteristics of Bus topology and Star topology.
+   - Structural Anatomy:
+     * Consists of groups of star-configured workstations connected to a central linear backbone cable (or core switch).
+     * Root Node: Topmost core switch/server at Level 0.
+     * Intermediate (Distribution) Nodes: Departmental switches at Level 1.
+     * Leaf (Access) Nodes: Individual client workstations at Level 2.
+
+2. HOW DATA FLOWS IN A TREE TOPOLOGY:
+   - Data flows down the hierarchy from parent to child, or up from child to parent.
+   - Intra-Cluster Traffic: Workstations in the same star group communicate locally through their departmental switch without burdening the central root backbone.
+   - Inter-Cluster Traffic: Workstations communicating across departments travel up through the departmental switch, across the backbone/core switch, and down into the destination branch.
+
+3. ADVANTAGES & DISADVANTAGES (CBSE COMPARISON):
+   - Major Advantages:
+     * Extreme Scalability: Networks can be expanded easily by attaching new star clusters (branches) to the backbone without re-cabling existing departments.
+     * Hierarchical Organization: Matches real-world corporate and academic hierarchies (e.g. University Core -> School of Engineering / School of Medicine -> Individual Labs).
+     * Branch Fault Isolation: If an entire departmental switch or branch cable fails, ONLY that specific branch goes down. Other departmental branches continue operating normally.
+     * Dedicated High-Speed Links: Different branches can use different media (e.g. Optical fiber backbone connecting copper star clusters).
+   - Major Disadvantages:
+     * Root / Backbone Dependency: If the central root switch or main backbone cable fails, communication between different branches is completely severed!
+     * Complex Configuration & High Cost: Requires extensive cabling and multi-tiered managed switches, making design and maintenance more expensive than simple star or bus.
+
+4. CBSE 5-MARK CASE STUDY APPLICATION:
+   - In campus-wide case studies connecting multiple buildings (e.g. Admin Block, Science Block, Library, Hostels to a Server Block), the campus backbone connecting individual building star networks constitutes a classic TREE TOPOLOGY.

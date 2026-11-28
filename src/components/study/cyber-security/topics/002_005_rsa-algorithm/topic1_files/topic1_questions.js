@@ -188,6 +188,86 @@ N = p * q
 phi(N) = (p - 1) * (q - 1)
 e * d ≡ 1 (mod phi(N))
 C^d ≡ (M^e)^d ≡ M^(e*d) ≡ M^(1 + k*phi(N)) ≡ M (mod N)`
+  },
+  {
+    question: "What is Euler's Theorem in modular arithmetic and how does RSA rely on it?",
+    shortAnswer: "If gcd(a, n) = 1, then a^(φ(n)) ≡ 1 (mod n). In RSA, this guarantees that (m^e)^d ≡ m^(ed) ≡ m^(1 + k·φ(n)) ≡ m (mod n).",
+    explanation: "Euler's theorem mathematically proves that encrypting a message m with e and decrypting with d returns the exact original message m.",
+    hint: "a^phi(n) = 1 mod n, proving that m^(ed) returns original plaintext m.",
+    level: "advanced",
+    codeExample: "m**(e * d) % n == m # Fundamental RSA algebraic identity"
+  },
+  {
+    question: "How does the Extended Euclidean Algorithm compute the private exponent d?",
+    shortAnswer: "It finds integers d and k that satisfy Bézout's identity: e · d + φ(n) · k = 1, which gives e · d ≡ 1 (mod φ(n)).",
+    explanation: "d is the modular multiplicative inverse of e modulo φ(n).",
+    hint: "Finds the modular inverse d such that (e * d) mod phi(n) == 1.",
+    level: "moderate",
+    codeExample: "d = pow(e, -1, phi) # Python 3.8+ modular inverse"
+  },
+  {
+    question: "Why must the prime factors p and q be kept strictly confidential?",
+    shortAnswer: "Because anyone who knows p and q can trivially calculate φ(n) = (p-1)(q-1), and then immediately derive the private key d from public exponent e.",
+    explanation: "Security of RSA collapses entirely once the prime factors p and q are exposed.",
+    hint: "Knowing p and q allows instant computation of phi(n) and private key d.",
+    level: "basic",
+    codeExample: "if compromised(p, q): Attacker_d = pow(e, -1, (p-1)*(q-1))"
+  },
+  {
+    question: "How are massive prime numbers (1024+ bits) generated for RSA keypairs?",
+    shortAnswer: "By generating cryptographically random odd numbers and testing them for primality using probabilistic algorithms like the Miller-Rabin Primality Test.",
+    explanation: "Testing an integer with 64 Miller-Rabin rounds with random bases reduces the probability of a composite passing as prime to less than 2^(-128).",
+    hint: "Random number generation followed by Miller-Rabin probabilistic primality tests.",
+    level: "advanced",
+    codeExample: "while not miller_rabin(p, rounds=64): p = random_odd_1024_bit_int()"
+  },
+  {
+    question: "What is Fermat's Little Theorem and how does it relate to Euler's Totient Theorem?",
+    shortAnswer: "If p is prime, a^(p-1) ≡ 1 (mod p); Euler's Totient Theorem generalizes this to any composite integer modulus n via φ(n).",
+    explanation: "Fermat's theorem is the special prime case of Euler's totient theorem where φ(p) = p - 1.",
+    hint: "a^(p-1) = 1 mod p, the special prime case of Euler's totient theorem.",
+    level: "moderate",
+    codeExample: "assert pow(a, p - 1, p) == 1 # Fermat's Little Theorem"
+  },
+  {
+    question: "Why must primes p and q NOT be too close to each other (|p - q| must be large)?",
+    shortAnswer: "If p and q are close, Fermat's Factorization Method can quickly factor n by testing numbers near sqrt(n), breaking the private key in minutes.",
+    explanation: "Fermat's method expresses n as a difference of squares: n = x^2 - y^2 = (x - y)(x + y). When p ≈ q, x is very close to sqrt(n).",
+    hint: "Fermat's factorization method trivially factors n if p and q are close to sqrt(n).",
+    level: "advanced",
+    codeExample: "x = math.isqrt(n) + 1; while not is_square(x**2 - n): x += 1"
+  },
+  {
+    question: "What is a 'Safe Prime' and why is it recommended in cryptographic parameter generation?",
+    shortAnswer: "A prime number of the form p = 2q + 1, where q is also a prime (Sophie Germain prime); it ensures that (p - 1) has a large prime factor, defeating Pollard's p - 1 factoring.",
+    explanation: "If (p - 1) consists entirely of small prime factors (smooth number), Pollard's p - 1 algorithm factors n with minimal effort.",
+    hint: "Prime of the form p = 2q + 1 where q is also prime, preventing Pollard p-1 attacks.",
+    level: "advanced",
+    codeExample: "is_safe_prime = is_prime(p) and is_prime((p - 1) // 2)"
+  },
+  {
+    question: "Why can the message integer m NOT be greater than or equal to the modulus n in RSA?",
+    shortAnswer: "Because all calculations occur modulo n; if m >= n, decryption computes m mod n, losing the higher-order value of m.",
+    explanation: "RSA operates strictly on the finite field Z_n; plaintexts must satisfy 0 <= m < n.",
+    hint: "Plaintext integer m must be strictly less than modulus n: 0 <= m < n.",
+    level: "basic",
+    codeExample: "assert 0 <= m < n, 'Message exceeds modulus size!'"
+  },
+  {
+    question: "What is the Chinese Remainder Theorem (CRT) optimization in RSA private key operations?",
+    shortAnswer: "A mathematical technique that splits the calculation m = c^d mod n into two smaller calculations: mod p and mod q, speeding up RSA private key operations by ~4x.",
+    explanation: "Because p and q are half the bit length of n, computing modular exponentiations on half-sized moduli provides a massive performance boost.",
+    hint: "Splitting computation modulo p and q to speed up RSA private key ops by ~4x.",
+    level: "advanced",
+    codeExample: "m1 = pow(c, d % (p - 1), p); m2 = pow(c, d % (q - 1), q); m = CRT(m1, m2)"
+  },
+  {
+    question: "How does the General Number Field Sieve (GNFS) algorithm impact RSA key length choices?",
+    shortAnswer: "GNFS is the fastest known classical factoring algorithm, factoring n in sub-exponential time; this forces RSA keys to be at least 2048 bits today (and 3072+ for long-term security).",
+    explanation: "GNFS complexity scales as O(exp(c · (ln n)^(1/3) · (ln ln n)^(2/3))), making 1024-bit RSA crackable by well-funded adversaries.",
+    hint: "Sub-exponential factoring algorithm forcing modern RSA keys to 2048+ bits.",
+    level: "advanced",
+    codeExample: "NIST_Recommendation: 'RSA-1024 deprecated in 2013; minimum 2048-bit required.'"
   }
 ];
 

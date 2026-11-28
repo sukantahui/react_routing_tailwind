@@ -223,6 +223,46 @@ payload: "cat /etc/hostname" or "whoami"
     level: "expert",
     codeExample: `// The Ethical Hacker Equation:
 True_Security_Mastery = (Technical_Offensive_Depth * Rigorous_Methodology) / Uncompromising_Personal_Integrity;`
+  },
+  {
+    question: "What constitutes a 'Statement of Work' (SoW) and 'Rules of Engagement' (RoE) in professional ethical hacking?",
+    shortAnswer: "The SoW defines project deliverables, timelines, and costs; the RoE details operational boundaries, test windows, authorized IP targets, excluded systems, and emergency contact protocols.",
+    explanation: "Without a formally executed SoW and RoE signed by authorized corporate officers, technical testing constitutes unauthorized access under computer crime statutes.",
+    hint: "Contractual documents specifying test windows, targets, and emergency contacts.",
+    level: "moderate",
+    codeExample: "RoE_Scope = { InScope: ['192.168.10.0/24'], OutOfScope: ['192.168.10.254 (Domain Controller)'] }"
+  },
+  {
+    question: "Under the US CFAA (Computer Fraud and Abuse Act) and Indian IT Act Section 43/66, what defines 'exceeding authorized access'?",
+    shortAnswer: "Accessing a computer system with authorization but using such access to obtain or alter information in the computer that the accessor is not legally entitled to obtain or alter.",
+    explanation: "Even if an employee has valid login credentials, accessing sensitive databases or running exploits outside their job description constitutes illegal access under Section 66 and CFAA §1030.",
+    hint: "Using valid login credentials to view or modify unauthorized sensitive data.",
+    level: "moderate",
+    codeExample: "// IT Act 2000 Section 66: Dishonest or fraudulent extraction of system resources"
+  },
+  {
+    question: "What is the principle of 'Non-Destructive Testing' in commercial penetration testing?",
+    shortAnswer: undefined,
+    explanation: "Ethical hackers avoid payload execution that writes garbage data or exhausts disk/RAM. For instance, testing SQL injection with 'SLEEP(1)' or '1=1' instead of 'DROP TABLE'.",
+    hint: "Proving exploitability without dropping tables or crashing servers.",
+    level: "moderate",
+    codeExample: "' OR 1=1 -- Valid non-destructive SQLi proof of concept"
+  },
+  {
+    question: "What is an 'Indemnification Clause' in a penetration testing agreement?",
+    shortAnswer: "A contractual term that protects the cybersecurity testing firm from financial liabilities or third-party lawsuits if systems inadvertently fail during authorized, compliant testing.",
+    explanation: "Indemnification ensures that provided the security firm operated strictly within agreed RoE, accidental service disruptions do not result in catastrophic breach of contract damages.",
+    hint: "Legal shield protecting testers from operational disruption claims within scope.",
+    level: "advanced",
+    codeExample: "Clause 14.2: Client agrees to hold harmless Contractor for unintended outages within authorized scope."
+  },
+  {
+    question: "What ethical dilemma arises when an ethical hacker discovers unredacted PII or criminal evidence during an engagement?",
+    shortAnswer: "The tester must halt inspection of the compromised data immediately, document the vulnerability using minimal proof, report the finding to the designated legal/executive liaison, and avoid personal retention.",
+    explanation: "Ethical guidelines (EC-Council, SANS, CREST) mandate reporting the security flaw without collecting, copying, or distributing private personal records or confidential corporate secrets.",
+    hint: "Stop reading immediately, document minimally, and report to legal liaison.",
+    level: "advanced",
+    codeExample: "// Secure wipe any transient local cache containing discovered PII:\nshred -u -z -n 3 /tmp/discovered_pii.csv"
   }
 ];
 

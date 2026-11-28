@@ -212,6 +212,54 @@ Hardware AES-NI:  ~8,400 MB/s (8.4 GB/s, 0.6 cycles/byte, constant-time)`
 DES (1977, 56-bit Key, 64-bit Block)   → BROKEN (GPU Brute Force)
 3DES (1998, 112-bit Key, 64-bit Block) → RETIRED (Sweet32 Collision Attack)
 AES-256 (2001, 256-bit Key, 128-bit Block, SPN) → GLOBAL GOLD STANDARD (UNBREAKABLE)`
+  },
+  {
+    question: "Why was the Data Encryption Standard (DES) deprecated in the late 1990s?",
+    shortAnswer: "Its effective key length of 56 bits is too short, allowing brute-force cracking in under 24 hours using distributed clusters (Deep Crack machine).",
+    explanation: "Although DES uses 64-bit keys, 8 bits are parity bits. 2^56 keys (~7.2 × 10^16) can be thoroughly exhausted by modern FPGA and GPU rigs in minutes.",
+    hint: "56-bit key length is trivially vulnerable to brute-force cracking.",
+    level: "basic",
+    codeExample: "Total_DES_Keys = 2**56 # 72,057,594,037,927,936 keys (crackable in hours)"
+  },
+  {
+    question: "How does Triple-DES (3DES) enhance security and what is its Encrypt-Decrypt-Encrypt (EDE) architecture?",
+    shortAnswer: "It applies DES three times with up to three distinct keys: C = E_K3(D_K2(E_K1(P))), providing an effective key length of 112 or 168 bits.",
+    explanation: "The middle step is decryption to maintain backwards compatibility: if K1 = K2 = K3, 3DES reduces to standard single-DES.",
+    hint: "Applying DES three times: Encrypt with K1, Decrypt with K2, Encrypt with K3.",
+    level: "moderate",
+    codeExample: "C = DES_Encrypt(K3, DES_Decrypt(K2, DES_Encrypt(K1, P)))"
+  },
+  {
+    question: "What is the Meet-in-the-Middle attack and why does Double-DES (2DES) NOT provide 112 bits of security?",
+    shortAnswer: "An attacker encrypts plaintext from one end and decrypts ciphertext from the other, storing intermediate states in a hash table; 2DES yields only 57 bits of security (2^57 operations).",
+    explanation: "Instead of 2^(56+56) = 2^112, the space-time trade-off breaks 2DES in 2^57 steps, proving that double encryption is cryptographically ineffective.",
+    hint: "Space-time trade-off matching forward encryption with backward decryption in memory.",
+    level: "advanced",
+    codeExample: "Table[E_K1(P)] = K1; if D_K2(C) in Table -> Candidate pair (K1, K2) found!"
+  },
+  {
+    question: "What mathematical structure does the Advanced Encryption Standard (AES) use instead of a Feistel network?",
+    shortAnswer: "A Substitution-Permutation Network (SPN) operating on a 4x4 matrix of bytes called the 'State'.",
+    explanation: "Unlike Feistel ciphers which process only half the block per round, SPN transforms the entire 128-bit block in every single round.",
+    hint: "Substitution-Permutation Network (SPN) operating on a 4x4 State byte matrix.",
+    level: "advanced",
+    codeExample: "AES_Round_Steps = ['SubBytes', 'ShiftRows', 'MixColumns', 'AddRoundKey'];"
+  },
+  {
+    question: "What are the 4 distinct transformations executed in each round of AES?",
+    shortAnswer: "1. SubBytes (non-linear S-box byte substitution), 2. ShiftRows (cyclical byte transposition), 3. MixColumns (Galois Field matrix multiplication), 4. AddRoundKey (XOR with round key).",
+    explanation: "The final round omits the MixColumns step to allow symmetric mathematical inversion during decryption.",
+    hint: "SubBytes, ShiftRows, MixColumns, AddRoundKey.",
+    level: "moderate",
+    codeExample: "def AES_Round(state, round_key):\n    return AddRoundKey(MixColumns(ShiftRows(SubBytes(state))), round_key)"
+  },
+  {
+    question: "How do AES-128, AES-192, and AES-256 compare in terms of key length and round counts?",
+    shortAnswer: "All use identical 128-bit block size. AES-128: 128-bit key, 10 rounds; AES-192: 192-bit key, 12 rounds; AES-256: 256-bit key, 14 rounds.",
+    explanation: "Increasing rounds with larger key sizes ensures that quantum (Grover's algorithm) and classical cryptanalysis remain computationally infeasible.",
+    hint: "All use 128-bit blocks; rounds are 10, 12, and 14 for 128, 192, and 256-bit keys.",
+    level: "basic",
+    codeExample: "AES_Profiles = { 128: {'rounds': 10}, 192: {'rounds': 12}, 256: {'rounds': 14} };"
   }
 ];
 

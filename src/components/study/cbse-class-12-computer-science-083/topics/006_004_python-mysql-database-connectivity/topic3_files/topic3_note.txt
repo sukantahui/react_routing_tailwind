@@ -1,0 +1,46 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 3: TESTING CONNECTION STATUS USING CONNECTION.IS_CONNECTED() METHOD
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+The is_connected() boolean method checks whether the database connection is currently open, authenticated, and ready to transmit queries.
+
+2. KEY EXAMINATION POINTS:
+  (1) Syntax: 'if con.is_connected(): print("Connected!")'
+  (2) Returns True if the connection is active and socket communication is responsive; returns False if disconnected.
+  (3) Crucial for robust application programming: prevents attempting queries on failed or timed-out connections.
+  (4) CBSE Exam Classic: Writing a complete connection verification snippet with try-except and is_connected().
+
+3. SYNTAX & CODE SNIPPET:
+import mysql.connector
+
+try:
+    con = mysql.connector.connect(
+        host="localhost",
+        user="root",
+        password="tiger",
+        database="SchoolDB"
+    )
+    if con.is_connected():
+        print("Successfully connected to MySQL database!")
+        print("Server Version:", con.get_server_info())
+        con.close()
+except mysql.connector.Error as err:
+    print("Failed to connect:", err)
+
+4. CBSE COMMON PITFALLS:
+Always remember to commit transactions and close both cursor and connection.
+
+5. REVISION CHECKLIST:
+  [ ] Understand connect() parameters: host, user, password, database.
+  [ ] Know the difference between fetchone(), fetchmany(), and fetchall().
+  [ ] Remember that fetchone() returns None and fetchall() returns [] when exhausted.
+  [ ] Master con.commit() for INSERT/UPDATE/DELETE.
+  [ ] Know that '%s' is the universal placeholder in mysql.connector.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 3 · CODER & ACCOTAX BARRACKPORE
+================================================================================

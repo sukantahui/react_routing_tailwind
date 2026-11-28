@@ -1,0 +1,40 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: TOPIC 8 - UNGUIDED MEDIA: MICROWAVES & INFRARED TRANSMISSION
+
+1. MICROWAVE TRANSMISSION (1 GHz TO 300 GHz):
+   - Fundamental Nature:
+     * High-frequency electromagnetic waves operating between 1 GHz and 300 GHz.
+     * Unidirectional Propagation: Energy is focused into a narrow, concentrated beam using parabolic dish or horn antennas.
+     * Strict Line of Sight (LoS): Transmitting and receiving antennas must point directly at each other with zero obstruction.
+   - Terrestrial Microwave Relay Towers:
+     * Towers are placed on high hilltops or tall buildings every 40 to 50 km.
+     * Periodic repeaters are mandatory due to the physical curvature of the Earth blocking the direct line of sight.
+   - Applications: Cellular backhaul, inter-building campus links across public roadways, radar.
+   - Advantages: High bandwidth, no right-of-way cabling required, ideal for rugged terrain.
+   - Limitations: Line of sight obstruction by buildings/trees, rain fade (absorption by water droplets), expensive tower construction.
+
+2. INFRARED TRANSMISSION (300 GHz TO 400 THz):
+   - Fundamental Nature:
+     * Extremely high-frequency optical waves situated just below visible red light.
+     * Short-Range Communication: Operates within a few meters (typically 1 to 5 meters, max 10 meters).
+     * Cannot Penetrate Solid Walls: This physical limitation provides excellent security since signals cannot leak outside the room.
+     * High Line-of-Sight Dependency: Directly blocked by intervening physical objects (e.g. someone walking between remote and TV).
+   - Applications:
+     * Television, AC, and home entertainment remote controls.
+     * Wireless computer mice, keyboards, and printers (IrDA standard).
+     * Intra-room wireless data transfer.
+   - Advantages: High security (cannot be tapped from outside the room), zero government licensing required, no interference from neighboring rooms.
+   - Limitations: Strictly limited to one room, blocked by solid objects, sunlight/ambient heat causes optical interference.
+
+3. CBSE COMPARATIVE SUMMARY:
+   +------------------------+------------------------------------+------------------------------------+
+   | Feature                | Microwave                          | Infrared                           |
+   +------------------------+------------------------------------+------------------------------------+
+   | Frequency Range        | 1 GHz to 300 GHz                   | 300 GHz to 400 THz                 |
+   | Directionality         | Unidirectional (directional beam)  | Unidirectional / Line-of-sight     |
+   | Distance Range         | Long range (40 - 50 km per hop)    | Very short range (< 10 meters)     |
+   | Wall Penetration       | Poor (attenuated by thick walls)   | Zero (completely blocked by walls) |
+   | Environmental Impact   | Rain fade, fog, atmospheric moisture| Sunlight, ambient thermal noise    |
+   | Typical Hardware       | Parabolic dish & repeater towers   | Infrared LED emitter & photodiode  |
+   +------------------------+------------------------------------+------------------------------------+

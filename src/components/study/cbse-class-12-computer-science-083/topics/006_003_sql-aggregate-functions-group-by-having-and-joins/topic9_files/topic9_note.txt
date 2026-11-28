@@ -1,0 +1,35 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 9: TABLE ALIASES FOR CONCISE MULTI-TABLE SYNTAX & DISAMBIGUATION
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Table aliases provide concise substitute names for relations in the FROM clause, simplifying references to common attribute names.
+
+2. KEY EXAMINATION POINTS:
+  (1) Syntax: 'FROM Employee E, Department D' assigns alias 'E' to Employee and 'D' to Department.
+  (2) Disambiguation: When two tables have columns with identical names, use dot notation: 'E.DeptId = D.DeptId'.
+  (3) Once a table alias is declared in the FROM clause, it MUST be used throughout the SELECT, WHERE, and JOIN clauses instead of the original table name.
+  (4) Table aliases improve query readability and are essential for self-joins and complex equi-joins.
+
+3. SYNTAX & CODE SNIPPET:
+-- Concise Multi-Table Query with Table Aliases:
+SELECT E.EmpId, E.EName, D.DeptName, D.Location 
+FROM Employee E, Department D 
+WHERE E.DeptId = D.DeptId;
+
+4. CBSE COMMON PITFALLS:
+Ensure correct placement of WHERE before GROUP BY and HAVING after GROUP BY.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between COUNT(*) and COUNT(col).
+  [ ] Master GROUP BY rules regarding non-aggregated columns.
+  [ ] Remember WHERE cannot contain aggregate functions; use HAVING.
+  [ ] Know Cartesian Product formulas: Cardinality = R1 * R2, Degree = C1 + C2.
+  [ ] Always include (N - 1) join conditions when joining N tables.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 9 · CODER & ACCOTAX BARRACKPORE
+================================================================================

@@ -1,0 +1,23 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+SEGMENT 3: DATA STRUCTURES (LINEAR LISTS & STACKS)
+TOPIC 12: PRACTICE YOUR SKILL HERE (DIAGNOSTIC MASTERY ASSESSMENT)
+
+1. PURPOSE OF DIAGNOSTIC ASSESSMENT:
+- 25 authentic, rigorous CBSE Class 12 board examination questions.
+- Tests comprehensive mastery across all aspects of Linear Data Structures & Stacks:
+  * Linear vs Non-Linear taxonomy
+  * LIFO and FILO principles and real-world analogies
+  * TOP pointer arithmetic and boundary indices
+  * Push implementation via list.append()
+  * Pop implementation via list.pop() with Underflow guards
+  * Peek implementation via list[-1] without removal
+  * Non-destructive TOP-to-bottom traversal (Display)
+  * Record-based composite stacks ([Roll, Name, Marks])
+  * CBSE board examination question patterns (dictionary filters, number parity, string vowels)
+
+2. SCORING & BENCHMARKS:
+- 90% - 100% (23-25 correct): Board Topper Level Mastery.
+- 75% - 89% (19-22 correct): First Division Distinction.
+- 60% - 74% (15-18 correct): Good Command, minor syntax revision recommended.
+- Below 60% (Under 15 correct): Review Topics 0-10 before taking examination.

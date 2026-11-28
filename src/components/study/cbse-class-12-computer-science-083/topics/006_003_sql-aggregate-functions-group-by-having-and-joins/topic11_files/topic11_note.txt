@@ -1,0 +1,38 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 11: COMBINING TABLE JOINS WITH FILTERING, GROUPING, AND SORTING IN CBSE BOARD PROBLEMS
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Real CBSE Class 12 board questions combine table joins with WHERE filters, GROUP BY aggregation, HAVING criteria, and ORDER BY sorting.
+
+2. KEY EXAMINATION POINTS:
+  (1) Join condition belongs in the WHERE clause alongside any filtering criteria: 'WHERE E.DeptId = D.DeptId AND E.Salary > 50000'.
+  (2) When grouping joined data, group by the primary key or unique attribute of the primary entity: 'GROUP BY D.DeptId, D.DeptName'.
+  (3) Always qualify attribute names with table aliases (e.g. D.DeptName) to avoid ambiguity errors.
+  (4) CBSE Exam Classic: 'Display DeptName and Total Salary paid to each department where total salary exceeds 100000, ordered from highest to lowest'.
+
+3. SYNTAX & CODE SNIPPET:
+-- Master CBSE Multi-Table Query Pattern:
+SELECT D.DeptName, COUNT(E.EmpId) AS TotalStaff, SUM(E.Salary) AS DeptPayroll 
+FROM Employee E, Department D 
+WHERE E.DeptId = D.DeptId 
+GROUP BY D.DeptId, D.DeptName 
+HAVING SUM(E.Salary) > 100000.00 
+ORDER BY DeptPayroll DESC;
+
+4. CBSE COMMON PITFALLS:
+Ensure correct placement of WHERE before GROUP BY and HAVING after GROUP BY.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between COUNT(*) and COUNT(col).
+  [ ] Master GROUP BY rules regarding non-aggregated columns.
+  [ ] Remember WHERE cannot contain aggregate functions; use HAVING.
+  [ ] Know Cartesian Product formulas: Cardinality = R1 * R2, Degree = C1 + C2.
+  [ ] Always include (N - 1) join conditions when joining N tables.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 11 · CODER & ACCOTAX BARRACKPORE
+================================================================================

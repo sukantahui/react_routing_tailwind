@@ -1,0 +1,18 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: TEXT FILE HANDLING (SAMPLE QUESTION PAPERS)
+===================================================
+10 Mock Test Papers · 20 Marks Each · Duration: 45 Minutes
+
+STRUCTURE OF EACH 20-MARK SET:
+- Section A: 4 Questions x 1 Mark = 4 Marks (MCQs, conceptual checks)
+- Section B: 2 Questions x 2 Marks = 4 Marks (Tracing, short answer, bug fixes)
+- Section C: 2 Questions x 3 Marks = 6 Marks (Algorithms, word/vowel counts)
+- Section D: 1 Question x 6 Marks = 6 Marks (Comprehensive modular program)
+
+CRITICAL RULES FOR TEXT FILES:
+1. 'r' is default mode; FileNotFoundError occurs if file is missing.
+2. 'w' creates or truncates the file to 0 bytes.
+3. 'a' appends data to the end without truncation.
+4. seek(offset, 0) moves from beginning. In text mode, non-zero offsets from current/end are invalid.
+5. tell() returns the integer byte position of the file pointer.
+6. 'with open(...) as f:' ensures deterministic file closure.

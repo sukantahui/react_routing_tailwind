@@ -1,0 +1,22 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: PERSISTENT DATA STORAGE - CSV FILE HANDLING
+TOPIC 10: PRACTICE YOUR SKILL HERE (DIAGNOSTIC MASTERY ASSESSMENT)
+
+1. PURPOSE OF DIAGNOSTIC ASSESSMENT:
+- 25 authentic, rigorous CBSE Class 12 board examination questions.
+- Tests comprehensive mastery across all aspects of CSV file handling:
+  * RFC 4180 rules & MIME types
+  * csv module functions (reader, writer, DictReader, DictWriter)
+  * The newline='' parameter and universal newline translation
+  * Single-row writerow() vs batch writerows()
+  * Custom delimiters (tabs, pipes, semicolons)
+  * Iterable row traversal and next() header handling
+  * Numerical filtering and string-to-number casting
+  * Statistical aggregations (Sum, Avg, Max, Min)
+  * Full CRUD architecture and board question patterns
+
+2. SCORING & BENCHMARKS:
+- 90% - 100% (23-25 correct): Board Topper Level Mastery.
+- 75% - 89% (19-22 correct): First Division Distinction.
+- 60% - 74% (15-18 correct): Good Command, minor syntax revision recommended.
+- Below 60% (Under 15 correct): Review Topics 0-8 before taking practical exam.

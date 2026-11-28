@@ -1,0 +1,42 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 3: NETWORK PROTOCOLS, WEB SERVICES & CYBER SECURITY
+MASTER LABORATORY & QUICK REVISION PACKAGE (TOPIC 12)
+
+================================================================================
+1. COMPREHENSIVE PROTOCOL MATRIX FOR CBSE BOARD EXAM
+================================================================================
+Protocol   Full Name                     Layer        Port        Key Role
+--------------------------------------------------------------------------------
+TCP        Transmission Control Protocol Transport    N/A         Reliable, in-order byte stream (3-Way Handshake)
+UDP        User Datagram Protocol        Transport    N/A         Lightweight, connectionless, low latency (VoIP)
+IP         Internet Protocol             Internet     N/A         Logical addressing (IPv4/IPv6) & packet routing
+HTTP       Hypertext Transfer Protocol   Application  Port 80     Cleartext hypermedia transfer on WWW
+HTTPS      HTTP Secure (over SSL/TLS)    Application  Port 443    Cryptographically encrypted hypermedia
+FTP        File Transfer Protocol        Application  Ports 20/21 Dual connection: Port 21 Control, Port 20 Data
+SMTP       Simple Mail Transfer Protocol Application  Port 25/587 Push outgoing email client->server and server->server
+POP3       Post Office Protocol v3       Application  Port 110    Pull email (downloads and deletes from server)
+IMAP       Internet Message Access Proto Application  Port 143    Pull email (central server storage, multi-device sync)
+Telnet     Telecommunication Network     Application  Port 23     Cleartext remote terminal CLI (Insecure/Deprecated)
+SSH        Secure Shell                  Application  Port 22     Encrypted remote terminal CLI, SCP & tunneling
+VoIP       Voice over IP (SIP/RTP)       Application  Port 5060   Packetized voice telephony replacing PSTN
+DNS        Domain Name System            Application  Port 53     Resolves human domain names to numerical IPs
+
+================================================================================
+2. MALWARE TAXONOMY SUMMARY
+================================================================================
+- Virus: Requires host file (.exe, doc); requires user execution to replicate.
+- Worm: Standalone; replicates autonomously across networks without human action.
+- Trojan Horse: Disguised as legitimate software; does NOT self-replicate; drops backdoors.
+- Ransomware: Encrypts files with strong cryptography; demands extortion payment.
+- Spyware / Keylogger: Covertly monitors user activity and captures typed keystrokes.
+
+================================================================================
+3. CYBER ATTACKS & DEFENSE SUMMARY
+================================================================================
+- Phishing: Deceptive social engineering emails/sites stealing credentials.
+- DoS vs DDoS: Single attacking source (DoS) vs thousands of zombie botnet nodes (DDoS).
+- Spoofing: Forging IP address, Email sender, or DNS resolution mappings.
+- Firewall: Filters network traffic based on ACL rules (Hardware vs Software).
+- Ethical Hacker: Authorized penetration tester with legal, constructive intent.
+- Cracker: Unauthorized cybercriminal breaking into systems with malicious intent.

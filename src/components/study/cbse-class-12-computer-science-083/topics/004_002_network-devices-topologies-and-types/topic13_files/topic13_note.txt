@@ -1,0 +1,38 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: MODULE 2 - TOPIC 13: NETWORK CLASSIFICATION (PAN, LAN, MAN, WAN)
+
+1. CLASSIFICATION BY GEOGRAPHICAL SPREAD:
+   Networks are categorized based on the geographic distance they span:
+   1. PAN (Personal Area Network):
+      - Coverage Range: Up to 10 meters (within the reach of an individual person).
+      - Primary Technologies: Bluetooth (IEEE 802.15.1), Infrared (IrDA), USB, Wi-Fi Direct.
+      - Examples: Connecting a smartphone to wireless earbuds, smartwatch to phone, laptop to wireless mouse, mobile hotspot.
+   2. LAN (Local Area Network):
+      - Coverage Range: Up to 1 kilometer (single room, office floor, school building, or small campus).
+      - Primary Technologies: Ethernet (802.3 over Cat-6 UTP/Fiber), Wi-Fi (802.11).
+      - Ownership: Privately owned and managed by a single organization (school, hospital, office).
+      - Key Characteristics: Highest data transmission speed (100 Mbps to 10 Gbps) and lowest error rate.
+   3. MAN (Metropolitan Area Network):
+      - Coverage Range: Up to 50 kilometers (spans an entire city or municipal town).
+      - Primary Technologies: Cable Television networks (CATV), Municipal Optical Fiber rings, WiMAX.
+      - Ownership: Owned by a consortium of users, municipal government, or a single telecom network provider.
+      - Examples: Citywide Cable TV broadband, municipal traffic camera networks, interconnected bank branches across a metropolis.
+   4. WAN (Wide Area Network):
+      - Coverage Range: Spans entire states, nations, continents, or the entire planet Earth.
+      - Primary Technologies: Subsea optical fiber cables, Geostationary satellites, telecom leased lines.
+      - Ownership: Multiple public telecom operators, ISPs, and international consortia.
+      - Prime Example: The global INTERNET.
+      - Key Characteristics: Highest propagation latency and highest error rate due to vast distances.
+
+2. MASTER CBSE COMPARISON MATRIX (PAN VS LAN VS MAN VS WAN):
+   +------------------------+-------------------+-------------------+-------------------+-------------------+
+   | Parameter              | PAN               | LAN               | MAN               | WAN               |
+   +------------------------+-------------------+-------------------+-------------------+-------------------+
+   | Geographical Range     | < 10 meters       | Up to 1 - 2 km    | Up to 50 km (City)| Country / Global  |
+   | Typical Speed          | Low (few Mbps)    | Highest (1-10Gbps)| High (100M-1Gbps) | Moderate to High  |
+   | Error Rate             | Very Low          | Lowest            | Moderate          | Highest           |
+   | Ownership              | Single Individual | Single Enterprise | Consortium / Govt | Multiple Telecoms |
+   | Infrastructure Cost    | Very Low          | Low to Moderate   | High              | Extremely High    |
+   | Classic Example        | Bluetooth Headset | School Computer Lb| City Cable TV Net | The INTERNET      |
+   +------------------------+-------------------+-------------------+-------------------+-------------------+

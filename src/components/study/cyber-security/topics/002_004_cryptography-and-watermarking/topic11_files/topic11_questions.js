@@ -177,6 +177,86 @@ Outcome: Legal prosecution initiated under Indian Copyright Act Section 65B!`
     level: "expert",
     codeExample: `// The Master Architectural Synthesis:
 (Symmetric_AES_256 + Asymmetric_ECC_PQC + SHA256_Integrity + DWT_Watermarking + DPDP_Compliance) = RESILIENT_DIGITAL_CIVILIZATION;`
+  },
+  {
+    question: "How does end-to-end encryption (E2EE) in WhatsApp and Signal operate?",
+    shortAnswer: "Using the Signal Protocol (Double Ratchet Algorithm, ECDH, AES-256), keys are negotiated directly between user endpoints; intermediate server operators cannot decrypt chats.",
+    explanation: "The Double Ratchet rotates cryptographic keys with every single message, guaranteeing both forward secrecy and break-in recovery.",
+    hint: "Keys stay strictly on user phones; server operators cannot read messages.",
+    level: "moderate",
+    codeExample: "DoubleRatchet: KDF_Chain_Ratchet() executes per message to derive ephemeral key"
+  },
+  {
+    question: "What is BitLocker Drive Encryption and how does it utilize TPM (Trusted Platform Module) chips?",
+    shortAnswer: "Full volume disk encryption using AES-XTS; the Full Volume Encryption Key (FVEK) is sealed inside the motherboard's TPM chip and released only if platform boot integrity checks pass.",
+    explanation: "If a laptop is stolen and the hard drive is removed, the drive cannot be decrypted without the motherboard's hardware TPM key.",
+    hint: "Hardware TPM chip sealing full disk encryption keys against offline tampering.",
+    level: "moderate",
+    codeExample: "manage-bde -status C: # Checks BitLocker volume encryption status"
+  },
+  {
+    question: "How does the Bitcoin Blockchain utilize Cryptographic Hashing and Digital Signatures?",
+    shortAnswer: "Transactions are signed using ECDSA (secp256k1) to authorize spending; blocks are chained together and secured using SHA-256 Proof-of-Work mining.",
+    explanation: "Changing any past transaction alters its SHA-256 hash, invalidating all subsequent block headers and making historical tampering computationally impossible.",
+    hint: "ECDSA for spending authorizations; SHA-256 for block mining and chain integrity.",
+    level: "basic",
+    codeExample: "Block_Hash = SHA256(SHA256(PrevHash + MerkleRoot + Timestamp + Bits + Nonce))"
+  },
+  {
+    question: "What role does Cryptography play in electronic passport (e-Passport) security?",
+    shortAnswer: "The contactless RFID chip stores biometric data protected by Passive Authentication (SOD file signed by the issuing nation's root CA) and Basic Access Control (BAC).",
+    explanation: "Border control readers verify the digital signature on the chip against ICAO public key directories to detect forged or cloned passports.",
+    hint: "Digital signatures from national issuing CAs verifying RFID biometric chips.",
+    level: "moderate",
+    codeExample: "ICAO_PKD: Verifies Document Signer Certificate (DSC) against Country Signing CA (CSCA)"
+  },
+  {
+    question: "How does DRM (Digital Rights Management) in Widevine and FairPlay protect streaming media?",
+    shortAnswer: "Video files are encrypted with AES-128; decryption keys are delivered over secure channels and decoded inside protected hardware video decoders (Trusted Execution Environment - TEE).",
+    explanation: "Even with root privileges on an Android phone or PC, the user cannot dump decrypted 4K video frames from hardware TEE memory.",
+    hint: "Hardware TEE decoding AES-encrypted video frames to prevent pirated screen ripping.",
+    level: "advanced",
+    codeExample: "Widevine_Security_Level: 'L1 (Hardware TEE Decryption)' vs 'L3 (Software Fallback)'"
+  },
+  {
+    question: "What is Homomorphic Encryption and how could it revolutionize cloud computing privacy?",
+    shortAnswer: "A form of encryption that allows mathematical operations to be performed directly on encrypted data without ever decrypting it first: Enc(A) + Enc(B) = Enc(A + B).",
+    explanation: "Enables organizations to upload confidential medical or financial records to third-party public clouds for AI analysis without exposing plaintext to cloud providers.",
+    hint: "Computing mathematical queries on encrypted data without decrypting it.",
+    level: "advanced",
+    codeExample: "Encrypted_Result = Homomorphic_Add(Enc(5), Enc(10)); // Decrypts to 15"
+  },
+  {
+    question: "What is Zero-Knowledge Proof (ZKP) in modern cryptographic authentication?",
+    shortAnswer: "A cryptographic method enabling one party (Prover) to prove to another party (Verifier) that a statement is true without revealing any information beyond the statement's validity.",
+    explanation: "For example, proving you know a password or are over 21 years old without revealing the password or your date of birth.",
+    hint: "Proving knowledge of a secret without revealing the secret itself.",
+    level: "advanced",
+    codeExample: "zk-SNARK: Verify(Proof, PublicInput) -> True/False (Zero private data leaked)"
+  },
+  {
+    question: "How does Ransomware misuse symmetric and asymmetric cryptography in real-world attacks?",
+    shortAnswer: "It generates a random symmetric key (AES-256) to encrypt files rapidly, then encrypts that AES key with the attacker's embedded public key (RSA-2048), demanding ransom for the private key.",
+    explanation: "Because only the cybercriminals hold the RSA private key, files cannot be decrypted even if victims reverse-engineer the ransomware binary.",
+    hint: "Files encrypted with AES; AES key encrypted with attacker's public RSA key.",
+    level: "moderate",
+    codeExample: "for f in files: AES_encrypt(f, key); Encrypted_Key = RSA_Encrypt(key, Attacker_PubKey)"
+  },
+  {
+    question: "What is a Hardware Security Module (HSM) and why are they mandated in banking systems?",
+    shortAnswer: "A dedicated physical computing appliance designed to safeguard and manage digital keys, perform rapid cryptographic acceleration, and self-destruct keys if physical tampering is detected.",
+    explanation: "HSMs (FIPS 140-2 Level 3/4 certified) enforce zero-plaintext leakage; private keys never leave the tamper-responsive silicon hardware die.",
+    hint: "Physical tamper-resistant hardware storing cryptographic root keys for banks.",
+    level: "moderate",
+    codeExample: "HSM_Zeroize(): Physical probe detection instantly purges cryptographic keys"
+  },
+  {
+    question: "How does the Indian UPI (Unified Payments Interface) protect financial transactions cryptographically?",
+    shortAnswer: "Mobile app registration binds device SIM credentials via SMS cryptographic challenges; transactions require a 4 or 6-digit MPIN entered into an isolated NPCI cryptographic library that encrypts the PIN with NPCI public keys.",
+    explanation: "Banking apps never see the user's plaintext MPIN; the encrypted packet routes directly to the National Payments Corporation of India (NPCI) for bank switch settlement.",
+    hint: "Device SIM binding and hardware-isolated MPIN encryption routed to NPCI.",
+    level: "moderate",
+    codeExample: "NPCI_Payload = Encrypt(MPIN + DeviceID, NPCI_Public_Certificate)"
   }
 ];
 

@@ -1,0 +1,50 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 5: EXECUTING SQL QUERIES: CURSOR.EXECUTE(QUERY_STRING)
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+The execute() method compiles and transmits SQL statements to the database engine for parsing, optimization, and execution.
+
+2. KEY EXAMINATION POINTS:
+  (1) Syntax: 'cur.execute("SELECT * FROM Student;")' or pass a query string variable: 'cur.execute(query)'.
+  (2) Can execute ANY valid SQL statement: DDL (CREATE, DROP), DML (INSERT, UPDATE, DELETE), and DQL (SELECT).
+  (3) Trailing semicolon in the SQL string inside execute() is optional in MySQL connector, but good practice.
+  (4) Executing DML requires explicit commit; executing SELECT requires calling fetch methods to read data.
+
+3. SYNTAX & CODE SNIPPET:
+import mysql.connector
+
+con = mysql.connector.connect(host="localhost", user="root", password="tiger", database="SchoolDB")
+cur = con.cursor()
+
+# Executing a SELECT query
+cur.execute("SELECT RollNo, SName, Marks FROM Student WHERE Marks > 90.0;")
+
+# Executing a DDL table creation
+cur.execute("""
+    CREATE TABLE IF NOT EXISTS Alumni (
+        AlumniId INT PRIMARY KEY,
+        AName VARCHAR(30),
+        PassoutYear INT
+    );
+""")
+
+cur.close()
+con.close()
+
+4. CBSE COMMON PITFALLS:
+Always remember to commit transactions and close both cursor and connection.
+
+5. REVISION CHECKLIST:
+  [ ] Understand connect() parameters: host, user, password, database.
+  [ ] Know the difference between fetchone(), fetchmany(), and fetchall().
+  [ ] Remember that fetchone() returns None and fetchall() returns [] when exhausted.
+  [ ] Master con.commit() for INSERT/UPDATE/DELETE.
+  [ ] Know that '%s' is the universal placeholder in mysql.connector.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 5 · CODER & ACCOTAX BARRACKPORE
+================================================================================

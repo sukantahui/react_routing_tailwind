@@ -246,6 +246,46 @@ Identified Priorities:
 1. dev-staging-payment.kolkata-fintech.co.in (Unpatched PHP 7.4 runtime)
 2. s3://kolkata-fintech-backup (Misconfigured permissions)
 -> Proceeding to Phase 2 Scanning!`
+  },
+  {
+    question: "What is the key technical difference between Passive Reconnaissance and Active Footprinting?",
+    shortAnswer: "Passive reconnaissance collects data without sending a single packet to the target's infrastructure; active footprinting directly communicates with target servers and devices.",
+    explanation: "Passive uses public third-party databases (WHOIS, DNS records, Google Dorks, Shodan, LinkedIn); active uses ping sweeps, port scans, and HTTP header queries.",
+    hint: "Zero packet interaction with target servers vs direct packet probing.",
+    level: "basic",
+    codeExample: "whois target.com # Passive vs ping target.com # Active"
+  },
+  {
+    question: "How do Google Dorks (Advanced Search Operators) facilitate passive reconnaissance?",
+    shortAnswer: "By querying Google's indexed cache using specialized search filters (`site:`, `filetype:`, `inurl:`, `intitle:`) to locate accidentally exposed passwords, backup files, and admin panels.",
+    explanation: "Google Dorks reveal confidential PDFs, SQL dumps, `.env` files, and staging environments without alerting the target company's firewalls.",
+    hint: "Search filters like filetype:env or inurl:admin to find exposed credentials.",
+    level: "moderate",
+    codeExample: "site:target.com filetype:env DB_PASSWORD"
+  },
+  {
+    question: "What is the role of Shodan and Censys in passive infrastructure reconnaissance?",
+    shortAnswer: "They are search engines that continuously crawl and index Internet-connected devices, recording open ports, SSL certificates, banner headers, and device types worldwide.",
+    explanation: "Attackers can find exposed industrial SCADA controllers, unpatched cameras, or vulnerable RDP servers belonging to an organization without scanning the victim directly.",
+    hint: "Search engines indexing Internet-of-Things devices and server banners.",
+    level: "moderate",
+    codeExample: "shodan search 'org:\"Target Corporation\" port:3389'"
+  },
+  {
+    question: "How does DNS Zone Transfer (AXFR) work and why is it a severe reconnaissance vulnerability?",
+    shortAnswer: "An AXFR query requests a secondary DNS server to replicate its entire database of DNS mappings; if misconfigured, it exposes all internal hostnames, IP addresses, and subdomains.",
+    explanation: "Administrators should configure DNS name servers to permit zone transfers only to trusted secondary IP addresses, not to public queries.",
+    hint: "Querying DNS servers using AXFR to dump complete internal host lists.",
+    level: "moderate",
+    codeExample: "dig @ns1.target.com target.com AXFR"
+  },
+  {
+    question: "What information can be extracted from WHOIS and RDAP records during footprinting?",
+    shortAnswer: "Domain registration dates, registrar names, administrative/technical contact email addresses, phone numbers, and authoritative DNS nameserver records.",
+    explanation: "Registrar records often reveal corporate IT employee names and email patterns (e.g. `john.doe@target.com`), which feed directly into phishing campaigns.",
+    hint: "Domain registrar details, technical contacts, and authoritative nameservers.",
+    level: "basic",
+    codeExample: "rdap.net/domain/target.com"
   }
 ];
 

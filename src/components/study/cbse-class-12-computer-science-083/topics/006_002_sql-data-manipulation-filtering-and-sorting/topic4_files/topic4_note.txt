@@ -1,0 +1,38 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 4: RETRIEVING DATA: BASIC SELECT * AND PROJECTION OF SPECIFIC COLUMNS
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+The SELECT statement retrieves data from one or more tables. Projection isolates specific attributes rather than fetching the entire tuple.
+
+2. KEY EXAMINATION POINTS:
+  (1) Projection: Selecting a subset of attributes (columns) from a table: 'SELECT SName, Marks FROM Student;'
+  (2) The Asterisk (*) wildcard retrieves ALL columns in their catalog definition order: 'SELECT * FROM Student;'
+  (3) Projection preserves the order of columns requested in the SELECT list, regardless of schema order.
+  (4) Basic SELECT without WHERE displays all records (cardinality unchanged, degree determined by column list).
+
+3. SYNTAX & CODE SNIPPET:
+-- Retrieve all columns and all rows
+SELECT * FROM Student;
+
+-- Projection: Retrieve only RollNo and SName (Degree = 2)
+SELECT RollNo, SName FROM Student;
+
+-- Rearranging output column presentation
+SELECT SName, Marks, RollNo FROM Student;
+
+4. CBSE COMMON PITFALLS:
+Remember to test conditions carefully and use parentheses to disambiguate AND/OR connectives.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between DML and DDL commands.
+  [ ] Master WHERE condition construction using relational and logical operators.
+  [ ] Be confident in NULL handling using IS NULL and IS NOT NULL.
+  [ ] Remember default ordering for ORDER BY is ASC.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 4 · CODER & ACCOTAX BARRACKPORE
+================================================================================

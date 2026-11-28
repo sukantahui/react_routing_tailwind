@@ -1,0 +1,42 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - QUICK REVISION NOTE
+TOPIC 0: NEED FOR DATABASE MANAGEMENT SYSTEMS - LIMITATIONS OF FILE SYSTEMS
+
+1. DEFINITION OF A DATABASE:
+   - An organized collection of logically interrelated data stored together with minimum
+     redundancy to serve multiple applications efficiently.
+
+2. TRADITIONAL FILE PROCESSING SYSTEMS:
+   - Early computer systems stored records in flat files (text, binary, CSV) handled directly
+     by the operating system file system (FAT, NTFS).
+   - Each departmental application maintained its own independent private files.
+
+3. MAJOR LIMITATIONS OF FILE PROCESSING SYSTEMS:
+   A. Data Redundancy:
+      - Unnecessary duplication of identical data across multiple files (e.g. Student name &
+        address stored separately in Fee file, Library file, and Attendance file).
+      - Consequence: Wasted storage space and multi-file update overhead.
+   B. Data Inconsistency:
+      - Occurs when duplicated copies of the same data item do not match due to uncoordinated updates.
+      - Example: Address updated in Fee file but not in Library file -> conflicting real-world data.
+   C. Data Isolation:
+      - Data is scattered in disparate files with different proprietary formats.
+      - Consequence: Writing ad-hoc queries across multiple files requires custom software development.
+   D. Data Dependence:
+      - Application programs are tightly coupled to the physical layout of files.
+      - Changing field length or file structure requires rewriting and recompiling all programs.
+   E. Difficulty in Accessing Data:
+      - Lacks a declarative ad-hoc query language like SQL. Every new report requires a new program.
+   F. Integrity Problems:
+      - Business constraints (e.g. Marks >= 0 and <= 100) must be hardcoded inside every program.
+      - Bypassing the program corrupts data integrity.
+   G. Atomicity Problems:
+      - Financial transactions must be all-or-nothing. File systems lack automated rollback on crash.
+   H. Concurrent Access Anomalies:
+      - Simultaneous uncoordinated writes result in lost updates and overwritten records.
+   I. Security Problems:
+      - Operating system permissions are coarse-grained (entire file read/write); cannot restrict
+        access to specific rows or columns.
+
+4. CBSE EXAM TIPS:
+   - When asked to list two limitations, write "Data Redundancy" and "Data Inconsistency" with examples.
+   - 80-20 rule was in networks; in DBMS, remember "Redundancy leads to Inconsistency".

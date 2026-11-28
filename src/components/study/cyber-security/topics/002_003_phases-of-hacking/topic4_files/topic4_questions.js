@@ -216,6 +216,46 @@ Vector String:  CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H`
     level: "expert",
     codeExample: `// The Scanning Triad Synthesis:
 Port_Scanning(Live_Ports) → Banner_Grabbing(Exact_Versions) → Vulnerability_Scanning(CVE_Matching) = EXPLOITATION_BLUEPRINT;`
+  },
+  {
+    question: "What is the difference between a TCP SYN (Stealth) scan and a TCP Connect scan in Nmap?",
+    shortAnswer: "SYN scan (-sS) sends a SYN and responds with RST upon receiving SYN-ACK without completing the 3-way handshake; Connect scan (-sT) completes the full 3-way handshake (SYN, SYN-ACK, ACK).",
+    explanation: "SYN scans are faster, require raw root socket privileges, and traditionally bypassed application-level logging because connections were never formally established.",
+    hint: "SYN-ACK followed by RST (half-open) vs completing full 3-way handshake.",
+    level: "moderate",
+    codeExample: "nmap -sS target_ip # SYN stealth scan vs nmap -sT target_ip # Full TCP connect"
+  },
+  {
+    question: "What does 'Banner Grabbing' achieve during service scanning?",
+    shortAnswer: "It captures the introductory text string or header transmitted by an open port, revealing the exact software product, version number, and underlying operating system.",
+    explanation: "For example, connecting to port 22 might return 'SSH-2.0-OpenSSH_7.4p1 Debian-10', allowing an attacker to immediately look up known CVEs for OpenSSH 7.4.",
+    hint: "Connecting to open ports to read the greeting header containing software versions.",
+    level: "basic",
+    codeExample: "curl -I https://target.com # Grabs Server and X-Powered-By HTTP headers"
+  },
+  {
+    question: "What is an Nmap Scripting Engine (NSE) script and how is it used in vulnerability scanning?",
+    shortAnswer: "NSE scripts are automated Lua scripts run by Nmap to automate vulnerability detection, advanced service discovery, and backdoor detection across open ports.",
+    explanation: "Nmap provides hundreds of built-in scripts grouped into categories like `vuln`, `auth`, `discovery`, and `safe`.",
+    hint: "Lua scripts built into Nmap for automated vulnerability detection.",
+    level: "moderate",
+    codeExample: "nmap -p 445 --script smb-vuln-ms17-010 192.168.1.0/24"
+  },
+  {
+    question: "How do commercial vulnerability scanners (Nessus, Qualys, OpenVAS) evaluate risk?",
+    shortAnswer: "They probe targets with vulnerability plugins, match software version signatures and configurations against CVE databases, and rank risks by CVSS scores.",
+    explanation: "Scanners produce structured vulnerability inventories categorized into Critical, High, Medium, and Low, complete with remediation and patch recommendations.",
+    hint: "Automated scanning matching CVE databases and rating risks by CVSS scores.",
+    level: "moderate",
+    codeExample: "nessuscli scan --start --id 42 # Triggers automated vulnerability assessment"
+  },
+  {
+    question: "What is a UDP port scan and why is it substantially slower than TCP scanning?",
+    shortAnswer: "UDP is connectionless; scanners send empty UDP packets and must wait for an ICMP Port Unreachable error. If no response arrives, the port is marked 'open|filtered'.",
+    explanation: "Operating systems rate-limit ICMP error generation (e.g. Linux limits ICMP Unreachable to 1 per second), forcing UDP scans across 65,535 ports to take hours.",
+    hint: "Connectionless nature and OS ICMP rate limiting make UDP scanning slow.",
+    level: "advanced",
+    codeExample: "nmap -sU -p 53,67,123,161 -T4 target_ip # Targeted UDP scan of common services"
   }
 ];
 

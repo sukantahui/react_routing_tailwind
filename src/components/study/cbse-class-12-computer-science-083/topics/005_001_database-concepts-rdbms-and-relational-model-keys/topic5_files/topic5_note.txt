@@ -1,0 +1,34 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - QUICK REVISION NOTE
+TOPIC 5: DEGREE VS CARDINALITY (THE #1 CBSE EXAM FAVORITE)
+
+1. DEFINITIONS:
+   * DEGREE:
+     - The total number of ATTRIBUTES (COLUMNS / FIELDS) in a relation.
+     - Structural metric: Changes only when columns are added or dropped (ALTER TABLE).
+   * CARDINALITY:
+     - The total number of TUPLES (ROWS / RECORDS) in a relation.
+     - Dynamic metric: Changes whenever rows are added, deleted, or truncated (INSERT / DELETE / TRUNCATE).
+
+2. QUICK MEMORY TRICK:
+   - Degree      ===> Columns (Vertical dimensions)
+   - Cardinality ===> Counting Records (Horizontal rows)
+
+3. CARTESIAN PRODUCT RULE (FREQUENT 2-MARK EXAM QUESTION):
+   If Table A has: Degree = D1, Cardinality = C1
+   And Table B has: Degree = D2, Cardinality = C2
+   Then for the Cartesian Product (A x B):
+   * Degree(A x B)      = D1 + D2   (DEGREES ADD!)
+   * Cardinality(A x B) = C1 * C2   (CARDINALITIES MULTIPLY!)
+
+   Example:
+   - Table DOCTOR: Degree = 4, Cardinality = 10
+   - Table PATIENT: Degree = 5, Cardinality = 20
+   -> Degree(DOCTOR x PATIENT) = 4 + 5 = 9
+   -> Cardinality(DOCTOR x PATIENT) = 10 * 20 = 200
+
+4. TABLE MODIFICATION IMPACTS:
+   * Adding a column (ALTER TABLE ADD)     -> Degree increases by 1. Cardinality unchanged.
+   * Dropping a column (ALTER TABLE DROP)   -> Degree decreases by 1. Cardinality unchanged.
+   * Inserting a row (INSERT INTO)          -> Cardinality increases by 1. Degree unchanged.
+   * Deleting a row (DELETE FROM)           -> Cardinality decreases by 1. Degree unchanged.
+   * Emptying table (TRUNCATE TABLE)        -> Cardinality becomes 0. Degree unchanged.

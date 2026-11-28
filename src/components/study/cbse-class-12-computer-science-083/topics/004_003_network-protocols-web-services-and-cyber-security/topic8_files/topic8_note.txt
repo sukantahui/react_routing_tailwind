@@ -1,0 +1,45 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 3: NETWORK PROTOCOLS, WEB SERVICES & CYBER SECURITY
+TOPIC 8: ADDRESSING SCHEMES (DNS, URL, IPV4 & IPV6)
+
+================================================================================
+1. DOMAIN NAME SYSTEM (DNS) HIERARCHY
+================================================================================
+Root Servers (represented by '.') -> Top-Level Domains (TLDs) -> Second-Level -> Subdomains
+
+Hierarchy Example for 'mail.cbse.gov.in':
+- . (Root Domain)
+- .in (ccTLD - Country Code TLD for India)
+- .gov.in (Second-Level Domain for Government of India)
+- cbse (Domain Name for CBSE)
+- mail (Subdomain for email service)
+
+================================================================================
+2. UNIFORM RESOURCE LOCATOR (URL) ANATOMY
+================================================================================
+https://www.cbse.gov.in:443/exams/datesheet.html?year=2026#sectionA
+|___|   |____________|  |_| |________________| |________| |______|
+Scheme  Domain / Host  Port   Path to File      Query     Fragment
+(Proto)               (Opt)                     Params    (Anchor)
+
+================================================================================
+3. IPV4 VS IPV6 COMPARISON
+================================================================================
+Parameter          IPv4                            IPv6
+--------------------------------------------------------------------------------
+Address Length     32 bits (4 bytes)               128 bits (16 bytes)
+Representation     4 decimal octets (0-255)        8 hexadecimal quartets (0000-FFFF)
+Separator          Dot (.)                         Colon (:)
+Total Addresses    ~4.29 x 10^9 (4.3 Billion)      ~3.4 x 10^38 (Virtually Infinite)
+Configuration      Manual or DHCP                  SLAAC (Stateless Auto) or DHCPv6
+Checksum           Header checksum present         Removed for router forwarding speed
+Example            192.168.1.10                    2001:0db8:85a3::8a2e:0370:7334
+
+================================================================================
+4. PRIVATE IP RANGES (RFC 1918)
+================================================================================
+Class A: 10.0.0.0    to 10.255.255.255  (Single huge network: 16M hosts)
+Class B: 172.16.0.0  to 172.31.255.255  (16 medium networks: 65K hosts each)
+Class C: 192.168.0.0 to 192.168.255.255 (256 small LANs: 254 hosts each)
+Loopback: 127.0.0.1  (Local host self-reference)

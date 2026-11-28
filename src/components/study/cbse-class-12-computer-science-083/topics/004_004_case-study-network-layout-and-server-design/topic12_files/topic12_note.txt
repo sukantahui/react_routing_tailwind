@@ -1,0 +1,24 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: NETWORK CASE STUDY & SERVER PLACEMENT (SAMPLE PAPERS)
+==============================================================
+10 Mock Test Papers · 20 Marks Each · Duration: 45 Minutes
+
+CBSE 5-MARK CASE STUDY MASTER RULES:
+1. Server Placement:
+   - Always placed in the block having the MAXIMUM number of computers.
+   - Justification: Follows the 80-20 rule (80% traffic stays local within that block, minimizing inter-block backbone traffic).
+2. Cable Layout:
+   - Star Topology centered at the Server Block (connect all other blocks directly to server block).
+   - Calculate total cable length by summing distances from server block to other blocks.
+3. Switch / Hub Placement:
+   - In EVERY block to interconnect the computers located in that block.
+4. Repeater Placement:
+   - Needed if copper UTP cable is used and the distance between blocks exceeds 100 meters (or 70-100m).
+   - Alternatively: Recommend Optical Fiber Cable which eliminates the need for repeaters entirely.
+5. Medium Selection:
+   - Intra-block: Cat6 UTP (cheap, <= 100m).
+   - Inter-block (>100m): Optical Fiber (high speed, immune to lightning/EMI).
+   - Long distance (>50 km / cities / countries): Satellite (VSAT) or Leased Line (MPLS).
+6. Security & Services:
+   - Firewall at main server gateway.
+   - VoIP for video conferencing.

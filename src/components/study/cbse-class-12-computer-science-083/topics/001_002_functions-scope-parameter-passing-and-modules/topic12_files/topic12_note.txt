@@ -1,0 +1,12 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - SELF DIAGNOSTIC TEST
+MODULE 2: PRACTICE YOUR SKILL (FUNCTIONS, SCOPE & MODULAR ARCHITECTURE)
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+SCORING BENCHMARK:
+- 23 to 25 Correct (92% - 100%): Distinction Mastery (Exemplary Board Readiness)
+- 19 to 22 Correct (76% - 88%): High Proficiency (Target 95+ in Board Exam)
+- 15 to 18 Correct (60% - 72%): Good Grasp (Review LEGB & Parameter Passing)
+- Below 15 Correct: Revision Needed (Reread Topics 0 through 10)
+===============================================================================

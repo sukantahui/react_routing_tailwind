@@ -1,0 +1,28 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT III: SQL DDL & TABLE CONSTRAINTS (SAMPLE PAPERS)
+=====================================================
+10 Mock Test Papers · 20 Marks Each · Duration: 45 Minutes
+
+KEY TECHNICAL RULES:
+1. SQL Classification:
+   - DDL: CREATE, ALTER, DROP, TRUNCATE (schema modification, auto-commits)
+   - DML: INSERT, UPDATE, DELETE (data modification)
+   - DQL: SELECT (querying)
+   - TCL: COMMIT, ROLLBACK, SAVEPOINT (transactions)
+2. Data Types:
+   - CHAR(M) fixed vs VARCHAR(M) variable length.
+   - DECIMAL(P, D) exact fixed-point (e.g. DECIMAL(8,2)).
+   - DATE 'YYYY-MM-DD'.
+3. Constraints:
+   - PRIMARY KEY = UNIQUE + NOT NULL (Entity Integrity).
+   - FOREIGN KEY references parent table primary key (Referential Integrity).
+   - NOT NULL, UNIQUE, CHECK, DEFAULT.
+4. ALTER TABLE:
+   - ADD column_name data_type
+   - DROP COLUMN column_name
+   - MODIFY column_name new_type
+   - ADD PRIMARY KEY (col)
+   - DROP PRIMARY KEY
+5. Table Destruction:
+   - TRUNCATE TABLE: Erases all rows rapidly, retains empty schema.
+   - DROP TABLE: Destroys both schema and data permanently.

@@ -213,6 +213,54 @@ return Q; // Computes k * P in O(log k) steps!`
     level: "expert",
     codeExample: `// The Master Asymmetric Trust Equation:
 (Trapdoor_Math + PKI_Trust_Chains + Digital_Signatures_IT_Act) = UNIVERSAL_DIGITAL_TRUST;`
+  },
+  {
+    question: "What is the foundational concept of Asymmetric Key Cryptography?",
+    shortAnswer: "Using mathematically linked key pairs: a Public Key (freely distributed for encryption/verification) and a Private Key (kept strictly confidential for decryption/signing).",
+    explanation: "Messages encrypted with the public key can only be decrypted by the matching private key, completely solving the symmetric key distribution paradox.",
+    hint: "Key pairs where data encrypted with the public key is decrypted only by the private key.",
+    level: "basic",
+    codeExample: "Ciphertext = Encrypt(Plaintext, PublicKey_Bob)\nPlaintext = Decrypt(Ciphertext, PrivateKey_Bob)"
+  },
+  {
+    question: "What is a Trapdoor One-Way Function in asymmetric cryptography?",
+    shortAnswer: "A mathematical function that is easy to compute in one direction, but practically impossible to reverse without a specific piece of secret information called the 'trapdoor'.",
+    explanation: "For example, multiplying two 1024-bit primes is trivial (fractions of a millisecond); factoring their 2048-bit product back into primes without the trapdoor takes thousands of computing years.",
+    hint: "Easy to compute forward, impossible to reverse without the secret trapdoor key.",
+    level: "advanced",
+    codeExample: "Forward: N = p * q (milliseconds) -> Reverse: Factor(N) -> p, q (thousands of years)"
+  },
+  {
+    question: "How does the Diffie-Hellman Key Exchange (DH) protocol work over an insecure channel?",
+    shortAnswer: "Two parties agree on a public prime p and base g, each generate private numbers (a, b), exchange public values (g^a mod p, g^b mod p), and arrive at identical shared secrets (g^(ab) mod p).",
+    explanation: "An eavesdropper seeing g, p, g^a mod p, and g^b mod p cannot compute the shared secret without solving the Discrete Logarithm Problem.",
+    hint: "Exchanging public exponentiations to arrive at a common secret via discrete logarithms.",
+    level: "advanced",
+    codeExample: "AliceSecret = (B**a) % p; BobSecret = (A**b) % p; assert AliceSecret == BobSecret"
+  },
+  {
+    question: "What is Elliptic Curve Cryptography (ECC) and why does it outperform RSA in mobile and IoT devices?",
+    shortAnswer: "ECC bases security on the algebraic structure of elliptic curves over finite fields (ECDLP), achieving equivalent security with much smaller key lengths (256-bit ECC ≈ 3072-bit RSA).",
+    explanation: "Smaller keys drastically reduce RAM consumption, CPU cycles, and battery power, making ECC ideal for smartphones and smartcards.",
+    hint: "Equivalent cryptographic strength with vastly smaller keys and lower power draw.",
+    level: "moderate",
+    codeExample: "ECC_Curve: y^2 = x^3 + ax + b (mod p) # Weierstrass elliptic curve form"
+  },
+  {
+    question: "How do Digital Signatures provide Non-Repudiation?",
+    shortAnswer: "A sender encrypts a message hash using their private key; because only the sender possesses that private key, they cannot later deny authoring the message.",
+    explanation: "Anyone with the sender's public key can verify the signature. Successful verification legally and mathematically proves authorship and data integrity.",
+    hint: "Signing with private key proves authorship since no one else possesses that key.",
+    level: "moderate",
+    codeExample: "Signature = Encrypt_RSA(SHA256(Message), PrivateKey_Alice)"
+  },
+  {
+    question: "Why is Asymmetric Encryption rarely used to encrypt large bulk files directly?",
+    shortAnswer: "Because asymmetric mathematical operations (modular exponentiation on large integers) are approximately 1,000 times slower than symmetric block ciphers like AES.",
+    explanation: "Asymmetric algorithms encrypt only tiny payloads (like session keys or hashes); actual files are encrypted with symmetric ciphers in hybrid systems.",
+    hint: "Asymmetric math is ~1000x slower than symmetric block ciphers.",
+    level: "basic",
+    codeExample: "SpeedComparison = { AES_256: '~500 MB/s (AES-NI)', RSA_4096: '~0.5 MB/s' };"
   }
 ];
 

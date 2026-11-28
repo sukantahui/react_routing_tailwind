@@ -1,0 +1,25 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT III: DATABASE CONCEPTS & RELATIONAL KEYS (SAMPLE PAPERS)
+=============================================================
+10 Mock Test Papers · 20 Marks Each · Duration: 45 Minutes
+
+KEY TECHNICAL RULES:
+1. Terminology:
+   - Relation = Table
+   - Tuple = Row / Record
+   - Attribute = Column / Field
+   - Degree = Number of attributes (columns)
+   - Cardinality = Number of tuples (rows)
+   - Domain = Set of permissible atomic values for an attribute.
+2. Relational Keys:
+   - Candidate Key: Minimal set of attributes that uniquely identify a tuple.
+   - Primary Key: Selected candidate key; MUST be unique and cannot be NULL (Entity Integrity).
+   - Alternate Key: Candidate keys not chosen as the primary key.
+   - Foreign Key: Attribute in child table referencing primary key of parent table (Referential Integrity).
+3. Relational Algebra:
+   - Selection (sigma): Horizontal row filtering.
+   - Projection (pi): Vertical column filtering.
+   - Cartesian Product (x):
+     Degree = Degree(R) + Degree(S)
+     Cardinality = Cardinality(R) * Cardinality(S)
+   - Equi-Join = sigma_{condition}(R x S)

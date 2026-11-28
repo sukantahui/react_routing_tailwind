@@ -1,0 +1,36 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+SEGMENT 3: DATA STRUCTURES (LINEAR LISTS & STACKS)
+TOPIC 3: EMPTY STACK CONDITION CHECKS (len(stk) == 0, not stk)
+
+1. WHY CHECK FOR AN EMPTY STACK?
+- In Python, attempting to access or remove an element from an empty list raises runtime exceptions:
+  * stack[-1] on [] raises: IndexError: list index out of range
+  * stack.pop() on [] raises: IndexError: pop from empty list
+- Therefore, every Pop, Peek, and Display operation must guard against the empty stack state.
+
+2. THREE WAYS TO CHECK FOR AN EMPTY STACK IN PYTHON:
+A. Using len(stack) == 0 (Most explicit and CBSE board standard):
+   if len(stack) == 0:
+       print("Stack is empty / Underflow")
+B. Using Pythonic falsy truth value (if not stack):
+   if not stack:
+       print("Stack is empty / Underflow")
+   (Empty collections in Python evaluate to False in boolean context).
+C. Comparing to empty list (if stack == []):
+   if stack == []:
+       print("Stack is empty")
+
+3. WRITING AN isEmpty() HELPER FUNCTION:
+  def isEmpty(stk):
+      if len(stk) == 0:
+          return True
+      else:
+          return False
+  # Or compactly:
+  def isEmpty(stk):
+      return len(stk) == 0
+
+4. CBSE BOARD EXAM QUICK POINTS:
+- In questions asking for def Pop(stk):, you can call isEmpty(stk) or directly write if len(stk) == 0:.
+- Marking scheme awards full credit to both forms.

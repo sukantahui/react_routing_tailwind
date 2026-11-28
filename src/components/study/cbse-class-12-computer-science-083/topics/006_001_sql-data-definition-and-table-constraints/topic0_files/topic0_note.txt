@@ -1,0 +1,32 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT III: SQL DDL & TABLE CONSTRAINTS
+TOPIC 0: INTRODUCTION TO SQL: CLASSIFICATION INTO DDL, DML, DQL, AND TCL
+=====================================================
+Structured Query Language (SQL) is the international standard declarative language used to create, query, update, and manage relational database management systems (RDBMS) like MySQL, PostgreSQL, Oracle, and SQL Server.
+
+Originally developed at IBM by Donald D. Chamberlin and Raymond F. Boyce in the early 1970s (originally called SEQUEL), SQL was standardized by ANSI in 1986 and ISO in 1987.
+
+CLASSIFICATION OF SQL STATEMENTS:
+1. Data Definition Language (DDL):
+   Commands that define, alter, and destroy database structures/schemas. DDL commands auto-commit their changes immediately.
+   - CREATE (databases, tables, views, indexes)
+   - ALTER (add/drop columns, modify data types, add constraints)
+   - DROP (permanently destroy tables, databases)
+   - TRUNCATE (remove all rows rapidly without removing schema)
+   - RENAME (rename tables)
+
+2. Data Manipulation Language (DML):
+   Commands that insert, modify, and delete data records within tables.
+   - INSERT INTO (insert new rows)
+   - UPDATE ... SET (modify existing row values)
+   - DELETE FROM (remove specified rows)
+
+3. Data Query Language (DQL):
+   Commands used to retrieve and query data from tables.
+   - SELECT (filter, project, aggregate, join tables)
+
+4. Transaction Control Language (TCL):
+   Commands that manage atomic transaction state and consistency.
+   - COMMIT (save changes permanently)
+   - ROLLBACK (undo changes since last commit)
+   - SAVEPOINT (create intermediate checkpoint within transaction)

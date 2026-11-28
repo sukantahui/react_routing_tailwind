@@ -1,0 +1,30 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: MODULE 2 - TOPIC 9: BUS TOPOLOGY (BACKBONE, TERMINATORS, COLLISIONS)
+
+1. DEFINITION OF TOPOLOGY:
+   - Network topology refers to the geometric arrangement or physical layout in which computers, cables, and peripheral devices are interconnected.
+   - Types: Physical Topology (actual physical cable layout) vs Logical Topology (path data travels through the medium).
+
+2. BUS TOPOLOGY ARCHITECTURE:
+   - Also known as Linear Bus Topology.
+   - Single Central Backbone: All nodes (workstations, printers, servers) connect directly to a single, continuous central transmission cable called the Backbone (usually coaxial cable, e.g., 10BASE2 or 10BASE5).
+   - T-Connectors / Vampire Taps: Nodes tap into the backbone cable at intervals.
+   - Terminators (50 Ohms): Mandatory resistors placed at BOTH ends of the backbone to absorb electrical signals and eliminate signal reflections (ghosts).
+
+3. HOW DATA TRAVELS IN A BUS TOPOLOGY:
+   - Broadcast Propagation: A transmitting computer sends data frames out onto the backbone in both directions.
+   - All connected nodes receive the signal simultaneously and inspect the destination MAC address.
+   - Only the node whose address matches processes the frame; all other nodes discard it.
+   - CSMA/CD: If two nodes transmit simultaneously, an electrical collision occurs, corrupting the signal. Nodes back off for a random interval.
+
+4. ADVANTAGES & DISADVANTAGES (CBSE EXAM COMPARISON):
+   - Advantages:
+     * Minimum Cable Length: Requires significantly less cable than Star topology because nodes connect to a single central line.
+     * Inexpensive: Low material cost, no expensive central switches required.
+     * Easy Setup for Small LANs: Simple to install for 3 to 10 computers in a straight line.
+   - Disadvantages:
+     * Single Point of Failure: If the central backbone cable breaks, is cut, or if a terminator is removed, the ENTIRE network collapses immediately!
+     * Difficult Fault Isolation: Pinpointing the exact location of a cable fault or bad connector requires testing the whole line.
+     * Heavy Collision Congestion: As more computers are added, collisions multiply exponentially, severely degrading speed.
+     * Limited Scalability: Maximum segment length (185m - 500m) and limited maximum node count (30 nodes in 10BASE2).

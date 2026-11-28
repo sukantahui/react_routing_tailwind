@@ -216,6 +216,46 @@ Workstation (192.168.1.50) → [ TLS Encrypted Syslog Stream ] → Splunk SIEM S
     level: "expert",
     codeExample: `// The Ethical Defense Paradigm:
 Understand_The_Phases() → Break_The_Kill_Chain_Early() → Guarantee_Resilience();`
+  },
+  {
+    question: "What are the canonical 5 Phases of Hacking according to international ethical hacking standards?",
+    shortAnswer: "1. Reconnaissance (Footprinting), 2. Scanning & Enumeration, 3. Gaining Access (Exploitation), 4. Maintaining Access (Persistence), 5. Covering Tracks.",
+    explanation: "Standardized by CEH and NIST, this 5-stage sequential methodology mirrors the steps an attacker takes to compromise target systems and conceal their presence.",
+    hint: "Reconnaissance, Scanning, Gaining Access, Maintaining Access, Covering Tracks.",
+    level: "basic",
+    codeExample: "HackingPhases = ['Reconnaissance', 'Scanning', 'GainingAccess', 'MaintainingAccess', 'CoveringTracks'];"
+  },
+  {
+    question: "Why is the Reconnaissance phase considered the most time-consuming yet critical phase of an attack?",
+    shortAnswer: "Because thorough reconnaissance identifies the exact technologies, subdomains, employee emails, and misconfigurations, maximizing the probability of a successful, stealthy breach.",
+    explanation: "Upwards of 70% of an engagement's effort is spent on reconnaissance. Incomplete intelligence leads to triggering alarms or attacking non-vulnerable hardened defenses.",
+    hint: "Spending ~70% of effort mapping attack surfaces to ensure precision.",
+    level: "moderate",
+    codeExample: "sublist3r -d target.com -o subdomains.txt # Recon subdomain mapping"
+  },
+  {
+    question: "How does the 'Scanning' phase differ fundamentally from 'Reconnaissance'?",
+    shortAnswer: "Reconnaissance gathers general information (often passively); Scanning actively connects to target IP addresses to probe for live hosts, open ports, service versions, and vulnerabilities.",
+    explanation: "Scanning involves sending packets directly to the victim's network interfaces, creating log entries and potentially triggering firewalls and IDS/IPS sensors.",
+    hint: "Passive discovery vs active network packet probing of IP addresses.",
+    level: "moderate",
+    codeExample: "nmap -sS -p 1-65535 -T4 192.168.1.1 # Active scanning"
+  },
+  {
+    question: "In the 'Gaining Access' phase, what is the difference between a payload and an exploit?",
+    shortAnswer: "An exploit is the software mechanism that takes advantage of a specific vulnerability; a payload is the actual malicious code delivered and executed by the exploit (e.g. reverse shell).",
+    explanation: "The exploit breaks through the defensive wall; the payload performs the attacker's desired action once inside (e.g. spawning a command prompt or encrypting files).",
+    hint: "Exploit breaches the vulnerability; payload executes the attacker's code.",
+    level: "moderate",
+    codeExample: "use exploit/windows/smb/ms17_010_eternalblue\nset PAYLOAD windows/x64/meterpreter/reverse_tcp"
+  },
+  {
+    question: "Why do ethical hackers simulate 'Covering Tracks' only by documentation rather than deleting real production logs?",
+    shortAnswer: "Because deleting audit logs in client environments violates data integrity, destroys corporate forensic trails, and causes operational damage.",
+    explanation: "Ethical testers explain how an attacker would erase event logs (e.g. `wevtutil cl Security`) without actually wiping logs on production servers.",
+    hint: "Never delete client audit logs; demonstrate the vulnerability theoretically in reports.",
+    level: "moderate",
+    codeExample: "# Real Blackhat command to avoid on client servers:\nwevtutil cl Application && wevtutil cl System"
   }
 ];
 

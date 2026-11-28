@@ -210,6 +210,54 @@ Key_MAC        = HKDF_Expand( PRK, "HMAC-SHA256-INTEGRITY-KEY", 32 )`
     level: "expert",
     codeExample: `// The Master Enterprise Symmetric Security Blueprint:
 Bulk_Data(AES_256_GCM) + Hardware_HSM_KMS + Automatic_90Day_Rotation + DPDP_Compliance = ABSOLUTE_DATA_SOVEREIGNTY;`
+  },
+  {
+    question: "What is the Key Distribution Problem in Symmetric Key Cryptography?",
+    shortAnswer: "How to securely deliver the shared secret key to both communicating parties over an insecure network before encrypted communication can begin.",
+    explanation: "If an eavesdropper intercepts the symmetric key during transit, all subsequent encryption is compromised. This problem motivated asymmetric public-key cryptography.",
+    hint: "Transmitting the secret key securely across insecure internet channels without interception.",
+    level: "basic",
+    codeExample: "Key_Pairs_Required = (n * (n - 1)) / 2 # O(n^2) scaling problem for n users"
+  },
+  {
+    question: "What is the difference between a Block Cipher and a Stream Cipher?",
+    shortAnswer: "Block ciphers encrypt fixed-size data chunks (e.g. 128 bits in AES) simultaneously; Stream ciphers encrypt continuous streams of data bit-by-bit or byte-by-byte via XOR with a keystream.",
+    explanation: "Stream ciphers (e.g. ChaCha20) have lower latency and are ideal for live audio/video streaming, while block ciphers are standard for file storage and bulk data.",
+    hint: "Encrypting fixed 128-bit blocks vs continuous bit-by-bit XOR keystreams.",
+    level: "moderate",
+    codeExample: "Block: C = AES_Encrypt(Block_128, K); Stream: C_i = P_i ^ KeyStream_i"
+  },
+  {
+    question: "What is a Feistel Cipher Network and which famous ciphers employ it?",
+    shortAnswer: "A symmetric block cipher structure that splits the block into two halves (Left and Right) and applies round functions iteratively; used in DES, 3DES, and Blowfish.",
+    explanation: "Feistel networks are reversible: encryption and decryption use identical hardware operations, reversing only the round key schedule order.",
+    hint: "Splitting data into two halves and iteratively swapping through round functions.",
+    level: "advanced",
+    codeExample: "L_(i+1) = R_i;\nR_(i+1) = L_i ^ F(R_i, K_i);"
+  },
+  {
+    question: "What is the fatal security flaw of Electronic Codebook (ECB) mode?",
+    shortAnswer: "Identical plaintext blocks always produce identical ciphertext blocks, preserving visual and structural patterns of the underlying data (the 'ECB Penguin' vulnerability).",
+    explanation: "ECB does not use an initialization vector (IV), allowing eavesdroppers to analyze patterns in database records or uncompressed image bitmaps without knowing the key.",
+    hint: "Identical 16-byte blocks yield identical ciphertext, preserving visual patterns.",
+    level: "moderate",
+    codeExample: "AES_ECB: C[i] = E_K(P[i]) # Never use ECB for multi-block data!"
+  },
+  {
+    question: "How does Cipher Block Chaining (CBC) mode prevent the pattern leakage of ECB mode?",
+    shortAnswer: "By XORing each plaintext block with the preceding ciphertext block before encryption: C[i] = E_K(P[i] ⊕ C[i-1]), using a random IV for the first block.",
+    explanation: "This ensures that even if identical plaintext blocks recur, their ciphertext outputs are completely distinct and randomized.",
+    hint: "XORing each plaintext block with the previous ciphertext block before encrypting.",
+    level: "moderate",
+    codeExample: "C[0] = E_K(P[0] ^ IV); C[i] = E_K(P[i] ^ C[i-1]);"
+  },
+  {
+    question: "What is Galois/Counter Mode (GCM) and why is it preferred in modern TLS 1.3?",
+    shortAnswer: "An Authenticated Encryption with Associated Data (AEAD) mode that combines CTR stream encryption with Galois field authentication (GHASH) for high-speed parallel throughput and integrity.",
+    explanation: "GCM provides both confidentiality and tamper detection simultaneously in a single pass, with native hardware acceleration on modern CPU silicon (AES-NI).",
+    hint: "AEAD mode providing encryption and cryptographic integrity verification simultaneously.",
+    level: "advanced",
+    codeExample: "cipher = AES.new(key, AES.MODE_GCM, nonce=nonce)\nciphertext, tag = cipher.encrypt_and_digest(data)"
   }
 ];
 

@@ -1,0 +1,32 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 4: BINARY FILE ACCESS MODES - 'rb', 'wb', 'ab', 'rb+', 'wb+', 'ab+'
+======================================================================
+
+1. THE 6 BINARY ACCESS MODES MASTER MATRIX
+   -------------------------------------------------------------------------
+   Mode   Meaning              File Must Exist?  Pointer Location  Truncates?
+   -------------------------------------------------------------------------
+   'rb'   Binary Read-only     YES (Error)       Beginning (0)     NO
+   'wb'   Binary Write-only    NO (Creates)      Beginning (0)     YES (Wipes!)
+   'ab'   Binary Append-only   NO (Creates)      End of File       NO (Preserves)
+   'rb+'  Binary Read & Write  YES (Error)       Beginning (0)     NO (Overwrites)
+   'wb+'  Binary Write & Read  NO (Creates)      Beginning (0)     YES (Wipes!)
+   'ab+'  Binary Append & Read NO (Creates)      End of File       NO (Preserves)
+   -------------------------------------------------------------------------
+
+2. CRITICAL RULES FOR CBSE CLASS 12 EXAMINATIONS
+   - When Creating Fresh Database: Use 'wb'.
+   - When Appending New Records: Always use 'ab' (never 'wb'!).
+   - When Searching / Displaying: Always use 'rb' (safest, read-only).
+   - When Updating In-Place: Use 'rb+' (requires seek to overwrite).
+
+3. RANDOM ACCESS IN BINARY STREAMS
+   - Unlike text mode, binary streams allow non-zero seeks from current
+     (whence=1) and end (whence=2):
+     f.seek(-10, 2)  # 10 bytes before EOF (Fully valid in binary!)
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

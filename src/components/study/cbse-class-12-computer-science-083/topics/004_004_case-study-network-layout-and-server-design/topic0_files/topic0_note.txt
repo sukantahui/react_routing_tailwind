@@ -1,0 +1,38 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 4: 4-MARK NETWORK CASE STUDY & INFRASTRUCTURE DESIGN
+TOPIC 0: ANATOMY OF THE 4-MARK CBSE NETWORK CASE STUDY PROBLEM
+
+================================================================================
+1. STANDARD STRUCTURE OF THE BOARD EXAMINATION QUESTION
+================================================================================
+Every year in the CBSE Class 12 CS (083) Theory Examination, a mandatory 4-Mark
+applied case-study question appears in Section D (or Section C).
+
+Question Setup:
+- A fictitious institution (school, university, hospital, bank, corporate office)
+  is planning to set up a network across multiple blocks/wings in a campus.
+- Table 1: Distances between various blocks (in meters/kilometers).
+- Table 2: Number of computers in each block.
+
+Standard 4 Sub-Questions (1 Mark each):
+1. Sub-question (a): Server Placement & Justification.
+2. Sub-question (b): Cable Layout (Topology) Diagram.
+3. Sub-question (c): Hardware Placement (Repeater & Hub/Switch) with reasons.
+4. Sub-question (d): Communication Medium, Remote Branch connectivity, or Video Conferencing.
+
+================================================================================
+2. THE FOUR GOLDEN RULES FOR 4/4 MARKS
+================================================================================
+Rule 1 (Server Placement): Place the server in the block with the MAXIMUM NUMBER
+OF COMPUTERS (80-20 Rule) to minimize inter-building network traffic.
+
+Rule 2 (Hub / Switch): Install a SWITCH (or Hub) in EVERY BLOCK containing
+multiple computers to create local connectivity.
+
+Rule 3 (Repeater): Install a REPEATER on any UTP cable link where the distance
+EXCEEDS 70-100 METERS to regenerate attenuated signals. (Not needed for Fiber Optic).
+
+Rule 4 (Cable Layout):
+- Star Layout: Connect every block directly to the Server block.
+- Bus Layout: Connect blocks sequentially by shortest adjacent distances.

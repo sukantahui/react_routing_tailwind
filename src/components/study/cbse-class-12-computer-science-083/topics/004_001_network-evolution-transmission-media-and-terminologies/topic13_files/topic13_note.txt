@@ -1,0 +1,20 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS - EVOLUTION & TRANSMISSION MEDIA
+===========================================================
+10 Mock Test Papers · 20 Marks Each · Duration: 45 Minutes
+
+KEY TECHNICAL RULES:
+1. Evolution: ARPANET (1969, US DoD) -> NSFNET (1986) -> Commercial Internet (1990s).
+2. Guided Media:
+   - Twisted Pair (UTP/STP): RJ-45 connector, max segment 100m.
+   - Coaxial Cable: BNC connector, good shielding, legacy 10BASE2/10BASE5.
+   - Optical Fiber: Glass core, Total Internal Reflection (TIR), completely immune to EMI, kilometers range.
+3. Unguided Media:
+   - Radio waves: Omnidirectional, penetrates walls.
+   - Microwaves: Unidirectional, line-of-sight, affected by rain fade.
+   - Infrared: Short range, cannot penetrate walls, line-of-sight.
+   - Satellite: GEO at 36,000 km, ~250 ms propagation latency, global coverage.
+4. Math Conversions:
+   - 1 Byte = 8 bits
+   - bps = bits per second, Bps = Bytes per second
+   - Transfer Time = File Size in bits / Bandwidth in bps

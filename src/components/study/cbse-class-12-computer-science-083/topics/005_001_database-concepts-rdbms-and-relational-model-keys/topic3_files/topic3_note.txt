@@ -1,0 +1,32 @@
+CBSE CLASS 12 COMPUTER SCIENCE (083) - QUICK REVISION NOTE
+TOPIC 3: RELATIONAL MODEL TERMINOLOGY (RELATION, TUPLE, ATTRIBUTE)
+
+1. FUNDAMENTAL VOCABULARY MAPPING:
+   * Everyday Term    <=======>    Formal Relational Term
+   -------------------------------------------------------
+   Table              <=======>    Relation
+   Row / Record       <=======>    Tuple
+   Column / Field     <=======>    Attribute
+   Column Data Type   <=======>    Domain
+
+2. PROPERTIES OF A RELATION (CRITICAL FOR EXAMS):
+   A. Tuples are Unordered:
+      - Rows have no predetermined order. The position of a row has no meaning.
+   B. Attributes are Unordered:
+      - Columns have no predetermined order. Attributes are referenced by name, not index.
+   C. No Duplicate Tuples:
+      - A relation is a mathematical set of tuples. No two identical rows can exist.
+   D. Atomic Values:
+      - Every cell contains exactly ONE indivisible value (First Normal Form).
+      - Multi-valued attributes (e.g. multiple phone numbers in one cell) are strictly disallowed.
+   E. Unique Attribute Names:
+      - All column names within a relation must be distinct.
+
+3. SPECIAL VALUE 'NULL':
+   - Represents a missing, unknown, or inapplicable value.
+   - NULL is NOT equal to zero (0).
+   - NULL is NOT equal to an empty string ('').
+
+4. CBSE EXAM QUESTION PATTERNS:
+   - "Identify the relation name and attributes from the given schema."
+   - "State whether rows in a table must be in sorted order." (Answer: No, tuples are unordered).

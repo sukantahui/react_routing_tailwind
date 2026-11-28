@@ -217,6 +217,46 @@ Lateral Pivot to Core Bank Switch → Section 70 Protected System (Up to 10 YEAR
     level: "expert",
     codeExample: `// The Zero Trust Strategic Equation:
 (Least_Privilege + LAPS_Rotation + Tiered_Architecture + Microsegmentation) = IMMUNITY_TO_LATERAL_COLLAPSE;`
+  },
+  {
+    question: "What is the difference between Horizontal and Vertical Privilege Escalation?",
+    shortAnswer: "Vertical escalation elevates permissions from a standard user to an administrative or root account; Horizontal escalation accesses accounts or data belonging to another user at the same permission level.",
+    explanation: "Vertical: standard user -> root/SYSTEM. Horizontal: Student A accessing Student B's financial records using B's user ID.",
+    hint: "Standard user to root (vertical) vs accessing another standard user's data (horizontal).",
+    level: "basic",
+    codeExample: "Vertical: sudo su (or exploit) -> root; Horizontal: GET /profile?id=102 (IDOR)"
+  },
+  {
+    question: "What is SUID/SGID abuse in Linux privilege escalation?",
+    shortAnswer: "Exploiting executable binaries that have the SUID bit set, which execute with the file owner's (root) permissions instead of the executing user's permissions.",
+    explanation: "If binaries like `find`, `vim`, or custom scripts with SUID root allow shell escaping (GTFOBins), a standard user can spawn a root bash shell immediately.",
+    hint: "Executing binaries with the SUID bit set that run with root privileges.",
+    level: "moderate",
+    codeExample: "find . -exec /bin/sh -p \\; -quit # SUID root escape via find"
+  },
+  {
+    question: "What is Lateral Movement and what protocols are commonly abused in enterprise networks?",
+    shortAnswer: "The process of navigating from an initially compromised host across the internal network to compromise additional workstations and domain controllers using SMB, RDP, WMI, and WinRM.",
+    explanation: "Adversaries leverage stolen credentials or Kerberos tickets to execute commands remotely across internal subnets without re-exploiting external perimeters.",
+    hint: "Navigating across internal network machines using SMB, RDP, and WMI.",
+    level: "moderate",
+    codeExample: "wmic /node:192.168.1.50 /user:DOMAIN\\admin process call create 'powershell.exe -enc ...'"
+  },
+  {
+    question: "What is a Kerberoasting attack in Active Directory environments?",
+    shortAnswer: "An attack where any authenticated domain user requests Kerberos service tickets (TGS) for Service Principal Names (SPNs) and cracks the ticket hashes offline to reveal plaintext service passwords.",
+    explanation: "Because service tickets are encrypted with the target service account's password hash, offline cracking (hashcat) requires zero interaction with the domain controller once dumped.",
+    hint: "Requesting Kerberos TGS tickets for SPNs and cracking them offline.",
+    level: "advanced",
+    codeExample: "GetUserSPNs.py -request -dc-ip 10.0.0.1 corp.local/user:password -outputfile hashes.kerberoast"
+  },
+  {
+    question: "What defensive measure mitigates Lateral Movement across enterprise endpoints?",
+    shortAnswer: "Internal network micro-segmentation, host-based firewalls blocking peer-to-peer SMB/RDP, LAPS (Local Administrator Password Solution), and Zero Trust network access.",
+    explanation: "LAPS ensures that every local workstation has a unique, randomized administrator password, preventing a single compromised local admin credential from unlocking the entire enterprise.",
+    hint: "LAPS randomizing local admin passwords and blocking peer-to-peer workstation traffic.",
+    level: "moderate",
+    codeExample: "// LAPS automatically manages and rotates local Administrator passwords via Active Directory"
   }
 ];
 

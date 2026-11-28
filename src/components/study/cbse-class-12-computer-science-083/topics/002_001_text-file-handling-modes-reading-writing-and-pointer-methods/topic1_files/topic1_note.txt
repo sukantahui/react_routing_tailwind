@@ -1,0 +1,45 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 1: TYPES OF FILES - TEXT FILES VS BINARY FILES VS CSV FILES
+======================================================================
+
+1. THE THREE CORE FILE TYPES IN CBSE 083 SYLLABUS
+
+   A. TEXT FILES (.txt, .py, .c, .html)
+      - Structure: Sequence of human-readable ASCII or Unicode characters.
+      - Line Organization: Divided into lines separated by EOL (End of Line).
+      - EOL Translations:
+        * Windows: \r\n (Carriage Return + Line Feed)
+        * Linux / macOS: \n (Line Feed)
+        * Python automatically normalizes all EOL markers to \n in text mode.
+      - Storage: Involves character encoding/decoding overhead (UTF-8, ASCII).
+
+   B. BINARY FILES (.dat, .bin, .exe, .png)
+      - Structure: Raw sequence of bytes representing exact in-memory format.
+      - No Line Delimiters: No EOL translation occurs; bytes are written as-is.
+      - Readability: Not human-readable; viewing in text editors yields gibberish.
+      - Speed & Efficiency: Much faster I/O; no string parsing needed.
+      - Python Handling: Managed via the 'pickle' module (pickle.dump / load).
+
+   C. CSV FILES (.csv - Comma Separated Values)
+      - Structure: Plain text formatted as structured tabular rows and columns.
+      - Delimiter: Fields within each line are separated by a delimiter (default: comma).
+      - Excel Compatibility: Directly opened and manipulated by spreadsheet apps.
+      - Python Handling: Managed via the 'csv' module (csv.reader / csv.writer).
+
+2. COMPREHENSIVE COMPARISON MATRIX (BOARD EXAM FAVORITE)
+   ----------------------------------------------------------------------
+   Feature            Text File (.txt)       Binary File (.dat)    CSV File (.csv)
+   ----------------------------------------------------------------------
+   Content            ASCII / Unicode chars  Raw bytes (0-255)     Delimited text
+   Human Readable?    YES                    NO                    YES
+   EOL Translation?   YES (universal \n)    NO                    YES (handle newline='')
+   Python Module      Built-in open()        pickle                csv
+   Storage Overhead   Higher (text strings)  Lower (compact bits)  Moderate
+   Speed              Moderate               Fastest               Moderate
+   ----------------------------------------------------------------------
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

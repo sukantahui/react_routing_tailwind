@@ -1,0 +1,34 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 10: USER-DEFINED MODULES (.PY FILES) & IMPORTING MECHANISMS
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. WHAT IS A MODULE?
+   - A Python file (.py) containing function definitions, executable statements, and constants.
+   - Purpose: Code modularity, clean separation of concerns, and library reuse.
+
+2. IMPORTING TECHNIQUES:
+   Approach 1: 'import module_name'
+     - Imports the entire module object into current namespace.
+     - Usage requires module prefix: 'module_name.function_name()'
+     - Avoids namespace pollution!
+
+   Approach 2: 'from module_name import function_name'
+     - Imports specific identifier(s) directly into current local namespace.
+     - Usage without prefix: 'function_name()'
+
+   Approach 3: 'import module_name as alias'
+     - Provides a shortened alias for convenience (e.g. 'import random as rnd').
+
+   Approach 4: 'from module_name import *' (WILD-CARD IMPORT)
+     - Imports ALL public names directly.
+     - DISCOURAGED in software engineering: causes namespace collisions and obscures code origin.
+
+3. THE '__name__' SPECIAL VARIABLE & '__main__' GUARD:
+   - When a .py file is run directly by the user: __name__ is set to '__main__'.
+   - When a .py file is imported by another module: __name__ is set to the file's module name.
+   - Guard idiom:
+     if __name__ == '__main__':
+         # Test code only executed when run directly!
+===============================================================================

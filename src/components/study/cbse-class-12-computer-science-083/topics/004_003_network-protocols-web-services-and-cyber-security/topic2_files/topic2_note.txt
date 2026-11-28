@@ -1,0 +1,39 @@
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE: 083)
+UNIT II: COMPUTER NETWORKS
+MODULE 3: NETWORK PROTOCOLS, WEB SERVICES & CYBER SECURITY
+TOPIC 2: WEB PROTOCOLS - HTTP VS HTTPS
+
+================================================================================
+1. HTTP (HYPERTEXT TRANSFER PROTOCOL)
+================================================================================
+- Architecture: Client-Server application-layer protocol for hypermedia.
+- Default Port: TCP Port 80.
+- Nature: Stateless, connectionless per request (historically), cleartext.
+- Methods: GET (retrieve data via URL query), POST (submit payload in request body),
+  PUT (update/replace resource), DELETE (remove resource), HEAD (headers only).
+- Vulnerability: Transmits data in plaintext. Vulnerable to packet sniffing,
+  Man-in-the-Middle (MitM) eavesdropping, and session hijacking.
+
+================================================================================
+2. HTTPS (HYPERTEXT TRANSFER PROTOCOL SECURE)
+================================================================================
+- Architecture: HTTP layered on top of SSL / TLS (Transport Layer Security).
+- Default Port: TCP Port 443.
+- Key Security Triad:
+  1. ENCRYPTION: Protects transmitted data from eavesdropping (AES/ChaCha20).
+  2. INTEGRITY: Prevents transit tampering or packet injection (HMAC/SHA-256).
+  3. AUTHENTICATION: Verifies that the client is connected to the genuine server
+     via digital certificates signed by trusted Certificate Authorities (CAs).
+
+================================================================================
+3. HTTP STATUS CODES SUMMARY FOR CBSE EXAMS
+================================================================================
+Code Range      Meaning                 Standard Examples
+--------------------------------------------------------------------------------
+1xx             Informational           100 Continue
+2xx             Success                 200 OK (Resource found and served)
+3xx             Redirection             301 Moved Permanently, 302 Found
+4xx             Client-Side Errors      400 Bad Request, 401 Unauthorized,
+                                        403 Forbidden, 404 Not Found
+5xx             Server-Side Errors      500 Internal Server Error, 502 Bad Gateway,
+                                        503 Service Unavailable

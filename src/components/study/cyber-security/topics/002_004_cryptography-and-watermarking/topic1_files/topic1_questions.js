@@ -216,6 +216,54 @@ E2EE (End-to-End): Client ──[Encrypted]──> Cloud Server (Opaque Cipherte
 const cipher = crypto.createCipheriv('aes-256-gcm', key256, nonce96);
 cipher.setAAD(associatedData);
 // Encrypts + Computes 128-bit Authentication Tag = UNBREAKABLE IMPLEMENTATION;`
+  },
+  {
+    question: "What is the mathematical role of an Initialization Vector (IV) or Nonce in block ciphers?",
+    shortAnswer: "An arbitrary, non-repeating number used alongside a secret key to ensure that encrypting identical plaintexts repeatedly produces completely distinct ciphertexts.",
+    explanation: "Without an IV, encrypting the message 'PAY $100' twice with the same key produces identical ciphertext blocks, allowing traffic analysis and replay attacks.",
+    hint: "Non-repeating random value preventing identical plaintexts from yielding identical ciphertexts.",
+    level: "moderate",
+    codeExample: "cipher = AES.new(key, AES.MODE_CBC, iv=os.urandom(16))"
+  },
+  {
+    question: "What is 'Key Exhaustion' or 'Key Re-use Vulnerability' in stream ciphers?",
+    shortAnswer: "Reusing the same keystream with a key/nonce pair allows attackers to XOR two ciphertexts together, completely eliminating the key: C1 ⊕ C2 = P1 ⊕ P2.",
+    explanation: "Once the keystream is canceled out, frequency analysis easily separates plaintexts P1 and P2 (famous flaw in WEP Wi-Fi encryption).",
+    hint: "Reusing a keystream cancels out the key via C1 XOR C2 = P1 XOR P2.",
+    level: "advanced",
+    codeExample: "C1 ^ C2 == (P1 ^ K) ^ (P2 ^ K) == P1 ^ P2"
+  },
+  {
+    question: "What is Key Derivation Function (KDF) and why is PBKDF2 or Argon2 used instead of simple hashing?",
+    shortAnswer: "A cryptographic algorithm that stretches human passwords into high-entropy keys using computational work factors, memory cost, and salts to defeat GPU brute-forcing.",
+    explanation: "Simple hashes (like MD5 or SHA-256) can be calculated billions of times per second on GPUs. Argon2 enforces memory hardness, making ASIC/GPU cracking economically unviable.",
+    hint: "Stretching passwords into strong keys using computational iteration and memory hardness.",
+    level: "moderate",
+    codeExample: "key = argon2.low_level.hash_secret(password, salt, time_cost=3, memory_cost=65536)"
+  },
+  {
+    question: "What is 'Padding' in block ciphers and how does PKCS#7 padding work?",
+    shortAnswer: "Adding bytes to the final block to match the fixed cipher block size (e.g. 16 bytes for AES); PKCS#7 appends N bytes, each with value N (e.g. 0x04 0x04 0x04 0x04 for 4 bytes).",
+    explanation: "If a block is already full (16 bytes), PKCS#7 adds a complete block of 16 bytes of value 16, ensuring deterministic removal during decryption.",
+    hint: "Appends N bytes, each having value N, to satisfy fixed block boundaries.",
+    level: "moderate",
+    codeExample: "PadLength = 16 - (len(data) % 16); padding = bytes([PadLength] * PadLength)"
+  },
+  {
+    question: "What is the difference between 'Data at Rest', 'Data in Transit', and 'Data in Use'?",
+    shortAnswer: "At Rest: stored on disk/databases (encrypted via BitLocker/AES); In Transit: traversing networks (encrypted via TLS/IPsec); In Use: actively processed in RAM/CPU registers.",
+    explanation: "Data in Use requires technologies like Confidential Computing (hardware enclaves like Intel SGX) or Homomorphic Encryption to remain encrypted while computed.",
+    hint: "Stored on disk (at rest), traversing network (in transit), processed in RAM (in use).",
+    level: "basic",
+    codeExample: "CryptoLayers = { Rest: 'BitLocker_XTS_AES', Transit: 'TLS_1_3', InUse: 'Intel_SGX' };"
+  },
+  {
+    question: "What is 'Forward Secrecy' (Perfect Forward Secrecy - PFS) in key exchange protocols?",
+    shortAnswer: "A security property ensuring that compromise of long-term server private keys does NOT compromise past session keys or historical recorded encrypted traffic.",
+    explanation: "PFS uses Ephemeral Diffie-Hellman (DHE/ECDHE) to generate temporary session keys that are deleted immediately after session termination.",
+    hint: "Compromise of long-term server keys does not decrypt past recorded sessions.",
+    level: "advanced",
+    codeExample: "SSL_Cipher_Suite = 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384' # Uses ephemeral ECDHE"
   }
 ];
 

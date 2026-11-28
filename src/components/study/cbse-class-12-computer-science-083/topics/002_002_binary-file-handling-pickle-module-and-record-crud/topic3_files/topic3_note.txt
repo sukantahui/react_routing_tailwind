@@ -1,0 +1,40 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 3: READING BINARY RECORDS - pickle.load() AND HANDLING EOFError
+======================================================================
+
+1. THE pickle.load() METHOD
+   - Syntax: reconstructed_object = pickle.load(file_handle)
+   - Parameters:
+     * file_handle: An open binary stream in 'rb' or 'rb+' mode.
+   - Return Value: Reconstructed Python object (dict, list, int, etc.).
+   - Pointer Movement: Consumes the exact byte length of the object and
+     advances pointer to the start of the next serialized object.
+
+2. THE EOFError EXCEPTION
+   - When all serialized objects have been consumed, the next call to
+     pickle.load() encounters End-of-File and raises:
+     EOFError: Ran out of input.
+   - Text files return '' (empty string); BINARY PICKLE RAISES EOFError!
+
+3. CANONICAL CBSE BOARD READING TEMPLATE (MEMORIZE THIS PATTERN!)
+   import pickle
+
+   def read_all_students(filename="student.dat"):
+       with open(filename, "rb") as f:
+           try:
+               while True:
+                   record = pickle.load(f)
+                   print(f"Roll: {record['roll']}, Name: {record['name']}, Marks: {record['marks']}")
+           except EOFError:
+               print("[+] All records successfully retrieved.")
+
+4. CRITICAL BOARD TRAP: PLACEMENT OF TRY...EXCEPT
+   - CORRECT: try block ENCLOSES the while loop.
+   - ALSO CORRECT: try block inside while loop, but MUST include 'break' in except!
+   - DEADLY ERROR: try block inside while loop with 'pass' -> INFINITE LOOP!
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

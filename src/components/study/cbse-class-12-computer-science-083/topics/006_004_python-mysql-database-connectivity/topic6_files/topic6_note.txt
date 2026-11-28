@@ -1,0 +1,52 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 6: RETRIEVING QUERY RESULTS: FETCHONE(), FETCHMANY(SIZE), FETCHALL(), AND CURSOR.ROWCOUNT
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+After executing a SELECT query, the cursor holds the result set. Fetch methods extract records as Python tuples into client memory.
+
+2. KEY EXAMINATION POINTS:
+  (1) fetchone(): Returns the NEXT single row as a tuple (val1, val2, ...), or None if no more rows exist.
+  (2) fetchmany(size): Returns a list of tuples containing up to 'size' records, or an empty list [] if exhausted.
+  (3) fetchall(): Returns ALL remaining rows as a list of tuples: [(row1), (row2), ...]. Returns [] if empty.
+  (4) cursor.rowcount: Contains the number of rows fetched so far (for SELECT), or number of rows affected (for INSERT/UPDATE/DELETE).
+
+3. SYNTAX & CODE SNIPPET:
+import mysql.connector
+
+con = mysql.connector.connect(host="localhost", user="root", password="tiger", database="SchoolDB")
+cur = con.cursor()
+
+cur.execute("SELECT RollNo, SName, Marks FROM Student;")
+
+# 1. fetchone() demonstration
+first_row = cur.fetchone()
+print("First Student:", first_row)       # (101, 'Aarav', 95.0)
+
+# 2. fetchmany(2) demonstration
+next_two = cur.fetchmany(2)
+print("Next 2 Students:", next_two)      # [(102, 'Rohan', 88.5), (103, 'Priya', 92.0)]
+
+# 3. fetchall() demonstration
+remaining = cur.fetchall()
+print("All Remaining:", remaining)       # [(104, 'Tanvi', 91.0), ...]
+
+cur.close()
+con.close()
+
+4. CBSE COMMON PITFALLS:
+Always remember to commit transactions and close both cursor and connection.
+
+5. REVISION CHECKLIST:
+  [ ] Understand connect() parameters: host, user, password, database.
+  [ ] Know the difference between fetchone(), fetchmany(), and fetchall().
+  [ ] Remember that fetchone() returns None and fetchall() returns [] when exhausted.
+  [ ] Master con.commit() for INSERT/UPDATE/DELETE.
+  [ ] Know that '%s' is the universal placeholder in mysql.connector.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 6 · CODER & ACCOTAX BARRACKPORE
+================================================================================

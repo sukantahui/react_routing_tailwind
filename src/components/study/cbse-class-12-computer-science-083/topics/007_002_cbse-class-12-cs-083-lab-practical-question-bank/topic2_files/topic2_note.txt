@@ -1,0 +1,38 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 2: PRACTICAL 2: TEXT FILE LINE FILTER COPYING LINES STARTING WITH SPECIFIED LETTER
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Python practical program to read an existing text file, filter lines that start with a specified alphabet (e.g. 'P' or 'A'), and copy matching lines into a second output file.
+
+2. KEY EXAMINATION POINTS:
+  (1) Opens input file in read mode ('r') and target file in write mode ('w').
+  (2) Uses strip() to ignore leading whitespace before checking the starting character.
+  (3) Handles case insensitivity: line.strip().upper().startswith(target_char.upper()).
+  (4) Closes both files cleanly and reports total lines transferred.
+
+3. PRACTICAL CODE SNIPPET:
+def filter_lines(src_file, tgt_file, start_char):
+    count = 0
+    with open(src_file, 'r') as fin, open(tgt_file, 'w') as fout:
+        for line in fin:
+            if line.strip().upper().startswith(start_char.upper()):
+                fout.write(line)
+                count += 1
+    print(f"Successfully copied {count} lines starting with '{start_char}'.")
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 2 · CODER & ACCOTAX BARRACKPORE
+================================================================================

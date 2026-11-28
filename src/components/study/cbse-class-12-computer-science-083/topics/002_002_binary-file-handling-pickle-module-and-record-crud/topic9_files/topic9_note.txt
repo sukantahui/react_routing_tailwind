@@ -1,0 +1,39 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 9: COMPLETE MENU-DRIVEN BINARY FILE MANAGEMENT SYSTEM (CRUD)
+======================================================================
+
+1. THE COMPLETE 5-OPERATION CRUD BLUEPRINT
+   - [C] CREATE / ADD: Appends new dictionary record in 'ab' mode.
+   - [R] READ / DISPLAY: Traverses all records in 'rb' mode using EOFError loop.
+   - [U] UPDATE: Uses temp.dat to locate record by Roll No and update marks.
+   - [D] DELETE: Uses temp.dat to filter out record by Roll No.
+   - [S] SEARCH: Locates record by Roll No and displays details.
+
+2. ARCHITECTURAL MENU DISPATCHER PATTERN
+   def main_menu():
+       while True:
+           print("=== STUDENT MANAGEMENT SYSTEM ===")
+           print("1. Add Student Record")
+           print("2. Display All Records")
+           print("3. Search Record by Roll No")
+           print("4. Update Student Marks")
+           print("5. Delete Student Record")
+           print("6. Exit")
+           choice = input("Enter choice (1-6): ").strip()
+           
+           if choice == '1': add_record()
+           elif choice == '2': display_all()
+           elif choice == '3': search_record()
+           elif choice == '4': update_record()
+           elif choice == '5': delete_record()
+           elif choice == '6':
+               print("Thank you for using the system. Goodbye!")
+               break
+           else:
+               print("Invalid selection! Please enter a number between 1 and 6.")
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

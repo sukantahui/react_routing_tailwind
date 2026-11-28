@@ -503,10 +503,15 @@ function TopicViewInner({ moduleSlug, topicIndex, roadmapData, subjectKey, topic
 
   const topicFileName = `Topic${normalizedTopicIndex}.jsx`;
 
+  const targetFolder = (moduleData?.slug || moduleSlug || "").toLowerCase();
+
   const topicKey = Object.keys(topicModules || {}).find((key) => {
     const normalizedKey = normalizePath(key).toLowerCase();
 
     return (
+      normalizedKey.endsWith(
+        `${targetFolder}/${topicFileName.toLowerCase()}`
+      ) ||
       normalizedKey.endsWith(
         `${normalizedModuleSlug}/${topicFileName.toLowerCase()}`
       )

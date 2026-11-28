@@ -1,0 +1,41 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: 30-MARK PRACTICAL LAB BANK (MODULE 2)
+TOPIC 19: PRACTICAL 19: SQL SET 4: TWO-TABLE EQUI-JOIN AND COMBINED REPORT QUERIES
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Practical queries linking Employee and Department tables via common DeptId attribute to produce unified tabular reports with filtering and sorting.
+
+2. KEY EXAMINATION POINTS:
+  (1) Equi-Join syntax: SELECT E.EName, D.DeptName, E.Salary FROM Employee E, Department D WHERE E.DeptId = D.DeptId;.
+  (2) Equi-join combined with filtering: WHERE E.DeptId = D.DeptId AND D.Location = 'Kolkata'.
+  (3) Equi-join with GROUP BY: DeptName and count of employees in each department.
+  (4) The definitive multi-table query practical expected in Class 12 CS lab records.
+
+3. PRACTICAL CODE SNIPPET:
+-- SQL Practical Set 4: Multi-Table Equi-Join
+SELECT E.EmpId, E.EName, D.DeptName, D.Location, E.Salary 
+FROM Employee E, Department D 
+WHERE E.DeptId = D.DeptId 
+ORDER BY D.DeptName ASC, E.Salary DESC;
+
+-- Combined Join and Grouping
+SELECT D.DeptName, COUNT(E.EmpId) AS StaffCount, AVG(E.Salary) AS DeptAvgSalary 
+FROM Employee E, Department D 
+WHERE E.DeptId = D.DeptId 
+GROUP BY D.DeptId, D.DeptName;
+
+4. LAB TEST PITFALLS & VIVA TIPS:
+Be ready to explain how your code works line-by-line to the external examiner.
+
+5. REVISION CHECKLIST:
+  [ ] Verify Python syntax on live terminal.
+  [ ] Ensure correct file modes ('r', 'w', 'rb', 'ab', 'rb+').
+  [ ] Handle EOFError and Underflow properly.
+  [ ] Review top viva questions related to this program.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 19 · CODER & ACCOTAX BARRACKPORE
+================================================================================

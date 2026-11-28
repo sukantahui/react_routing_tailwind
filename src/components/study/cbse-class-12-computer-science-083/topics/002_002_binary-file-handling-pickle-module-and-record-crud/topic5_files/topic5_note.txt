@@ -1,0 +1,43 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 5: COMPLEX RECORDS STORAGE - LISTS OF DICTIONARIES & NESTED DATA
+======================================================================
+
+1. THE TWO ARCHITECTURAL STORAGE PATTERNS
+
+   PATTERN A: SEQUENTIAL INDIVIDUAL RECORD DUMPS (RECOMMENDED FOR LARGE FILES)
+   - Storing:
+     with open("students.dat", "ab") as f:
+         pickle.dump(student_dict_1, f)
+         pickle.dump(student_dict_2, f)
+   - Reading:
+     with open("students.dat", "rb") as f:
+         try:
+             while True:
+                 record = pickle.load(f)
+         except EOFError:
+             pass
+   - Advantage: Can append new records anytime in 'ab' mode without loading
+     entire database into RAM.
+
+   PATTERN B: CONTAINER LIST DUMP (RECOMMENDED FOR SMALL IN-MEMORY DATASETS)
+   - Storing:
+     with open("students.dat", "wb") as f:
+         pickle.dump(all_students_list, f)  # Single dump call!
+   - Reading:
+     with open("students.dat", "rb") as f:
+         all_students_list = pickle.load(f)  # Single load call!
+   - Advantage: No EOFError while loop needed; easy list sorting and filtering.
+
+2. CBSE BOARD STANDARD RECORD SCHEMA
+   record = {
+       "roll": 101,
+       "name": "Mamata",
+       "stream": "Science",
+       "marks": [95.0, 98.0, 92.5]  # Nested list of marks
+   }
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

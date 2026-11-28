@@ -188,6 +188,70 @@ Noise Variance:  Added delta (+0.5) is smaller than sensor noise (+-2.0) → UNT
 | 2. Steganography  | Communication Channel     | Steganalysis (Channel Detection)  |
 | 3. Watermarking   | Host Media Carrier Asset  | Watermark Removal & Piracy        |
 +-------------------+---------------------------+-----------------------------------+`
+  },
+  {
+    question: "Compare Cryptography, Steganography, and Digital Watermarking in terms of visibility and objective.",
+    shortAnswer: "Cryptography scrambles content (visible, hides meaning); Steganography conceals existence of communication (invisible, hides presence); Watermarking protects ownership/integrity (invisible, permanent attachment).",
+    explanation: "In cryptography, an interceptor knows data is encrypted; in steganography, the interceptor does not know secret data exists at all.",
+    hint: "Hiding meaning (crypto), hiding existence (stego), proving ownership (watermarking).",
+    level: "basic",
+    codeExample: "Comparison = { Crypto: 'Scrambled text', Stego: 'Secret message in cat photo', Watermark: 'Copyright code in media' };"
+  },
+  {
+    question: "What is 'Steganalysis' and what is Chi-Square analysis in steganalysis?",
+    shortAnswer: "The science of detecting hidden messages within carrier files; Chi-Square analysis detects statistical imbalances in Pairs of Values (PoVs) caused by LSB bit embedding.",
+    explanation: "Natural images have uneven counts of even/odd byte values; LSB embedding equalizes adjacent even/odd counts, creating a telltale statistical signature.",
+    hint: "Detecting hidden steganographic data via statistical analysis of pixel bit planes.",
+    level: "advanced",
+    codeExample: "chi2_stat = sum(((even_count - odd_count)**2) / (even_count + odd_count))"
+  },
+  {
+    question: "What is a 'Cover Object' and 'Stego Object' in steganographic terminology?",
+    shortAnswer: "A Cover Object is the original innocent carrier file (image, MP3, carrier text); a Stego Object is the carrier file after the secret payload has been embedded.",
+    explanation: "The goal of steganography is to ensure the Stego Object is indistinguishable from the Cover Object to human senses and statistical algorithms.",
+    hint: "Innocent carrier file (cover) vs file containing hidden data (stego).",
+    level: "basic",
+    codeExample: "StegoImage = Embed(CoverImage, SecretPayload, StegoKey)"
+  },
+  {
+    question: "How can Network Steganography conceal data within TCP/IP protocol headers?",
+    shortAnswer: "By embedding secret bits inside unused or variable header fields, such as the TCP Initial Sequence Number (ISN), IP Identification field, or covert timing intervals.",
+    explanation: "Covert channels transmit information across firewalls without triggering packet payload deep inspection sensors.",
+    hint: "Hiding data inside TCP sequence numbers or packet arrival time delays.",
+    level: "advanced",
+    codeExample: "IP_Packet.id = ord(secret_char) # Embeds character byte into IP ID header field"
+  },
+  {
+    question: "What is the tool `steghide` and how does it secure embedded payloads?",
+    shortAnswer: "An open-source steganography program that embeds data in images and audio files, using graph theory and Rijndael (AES) encryption with a passphrase.",
+    explanation: "Encrypting the payload before embedding ensures that even if steganalysis detects anomalous bits, the extractor cannot read the plaintext without the passphrase.",
+    hint: "Command-line tool embedding encrypted payloads into images and WAV files.",
+    level: "moderate",
+    codeExample: "steghide embed -cf cover.jpg -ef secret.txt -p 'Passphrase123!'"
+  },
+  {
+    question: "What is Linguistic Steganography and how do Spammimic tools operate?",
+    shortAnswer: "Concealing secret messages inside natural language text, formatting, or spam emails that appear innocent to mail filters and human readers.",
+    explanation: "Spammimic encodes binary data into the syntactic choices of generated commercial spam letters.",
+    hint: "Hiding secret binary bits within the wording and syntax of natural text.",
+    level: "moderate",
+    codeExample: "spammimic_encode('Secret') -> 'Dear Friend, Special offer on luxury watches...'"
+  },
+  {
+    question: "Can Cryptography and Steganography be combined for defense-in-depth?",
+    shortAnswer: "Yes; the optimal methodology encrypts the sensitive file with AES-256 first, then embeds the resulting ciphertext into an innocent cover image using steganography.",
+    explanation: "If steganography is uncovered, cryptography keeps the content undecipherable; if cryptography is scrutinized, steganography prevents the adversary from knowing the data exists.",
+    hint: "Encrypt data first with AES, then embed the encrypted bytes into an image.",
+    level: "basic",
+    codeExample: "StegoData = StegoEmbed(CarrierImage, AES_Encrypt(Plaintext, Key))"
+  },
+  {
+    question: "Why do malware authors (like APT groups) increasingly utilize Steganography in cyber attacks?",
+    shortAnswer: "To download secondary exploit payloads and exfiltrate stolen credentials disguised as innocent JPEG or PNG files, bypassing perimeter DLP and antivirus inspection.",
+    explanation: "Firewalls permit image downloads from corporate websites; decoding code hidden in image pixels executes malware undetected (known as Stegware).",
+    hint: "Disguising malware payloads inside innocent image downloads to bypass firewalls.",
+    level: "moderate",
+    codeExample: "powershell -c \"$img = [Drawing.Bitmap]::FromFile('logo.png'); ... Invoke-Expression $extracted_code\""
   }
 ];
 

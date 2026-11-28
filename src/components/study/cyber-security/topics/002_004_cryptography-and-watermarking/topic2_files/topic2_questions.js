@@ -215,6 +215,54 @@ Decryption: Identical circuit! Simply apply SubKeys in reverse: K_{16}, K_{15}..
     level: "expert",
     codeExample: `// The Classical-to-Modern Evolutionary Law:
 (Substitution_Confusion + Transposition_Diffusion)^N_Rounds + 256_Bit_Key = UNBREAKABLE_AES_CIPHER;`
+  },
+  {
+    question: "How does Frequency Analysis crack monoalphabetic substitution ciphers like the Caesar cipher?",
+    shortAnswer: "By comparing the statistical letter frequencies in the ciphertext against natural language frequency tables (e.g. 'E', 'T', 'A' being most frequent in English).",
+    explanation: "In monoalphabetic ciphers, every occurrence of 'E' maps to the same ciphertext letter, preserving the unique statistical signature of the language.",
+    hint: "Matching ciphertext letter frequency counts to English language letter frequencies.",
+    level: "basic",
+    codeExample: "FreqTable = { 'E': 12.7, 'T': 9.1, 'A': 8.2, 'O': 7.5, 'I': 7.0 };"
+  },
+  {
+    question: "What is the Vigenère Cipher and why was it historically considered 'le chiffre indéchiffrable'?",
+    shortAnswer: "A polyalphabetic substitution cipher using a repeating keyword to shift letters according to a Tabula Recta, masking single-letter frequency signatures.",
+    explanation: "Because the same plaintext letter can map to multiple ciphertext letters depending on keyword position, simple frequency analysis fails.",
+    hint: "Polyalphabetic substitution cipher shifting letters based on a repeating keyword.",
+    level: "moderate",
+    codeExample: "C_i = (P_i + K_(i mod m)) mod 26 # Vigenère mathematical formula"
+  },
+  {
+    question: "How did Charles Babbage and Friedrich Kasiski break the Vigenère cipher (Kasiski Examination)?",
+    shortAnswer: "By locating repeated sequences in the ciphertext, calculating the distances between them, and finding the greatest common divisor (GCD) of those distances to discover key length.",
+    explanation: "Once the keyword length L is known, the ciphertext is factored into L separate monoalphabetic Caesar ciphers, each solved via frequency analysis.",
+    hint: "Finding distances between repeated ciphertext strings and taking the GCD.",
+    level: "advanced",
+    codeExample: "KeyLength = gcd(distance1, distance2, distance3)"
+  },
+  {
+    question: "How does a Rail Fence Transposition Cipher operate?",
+    shortAnswer: "Plaintext characters are written diagonally in a zigzag pattern across multiple imaginary rails and then read off horizontally row by row to form ciphertext.",
+    explanation: "Unlike substitution ciphers, transposition ciphers do not alter character identities; they rearrange their positions (permutations).",
+    hint: "Writing letters in a zigzag pattern across rails, then reading row by row.",
+    level: "basic",
+    codeExample: "// Rail Fence (Key=3):\n// M . . . A . . . K\n// . E . S . G . E .\n// . . E . . . E . ."
+  },
+  {
+    question: "What is the Playfair Cipher and how does it encrypt digraphs (pairs of letters)?",
+    shortAnswer: "It encrypts two-letter pairs using a 5x5 key matrix (I and J combined). If in same row: take right letter; same column: take lower letter; rectangle: take horizontal opposite.",
+    explanation: "Encrypting pairs of letters flattens frequency distribution from 26 single letters to 676 digraphs, significantly resisting basic frequency cryptanalysis.",
+    hint: "5x5 letter matrix encrypting two-letter pairs using row, column, and rectangle rules.",
+    level: "moderate",
+    codeExample: "Playfair_Rules = { SameRow: 'ShiftRight', SameCol: 'ShiftDown', Rectangle: 'SwapCorners' };"
+  },
+  {
+    question: "What is the Hill Cipher and what branch of mathematics does it use for encryption and decryption?",
+    shortAnswer: "A polygraphic substitution cipher that uses Linear Algebra (matrix multiplication modulo 26) with an invertible square matrix as the key.",
+    explanation: "Encryption: C = (K · P) mod 26. Decryption requires computing the modular matrix inverse K^(-1) mod 26 using adjugate and determinant mathematics.",
+    hint: "Linear algebra multiplying character vectors by an invertible key matrix mod 26.",
+    level: "advanced",
+    codeExample: "C = np.dot(K, P) % 26; P = np.dot(modMatInv(K, 26), C) % 26"
   }
 ];
 

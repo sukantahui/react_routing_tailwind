@@ -1,0 +1,31 @@
+===============================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE 083) - QUICK REVISION NOTE
+TOPIC 5: ITERATIVE CONSTRUCTS (FOR, WHILE, BREAK, CONTINUE, LOOP-ELSE)
+Author: Sukanta Hui | Institute: Coder & AccoTax
+===============================================================================
+
+1. THE RANGE FUNCTION: range([start,] stop[, step])
+   - Generates an immutable arithmetic progression sequence of integers.
+   - Default start = 0, default step = 1.
+   - IMPORTANT: 'stop' bound is EXCLUSIVE (up to stop - 1).
+   - If step is negative, start must be > stop; otherwise produces empty sequence:
+     * range(10, 2, -2) -> 10, 8, 6, 4
+     * range(2, 10, -1) -> empty range []
+     * range(5, 5) -> empty range []
+
+2. LOOP CONTROL STATEMENTS:
+   - break: Immediately terminates the innermost loop and transfers control past the loop suite.
+   - continue: Immediately skips the remainder of the current iteration and jumps to the next iteration.
+   - pass: Null statement / placeholder.
+
+3. THE UNIQUE PYTHON "LOOP-ELSE" SUITE:
+   - Both 'for' and 'while' loops can have an optional 'else' block!
+   - The 'else' suite executes IF AND ONLY IF the loop completes ALL iterations NORMALLY.
+   - If the loop is exited early via 'break', the 'else' suite is COMPLETELY SKIPPED.
+   - Primary use case: Linear search validation without flag variables.
+
+4. COMMON CBSE EXAM OUTPUT TRACING TRAPS:
+   - Forgetting that range stop is exclusive: range(1, 5) produces 1, 2, 3, 4 (4 iterations, not 5).
+   - Missing loop increment in while loop causing infinite loop.
+   - Tracing loop-else outputs when break is triggered.
+===============================================================================

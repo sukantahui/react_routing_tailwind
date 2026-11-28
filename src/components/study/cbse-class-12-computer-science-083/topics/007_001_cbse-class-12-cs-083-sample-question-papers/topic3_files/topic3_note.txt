@@ -1,0 +1,44 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: EXAMINATION MASTERY (FULL BOARD PATTERN)
+TOPIC 3: CODER & ACCOTAX SUGGESTED MOCK PAPER 2: FULL-LENGTH 70-MARK SIMULATION
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Second full-length mock examination designed to test boundary conditions, complex recursion/stack tracing, and multi-table SQL aggregate queries.
+
+2. KEY EXAMINATION POINTS:
+  (1) Tricky string and list mutation questions testing parameter passing by reference.
+  (2) Complete binary file deletion using temporary file swapping mechanism.
+  (3) Case-based campus network layout with 80-meter distance rules and switch/hub positioning.
+  (4) SQL case study on Hospital management with GROUP BY, HAVING, and Equi-Join.
+
+3. CODE & STRATEGY SNIPPET:
+# Mock Paper 2 - Binary File Deletion Strategy (5 Marks)
+import pickle, os
+
+def remove_inactive(roll):
+    with open('student.dat', 'rb') as fin, open('temp.dat', 'wb') as fout:
+        try:
+            while True:
+                rec = pickle.load(fin)
+                if rec[0] != roll:
+                    pickle.dump(rec, fout)
+        except EOFError:
+            pass
+    os.remove('student.dat')
+    os.rename('temp.dat', 'student.dat')
+
+4. CBSE COMMON PITFALLS:
+Adhere strictly to step-marking rubrics and never leave questions unattempted.
+
+5. REVISION CHECKLIST:
+  [ ] Understand 70-mark theory distribution across Sections A to E.
+  [ ] Practice dry-run trace tables for Section B output questions.
+  [ ] Memorize standard templates for Stack and Text file questions.
+  [ ] Know the 80-20 rule and repeater/switch criteria for Section E.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 3 · CODER & ACCOTAX BARRACKPORE
+================================================================================

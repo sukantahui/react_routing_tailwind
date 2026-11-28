@@ -1,0 +1,29 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT III: SQL DDL & TABLE CONSTRAINTS
+TOPIC 5: COLUMN-LEVEL VS TABLE-LEVEL CONSTRAINTS IN SQL
+=====================================================
+Constraints enforce business rules and relational integrity on data entered into a table.
+
+1. Column-Level Constraints:
+   - Defined inline immediately after the data type of a single column.
+   - Can only reference the single column it is attached to.
+   - Supports: NOT NULL, UNIQUE, PRIMARY KEY, CHECK, DEFAULT.
+   Example:
+   CREATE TABLE student (
+       roll_no INT PRIMARY KEY,
+       name VARCHAR(40) NOT NULL,
+       email VARCHAR(60) UNIQUE
+   );
+
+2. Table-Level Constraints:
+   - Defined at the end of the CREATE TABLE statement, separated by commas after all column definitions.
+   - MANDATORY when creating Composite Primary Keys (keys composed of two or more columns) or Foreign Keys with explicit constraint names.
+   - Note: NOT NULL CANNOT be declared as a table-level constraint; it must always be declared at column-level.
+   Example:
+   CREATE TABLE enrollment (
+       roll_no INT,
+       course_id VARCHAR(10),
+       enroll_date DATE,
+       PRIMARY KEY (roll_no, course_id),
+       FOREIGN KEY (roll_no) REFERENCES student(roll_no)
+   );

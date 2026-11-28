@@ -1,0 +1,47 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 11: SET MEMBERSHIP: IN AND NOT IN OPERATORS
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+The IN operator checks whether an attribute's value matches any item in a discrete list of literal values.
+
+2. KEY EXAMINATION POINTS:
+  (1) Syntax: 'WHERE column IN (val1, val2, val3, ...);'
+  (2) Equivalent to multiple OR conditions: '(column = val1 OR column = val2 OR column = val3)'.
+  (3) NOT IN: True if the column value does NOT match any item in the list: '(column <> val1 AND column <> val2)'.
+  (4) Caution with NULL: If a list in NOT IN contains a NULL value (e.g. NOT IN ('A', NULL)), the result is UNKNOWN and returns 0 rows.
+
+3. SYNTAX & CODE SNIPPET:
+-- Finding students enrolled in specific streams
+SELECT RollNo, SName, Stream 
+FROM Student 
+WHERE Stream IN ('Science', 'Commerce');
+
+-- Equivalent OR chain:
+SELECT RollNo, SName, Stream 
+FROM Student 
+WHERE Stream = 'Science' OR Stream = 'Commerce';
+
+-- Finding employees not in HR or Admin
+SELECT EName, Dept 
+FROM Employee 
+WHERE Dept NOT IN ('HR', 'Admin');
+
+-- Integer set membership
+SELECT * FROM Orders WHERE OrderId IN (1001, 1005, 1009);
+
+4. CBSE COMMON PITFALLS:
+Remember to test conditions carefully and use parentheses to disambiguate AND/OR connectives.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between DML and DDL commands.
+  [ ] Master WHERE condition construction using relational and logical operators.
+  [ ] Be confident in NULL handling using IS NULL and IS NOT NULL.
+  [ ] Remember default ordering for ORDER BY is ASC.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 11 · CODER & ACCOTAX BARRACKPORE
+================================================================================

@@ -1,0 +1,38 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+SEGMENT 7: EXAMINATION MASTERY (FULL BOARD PATTERN)
+TOPIC 13: DOWNLOADABLE DOCUMENTS: CBSE CLASS 12 CS 083 EXAMINATION MASTERY PACK
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Curated collection of downloadable PDFs and printable notes containing full-length mock papers, marking schemes, and syllabus cheat sheets.
+
+2. KEY EXAMINATION POINTS:
+  (1) Printable full-length 70-mark mock papers 1, 2, and 3 with complete answer keys.
+  (2) Section-by-section time management cheatsheet for the 3-hour examination.
+  (3) Top 100 CBSE Class 12 CS theory and output questions with verified solutions.
+  (4) Master teacher tips by Sukanta Hui for achieving 100/100 in the CBSE board exam.
+
+3. CODE & STRATEGY SNIPPET:
+# Master Examination Timing Plan (3 Hours = 180 Minutes):
+# 10:15 - 10:30 AM: 15-Minute Reading Time (Analyze Section E case study & plan optional questions)
+# 10:30 - 11:00 AM: Section A (18 MCQs - 30 mins)
+# 11:00 - 11:30 AM: Section B (7 VSA - 30 mins)
+# 11:30 - 12:15 PM: Section C (5 SA - 45 mins)
+# 12:15 - 12:55 PM: Section D (2 LA - 40 mins)
+# 12:55 - 1:20 PM:  Section E (3 Case Studies - 25 mins)
+# 1:20  - 1:30 PM:  Revision & Checking (10 mins)
+
+4. CBSE COMMON PITFALLS:
+Adhere strictly to step-marking rubrics and never leave questions unattempted.
+
+5. REVISION CHECKLIST:
+  [ ] Understand 70-mark theory distribution across Sections A to E.
+  [ ] Practice dry-run trace tables for Section B output questions.
+  [ ] Memorize standard templates for Stack and Text file questions.
+  [ ] Know the 80-20 rule and repeater/switch criteria for Section E.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 13 · CODER & ACCOTAX BARRACKPORE
+================================================================================

@@ -1,0 +1,29 @@
+CBSE CLASS 12 COMPUTER SCIENCE (CODE 083)
+UNIT II: COMPUTER NETWORKS (10 MARKS)
+SEGMENT 4: MODULE 2 - TOPIC 10: STAR TOPOLOGY (CENTRAL SWITCH, FAULT ISOLATION)
+
+1. ARCHITECTURE OF STAR TOPOLOGY:
+   - Every peripheral device (computer, printer, server) is connected directly to a central connecting device (usually a Network Switch or Hub) via a dedicated point-to-point cable.
+   - Resembles a star radiating outwards from the center.
+   - Universal Cabling: Twisted Pair cable (Cat-5e/Cat-6 UTP) terminated with RJ-45 modular connectors.
+
+2. HOW DATA TRAVELS IN A STAR TOPOLOGY:
+   - When Node A sends data to Node B:
+     * Node A transmits the frame along its dedicated cable to the central switch.
+     * The switch reads the destination MAC address.
+     * The switch delivers the frame directly to Node B's dedicated cable.
+     * All other workstations (Nodes C, D, E) remain unaffected and free to conduct independent communications.
+
+3. ADVANTAGES & DISADVANTAGES (CBSE BOARD FAVORITE):
+   - Major Advantages:
+     * Robust Fault Isolation: If one workstation's cable breaks, becomes loose, or shorts out, ONLY that single workstation loses connectivity. The rest of the network operates with zero interruption.
+     * Easy Installation & Maintenance: New nodes can be added or removed dynamically simply by plugging/unplugging an RJ-45 cable into the central switch without disrupting active traffic.
+     * Zero Collisions & High Performance: With a full-duplex switch, every node enjoys dedicated line-rate bandwidth with zero collisions.
+     * Simple Troubleshooting: The switch's port LEDs immediately pinpoint which cable or computer has failed.
+   - Major Disadvantages:
+     * Central Point of Failure: If the central switch/hub hardware or its power supply fails, the ENTIRE network collapses.
+     * Higher Cable Consumption: Requires significantly more total cable length than a bus topology, because an individual dedicated cable run must extend from the central switch to every single computer.
+
+4. CBSE 5-MARK CASE STUDY APPLICATION:
+   - In Section D case studies, when asked to suggest a topology for connecting computers inside a building or computer lab, ALWAYS recommend "Star Topology"!
+   - Justification: Excellent fault isolation (single cable fault does not bring down the network) and high scalability for adding new computers.

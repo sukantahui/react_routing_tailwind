@@ -1,0 +1,41 @@
+================================================================================
+CBSE CLASS 12 COMPUTER SCIENCE (SUBJECT CODE 083)
+UNIT III: DATABASE MANAGEMENT (20 MARKS)
+TOPIC 5: COLUMN ALIASES USING AS AND ARITHMETIC EXPRESSIONS IN SELECT
+GUIDANCE BY: SUKANTA HUI (CODER & ACCOTAX, BARRACKPORE)
+================================================================================
+
+1. CORE CONCEPT SUMMARY:
+Column aliases give descriptive heading labels to output columns, and arithmetic expressions allow computing real-time virtual values.
+
+2. KEY EXAMINATION POINTS:
+  (1) Syntax: 'SELECT expression AS alias_name FROM table;' — the AS keyword is optional but strongly recommended for clarity.
+  (2) If the alias contains spaces or special characters, it must be enclosed in quotes: 'SELECT SName AS "Student Full Name"'.
+  (3) Arithmetic operators (+, -, *, /) can compute calculated fields on numeric attributes without altering the underlying table data.
+  (4) Aliases defined in the SELECT clause CANNOT be referenced in the WHERE clause due to SQL query evaluation order.
+
+3. SYNTAX & CODE SNIPPET:
+-- Compute Annual Salary and display with clear alias
+SELECT EmpId, EName, Salary, Salary * 12 AS Annual_Compensation 
+FROM Employee;
+
+-- Multi-word alias with quotes
+SELECT EName AS "Employee Name", Salary + 5000 AS "Revised Salary" 
+FROM Employee;
+
+-- Expression involving multiple columns
+SELECT ItemCode, ItemName, Qty * Price AS Total_Stock_Value 
+FROM Inventory;
+
+4. CBSE COMMON PITFALLS:
+Remember to test conditions carefully and use parentheses to disambiguate AND/OR connectives.
+
+5. REVISION CHECKLIST:
+  [ ] Understand difference between DML and DDL commands.
+  [ ] Master WHERE condition construction using relational and logical operators.
+  [ ] Be confident in NULL handling using IS NULL and IS NOT NULL.
+  [ ] Remember default ordering for ORDER BY is ASC.
+
+================================================================================
+END OF REVISION SHEET · TOPIC 5 · CODER & ACCOTAX BARRACKPORE
+================================================================================

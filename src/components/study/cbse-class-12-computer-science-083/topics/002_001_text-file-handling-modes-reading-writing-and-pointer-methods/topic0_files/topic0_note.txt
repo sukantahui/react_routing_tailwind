@@ -1,0 +1,49 @@
+======================================================================
+CBSE CLASS XII COMPUTER SCIENCE (CODE: 083)
+UNIT I: COMPUTATIONAL THINKING AND PROGRAMMING - 2
+TOPIC 0: INTRODUCTION TO PERSISTENT STORAGE - VOLATILE VS SECONDARY STORAGE
+======================================================================
+
+1. THE MEMORY HIERARCHY PROBLEM
+   - RAM (Random Access Memory):
+     * Primary, volatile memory.
+     * High access speed (nanoseconds).
+     * Directly addressable by CPU.
+     * CRITICAL LIMITATION: When a Python script terminates or power fails,
+       all in-memory data structures (variables, lists, dictionaries) vanish.
+   - Secondary Storage (HDD, SSD, Flash):
+     * Non-volatile persistent media.
+     * Retains bit patterns without continuous electrical power.
+     * Lower access speed compared to RAM, but massive storage capacity.
+
+2. WHAT IS A FILE?
+   - A file is a named, structured sequence of bytes or characters permanently
+     stored on a secondary storage medium.
+   - Files provide:
+     * Persistence: Data outlives the process that created it.
+     * Portability: Files can be transferred across systems or networks.
+     * Interoperability: Output from one application can serve as input to another.
+     * Large Volume Storage: Datasets exceeding RAM capacity can be stored.
+
+3. THE STREAM ABSTRACTION
+   - In Python, file operations are mediated via "Streams".
+   - A stream represents a continuous flow of data between program memory
+     and an external target (disk file, network socket, console).
+   - Input Stream: Reads data from disk file into RAM.
+   - Output Stream: Writes data from RAM to disk file.
+
+4. BUFFERING & FLUSHING
+   - Direct disk writes for single characters are physically slow.
+   - The OS and Python maintain an in-memory "Buffer".
+   - Characters written to a file accumulate in the buffer.
+   - When the buffer fills, or when file.flush() or file.close() is called,
+     the entire buffer block is transferred to disk in one atomic I/O operation.
+
+5. ESSENTIAL BEST PRACTICES FOR CBSE EXAMINATIONS
+   - Always close files explicitly or use the 'with' statement.
+   - Understand that unclosed files may lose trailing buffered writes.
+   - Recognize that reading past EOF in text files returns '' (empty string).
+
+======================================================================
+Prepared by Sukanta Hui | Coder & AccoTax | Barrackpore, West Bengal
+======================================================================

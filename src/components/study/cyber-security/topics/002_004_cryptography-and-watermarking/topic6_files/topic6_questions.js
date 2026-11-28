@@ -188,6 +188,62 @@ Alice & Bob detect anomaly → Abort Key Exchange → Zero Secret Key Material L
     level: "expert",
     codeExample: `// The Master Cryptographic Architecture:
 (Asymmetric_PKI_Authentication + ECDHE_Key_Exchange) + (Symmetric_AES_256_GCM_Bulk) = MAXIMUM_SECURITY_AND_SPEED;`
+  },
+  {
+    question: "Compare Symmetric vs Asymmetric encryption across Key Lengths for comparable security.",
+    shortAnswer: "AES-128 provides security equivalent to RSA-3072; AES-256 provides security equivalent to RSA-15360 and ECC-512.",
+    explanation: "Symmetric security scales directly with bit length (2^n brute-force), whereas RSA security scales sub-exponentially due to the General Number Field Sieve (GNFS) factoring algorithm.",
+    hint: "128-bit symmetric key equals 3072-bit RSA key strength.",
+    level: "moderate",
+    codeExample: "Equivalences = { 'AES-128': 'RSA-3072 / ECC-256', 'AES-256': 'RSA-15360 / ECC-512' };"
+  },
+  {
+    question: "What is a 'Hybrid Cryptosystem' and how does it combine the advantages of Symmetric and Asymmetric encryption?",
+    shortAnswer: "It uses fast symmetric encryption (AES) with a randomly generated session key to encrypt bulk data, and uses asymmetric encryption (RSA/ECC) to securely transmit that session key.",
+    explanation: "Combines the microsecond speed of AES with the zero-pre-shared-secret key distribution convenience of RSA/ECC (standard in HTTPS, SSH, PGP).",
+    hint: "Encrypts data with fast symmetric AES; encrypts AES key with asymmetric RSA.",
+    level: "basic",
+    codeExample: "Payload = { EncryptedData: AES(Data, SessionKey), EncryptedKey: RSA(SessionKey, PubKey) }"
+  },
+  {
+    question: "How does the computational complexity of key generation compare between AES and RSA?",
+    shortAnswer: "AES key generation is trivial (reading 256 random bits from an entropy pool); RSA key generation requires finding two large probable prime numbers via probabilistic testing (Miller-Rabin), taking seconds.",
+    explanation: "Prime searching involves generating large random integers and testing them repeatedly, consuming significant processing time on constrained devices.",
+    hint: "AES generates random bits in nanoseconds; RSA searches for massive primes taking seconds.",
+    level: "advanced",
+    codeExample: "AES_KeyGen = os.urandom(32); # Instantaneous vs RSA_KeyGen generating primes p, q"
+  },
+  {
+    question: "Which encryption type provides native Non-Repudiation and why?",
+    shortAnswer: "Asymmetric cryptography, because the private key is held exclusively by one entity; symmetric keys are shared by both parties, so either party could have created the ciphertext.",
+    explanation: "In symmetric cryptography, if Alice and Bob share key K, Bob cannot prove to a judge that Alice wrote a message, since Bob possesses the same key.",
+    hint: "Asymmetric private keys are unique to the author, while symmetric keys are shared.",
+    level: "moderate",
+    codeExample: "NonRepudiation = AsymmetricOnly; // Shared symmetric keys cannot establish sole authorship"
+  },
+  {
+    question: "How do key management requirements scale with user count in Symmetric vs Asymmetric systems?",
+    shortAnswer: "Symmetric: requires n(n-1)/2 keys (quadratic scaling O(n^2)); Asymmetric: requires only 2n keys (linear scaling O(n)).",
+    explanation: "For 1,000 users, symmetric encryption requires 499,500 distinct key pairs, whereas asymmetric requires only 2,000 keys (1 public + 1 private per user).",
+    hint: "O(n^2) quadratic explosion for symmetric vs O(n) linear scaling for asymmetric.",
+    level: "moderate",
+    codeExample: "Users = 1000;\nSymKeys = (Users * (Users - 1)) / 2; // 499,500 keys\nAsymKeys = Users * 2; // 2,000 keys"
+  },
+  {
+    question: "What quantum computing algorithms threaten Symmetric vs Asymmetric cryptography?",
+    shortAnswer: "Shor's Algorithm completely breaks RSA and ECC in polynomial time; Grover's Algorithm speeds up brute-force attacks on AES by square root, effectively halving key security (AES-256 drops to 128-bit security).",
+    explanation: "To survive quantum computers, asymmetric crypto must transition to Post-Quantum Cryptography (PQC: lattice-based Kyber/Dilithium), while AES-256 remains secure.",
+    hint: "Shor's algorithm breaks RSA/ECC; Grover's algorithm halves symmetric bit security.",
+    level: "advanced",
+    codeExample: "QuantumThreat = { 'RSA-2048': 'Broken (Shor)', 'AES-256': 'Secure at 128-bit level (Grover)' };"
+  },
+  {
+    question: "Tabulate the primary trade-offs between Symmetric and Asymmetric Cryptography.",
+    shortAnswer: "Symmetric: very fast, high throughput, simple math, small keys, but difficult key distribution; Asymmetric: slower, complex math, larger keys, but enables easy public distribution and digital signatures.",
+    explanation: "Neither replaces the other; modern security architectures combine them symbiotically.",
+    hint: "Speed and bulk encryption (symmetric) vs key exchange and signatures (asymmetric).",
+    level: "basic",
+    codeExample: "Architecture = 'Use Asymmetric to negotiate SessionKey, then Symmetric for all data streaming';"
   }
 ];
 
