@@ -1,25 +1,52 @@
 ================================================================================
 CODER & ACCOTAX - PRINTABLE STUDY NOTE
 Subject: Data Structures & Algorithms in C
-Module: Singly, Doubly & Circular Linked Lists
-Topic 4: Polynomial Addition & Sparse Polynomial Manipulation
+Module: Singly, Doubly & Circular Linked Lists (001_002)
+Topic 4: Circular Linked Lists — Tail Optimization, Round-Robin & Break-Loop
 Mentor: Sukanta Hui (Barrackpore, West Bengal)
 ================================================================================
 
-1. POLYNOMIAL LINKED LIST NODE
+1. MENTAL MODEL (THE ROUND TABLE GAME)
 --------------------------------------------------------------------------------
-struct Term {
-    int coeff;
-    int exp;
-    struct Term *next;
-};
+In a Circular Linked List (CLL), there is NO `NULL` at the end!
+Instead, the last node's `next` pointer points right back to the first node:
+  tail->next == head
 
-2. ADDITION LOGIC
+Single-node invariant:
+  When there is only 1 node `n`, it points to ITSELF: `n->next = n`.
+
+2. WHY STORE `tail` INSTEAD OF `head`? (THE O(1) TRICK!)
 --------------------------------------------------------------------------------
-Compare exponents exp1 vs exp2:
-- exp1 > exp2: Copy P1 term, advance P1.
-- exp1 < exp2: Copy P2 term, advance P2.
-- exp1 == exp2: Sum coefficients, advance both P1 and P2.
+If you store `head` only:
+  • Insert at Head or Tail requires walking O(N) to find the last node so
+    you can update `last->next`.
+
+If you store `tail` instead:
+  • `head` is STILL instantly available in O(1) as `tail->next`!
+  • Insert at Head = O(1):  newNode->next = tail->next; tail->next = newNode;
+  • Insert at Tail = O(1):  do Insert at Head, then `tail = newNode;`!
+
+3. SAFE TRAVERSAL WITH `do { ... } while (curr != head);`
+--------------------------------------------------------------------------------
+Trap: `while (curr != NULL)` runs FOREVER in a circular list!
+Trap: `while (curr != head)` starting at `curr = head` runs ZERO times!
+
+Correct pattern:
+  if (tail == NULL) return;
+  Node *head = tail->next;
+  Node *curr = head;
+  do {
+      printf("%d ", curr->data);
+      curr = curr->next;
+  } while (curr != head);
+
+4. BREAK-LOOP MECHANICS BEFORE CLEANUP
+--------------------------------------------------------------------------------
+Before freeing a circular list with a standard `while (curr != NULL)` loop:
+  1. Node *head = tail->next;
+  2. tail->next = NULL;   // Break the circle!
+  3. Now walk with `temp = curr->next; free(curr); curr = temp;`
+  4. Set `tail = NULL;`
 
 ================================================================================
 Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India

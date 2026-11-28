@@ -1,15 +1,51 @@
 ================================================================================
 CODER & ACCOTAX - PRINTABLE STUDY NOTE
 Subject: Data Structures & Algorithms in C
-Module: Singly, Doubly & Circular Linked Lists
-Topic 3: Circular Linked Lists & Round-Robin Scheduling
+Module: Singly, Doubly & Circular Linked Lists (001_002)
+Topic 3: Doubly Linked List — prev/next Pointers, Node Swapping & Cleanup
 Mentor: Sukanta Hui (Barrackpore, West Bengal)
 ================================================================================
 
-1. CIRCULAR LIST INVARIANT
+1. MENTAL MODEL (BROWSER BACK & FORWARD HISTORY)
 --------------------------------------------------------------------------------
-Last Node (`tail`) satisfies: `tail->next == head`.
-Loop Condition: `do { ... curr = curr->next; } while (curr != head);`
+A Doubly Linked List (DLL) gives every node TWO pointer links:
+  struct DNode {
+      int data;             // 4 bytes (+ 4 bytes padding on 64-bit)
+      struct DNode *prev;   // 8 bytes: points to previous node (or NULL at head)
+      struct DNode *next;   // 8 bytes: points to next node (or NULL at tail)
+  };                        // Total sizeof(DNode) = 24 bytes on 64-bit!
+
+Trade-off vs Singly Linked List:
+  • Extra cost: 8 extra bytes per node + 2x more pointer updates.
+  • Huge gain: Walk both forward AND backward, plus O(1) deletion when
+    you already hold a pointer `del` to the node!
+
+2. GOLDEN 4-STEP ORDERING FOR INSERTING BETWEEN `A` AND `B`
+--------------------------------------------------------------------------------
+To insert `newNode` right after `A` (where `B = A->next`):
+  1. newNode->prev = A;
+  2. newNode->next = A->next;
+  3. if (A->next != NULL) A->next->prev = newNode;
+  4. A->next = newNode;
+Always wire `newNode` BEFORE overwriting `A->next`!
+
+3. O(1) DELETION GIVEN NODE POINTER `del`
+--------------------------------------------------------------------------------
+  if (head == del) head = del->next;
+  if (tail == del) tail = del->prev;
+  if (del->next != NULL) del->next->prev = del->prev;
+  if (del->prev != NULL) del->prev->next = del->next;
+  free(del);
+
+4. SYMMETRY INVARIANT & CLEANUP
+--------------------------------------------------------------------------------
+Healthy DLL invariant:
+  For every adjacent pair (A, B):  A->next == B   AND   B->prev == A.
+  At boundaries:  head->prev == NULL   AND   tail->next == NULL.
+
+Safe cleanup:
+  Save `temp = curr->next` BEFORE calling `free(curr)`, then set
+  `head = NULL; tail = NULL;` at the end.
 
 ================================================================================
 Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India

@@ -1,303 +1,303 @@
 const questions = [
   {
-    "id": 1,
-    "question": "What is the primary physical memory allocation pattern utilized in \"Doubly Linked List: Bidirectional pointers (prev, next), node swapping, and memory cleanup traversal\"?",
-    "options": [
-      "Contiguous heap/stack buffer layout designed to maximize CPU L1/L2 cache line hits and deterministic address calculation",
-      "Randomly scattered virtual pages without memory alignment",
-      "Unbuffered disk swap paging exclusively",
-      "Hardware register banking without RAM involvement"
+    id: 1,
+    question: "How many pointer fields does each node in a standard Doubly Linked List contain?",
+    options: [
+      "Two pointers: `prev` (pointing backward) and `next` (pointing forward)",
+      "One pointer: `next` only",
+      "Three pointers: `head`, `tail`, and `mid`",
+      "Zero pointers—nodes are stored in contiguous arrays"
     ],
-    "answer": "Contiguous heap/stack buffer layout designed to maximize CPU L1/L2 cache line hits and deterministic address calculation",
-    "explanation": "In C systems programming, efficient data structures prioritize contiguous byte layout to leverage hardware spatial locality and minimize L1 cache miss latency."
+    answer: "Two pointers: `prev` (pointing backward) and `next` (pointing forward)",
+    explanation: "Each DLL node holds `struct DNode *prev` and `struct DNode *next`, enabling bidirectional navigation."
   },
   {
-    "id": 2,
-    "question": "In \"Doubly Linked List: Bidirectional pointers (prev, next), node swapping, and memory cleanup traversal\", what is the exact consequence of dereferencing a NULL or uninitialized pointer?",
-    "options": [
-      "Triggers an immediate Hardware Segmentation Fault (SIGSEGV) because page 0 (0x0) is protected by the OS MMU",
-      "Silently returns integer value 0 without interrupting execution",
-      "The C runtime automatically allocates a new node on the heap",
-      "The CPU switches to single-threaded mode"
+    id: 2,
+    question: "On a 64-bit GCC system, what is `sizeof(struct DNode)` for `{ int data; struct DNode *prev; struct DNode *next; }`?",
+    options: [
+      "24 bytes (4B `int` + 4B padding + 8B `prev` + 8B `next`)",
+      "16 bytes",
+      "20 bytes",
+      "12 bytes"
     ],
-    "answer": "Triggers an immediate Hardware Segmentation Fault (SIGSEGV) because page 0 (0x0) is protected by the OS MMU",
-    "explanation": "The virtual memory page containing address 0x0 is mapped as non-accessible by the Operating System kernel. Attempting to read or write to it raises an unrecoverable SIGSEGV signal."
+    answer: "24 bytes (4B `int` + 4B padding + 8B `prev` + 8B `next`)",
+    explanation: "`int data` (4B) needs 4B padding so `prev` (8B) aligns at offset +8, followed by `next` (8B) at offset +16, totaling 24 bytes."
   },
   {
-    "id": 3,
-    "question": "Why must dynamic memory allocations in \"Singly, Doubly & Circular Linked Lists\" be performed using `sizeof(*ptr)` rather than hardcoded primitive sizes?",
-    "options": [
-      "It ensures type-safety and eliminates allocation size mismatches if the pointer's declared type is modified during refactoring",
-      "It compresses heap chunks by 50%",
-      "It is required by the POSIX thread standard",
-      "It forces the memory to be allocated in read-only segments"
+    id: 3,
+    question: "What is the biggest asymptotic advantage of a Doubly Linked List over a Singly Linked List when you are ALREADY given a pointer `del` to the node to remove?",
+    options: [
+      "Deleting `del` takes O(1) time because `del->prev` gives instant access to its predecessor",
+      "Searching for a value becomes O(1)",
+      "It uses 50% less RAM per node",
+      "It enables O(1) random access by index `i`"
     ],
-    "answer": "It ensures type-safety and eliminates allocation size mismatches if the pointer's declared type is modified during refactoring",
-    "explanation": "Writing `ptr = malloc(sizeof(*ptr))` automatically binds allocation size directly to the target struct or variable type, preventing buffer overflow bugs."
+    answer: "Deleting `del` takes O(1) time because `del->prev` gives instant access to its predecessor",
+    explanation: "In a Singly Linked List you must walk from `head` (O(N)) to find the predecessor; in a DLL, `del->prev` is right inside the node!"
   },
   {
-    "id": 4,
-    "question": "How does CPU Spatial Locality impact the execution time of algorithms in \"Doubly Linked List: Bidirectional pointers (prev, next), node swapping, and memory cleanup traversal\"?",
-    "options": [
-      "When a memory byte is accessed, the hardware prefetcher loads adjacent 64-byte cache lines into L1 cache, making subsequent sequential accesses ~100x faster than random memory jumps",
-      "It disables CPU speculative execution",
-      "It compresses all integer arithmetic into 8-bit registers",
-      "It eliminates the need for pointer validation"
+    id: 4,
+    question: "In a healthy, non-empty Doubly Linked List, what must `head->prev` and `tail->next` equal?",
+    options: [
+      "Both must equal `NULL`",
+      "`head->prev == tail` and `tail->next == head`",
+      "`head->prev == head` and `tail->next == NULL`",
+      "Both remain uninitialized garbage"
     ],
-    "answer": "When a memory byte is accessed, the hardware prefetcher loads adjacent 64-byte cache lines into L1 cache, making subsequent sequential accesses ~100x faster than random memory jumps",
-    "explanation": "Reading from L1 cache takes ~1ns (4-5 CPU cycles) whereas reading from main RAM takes ~100ns (200-300 cycles). Spatial locality is a cornerstone of low-latency DSA design."
+    answer: "Both must equal `NULL`",
+    explanation: "In a non-circular DLL, `NULL` marks both ends so forward traversal stops at `tail->next == NULL` and backward traversal stops at `head->prev == NULL`."
   },
   {
-    "id": 5,
-    "question": "What is the risk of Struct Padding and Byte Alignment when creating custom node structures for \"Doubly Linked List: Bidirectional pointers (prev, next), node swapping, and memory cleanup traversal\"?",
-    "options": [
-      "The compiler inserts invisible padding bytes to align members to natural word boundaries (4 or 8 bytes), increasing total memory consumption per node",
-      "It causes compilation failure on 64-bit systems",
-      "It reverses the byte endianness of integer fields",
-      "It converts structs into unions"
+    id: 5,
+    question: "When deleting `del` in a DLL, why MUST you guard `if (del->prev != NULL)` and `if (del->next != NULL)` before updating neighbor pointers?",
+    options: [
+      "If `del` is the `head`, `del->prev` is `NULL`; if `del` is the `tail`, `del->next` is `NULL`—accessing `NULL->next` or `NULL->prev` causes `SIGSEGV`",
+      "C syntax forbids two pointer arrows in one line without `if`",
+      "To skip freeing `del` when it is at the ends",
+      "To convert the DLL into a circular list"
     ],
-    "answer": "The compiler inserts invisible padding bytes to align members to natural word boundaries (4 or 8 bytes), increasing total memory consumption per node",
-    "explanation": "To optimize memory bus transfers, CPUs require data to align with addresses divisible by their size. Ordering struct fields from largest to smallest minimizes padding waste."
+    answer: "If `del` is the `head`, `del->prev` is `NULL`; if `del` is the `tail`, `del->next` is `NULL`—accessing `NULL->next` or `NULL->prev` causes `SIGSEGV`",
+    explanation: "Edge nodes (`head` and `tail`) have a `NULL` neighbor on one side, so always check for `NULL` before dereferencing."
   },
   {
-    "id": 6,
-    "question": "What is the core algorithmic invariant that must be maintained throughout \"Doubly Linked List: Bidirectional pointers (prev, next), node swapping, and memory cleanup traversal\"?",
-    "options": [
-      "Strict adherence to the structural ordering property and validity of boundary indices/pointers across all mutations",
-      "All arrays must be strictly sorted in descending order",
-      "Every function must execute in O(1) time",
-      "All memory blocks must be smaller than 1 kilobyte"
+    id: 6,
+    question: "When inserting `newNode` at the HEAD of a non-empty Doubly Linked List, which 3 pointer updates are required?",
+    options: [
+      "`newNode->next = head; head->prev = newNode; head = newNode;` (with `newNode->prev = NULL`)",
+      "`head = newNode; head->prev = newNode;`",
+      "`newNode->prev = head; head = newNode;`",
+      "`head->next = newNode; newNode->prev = NULL;`"
     ],
-    "answer": "Strict adherence to the structural ordering property and validity of boundary indices/pointers across all mutations",
-    "explanation": "Algorithmic correctness relies on preserving invariant state (e.g. BST search property, heap order, or sliding window bounds) before and after every state transition."
+    answer: "`newNode->next = head; head->prev = newNode; head = newNode;` (with `newNode->prev = NULL`)",
+    explanation: "Notice that if `head` was `NULL` (empty list), you must skip `head->prev = newNode` and also set `tail = newNode`!"
   },
   {
-    "id": 7,
-    "question": "In \"Doubly Linked List: Bidirectional pointers (prev, next), node swapping, and memory cleanup traversal\", what is the primary state transition or recursion step?",
-    "options": [
-      "Subdividing the primary problem space into smaller independent or overlapping sub-problems and aggregating optimal sub-solutions",
-      "Executing an infinite loop until RAM is exhausted",
-      "Rebooting the CPU thread pool on each iteration",
-      "Converting dynamic structures to static arrays"
+    id: 7,
+    question: "What is the Symmetry Invariant for every adjacent pair of nodes `A` and `B` in a Doubly Linked List?",
+    options: [
+      "`A->next == B` if and only if `B->prev == A`",
+      "`A->data < B->data`",
+      "`A->prev == B->next`",
+      "`A == B`"
     ],
-    "answer": "Subdividing the primary problem space into smaller independent or overlapping sub-problems and aggregating optimal sub-solutions",
-    "explanation": "Whether through Divide-and-Conquer, Dynamic Programming, or iterative window shrinking, reducing problem dimension systematically ensures convergence."
+    answer: "`A->next == B` if and only if `B->prev == A`",
+    explanation: "Every forward link must have a matching backward link. Updating only `next` without `prev` leaves the list half-broken when traversing backward."
   },
   {
-    "id": 8,
-    "question": "When executing pointer updates in \"Doubly Linked List: Bidirectional pointers (prev, next), node swapping, and memory cleanup traversal\", why is update ordering critical?",
-    "options": [
-      "Modifying a pointer before securing reference to its target or downstream chain permanently breaks linked connectivity, orphaning unreferenced nodes in memory",
-      "The compiler will reverse the execution order automatically",
-      "Pointers can only be updated once per process",
-      "It causes integer underflow in CPU registers"
+    id: 8,
+    question: "If you swap two adjacent nodes `A` and `B` (where `B = A->next`) by relinking pointers instead of copying data, how many nodes' pointers may change (including outer neighbors)?",
+    options: [
+      "Up to 4 nodes: `before->next`, `B->prev`, `B->next`, `A->prev`, `A->next`, and `after->prev` (6 pointer assignments total)",
+      "Only 1 pointer (`A->next = B`)",
+      "All `N` nodes in the list must be relinked",
+      "0 pointers—only `head` changes"
     ],
-    "answer": "Modifying a pointer before securing reference to its target or downstream chain permanently breaks linked connectivity, orphaning unreferenced nodes in memory",
-    "explanation": "In pointer-based structures, updating `curr->next = new_node` without first saving `new_node->next = curr->next` permanently loses the rest of the list."
+    answer: "Up to 4 nodes: `before->next`, `B->prev`, `B->next`, `A->prev`, `A->next`, and `after->prev` (6 pointer assignments total)",
+    explanation: "Swapping nodes in-place preserves memory addresses (important if external handles point to nodes) by rewiring `before`, `A`, `B`, and `after`."
   },
   {
-    "id": 9,
-    "question": "How does in-place algorithm execution compare to auxiliary buffer allocation in \"Doubly Linked List: Bidirectional pointers (prev, next), node swapping, and memory cleanup traversal\"?",
-    "options": [
-      "In-place execution operates within the existing memory footprint in O(1) auxiliary space, preserving cache warmth and reducing memory pressure",
-      "In-place execution requires O(N^2) extra RAM",
-      "Auxiliary allocation is always faster than in-place mutation",
-      "In-place algorithms cannot be written in C"
+    id: 9,
+    question: "When is swapping node pointers better than simply swapping `A->data` and `B->data`?",
+    options: [
+      "When nodes store large structs (many fields) or when external pointers (e.g. an LRU cache hash map) reference specific node addresses",
+      "Swapping pointers is always simpler to write",
+      "Data swapping takes O(N) time even for two integers",
+      "C does not allow assigning `int` values between structs"
     ],
-    "answer": "In-place execution operates within the existing memory footprint in O(1) auxiliary space, preserving cache warmth and reducing memory pressure",
-    "explanation": "In-place mutation avoids expensive heap allocation system calls and keeps active data residing inside CPU cache hierarchies."
+    answer: "When nodes store large structs (many fields) or when external pointers (e.g. an LRU cache hash map) reference specific node addresses",
+    explanation: "In an LRU Cache, a hash table stores direct pointers to DLL nodes—moving data would break the hash map's node mapping!"
   },
   {
-    "id": 10,
-    "question": "What role do sentinel nodes (dummy heads/tails) play in simplifying pointer logic in \"Doubly Linked List: Bidirectional pointers (prev, next), node swapping, and memory cleanup traversal\"?",
-    "options": [
-      "They eliminate edge-case branching for empty structures and insertions/deletions at boundary positions (head/tail)",
-      "They double the memory capacity of the container",
-      "They automatically sort the elements",
-      "They prevent stack allocation limits"
+    id: 10,
+    question: "Which famous real-world data structure pairs a Hash Map with a Doubly Linked List for O(1) `get` and `put`?",
+    options: [
+      "An LRU (Least Recently Used) Cache",
+      "Binary Heap Priority Queue",
+      "Trie Prefix Tree",
+      "Disjoint Set Union"
     ],
-    "answer": "They eliminate edge-case branching for empty structures and insertions/deletions at boundary positions (head/tail)",
-    "explanation": "A dummy sentinel guarantees that every valid element always has a non-null preceding and succeeding neighbor, removing tedious `if (!head)` checks."
+    answer: "An LRU (Least Recently Used) Cache",
+    explanation: "The hash map jumps to a node in O(1), and the DLL unlinks it from the middle (`O(1)`) and moves it to the front (`O(1)`)."
   },
   {
-    "id": 11,
-    "question": "What critical edge case must always be checked first when implementing \"Doubly Linked List: Bidirectional pointers (prev, next), node swapping, and memory cleanup traversal\"?",
-    "options": [
-      "Empty input container, NULL base pointer, or container size N = 0 and N = 1",
-      "Checking if the computer is connected to the internet",
-      "Verifying if numbers are prime",
-      "Checking floating point precision mode"
+    id: 11,
+    question: "What happens if you delete the ONLY node in a Doubly Linked List (`head == tail == del`)?",
+    options: [
+      "Both `head` and `tail` must become `NULL` before `free(del)`",
+      "Only `head` becomes `NULL`, `tail` stays pointing to `del`",
+      "It causes a compile error",
+      "`del->next` becomes `del`"
     ],
-    "answer": "Empty input container, NULL base pointer, or container size N = 0 and N = 1",
-    "explanation": "Boundary inputs (empty, single-element, or identical values) are the most frequent causes of null-pointer exceptions and infinite loops."
+    answer: "Both `head` and `tail` must become `NULL` before `free(del)`",
+    explanation: "If `tail` isn't reset to `NULL`, `tail` becomes a dangling pointer to freed heap memory!"
   },
   {
-    "id": 12,
-    "question": "What is a 'Dangling Pointer' bug in the context of \"Doubly Linked List: Bidirectional pointers (prev, next), node swapping, and memory cleanup traversal\"?",
-    "options": [
-      "A pointer that continues to hold the memory address of a node or buffer that has already been deallocated via `free()`",
-      "A pointer declared with the `const` qualifier",
-      "A pointer that points to static global memory",
-      "A pointer stored in an array"
+    id: 12,
+    question: "What is the time complexity of deleting the LAST node (`tail`) in a Doubly Linked List that tracks `tail`?",
+    options: [
+      "O(1) — set `temp = tail; tail = tail->prev; if (tail) tail->next = NULL; else head = NULL; free(temp);`",
+      "O(N) — must traverse from `head`",
+      "O(log N)",
+      "O(N^2)"
     ],
-    "answer": "A pointer that continues to hold the memory address of a node or buffer that has already been deallocated via `free()`",
-    "explanation": "Deallocating memory releases the heap block to the allocator's free list, but leaves the pointer variable holding the old address. Reading or writing to it results in Use-After-Free corruption."
+    answer: "O(1) — set `temp = tail; tail = tail->prev; if (tail) tail->next = NULL; else head = NULL; free(temp);`",
+    explanation: "Unlike a Singly Linked List (which takes O(N) to find the second-to-last node), a DLL reads `tail->prev` directly in O(1)!"
   },
   {
-    "id": 13,
-    "question": "What is the standard industrial remedy to eliminate Dangling Pointer bugs after `free(ptr)`?",
-    "options": [
-      "Immediately set `ptr = NULL;` so any accidental future access triggers an instant, predictable SIGSEGV crash instead of silent memory corruption",
-      "Call malloc immediately with size 0",
-      "Recompile the code with optimization flags -O3",
-      "Cast the pointer to `void*`"
+    id: 13,
+    question: "How do you reverse an entire Doubly Linked List in-place in O(N) time and O(1) space?",
+    options: [
+      "Walk through every node and swap its `curr->prev` and `curr->next` pointers (advancing via `curr = curr->prev`, which was the old `next`), then swap `head` and `tail`",
+      "Copy all elements into an array and rebuild",
+      "Only swap `head` and `tail` pointers",
+      "Use 5 nested loops"
     ],
-    "answer": "Immediately set `ptr = NULL;` so any accidental future access triggers an instant, predictable SIGSEGV crash instead of silent memory corruption",
-    "explanation": "Neutralizing pointers to NULL prevents Use-After-Free security vulnerabilities, and `free(NULL)` is guaranteed to be a safe no-op by ISO C."
+    answer: "Walk through every node and swap its `curr->prev` and `curr->next` pointers (advancing via `curr = curr->prev`, which was the old `next`), then swap `head` and `tail`",
+    explanation: "Swapping `prev` and `next` on every node flips both directions cleanly in a single pass!"
   },
   {
-    "id": 14,
-    "question": "What catastrophic vulnerability occurs when dynamic memory is reallocated using `ptr = realloc(ptr, new_size)` without a temporary pointer?",
-    "options": [
-      "If `realloc()` fails and returns NULL, `ptr` is overwritten with NULL, causing an unrecoverable memory leak of the original allocated block",
-      "The operating system terminates all running threads",
-      "The file system enters read-only mode",
-      "The compiler converts the array to a linked list"
+    id: 14,
+    question: "What bug occurs when inserting `newNode` after `prevNode` if you execute `prevNode->next = newNode;` BEFORE `newNode->next = prevNode->next;`?",
+    options: [
+      "`newNode->next` gets set to `newNode` itself, losing the entire rest of the list!",
+      "Nothing—both orders work",
+      "Only `prevNode->prev` is lost",
+      "It inserts before `prevNode` instead of after"
     ],
-    "answer": "If `realloc()` fails and returns NULL, `ptr` is overwritten with NULL, causing an unrecoverable memory leak of the original allocated block",
-    "explanation": "Always use `void* tmp = realloc(ptr, new_size); if (!tmp) { /* handle error */ } else { ptr = tmp; }` to preserve the original pointer on failure."
+    answer: "`newNode->next` gets set to `newNode` itself, losing the entire rest of the list!",
+    explanation: "Overwriting `prevNode->next` first destroys the reference to the downstream node."
   },
   {
-    "id": 15,
-    "question": "What happens if a recursive function in \"Doubly Linked List: Bidirectional pointers (prev, next), node swapping, and memory cleanup traversal\" lacks a proper base termination condition?",
-    "options": [
-      "Unbounded recursive activation frames are pushed onto the Call Stack until the OS stack guard page is breached, triggering a Stack Overflow (SIGSEGV) crash",
-      "The function returns 0 automatically",
-      "The CPU executes the function in negative time",
-      "The operating system increases stack RAM to infinite capacity"
+    id: 15,
+    question: "During `freeDoublyList(&head, &tail)`, why should you ALSO set `*tailRef = NULL;` in addition to `*headRef = NULL;`?",
+    options: [
+      "So `tail` does not remain a dangling pointer pointing to already-freed heap memory",
+      "Because `free()` only frees `head` otherwise",
+      "Because C requires `tail` to be freed separately with `free(tail)`",
+      "To prevent struct padding"
     ],
-    "answer": "Unbounded recursive activation frames are pushed onto the Call Stack until the OS stack guard page is breached, triggering a Stack Overflow (SIGSEGV) crash",
-    "explanation": "Call stack memory is strictly bounded (typically 1-8 MB). Unbounded recursion exhausts stack memory rapidly, causing a hard process crash."
+    answer: "So `tail` does not remain a dangling pointer pointing to already-freed heap memory",
+    explanation: "Every boundary pointer (`head` and `tail`) must be neutralized to `NULL` after all nodes are freed."
   },
   {
-    "id": 16,
-    "question": "What is the optimal Asymptotic Time Complexity targeted in \"Doubly Linked List: Bidirectional pointers (prev, next), node swapping, and memory cleanup traversal\"?",
-    "options": [
-      "O(1) constant or O(log N) logarithmic / O(N) linear time depending on the exact operational phase",
-      "O(N!) factorial time",
-      "O(2^N) exponential time",
-      "O(N^4) polynomial time"
+    id: 16,
+    question: "Which common UI/application feature directly maps to a Doubly Linked List?",
+    options: [
+      "Browser Back / Forward navigation history and Undo / Redo editor chains",
+      "Static lookup table of ASCII codes",
+      "Matrix transpose",
+      "Recursive Fibonacci memoization table"
     ],
-    "answer": "O(1) constant or O(log N) logarithmic / O(N) linear time depending on the exact operational phase",
-    "explanation": "Industrial algorithms strive for logarithmic O(log N) or linear O(N) upper bounds to ensure scalable execution on millions of data records."
+    answer: "Browser Back / Forward navigation history and Undo / Redo editor chains",
+    explanation: "Moving backward (`curr = curr->prev`) and forward (`curr = curr->next`) in O(1) directly models Back/Forward and Undo/Redo."
   },
   {
-    "id": 17,
-    "question": "What is the difference between 'Auxiliary Space Complexity' and 'Total Space Complexity' for \"Doubly Linked List: Bidirectional pointers (prev, next), node swapping, and memory cleanup traversal\"?",
-    "options": [
-      "Auxiliary Space measures only the extra temporary working memory allocated by the algorithm, excluding the input data size itself",
-      "Auxiliary Space includes the hard disk swap partition",
-      "Total Space measures only CPU register usage",
-      "There is no difference between auxiliary and total space"
+    id: 17,
+    question: "What is an XOR Linked List used for in memory-constrained C systems?",
+    options: [
+      "It stores `prev ^ next` in a single pointer field (`npx`), cutting pointer overhead per node in half while still allowing bidirectional traversal",
+      "It encrypts node data against hackers",
+      "It sorts nodes automatically using XOR",
+      "It allows O(1) random indexing"
     ],
-    "answer": "Auxiliary Space measures only the extra temporary working memory allocated by the algorithm, excluding the input data size itself",
-    "explanation": "An algorithm that sorts an array of size N in-place uses O(N) total space (for input) but strictly O(1) auxiliary working space."
+    answer: "It stores `prev ^ next` in a single pointer field (`npx`), cutting pointer overhead per node in half while still allowing bidirectional traversal",
+    explanation: "Using `uintptr_t`, `next = prev ^ curr->npx`, saving 8 bytes per node on 64-bit systems (though less cache/GC friendly)."
   },
   {
-    "id": 18,
-    "question": "What is the formal definition of 'Amortized Time Complexity' in data structure operations?",
-    "options": [
-      "The average time per operation evaluated over a worst-case sequence of N consecutive operations (e.g. dynamic array doubling)",
-      "The best-case execution time on a sorted array",
-      "The time taken when running on multiple CPU cores",
-      "The compilation time of the program"
+    id: 18,
+    question: "In `swapAdjacent(&head, &tail, a)` where `a` is the `head` node and `b = a->next`, what happens if you forget `else *headRef = b;` when `a->prev == NULL`?",
+    options: [
+      "`head` still points to `a` (which is now the 2nd node), so `b` becomes unreachable from `head`!",
+      "`head` updates automatically when `b->prev` becomes `NULL`",
+      "The list becomes circular",
+      "Nothing—`a` remains the first node"
     ],
-    "answer": "The average time per operation evaluated over a worst-case sequence of N consecutive operations (e.g. dynamic array doubling)",
-    "explanation": "Amortized analysis guarantees that even if an occasional single operation is expensive (e.g. O(N) reallocation), the average cost per operation across a long sequence remains strictly O(1)."
+    answer: "`head` still points to `a` (which is now the 2nd node), so `b` becomes unreachable from `head`!",
+    explanation: "Whenever the swapped pair includes the first node (`before == NULL`), `head` must be updated to `b` (and similarly `tail` to `a` if `after == NULL`)."
   },
   {
-    "id": 19,
-    "question": "According to the Master Theorem for divide-and-conquer recurrences T(n) = aT(n/b) + f(n), what determines the overall complexity?",
-    "options": [
-      "The asymptotic comparison between the work done at the leaves n^(log_b a) and the work done at the divide/combine step f(n)",
-      "The total number of global variables in the C source file",
-      "The physical clock speed of the CPU in GHz",
-      "The RAM bus width"
+    id: 19,
+    question: "What is the time complexity to search for a key `X` in an unsorted Doubly Linked List of `N` nodes?",
+    options: [
+      "O(N)",
+      "O(1)",
+      "O(log N)",
+      "O(N^2)"
     ],
-    "answer": "The asymptotic comparison between the work done at the leaves n^(log_b a) and the work done at the divide/combine step f(n)",
-    "explanation": "The Master Theorem compares $f(n)$ against the watershed function $n^{\\log_b a}$ to determine whether leaf work, root work, or balanced tree work dominates the asymptotic bound."
+    answer: "O(N)",
+    explanation: "Even with bidirectional links, an unsorted DLL still requires scanning nodes sequentially until `X` is found."
   },
   {
-    "id": 20,
-    "question": "Why is an algorithm with O(N log N) time complexity vastly superior to O(N^2) for N = 1,000,000 elements?",
-    "options": [
-      "For N = 10^6, N log2(N) is ~20 million operations, whereas N^2 is 1 trillion (10^12) operations—running in milliseconds vs hours",
-      "Because log N removes negative numbers",
-      "Because O(N^2) is not compilable in modern C",
-      "Because O(N log N) uses zero CPU power"
+    id: 20,
+    question: "How can a Sentinel (Dummy Head + Dummy Tail) Doubly Linked List simplify insertion and deletion?",
+    options: [
+      "Every real node sits between two non-NULL nodes, eliminating all `head == NULL`, `tail == NULL`, and `NULL` neighbor checks!",
+      "It eliminates `malloc()` calls completely",
+      "It reduces node size to 8 bytes",
+      "It makes search O(1)"
     ],
-    "answer": "For N = 10^6, N log2(N) is ~20 million operations, whereas N^2 is 1 trillion (10^12) operations—running in milliseconds vs hours",
-    "explanation": "Asymptotic growth curves diverge exponentially at scale: a 1-trillion operation workload takes ~16 minutes at 1 GHz, while 20 million operations take ~0.02 seconds."
+    answer: "Every real node sits between two non-NULL nodes, eliminating all `head == NULL`, `tail == NULL`, and `NULL` neighbor checks!",
+    explanation: "With dummy `head` and `tail` sentinels (`head->next = tail; tail->prev = head;`), `del->prev` and `del->next` are NEVER `NULL` for any real node!"
   },
   {
-    "id": 21,
-    "question": "In the Barrackpore Lab dialogue for \"Doubly Linked List: Bidirectional pointers (prev, next), node swapping, and memory cleanup traversal\", what key insight does Sukanta Sir emphasize regarding pointer ownership?",
-    "options": [
-      "Every dynamically allocated heap resource must have exactly ONE clearly designated owner responsible for its lifecycle and deallocation",
-      "All pointers should be global variables to avoid passing arguments",
-      "Pointers should never be freed until the operating system shuts down",
-      "Always cast every pointer to a float"
+    id: 21,
+    question: "If you traverse a DLL backward starting from `tail`, what loop condition terminates cleanly at the beginning?",
+    options: [
+      "`while (curr != NULL) { ... curr = curr->prev; }`",
+      "`while (curr->prev != NULL) { ... curr = curr->prev; }` (skips `head`!)",
+      "`while (curr != tail)`",
+      "`while (curr->next != NULL)`"
     ],
-    "answer": "Every dynamically allocated heap resource must have exactly ONE clearly designated owner responsible for its lifecycle and deallocation",
-    "explanation": "Disciplined resource ownership prevents both orphaned memory leaks and catastrophic double-free heap corruption bugs in enterprise C architectures."
+    answer: "`while (curr != NULL) { ... curr = curr->prev; }`",
+    explanation: "Checking `curr != NULL` ensures `head` itself (whose `prev` is `NULL`) is processed before the loop ends."
   },
   {
-    "id": 22,
-    "question": "Which compiler flag in GCC/Clang should always be enabled during development of \"Doubly Linked List: Bidirectional pointers (prev, next), node swapping, and memory cleanup traversal\" to detect memory leaks and boundary violations at runtime?",
-    "options": [
-      "-fsanitize=address -g (AddressSanitizer / ASan)",
-      "-O3 (Maximum optimization only)",
-      "-w (Disable all warnings)",
-      "-fno-exceptions"
+    id: 22,
+    question: "In a DLL, if `curr->next != NULL` and `curr->next->prev != curr`, what does that indicate?",
+    options: [
+      "A broken Symmetry Invariant (pointer corruption during an insert/delete/swap operation)",
+      "A normal circular linked list",
+      "An empty list",
+      "Proper struct alignment"
     ],
-    "answer": "-fsanitize=address -g (AddressSanitizer / ASan)",
-    "explanation": "AddressSanitizer instruments memory operations with shadow memory guards, reporting exact source code line numbers for out-of-bounds reads/writes and memory leaks."
+    answer: "A broken Symmetry Invariant (pointer corruption during an insert/delete/swap operation)",
+    explanation: "Writing a quick `verifyInvariant(head)` check in lab exercises is a great way to catch missing `prev` updates immediately."
   },
   {
-    "id": 23,
-    "question": "In real-world enterprise infrastructure (e.g. Linux Kernel, Redis, PostgreSQL), where is \"Doubly Linked List: Bidirectional pointers (prev, next), node swapping, and memory cleanup traversal\" actively applied?",
-    "options": [
-      "Core system subsystems such as memory allocators, database index engines, virtual file systems (VFS), and high-throughput network packet buffers",
-      "Writing simple word processing macros only",
-      "Designing static HTML pages",
-      "Disabling hardware interrupts exclusively"
+    id: 23,
+    question: "What happens if `freeDoublyList` deletes nodes from `tail` backward (`curr = curr->prev`) vs from `head` forward (`curr = curr->next`)?",
+    options: [
+      "Both free all `N` nodes safely in O(N) time as long as the next/prev pointer is saved in `temp` before calling `free(curr)`",
+      "Freeing backward leaks `head`",
+      "Freeing forward leaks `tail`",
+      "`free()` can only free nodes in ascending address order"
     ],
-    "answer": "Core system subsystems such as memory allocators, database index engines, virtual file systems (VFS), and high-throughput network packet buffers",
-    "explanation": "The data structures and algorithmic patterns in this track form the fundamental bedrock of operating system kernels, relational storage engines, and high-frequency trading engines."
+    answer: "Both free all `N` nodes safely in O(N) time as long as the next/prev pointer is saved in `temp` before calling `free(curr)`",
+    explanation: "Either direction visits and frees every node exactly once; just save `temp` before calling `free(curr)` and neutralize both `head` and `tail`."
   },
   {
-    "id": 24,
-    "question": "What is the diagnostic difference between a 'Definitely Lost' leak and a 'Still Reachable' leak in Valgrind Memcheck?",
-    "options": [
-      "'Definitely Lost' means all pointers to the allocated block were lost (unrecoverable leak); 'Still Reachable' means pointers to the block still exist at program exit",
-      "'Still Reachable' means the CPU memory is permanently damaged",
-      "'Definitely Lost' indicates a hardware disk fault",
-      "Both indicate syntax compilation errors"
+    id: 24,
+    question: "If you need a Double-Ended Queue (Deque) with O(1) `push_front`, `push_back`, `pop_front`, and `pop_back` and unbounded dynamic size, which list type fits best?",
+    options: [
+      "Doubly Linked List with `head` and `tail` pointers",
+      "Singly Linked List with only `head`",
+      "Singly Linked List with `head` and `tail` (cannot do O(1) `pop_back`!)",
+      "Static fixed-size array"
     ],
-    "answer": "'Definitely Lost' means all pointers to the allocated block were lost (unrecoverable leak); 'Still Reachable' means pointers to the block still exist at program exit",
-    "explanation": "Definitely lost leaks represent fundamental bugs where memory became unreachable during runtime. Still reachable blocks are typically global pointers not explicitly freed before process termination."
+    answer: "Doubly Linked List with `head` and `tail` pointers",
+    explanation: "A Singly Linked List cannot do O(1) `pop_back`, whereas a DLL with `head` and `tail` does all four deque operations in O(1)!"
   },
   {
-    "id": 25,
-    "question": "What is the ultimate takeaway from Sukanta Sir's Barrackpore Lab on mastering Data Structures in C?",
-    "options": [
-      "True mastery requires bridging high-level mathematical abstractions with exact low-level physical byte layouts, cache locality, and zero-leak memory management",
-      "Memorizing syntax without understanding memory is sufficient",
-      "Always avoid pointers and use global variables",
-      "C is strictly a theoretical academic language"
+    id: 25,
+    question: "What is the main memory trade-off when choosing a Doubly Linked List over a Singly Linked List?",
+    options: [
+      "DLL uses 1 extra pointer per node (8 bytes on 64-bit) in exchange for backward traversal and O(1) deletion/pop_back",
+      "DLL uses less memory per node",
+      "DLL cannot be allocated with `malloc()`",
+      "DLL does not support storing integers"
     ],
-    "answer": "True mastery requires bridging high-level mathematical abstractions with exact low-level physical byte layouts, cache locality, and zero-leak memory management",
-    "explanation": "Understanding how algorithms interact with CPU cache lines, stack frames, and the OS heap allocator is what distinguishes an exceptional systems engineer from a syntax coder."
+    answer: "DLL uses 1 extra pointer per node (8 bytes on 64-bit) in exchange for backward traversal and O(1) deletion/pop_back",
+    explanation: "That 8-byte per-node pointer cost is the exact trade-off between Singly and Doubly Linked Lists."
   }
 ];
 

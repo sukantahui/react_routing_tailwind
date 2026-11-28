@@ -1,15 +1,58 @@
 ================================================================================
 CODER & ACCOTAX - PRINTABLE STUDY NOTE
 Subject: Data Structures & Algorithms in C
-Module: Singly, Doubly & Circular Linked Lists
-Topic 2: Doubly Linked List Node Memory Management and Bidirectional Navigation
+Module: Singly, Doubly & Circular Linked Lists (001_002)
+Topic 2: Floyd's Cycle-Finding Algorithm (Tortoise & Hare)
 Mentor: Sukanta Hui (Barrackpore, West Bengal)
 ================================================================================
 
-1. DOUBLY LINKED LIST INVARIANT
+1. INTUITION: WHY DOES THE HARE ALWAYS CATCH THE TORTOISE?
 --------------------------------------------------------------------------------
-Each node holds two pointers: struct Node *prev, struct Node *next.
-Enables O(1) time deletion when a pointer to the node to be deleted is provided!
+Imagine a running track with a straight path of length L leading into a
+circular loop of length C:
+  • Tortoise (`slow`) moves 1 node per step.
+  • Hare (`fast`) moves 2 nodes per step.
+  • Once both are inside the loop, on every single step the gap between
+    `fast` and `slow` shrinks by (2 - 1) = 1 node!
+  • Because the gap decreases by exactly 1 each step, `fast` CANNOT skip
+    over `slow` — they are guaranteed to land on the exact same node!
+
+2. GENTLE MATHEMATICAL PROOF (WHY PHASE 2 FINDS THE LOOP START)
+--------------------------------------------------------------------------------
+Let:
+  L = distance from `head` to the loop start node
+  x = distance from the loop start node to the meeting point
+  C = total number of nodes in the loop
+
+When `slow` and `fast` meet:
+  Distance(slow) = L + x
+  Distance(fast) = L + x + k*C   (where k >= 1 full laps ahead)
+
+Since `fast` moves at 2x speed:
+  2 * (L + x) = L + x + k*C
+  L + x = k*C
+  L = k*C - x  = (k - 1)*C + (C - x)
+
+What does `L = (k - 1)*C + (C - x)` mean in plain English?
+  Walking L steps from `head` reaches the exact same node as walking
+  (C - x) steps forward from the meeting point (plus whole laps)!
+
+Therefore:
+  Reset `entry = head`, keep `slow` at the meeting point, and advance
+  BOTH by 1 step at a time. They will collide at the EXACT loop start node!
+
+3. LOOP REMOVAL (PHASE 3)
+--------------------------------------------------------------------------------
+Once `loopStart` is found:
+  1. Start `ptr = loopStart`.
+  2. Walk `while (ptr->next != loopStart) ptr = ptr->next;`
+  3. Set `ptr->next = NULL;`
+Now the list is safely NULL-terminated and ready for `freeList()`.
+
+4. COMPLEXITY SUMMARY
+--------------------------------------------------------------------------------
+  • Time Complexity  : O(N)  (at most 2 passes)
+  • Auxiliary Space  : O(1)  (only 2-3 pointer variables, no hash table needed!)
 
 ================================================================================
 Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India

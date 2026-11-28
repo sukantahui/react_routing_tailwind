@@ -1,303 +1,303 @@
 const questions = [
   {
-    "id": 1,
-    "question": "What is the primary physical memory allocation pattern utilized in \"Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)\"?",
-    "options": [
-      "Contiguous heap/stack buffer layout designed to maximize CPU L1/L2 cache line hits and deterministic address calculation",
-      "Randomly scattered virtual pages without memory alignment",
-      "Unbuffered disk swap paging exclusively",
-      "Hardware register banking without RAM involvement"
+    id: 1,
+    question: "What is a Dangling Pointer in C after calling `free(node)`?",
+    options: [
+      "A pointer that still holds the old heap address of memory that has already been freed",
+      "A pointer initialized to `NULL`",
+      "A pointer that has never been assigned (`uninitialized`)",
+      "A pointer stored inside a struct's `next` field pointing to `head`"
     ],
-    "answer": "Contiguous heap/stack buffer layout designed to maximize CPU L1/L2 cache line hits and deterministic address calculation",
-    "explanation": "In C systems programming, efficient data structures prioritize contiguous byte layout to leverage hardware spatial locality and minimize L1 cache miss latency."
+    answer: "A pointer that still holds the old heap address of memory that has already been freed",
+    explanation: "`free(node)` releases the heap block back to the allocator, but leaves the numeric address inside `node` unchanged unless you explicitly set `node = NULL;`."
   },
   {
-    "id": 2,
-    "question": "In \"Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)\", what is the exact consequence of dereferencing a NULL or uninitialized pointer?",
-    "options": [
-      "Triggers an immediate Hardware Segmentation Fault (SIGSEGV) because page 0 (0x0) is protected by the OS MMU",
-      "Silently returns integer value 0 without interrupting execution",
-      "The C runtime automatically allocates a new node on the heap",
-      "The CPU switches to single-threaded mode"
+    id: 2,
+    question: "Why doesn't `free(node)` automatically set `node = NULL` in C?",
+    options: [
+      "`free()` receives the pointer BY VALUE (a copy of the address), so it cannot modify the caller's pointer variable",
+      "C pointers are always `const`",
+      "Because `NULL` takes 16 bytes",
+      "Because `free()` only clears `node->data`"
     ],
-    "answer": "Triggers an immediate Hardware Segmentation Fault (SIGSEGV) because page 0 (0x0) is protected by the OS MMU",
-    "explanation": "The virtual memory page containing address 0x0 is mapped as non-accessible by the Operating System kernel. Attempting to read or write to it raises an unrecoverable SIGSEGV signal."
+    answer: "`free()` receives the pointer BY VALUE (a copy of the address), so it cannot modify the caller's pointer variable",
+    explanation: "Just like any C function taking `void *ptr`, `free()` gets a copy of the address; only the caller (or a helper taking `Node **`) can set `node = NULL`."
   },
   {
-    "id": 3,
-    "question": "Why must dynamic memory allocations in \"Singly, Doubly & Circular Linked Lists\" be performed using `sizeof(*ptr)` rather than hardcoded primitive sizes?",
-    "options": [
-      "It ensures type-safety and eliminates allocation size mismatches if the pointer's declared type is modified during refactoring",
-      "It compresses heap chunks by 50%",
-      "It is required by the POSIX thread standard",
-      "It forces the memory to be allocated in read-only segments"
+    id: 3,
+    question: "What happens if you call `free(ptr)` twice on the same non-NULL address without resetting `ptr = NULL` in between?",
+    options: [
+      "Undefined Behavior / Double-Free corruption (often crashing immediately with `SIGABRT: double free detected`)",
+      "The second `free(ptr)` safely does nothing",
+      "It frees the next node in the list",
+      "It doubles the heap capacity"
     ],
-    "answer": "It ensures type-safety and eliminates allocation size mismatches if the pointer's declared type is modified during refactoring",
-    "explanation": "Writing `ptr = malloc(sizeof(*ptr))` automatically binds allocation size directly to the target struct or variable type, preventing buffer overflow bugs."
+    answer: "Undefined Behavior / Double-Free corruption (often crashing immediately with `SIGABRT: double free detected`)",
+    explanation: "Calling `free()` twice on the same chunk corrupts the heap allocator's free-list metadata. Setting `ptr = NULL` after the first `free()` prevents this because `free(NULL)` is a safe no-op."
   },
   {
-    "id": 4,
-    "question": "How does CPU Spatial Locality impact the execution time of algorithms in \"Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)\"?",
-    "options": [
-      "When a memory byte is accessed, the hardware prefetcher loads adjacent 64-byte cache lines into L1 cache, making subsequent sequential accesses ~100x faster than random memory jumps",
-      "It disables CPU speculative execution",
-      "It compresses all integer arithmetic into 8-bit registers",
-      "It eliminates the need for pointer validation"
+    id: 4,
+    question: "What does the C Standard guarantee if you pass `NULL` to `free(NULL)`?",
+    options: [
+      "It is guaranteed to be a safe no-op (does nothing and never crashes)",
+      "It causes a `SIGSEGV` crash",
+      "It frees all memory in the program",
+      "It returns `-1`"
     ],
-    "answer": "When a memory byte is accessed, the hardware prefetcher loads adjacent 64-byte cache lines into L1 cache, making subsequent sequential accesses ~100x faster than random memory jumps",
-    "explanation": "Reading from L1 cache takes ~1ns (4-5 CPU cycles) whereas reading from main RAM takes ~100ns (200-300 cycles). Spatial locality is a cornerstone of low-latency DSA design."
+    answer: "It is guaranteed to be a safe no-op (does nothing and never crashes)",
+    explanation: "ISO C specifies that if `ptr` is a null pointer, `free(ptr)` performs no action—making `free(ptr); ptr = NULL;` completely idempotent."
   },
   {
-    "id": 5,
-    "question": "What is the risk of Struct Padding and Byte Alignment when creating custom node structures for \"Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)\"?",
-    "options": [
-      "The compiler inserts invisible padding bytes to align members to natural word boundaries (4 or 8 bytes), increasing total memory consumption per node",
-      "It causes compilation failure on 64-bit systems",
-      "It reverses the byte endianness of integer fields",
-      "It converts structs into unions"
+    id: 5,
+    question: "In `while (curr != NULL) { free(curr); curr = curr->next; }`, what exact bug occurs?",
+    options: [
+      "Use-After-Free (reading `curr->next` from memory that was just freed on the previous line)",
+      "Memory Leak of `head`",
+      "Stack Overflow",
+      "Integer Division by Zero"
     ],
-    "answer": "The compiler inserts invisible padding bytes to align members to natural word boundaries (4 or 8 bytes), increasing total memory consumption per node",
-    "explanation": "To optimize memory bus transfers, CPUs require data to align with addresses divisible by their size. Ordering struct fields from largest to smallest minimizes padding waste."
+    answer: "Use-After-Free (reading `curr->next` from memory that was just freed on the previous line)",
+    explanation: "Always save `Node *next = curr->next;` BEFORE calling `free(curr)`."
   },
   {
-    "id": 6,
-    "question": "What is the core algorithmic invariant that must be maintained throughout \"Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)\"?",
-    "options": [
-      "Strict adherence to the structural ordering property and validity of boundary indices/pointers across all mutations",
-      "All arrays must be strictly sorted in descending order",
-      "Every function must execute in O(1) time",
-      "All memory blocks must be smaller than 1 kilobyte"
+    id: 6,
+    question: "Why might reading `node->data` right after `free(node)` still print the old integer value during testing, tricking beginners into thinking their code is bug-free?",
+    options: [
+      "The heap allocator doesn't immediately zero out freed bytes; the old bits may sit in RAM until a later `malloc()` overwrites them",
+      "`free()` waits until `main()` returns before freeing memory",
+      "Integers are stored on the stack while pointers are on the heap",
+      "C compilers ignore `free()` in debug mode"
     ],
-    "answer": "Strict adherence to the structural ordering property and validity of boundary indices/pointers across all mutations",
-    "explanation": "Algorithmic correctness relies on preserving invariant state (e.g. BST search property, heap order, or sliding window bounds) before and after every state transition."
+    answer: "The heap allocator doesn't immediately zero out freed bytes; the old bits may sit in RAM until a later `malloc()` overwrites them",
+    explanation: "Use-After-Free is insidious because it may silently work in tiny tests and then crash randomly in production once new allocations reuse that chunk!"
   },
   {
-    "id": 7,
-    "question": "In \"Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)\", what is the primary state transition or recursion step?",
-    "options": [
-      "Subdividing the primary problem space into smaller independent or overlapping sub-problems and aggregating optimal sub-solutions",
-      "Executing an infinite loop until RAM is exhausted",
-      "Rebooting the CPU thread pool on each iteration",
-      "Converting dynamic structures to static arrays"
+    id: 7,
+    question: "If two pointers `a` and `b` point to the SAME heap node and you run `free(a); a = NULL;`, what is `b`?",
+    options: [
+      "`b` is STILL a dangling pointer pointing to freed memory!",
+      "`b` automatically becomes `NULL` too",
+      "`b` points to `head`",
+      "`b` becomes a valid new copy of the node"
     ],
-    "answer": "Subdividing the primary problem space into smaller independent or overlapping sub-problems and aggregating optimal sub-solutions",
-    "explanation": "Whether through Divide-and-Conquer, Dynamic Programming, or iterative window shrinking, reducing problem dimension systematically ensures convergence."
+    answer: "`b` is STILL a dangling pointer pointing to freed memory!",
+    explanation: "Setting `a = NULL` only clears `a`; any alias pointer `b` (such as a forgotten `tail` pointer!) remains dangling unless updated too."
   },
   {
-    "id": 8,
-    "question": "When executing pointer updates in \"Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)\", why is update ordering critical?",
-    "options": [
-      "Modifying a pointer before securing reference to its target or downstream chain permanently breaks linked connectivity, orphaning unreferenced nodes in memory",
-      "The compiler will reverse the execution order automatically",
-      "Pointers can only be updated once per process",
-      "It causes integer underflow in CPU registers"
+    id: 8,
+    question: "Which compiler flag catches Use-After-Free, Double-Free, and Heap Buffer Overflows immediately at runtime with clear line numbers?",
+    options: [
+      "`gcc -g -fsanitize=address` (AddressSanitizer / ASan)",
+      "`gcc -O2`",
+      "`gcc -Wall` alone (catches only compile-time warnings)",
+      "`gcc -lm`"
     ],
-    "answer": "Modifying a pointer before securing reference to its target or downstream chain permanently breaks linked connectivity, orphaning unreferenced nodes in memory",
-    "explanation": "In pointer-based structures, updating `curr->next = new_node` without first saving `new_node->next = curr->next` permanently loses the rest of the list."
+    answer: "`gcc -g -fsanitize=address` (AddressSanitizer / ASan)",
+    explanation: "AddressSanitizer instruments heap allocations and poisons freed blocks so any Use-After-Free fails immediately with a stack trace."
   },
   {
-    "id": 9,
-    "question": "How does in-place algorithm execution compare to auxiliary buffer allocation in \"Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)\"?",
-    "options": [
-      "In-place execution operates within the existing memory footprint in O(1) auxiliary space, preserving cache warmth and reducing memory pressure",
-      "In-place execution requires O(N^2) extra RAM",
-      "Auxiliary allocation is always faster than in-place mutation",
-      "In-place algorithms cannot be written in C"
+    id: 9,
+    question: "In Project 9 (Find Middle Node with Fast & Slow pointers), how many passes over the list are needed?",
+    options: [
+      "1 single pass (`O(N)` time, `O(1)` space)",
+      "2 full passes",
+      "N passes (`O(N^2)`)",
+      "O(log N) passes"
     ],
-    "answer": "In-place execution operates within the existing memory footprint in O(1) auxiliary space, preserving cache warmth and reducing memory pressure",
-    "explanation": "In-place mutation avoids expensive heap allocation system calls and keeps active data residing inside CPU cache hierarchies."
+    answer: "1 single pass (`O(N)` time, `O(1)` space)",
+    explanation: "When `fast` (2x speed) hits the end, `slow` (1x speed) is at the middle in one pass."
   },
   {
-    "id": 10,
-    "question": "What role do sentinel nodes (dummy heads/tails) play in simplifying pointer logic in \"Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)\"?",
-    "options": [
-      "They eliminate edge-case branching for empty structures and insertions/deletions at boundary positions (head/tail)",
-      "They double the memory capacity of the container",
-      "They automatically sort the elements",
-      "They prevent stack allocation limits"
+    id: 10,
+    question: "In Project 15 (Merge Two Sorted Lists), why do we use a `Node dummy` stack node?",
+    options: [
+      "It gives the merged list a starting anchor (`dummy.next`) so we don't need special-case `if (res == NULL)` checks on the first append",
+      "It sorts unsorted lists automatically",
+      "It doubles memory speed",
+      "It prevents `malloc()` from returning `NULL`"
     ],
-    "answer": "They eliminate edge-case branching for empty structures and insertions/deletions at boundary positions (head/tail)",
-    "explanation": "A dummy sentinel guarantees that every valid element always has a non-null preceding and succeeding neighbor, removing tedious `if (!head)` checks."
+    answer: "It gives the merged list a starting anchor (`dummy.next`) so we don't need special-case `if (res == NULL)` checks on the first append",
+    explanation: "Initializing `tail = &dummy` lets every append simply execute `tail->next = node; tail = node;`, then return `dummy.next`."
   },
   {
-    "id": 11,
-    "question": "What critical edge case must always be checked first when implementing \"Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)\"?",
-    "options": [
-      "Empty input container, NULL base pointer, or container size N = 0 and N = 1",
-      "Checking if the computer is connected to the internet",
-      "Verifying if numbers are prime",
-      "Checking floating point precision mode"
+    id: 11,
+    question: "In Project 18 (Y-Shaped List Intersection), why does redirecting `pA` to `headB` and `pB` to `headA` when reaching `NULL` find the intersection?",
+    options: [
+      "Both pointers travel the exact same total distance `Len(A) + Len(B)`, so they align and arrive at the shared merge node simultaneously",
+      "It reverses both lists",
+      "It sorts the nodes by address",
+      "It breaks any cycle"
     ],
-    "answer": "Empty input container, NULL base pointer, or container size N = 0 and N = 1",
-    "explanation": "Boundary inputs (empty, single-element, or identical values) are the most frequent causes of null-pointer exceptions and infinite loops."
+    answer: "Both pointers travel the exact same total distance `Len(A) + Len(B)`, so they align and arrive at the shared merge node simultaneously",
+    explanation: "If `A` has length `a + c` and `B` has length `b + c`, both walk `a + c + b` steps before reaching the shared tail `c`!"
   },
   {
-    "id": 12,
-    "question": "What is a 'Dangling Pointer' bug in the context of \"Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)\"?",
-    "options": [
-      "A pointer that continues to hold the memory address of a node or buffer that has already been deallocated via `free()`",
-      "A pointer declared with the `const` qualifier",
-      "A pointer that points to static global memory",
-      "A pointer stored in an array"
+    id: 12,
+    question: "In Project 19 (N-th Node from End in one pass), how far apart are `fast` and `slow` kept?",
+    options: [
+      "`N` nodes apart — advance `fast` `N` steps first, then move both 1 step until `fast == NULL`",
+      "1 node apart",
+      "They move at 2x and 1x speeds",
+      "`N / 2` nodes apart"
     ],
-    "answer": "A pointer that continues to hold the memory address of a node or buffer that has already been deallocated via `free()`",
-    "explanation": "Deallocating memory releases the heap block to the allocator's free list, but leaves the pointer variable holding the old address. Reading or writing to it results in Use-After-Free corruption."
+    answer: "`N` nodes apart — advance `fast` `N` steps first, then move both 1 step until `fast == NULL`",
+    explanation: "Maintaining a fixed window of `N` nodes ensures that when `fast` lands on `NULL`, `slow` is `N` steps behind at the N-th node from the end."
   },
   {
-    "id": 13,
-    "question": "What is the standard industrial remedy to eliminate Dangling Pointer bugs after `free(ptr)`?",
-    "options": [
-      "Immediately set `ptr = NULL;` so any accidental future access triggers an instant, predictable SIGSEGV crash instead of silent memory corruption",
-      "Call malloc immediately with size 0",
-      "Recompile the code with optimization flags -O3",
-      "Cast the pointer to `void*`"
+    id: 13,
+    question: "What happens if `freeList(Node *head)` takes a single pointer `Node *` instead of `Node **`?",
+    options: [
+      "It frees all heap nodes, but `main()`'s `head` stays a dangling pointer unless the caller manually writes `head = NULL;` afterward",
+      "It fails to free any nodes",
+      "It causes a compile error",
+      "It only frees the head node"
     ],
-    "answer": "Immediately set `ptr = NULL;` so any accidental future access triggers an instant, predictable SIGSEGV crash instead of silent memory corruption",
-    "explanation": "Neutralizing pointers to NULL prevents Use-After-Free security vulnerabilities, and `free(NULL)` is guaranteed to be a safe no-op by ISO C."
+    answer: "It frees all heap nodes, but `main()`'s `head` stays a dangling pointer unless the caller manually writes `head = NULL;` afterward",
+    explanation: "Passing `Node **headRef` (i.e. `freeList(&head)`) allows `freeList` itself to set `*headRef = NULL;` cleanly."
   },
   {
-    "id": 14,
-    "question": "What catastrophic vulnerability occurs when dynamic memory is reallocated using `ptr = realloc(ptr, new_size)` without a temporary pointer?",
-    "options": [
-      "If `realloc()` fails and returns NULL, `ptr` is overwritten with NULL, causing an unrecoverable memory leak of the original allocated block",
-      "The operating system terminates all running threads",
-      "The file system enters read-only mode",
-      "The compiler converts the array to a linked list"
+    id: 14,
+    question: "In Project 16 (Palindrome Linked List in O(1) space), why is it good engineering practice to reverse the second half BACK to its original order before returning?",
+    options: [
+      "So the caller's linked list data structure isn't left unexpectedly mutated by a read-only check like `is_palindrome()`",
+      "Because `freeList()` only works on palindromes",
+      "Because C forbids returning `bool` from mutated lists",
+      "To reduce time complexity from O(N) to O(1)"
     ],
-    "answer": "If `realloc()` fails and returns NULL, `ptr` is overwritten with NULL, causing an unrecoverable memory leak of the original allocated block",
-    "explanation": "Always use `void* tmp = realloc(ptr, new_size); if (!tmp) { /* handle error */ } else { ptr = tmp; }` to preserve the original pointer on failure."
+    answer: "So the caller's linked list data structure isn't left unexpectedly mutated by a read-only check like `is_palindrome()`",
+    explanation: "Restoring the second half leaves the input list intact after checking."
   },
   {
-    "id": 15,
-    "question": "What happens if a recursive function in \"Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)\" lacks a proper base termination condition?",
-    "options": [
-      "Unbounded recursive activation frames are pushed onto the Call Stack until the OS stack guard page is breached, triggering a Stack Overflow (SIGSEGV) crash",
-      "The function returns 0 automatically",
-      "The CPU executes the function in negative time",
-      "The operating system increases stack RAM to infinite capacity"
+    id: 15,
+    question: "In Project 24 (XOR Doubly Linked List), how do you recover the `next` node address from `curr->npx` and `prev`?",
+    options: [
+      "`next = (Node*)((uintptr_t)prev ^ (uintptr_t)curr->npx)`",
+      "`next = prev + curr->npx`",
+      "`next = prev & curr->npx`",
+      "`next = curr->npx`"
     ],
-    "answer": "Unbounded recursive activation frames are pushed onto the Call Stack until the OS stack guard page is breached, triggering a Stack Overflow (SIGSEGV) crash",
-    "explanation": "Call stack memory is strictly bounded (typically 1-8 MB). Unbounded recursion exhausts stack memory rapidly, causing a hard process crash."
+    answer: "`next = (Node*)((uintptr_t)prev ^ (uintptr_t)curr->npx)`",
+    explanation: "Since `npx = prev ^ next` and `A ^ A = 0`, `prev ^ (prev ^ next) = next`."
   },
   {
-    "id": 16,
-    "question": "What is the optimal Asymptotic Time Complexity targeted in \"Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)\"?",
-    "options": [
-      "O(1) constant or O(log N) logarithmic / O(N) linear time depending on the exact operational phase",
-      "O(N!) factorial time",
-      "O(2^N) exponential time",
-      "O(N^4) polynomial time"
+    id: 16,
+    question: "When deleting the head node in `Node *temp = head; head = head->next; free(temp);`, is `head` dangling?",
+    options: [
+      "No — `head` moved to `head->next` before `free(temp)`, and `temp` is the local variable that held the freed node",
+      "Yes — `head` is dangling",
+      "Yes — unless `head->next` was `NULL`",
+      "Only if `head` was `malloc`'d"
     ],
-    "answer": "O(1) constant or O(log N) logarithmic / O(N) linear time depending on the exact operational phase",
-    "explanation": "Industrial algorithms strive for logarithmic O(log N) or linear O(N) upper bounds to ensure scalable execution on millions of data records."
+    answer: "No — `head` moved to `head->next` before `free(temp)`, and `temp` is the local variable that held the freed node",
+    explanation: "`head` now points to the second node (or `NULL`), while `temp` goes out of scope (or can be set `temp = NULL;`)."
   },
   {
-    "id": 17,
-    "question": "What is the difference between 'Auxiliary Space Complexity' and 'Total Space Complexity' for \"Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)\"?",
-    "options": [
-      "Auxiliary Space measures only the extra temporary working memory allocated by the algorithm, excluding the input data size itself",
-      "Auxiliary Space includes the hard disk swap partition",
-      "Total Space measures only CPU register usage",
-      "There is no difference between auxiliary and total space"
+    id: 17,
+    question: "What Valgrind message confirms that your Linked List program had zero memory leaks and zero dangling pointer accesses?",
+    options: [
+      "`All heap blocks were freed -- no leaks are possible` and `ERROR SUMMARY: 0 errors`",
+      "`Segmentation fault (core dumped)`",
+      "`definitely lost: 16 bytes in 1 blocks`",
+      "`Invalid read of size 8`"
     ],
-    "answer": "Auxiliary Space measures only the extra temporary working memory allocated by the algorithm, excluding the input data size itself",
-    "explanation": "An algorithm that sorts an array of size N in-place uses O(N) total space (for input) but strictly O(1) auxiliary working space."
+    answer: "`All heap blocks were freed -- no leaks are possible` and `ERROR SUMMARY: 0 errors`",
+    explanation: "`definitely lost` means leaked nodes; `Invalid read/write` means Use-After-Free or out-of-bounds access."
   },
   {
-    "id": 18,
-    "question": "What is the formal definition of 'Amortized Time Complexity' in data structure operations?",
-    "options": [
-      "The average time per operation evaluated over a worst-case sequence of N consecutive operations (e.g. dynamic array doubling)",
-      "The best-case execution time on a sorted array",
-      "The time taken when running on multiple CPU cores",
-      "The compilation time of the program"
+    id: 18,
+    question: "In Project 12 (Recursive List Reversal), why does `reverse_recursive` set `head->next->next = head; head->next = NULL;`?",
+    options: [
+      "To make the successor node point back to `head` and erase `head`'s old forward link so the new tail ends cleanly at `NULL` (preventing a 2-node cycle!)",
+      "To delete the first two nodes",
+      "To swap `head->data` and `head->next->data`",
+      "To create a circular list"
     ],
-    "answer": "The average time per operation evaluated over a worst-case sequence of N consecutive operations (e.g. dynamic array doubling)",
-    "explanation": "Amortized analysis guarantees that even if an occasional single operation is expensive (e.g. O(N) reallocation), the average cost per operation across a long sequence remains strictly O(1)."
+    answer: "To make the successor node point back to `head` and erase `head`'s old forward link so the new tail ends cleanly at `NULL` (preventing a 2-node cycle!)",
+    explanation: "Forgetting `head->next = NULL;` leaves the first two nodes pointing at each other in a cycle!"
   },
   {
-    "id": 19,
-    "question": "According to the Master Theorem for divide-and-conquer recurrences T(n) = aT(n/b) + f(n), what determines the overall complexity?",
-    "options": [
-      "The asymptotic comparison between the work done at the leaves n^(log_b a) and the work done at the divide/combine step f(n)",
-      "The total number of global variables in the C source file",
-      "The physical clock speed of the CPU in GHz",
-      "The RAM bus width"
+    id: 19,
+    question: "In Project 21 (Reverse Nodes in K-Group), what happens if fewer than `K` nodes remain at the tail?",
+    options: [
+      "Those remaining `< K` nodes stay in their original order without reversal",
+      "They are freed and deleted",
+      "They are padded with `0` nodes",
+      "The entire list is reversed anyway"
     ],
-    "answer": "The asymptotic comparison between the work done at the leaves n^(log_b a) and the work done at the divide/combine step f(n)",
-    "explanation": "The Master Theorem compares $f(n)$ against the watershed function $n^{\\log_b a}$ to determine whether leaf work, root work, or balanced tree work dominates the asymptotic bound."
+    answer: "Those remaining `< K` nodes stay in their original order without reversal",
+    explanation: "Checking whether `K` nodes exist ahead before reversing ensures partial trailing groups remain untouched."
   },
   {
-    "id": 20,
-    "question": "Why is an algorithm with O(N log N) time complexity vastly superior to O(N^2) for N = 1,000,000 elements?",
-    "options": [
-      "For N = 10^6, N log2(N) is ~20 million operations, whereas N^2 is 1 trillion (10^12) operations—running in milliseconds vs hours",
-      "Because log N removes negative numbers",
-      "Because O(N^2) is not compilable in modern C",
-      "Because O(N log N) uses zero CPU power"
+    id: 20,
+    question: "In Project 23 (Copy List with Random Pointers via Interleaving), what is the space complexity (excluding the returned cloned list itself)?",
+    options: [
+      "O(1) auxiliary space (no hash map needed!)",
+      "O(N) auxiliary hash map space",
+      "O(N^2) space",
+      "O(log N) space"
     ],
-    "answer": "For N = 10^6, N log2(N) is ~20 million operations, whereas N^2 is 1 trillion (10^12) operations—running in milliseconds vs hours",
-    "explanation": "Asymptotic growth curves diverge exponentially at scale: a 1-trillion operation workload takes ~16 minutes at 1 GHz, while 20 million operations take ~0.02 seconds."
+    answer: "O(1) auxiliary space (no hash map needed!)",
+    explanation: "Weaving `A -> A' -> B -> B'` lets `A'->random = A->random->next`, then unweaving restores `A -> B` and `A' -> B'` in O(1) extra space."
   },
   {
-    "id": 21,
-    "question": "In the Barrackpore Lab dialogue for \"Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)\", what key insight does Sukanta Sir emphasize regarding pointer ownership?",
-    "options": [
-      "Every dynamically allocated heap resource must have exactly ONE clearly designated owner responsible for its lifecycle and deallocation",
-      "All pointers should be global variables to avoid passing arguments",
-      "Pointers should never be freed until the operating system shuts down",
-      "Always cast every pointer to a float"
+    id: 21,
+    question: "What happens if a function returns a pointer to a node that was already passed to `free()` inside a helper?",
+    options: [
+      "The caller receives a dangling pointer, leading to Use-After-Free undefined behavior",
+      "The compiler prevents returning freed pointers",
+      "The OS automatically re-allocates the node",
+      "It safely returns `NULL`"
     ],
-    "answer": "Every dynamically allocated heap resource must have exactly ONE clearly designated owner responsible for its lifecycle and deallocation",
-    "explanation": "Disciplined resource ownership prevents both orphaned memory leaks and catastrophic double-free heap corruption bugs in enterprise C architectures."
+    answer: "The caller receives a dangling pointer, leading to Use-After-Free undefined behavior",
+    explanation: "Once a node is freed, never return its address—return `NULL` or the successor node instead."
   },
   {
-    "id": 22,
-    "question": "Which compiler flag in GCC/Clang should always be enabled during development of \"Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)\" to detect memory leaks and boundary violations at runtime?",
-    "options": [
-      "-fsanitize=address -g (AddressSanitizer / ASan)",
-      "-O3 (Maximum optimization only)",
-      "-w (Disable all warnings)",
-      "-fno-exceptions"
+    id: 22,
+    question: "When removing duplicates from an unsorted list (Project 17), why must `runner` stop at the node BEFORE the duplicate (`runner->next->data == curr->data`)?",
+    options: [
+      "So we can set `temp = runner->next; runner->next = temp->next; free(temp);` without losing connectivity",
+      "Because `curr` cannot advance otherwise",
+      "To avoid checking `curr->data`",
+      "So `runner` skips every second node"
     ],
-    "answer": "-fsanitize=address -g (AddressSanitizer / ASan)",
-    "explanation": "AddressSanitizer instruments memory operations with shadow memory guards, reporting exact source code line numbers for out-of-bounds reads/writes and memory leaks."
+    answer: "So we can set `temp = runner->next; runner->next = temp->next; free(temp);` without losing connectivity",
+    explanation: "Notice also: when you delete `runner->next`, you do NOT advance `runner` in that iteration because the NEW `runner->next` might also be a duplicate!"
   },
   {
-    "id": 23,
-    "question": "In real-world enterprise infrastructure (e.g. Linux Kernel, Redis, PostgreSQL), where is \"Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)\" actively applied?",
-    "options": [
-      "Core system subsystems such as memory allocators, database index engines, virtual file systems (VFS), and high-throughput network packet buffers",
-      "Writing simple word processing macros only",
-      "Designing static HTML pages",
-      "Disabling hardware interrupts exclusively"
+    id: 23,
+    question: "In Project 25 (Fixed-Size Memory Pool Allocator), why are linked list nodes pre-allocated in one big array/slab instead of calling `malloc()` per node?",
+    options: [
+      "To achieve O(1) deterministic allocation/free with zero heap fragmentation and better CPU cache locality",
+      "Because `malloc()` cannot allocate structs",
+      "To increase struct padding",
+      "To make pointers 128-bit"
     ],
-    "answer": "Core system subsystems such as memory allocators, database index engines, virtual file systems (VFS), and high-throughput network packet buffers",
-    "explanation": "The data structures and algorithmic patterns in this track form the fundamental bedrock of operating system kernels, relational storage engines, and high-frequency trading engines."
+    answer: "To achieve O(1) deterministic allocation/free with zero heap fragmentation and better CPU cache locality",
+    explanation: "Embedded systems and game engines use slab/pool allocators with a linked free-list for fast, predictable memory reuse."
   },
   {
-    "id": 24,
-    "question": "What is the diagnostic difference between a 'Definitely Lost' leak and a 'Still Reachable' leak in Valgrind Memcheck?",
-    "options": [
-      "'Definitely Lost' means all pointers to the allocated block were lost (unrecoverable leak); 'Still Reachable' means pointers to the block still exist at program exit",
-      "'Still Reachable' means the CPU memory is permanently damaged",
-      "'Definitely Lost' indicates a hardware disk fault",
-      "Both indicate syntax compilation errors"
+    id: 24,
+    question: "Which practice completely eliminates dangling pointers across single-node deletions in your own C projects?",
+    options: [
+      "Always unlink the node first, call `free(temp)`, and immediately write `temp = NULL;` (plus update `head`/`tail` if affected)",
+      "Never call `free()` until the computer restarts",
+      "Store all nodes in global arrays only",
+      "Cast pointers to `int` before freeing"
     ],
-    "answer": "'Definitely Lost' means all pointers to the allocated block were lost (unrecoverable leak); 'Still Reachable' means pointers to the block still exist at program exit",
-    "explanation": "Definitely lost leaks represent fundamental bugs where memory became unreachable during runtime. Still reachable blocks are typically global pointers not explicitly freed before process termination."
+    answer: "Always unlink the node first, call `free(temp)`, and immediately write `temp = NULL;` (plus update `head`/`tail` if affected)",
+    explanation: "Disciplined unlinking, freeing, and nullifying keeps every pointer either valid or `NULL`."
   },
   {
-    "id": 25,
-    "question": "What is the ultimate takeaway from Sukanta Sir's Barrackpore Lab on mastering Data Structures in C?",
-    "options": [
-      "True mastery requires bridging high-level mathematical abstractions with exact low-level physical byte layouts, cache locality, and zero-leak memory management",
-      "Memorizing syntax without understanding memory is sufficient",
-      "Always avoid pointers and use global variables",
-      "C is strictly a theoretical academic language"
+    id: 25,
+    question: "If `head` and `tail` both point to the only node in a list and you delete it with `free(head); head = NULL;`, what bug remains?",
+    options: [
+      "`tail` is now a dangling pointer to the freed node unless you also set `tail = NULL;`",
+      "No bug—`tail` automatically becomes `NULL`",
+      "`head` is still valid",
+      "The node cannot be freed"
     ],
-    "answer": "True mastery requires bridging high-level mathematical abstractions with exact low-level physical byte layouts, cache locality, and zero-leak memory management",
-    "explanation": "Understanding how algorithms interact with CPU cache lines, stack frames, and the OS heap allocator is what distinguishes an exceptional systems engineer from a syntax coder."
+    answer: "`tail` is now a dangling pointer to the freed node unless you also set `tail = NULL;`",
+    explanation: "Any secondary boundary pointer (`tail`, `curr`, `prev`) referencing a freed node must also be updated or set to `NULL`."
   }
 ];
 

@@ -1,26 +1,68 @@
 ================================================================================
 CODER & ACCOTAX - PRINTABLE STUDY NOTE
 Subject: Data Structures & Algorithms in C
-Module: Singly, Doubly & Circular Linked Lists
-Topic 1: Doubly Linked Lists & Bidirectional Pointers
+Module: Singly, Doubly & Circular Linked Lists (001_002)
+Topic 1: Singly Linked List — Head/Tail Insertion, Middle Deletion & 3-Pointer Reversal
 Mentor: Sukanta Hui (Barrackpore, West Bengal)
 ================================================================================
 
-1. DOUBLY LINKED LIST NODE IN C
+1. MENTAL MODEL (THE TRAIN COACH ANALOGY)
 --------------------------------------------------------------------------------
-struct Node {
-    int data;
-    struct Node *prev;
-    struct Node *next;
-};
+Think of a Singly Linked List as a line of train coaches:
+  • Each coach holds data + ONE hook (`next`) pointing forward.
+  • You only hold the handle of the first coach (`head`).
+  • Because hooks only point forward, you CANNOT walk backward!
+  • To unlink or insert in the middle, you MUST stop ONE coach BEFORE
+    the target (`prev` or `curr` where `curr->next` is the target).
 
-2. DELETION ADVANTAGE
+2. CORE OPERATIONS & POINTER ORDERING RULES
 --------------------------------------------------------------------------------
-Given `Node *del`:
-  if (del->prev) del->prev->next = del->next;
-  if (del->next) del->next->prev = del->prev;
-  free(del);
-Time Complexity: O(1) direct pointer deletion!
+A. Insert at Head — O(1) Time, O(1) Space
+   1. newNode->next = head;   // MUST happen FIRST!
+   2. head = newNode;         // Now update head.
+   Trap: Updating `head = newNode` first orphans the rest of the list!
+
+B. Insert at Tail — O(N) Time (or O(1) if a `tail` pointer is kept)
+   1. If head == NULL: head = newNode; return;
+   2. Walk: while (curr->next != NULL) curr = curr->next;
+   3. curr->next = newNode;
+
+C. Delete Middle Node by Value — O(N) Time, O(1) Space
+   1. Empty guard: if (head == NULL) return;
+   2. Head match: if (head->data == key) { temp = head; head = head->next; free(temp); }
+   3. Middle search: while (curr->next != NULL && curr->next->data != key) curr = curr->next;
+   4. Relink & Free:
+      Node *toDelete = curr->next;
+      curr->next = toDelete->next;
+      free(toDelete);
+
+3. ITERATIVE 3-POINTER REVERSAL — O(N) Time, O(1) Space
+--------------------------------------------------------------------------------
+Goal: Flip every `->` arrow backward in a single pass without extra arrays.
+Pointers:
+  Node *prev = NULL;
+  Node *curr = head;
+  Node *next = NULL;
+
+Inside `while (curr != NULL)`:
+  1. next = curr->next;   // Save the rest of the train!
+  2. curr->next = prev;   // Flip current coach's hook backward
+  3. prev = curr;         // Slide prev one step forward
+  4. curr = next;         // Slide curr one step forward
+
+After loop finishes (`curr == NULL`):
+  head = prev;            // `prev` now stands on the new first node!
+
+4. TIME & SPACE COMPLEXITY SUMMARY
+--------------------------------------------------------------------------------
+Operation                  Time Complexity     Extra Space
+--------------------------------------------------------------------------------
+Insert at Head             O(1)                O(1)
+Insert at Tail (no tail)   O(N)                O(1)
+Insert / Delete at Middle  O(N)                O(1)
+Search for Value           O(N)                O(1)
+3-Pointer Reversal         O(N)                O(1)
+Full List Cleanup (free)   O(N)                O(1)
 
 ================================================================================
 Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India

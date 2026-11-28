@@ -1,303 +1,303 @@
 const questions = [
   {
-    "id": 1,
-    "question": "What is the primary physical memory allocation pattern utilized in \"Circular Linked Lists: Tail pointer optimization, round-robin process scheduler simulation, and break-loop mechanics\"?",
-    "options": [
-      "Contiguous heap/stack buffer layout designed to maximize CPU L1/L2 cache line hits and deterministic address calculation",
-      "Randomly scattered virtual pages without memory alignment",
-      "Unbuffered disk swap paging exclusively",
-      "Hardware register banking without RAM involvement"
+    id: 1,
+    question: "What defines a Circular Singly Linked List?",
+    options: [
+      "The last node's `next` pointer points back to the first node (`tail->next == head`) instead of `NULL`",
+      "Every node points to `NULL`",
+      "Nodes are stored in a circular static array",
+      "Each node has both `prev` and `next` pointing to `NULL`"
     ],
-    "answer": "Contiguous heap/stack buffer layout designed to maximize CPU L1/L2 cache line hits and deterministic address calculation",
-    "explanation": "In C systems programming, efficient data structures prioritize contiguous byte layout to leverage hardware spatial locality and minimize L1 cache miss latency."
+    answer: "The last node's `next` pointer points back to the first node (`tail->next == head`) instead of `NULL`",
+    explanation: "Because `tail->next == head`, traversing forward wraps smoothly from the last node back to the first node."
   },
   {
-    "id": 2,
-    "question": "In \"Circular Linked Lists: Tail pointer optimization, round-robin process scheduler simulation, and break-loop mechanics\", what is the exact consequence of dereferencing a NULL or uninitialized pointer?",
-    "options": [
-      "Triggers an immediate Hardware Segmentation Fault (SIGSEGV) because page 0 (0x0) is protected by the OS MMU",
-      "Silently returns integer value 0 without interrupting execution",
-      "The C runtime automatically allocates a new node on the heap",
-      "The CPU switches to single-threaded mode"
+    id: 2,
+    question: "Why is maintaining a `tail` pointer (instead of `head`) a huge optimization for a Circular Linked List?",
+    options: [
+      "`head` is still accessible in O(1) via `tail->next`, AND both `insertHead` and `insertTail` run in O(1) time without traversing",
+      "`tail` cuts node memory size in half",
+      "Searching becomes O(1)",
+      "`tail` allows backward traversal in a singly circular list"
     ],
-    "answer": "Triggers an immediate Hardware Segmentation Fault (SIGSEGV) because page 0 (0x0) is protected by the OS MMU",
-    "explanation": "The virtual memory page containing address 0x0 is mapped as non-accessible by the Operating System kernel. Attempting to read or write to it raises an unrecoverable SIGSEGV signal."
+    answer: "`head` is still accessible in O(1) via `tail->next`, AND both `insertHead` and `insertTail` run in O(1) time without traversing",
+    explanation: "With only `head`, inserting at either end needs an O(N) walk to find the last node to rewire `last->next`. With `tail`, both ends are 1 step away!"
   },
   {
-    "id": 3,
-    "question": "Why must dynamic memory allocations in \"Singly, Doubly & Circular Linked Lists\" be performed using `sizeof(*ptr)` rather than hardcoded primitive sizes?",
-    "options": [
-      "It ensures type-safety and eliminates allocation size mismatches if the pointer's declared type is modified during refactoring",
-      "It compresses heap chunks by 50%",
-      "It is required by the POSIX thread standard",
-      "It forces the memory to be allocated in read-only segments"
+    id: 3,
+    question: "In a Circular Linked List containing only ONE node `p`, what must `p->next` point to?",
+    options: [
+      "Itself (`p->next = p`)",
+      "`NULL`",
+      "Address `0x1`",
+      "Unitialized garbage"
     ],
-    "answer": "It ensures type-safety and eliminates allocation size mismatches if the pointer's declared type is modified during refactoring",
-    "explanation": "Writing `ptr = malloc(sizeof(*ptr))` automatically binds allocation size directly to the target struct or variable type, preventing buffer overflow bugs."
+    answer: "Itself (`p->next = p`)",
+    explanation: "For a 1-node circular list, `p` is both `head` and `tail`, so `tail->next == head` means `p->next == p`."
   },
   {
-    "id": 4,
-    "question": "How does CPU Spatial Locality impact the execution time of algorithms in \"Circular Linked Lists: Tail pointer optimization, round-robin process scheduler simulation, and break-loop mechanics\"?",
-    "options": [
-      "When a memory byte is accessed, the hardware prefetcher loads adjacent 64-byte cache lines into L1 cache, making subsequent sequential accesses ~100x faster than random memory jumps",
-      "It disables CPU speculative execution",
-      "It compresses all integer arithmetic into 8-bit registers",
-      "It eliminates the need for pointer validation"
+    id: 4,
+    question: "What happens if you accidentally traverse a Circular Linked List using `while (curr != NULL) { curr = curr->next; }`?",
+    options: [
+      "An infinite loop—because no node in a non-empty circular list has `next == NULL`",
+      "It prints each node once and exits",
+      "It stops after 2 laps",
+      "It triggers a compile error"
     ],
-    "answer": "When a memory byte is accessed, the hardware prefetcher loads adjacent 64-byte cache lines into L1 cache, making subsequent sequential accesses ~100x faster than random memory jumps",
-    "explanation": "Reading from L1 cache takes ~1ns (4-5 CPU cycles) whereas reading from main RAM takes ~100ns (200-300 cycles). Spatial locality is a cornerstone of low-latency DSA design."
+    answer: "An infinite loop—because no node in a non-empty circular list has `next == NULL`",
+    explanation: "Since `tail->next == head`, `curr` never becomes `NULL`. You must stop when `curr` wraps back to `head`."
   },
   {
-    "id": 5,
-    "question": "What is the risk of Struct Padding and Byte Alignment when creating custom node structures for \"Circular Linked Lists: Tail pointer optimization, round-robin process scheduler simulation, and break-loop mechanics\"?",
-    "options": [
-      "The compiler inserts invisible padding bytes to align members to natural word boundaries (4 or 8 bytes), increasing total memory consumption per node",
-      "It causes compilation failure on 64-bit systems",
-      "It reverses the byte endianness of integer fields",
-      "It converts structs into unions"
+    id: 5,
+    question: "Why is a `do { ... } while (curr != head);` loop preferred over `while (curr != head)` when printing a Circular Linked List?",
+    options: [
+      "Because `curr` starts AT `head`, so a `while (curr != head)` loop would be false on the very first check and print 0 nodes!",
+      "`do-while` runs twice as fast in C",
+      "`while` loops cannot compare pointers",
+      "`do-while` handles `head == NULL` automatically without an `if`"
     ],
-    "answer": "The compiler inserts invisible padding bytes to align members to natural word boundaries (4 or 8 bytes), increasing total memory consumption per node",
-    "explanation": "To optimize memory bus transfers, CPUs require data to align with addresses divisible by their size. Ordering struct fields from largest to smallest minimizes padding waste."
+    answer: "Because `curr` starts AT `head`, so a `while (curr != head)` loop would be false on the very first check and print 0 nodes!",
+    explanation: "With `do-while`, `head` is visited first, `curr = curr->next` advances, and the loop stops once `curr` returns to `head` (after guarding `if (tail == NULL)`!)."
   },
   {
-    "id": 6,
-    "question": "What is the core algorithmic invariant that must be maintained throughout \"Circular Linked Lists: Tail pointer optimization, round-robin process scheduler simulation, and break-loop mechanics\"?",
-    "options": [
-      "Strict adherence to the structural ordering property and validity of boundary indices/pointers across all mutations",
-      "All arrays must be strictly sorted in descending order",
-      "Every function must execute in O(1) time",
-      "All memory blocks must be smaller than 1 kilobyte"
+    id: 6,
+    question: "Before running `do { ... } while (curr != head);`, what guard is mandatory?",
+    options: [
+      "`if (tail == NULL) return;` (empty list check)",
+      "`if (tail->next == NULL)`",
+      "`if (sizeof(Node) == 16)`",
+      "No guard is needed"
     ],
-    "answer": "Strict adherence to the structural ordering property and validity of boundary indices/pointers across all mutations",
-    "explanation": "Algorithmic correctness relies on preserving invariant state (e.g. BST search property, heap order, or sliding window bounds) before and after every state transition."
+    answer: "`if (tail == NULL) return;` (empty list check)",
+    explanation: "If the circular list is empty (`tail == NULL`), `tail->next` or `curr->next` inside `do-while` would dereference `NULL` and segfault!"
   },
   {
-    "id": 7,
-    "question": "In \"Circular Linked Lists: Tail pointer optimization, round-robin process scheduler simulation, and break-loop mechanics\", what is the primary state transition or recursion step?",
-    "options": [
-      "Subdividing the primary problem space into smaller independent or overlapping sub-problems and aggregating optimal sub-solutions",
-      "Executing an infinite loop until RAM is exhausted",
-      "Rebooting the CPU thread pool on each iteration",
-      "Converting dynamic structures to static arrays"
+    id: 7,
+    question: "In the `tail`-pointer representation, what two lines append `newNode` at the TAIL of a non-empty Circular Linked List in O(1)?",
+    options: [
+      "`newNode->next = tail->next; tail->next = newNode; tail = newNode;`",
+      "`tail = newNode; newNode->next = tail;`",
+      "`tail->next = newNode; newNode->next = NULL;`",
+      "`newNode->next = tail; tail = newNode;`"
     ],
-    "answer": "Subdividing the primary problem space into smaller independent or overlapping sub-problems and aggregating optimal sub-solutions",
-    "explanation": "Whether through Divide-and-Conquer, Dynamic Programming, or iterative window shrinking, reducing problem dimension systematically ensures convergence."
+    answer: "`newNode->next = tail->next; tail->next = newNode; tail = newNode;`",
+    explanation: "`tail->next` is `head`, so `newNode->next` points to `head`, old `tail->next` points to `newNode`, and `tail` advances to `newNode`."
   },
   {
-    "id": 8,
-    "question": "When executing pointer updates in \"Circular Linked Lists: Tail pointer optimization, round-robin process scheduler simulation, and break-loop mechanics\", why is update ordering critical?",
-    "options": [
-      "Modifying a pointer before securing reference to its target or downstream chain permanently breaks linked connectivity, orphaning unreferenced nodes in memory",
-      "The compiler will reverse the execution order automatically",
-      "Pointers can only be updated once per process",
-      "It causes integer underflow in CPU registers"
+    id: 8,
+    question: "In the `tail`-pointer representation, how do you insert `newNode` at the HEAD (front) of a non-empty Circular Linked List in O(1)?",
+    options: [
+      "`newNode->next = tail->next; tail->next = newNode;` (do NOT move `tail`!)",
+      "`newNode->next = tail->next; tail->next = newNode; tail = newNode;`",
+      "Traverse the entire list to find `head`",
+      "`tail = newNode;`"
     ],
-    "answer": "Modifying a pointer before securing reference to its target or downstream chain permanently breaks linked connectivity, orphaning unreferenced nodes in memory",
-    "explanation": "In pointer-based structures, updating `curr->next = new_node` without first saving `new_node->next = curr->next` permanently loses the rest of the list."
+    answer: "`newNode->next = tail->next; tail->next = newNode;` (do NOT move `tail`!)",
+    explanation: "Because `head` is defined as `tail->next`, making `tail->next = newNode` automatically installs `newNode` as the new `head` while keeping `tail` at the end!"
   },
   {
-    "id": 9,
-    "question": "How does in-place algorithm execution compare to auxiliary buffer allocation in \"Circular Linked Lists: Tail pointer optimization, round-robin process scheduler simulation, and break-loop mechanics\"?",
-    "options": [
-      "In-place execution operates within the existing memory footprint in O(1) auxiliary space, preserving cache warmth and reducing memory pressure",
-      "In-place execution requires O(N^2) extra RAM",
-      "Auxiliary allocation is always faster than in-place mutation",
-      "In-place algorithms cannot be written in C"
+    id: 9,
+    question: "Which operating system scheduling algorithm naturally models a Circular Linked List?",
+    options: [
+      "Round-Robin CPU Process Scheduling (each process gets a time quantum, then yields to `curr->next`)",
+      "Binary Tree Directory Indexing",
+      "Shortest Remaining Stack First",
+      "Contiguous Page Swapping"
     ],
-    "answer": "In-place execution operates within the existing memory footprint in O(1) auxiliary space, preserving cache warmth and reducing memory pressure",
-    "explanation": "In-place mutation avoids expensive heap allocation system calls and keeps active data residing inside CPU cache hierarchies."
+    answer: "Round-Robin CPU Process Scheduling (each process gets a time quantum, then yields to `curr->next`)",
+    explanation: "Round-Robin cycles endlessly across ready processes in fixed time slices, removing tasks only when `remainingTime == 0`."
   },
   {
-    "id": 10,
-    "question": "What role do sentinel nodes (dummy heads/tails) play in simplifying pointer logic in \"Circular Linked Lists: Tail pointer optimization, round-robin process scheduler simulation, and break-loop mechanics\"?",
-    "options": [
-      "They eliminate edge-case branching for empty structures and insertions/deletions at boundary positions (head/tail)",
-      "They double the memory capacity of the container",
-      "They automatically sort the elements",
-      "They prevent stack allocation limits"
+    id: 10,
+    question: "In a Round-Robin scheduler using a Circular Linked List, when a process finishes (`remainingMs == 0`), how do you remove it if it is the ONLY process left (`curr == prev`)?",
+    options: [
+      "`free(curr); *tailRef = NULL;`",
+      "`prev->next = curr->next; free(curr);`",
+      "`curr->next = NULL;`",
+      "Keep it in the ring with `0ms`"
     ],
-    "answer": "They eliminate edge-case branching for empty structures and insertions/deletions at boundary positions (head/tail)",
-    "explanation": "A dummy sentinel guarantees that every valid element always has a non-null preceding and succeeding neighbor, removing tedious `if (!head)` checks."
+    answer: "`free(curr); *tailRef = NULL;`",
+    explanation: "When `curr == prev`, `curr->next == curr`, so skipping `prev->next = curr->next` would leave `tail` pointing to freed memory! You must set `*tailRef = NULL`."
   },
   {
-    "id": 11,
-    "question": "What critical edge case must always be checked first when implementing \"Circular Linked Lists: Tail pointer optimization, round-robin process scheduler simulation, and break-loop mechanics\"?",
-    "options": [
-      "Empty input container, NULL base pointer, or container size N = 0 and N = 1",
-      "Checking if the computer is connected to the internet",
-      "Verifying if numbers are prime",
-      "Checking floating point precision mode"
+    id: 11,
+    question: "When removing a finished process `curr` from a multi-node circular list (`curr != prev`), what extra check is needed if `curr == *tailRef`?",
+    options: [
+      "Update `*tailRef = prev;` before freeing `curr`, otherwise `*tailRef` becomes a dangling pointer",
+      "Set `*tailRef = NULL;`",
+      "Set `prev->next = NULL;`",
+      "No extra check is needed"
     ],
-    "answer": "Empty input container, NULL base pointer, or container size N = 0 and N = 1",
-    "explanation": "Boundary inputs (empty, single-element, or identical values) are the most frequent causes of null-pointer exceptions and infinite loops."
+    answer: "Update `*tailRef = prev;` before freeing `curr`, otherwise `*tailRef` becomes a dangling pointer",
+    explanation: "If the deleted node happened to be the `tail` node, `prev` becomes the new `tail` (`prev->next` already points to `head`)."
   },
   {
-    "id": 12,
-    "question": "What is a 'Dangling Pointer' bug in the context of \"Circular Linked Lists: Tail pointer optimization, round-robin process scheduler simulation, and break-loop mechanics\"?",
-    "options": [
-      "A pointer that continues to hold the memory address of a node or buffer that has already been deallocated via `free()`",
-      "A pointer declared with the `const` qualifier",
-      "A pointer that points to static global memory",
-      "A pointer stored in an array"
+    id: 12,
+    question: "What does 'break-loop mechanics' mean when cleaning up a Circular Linked List?",
+    options: [
+      "Setting `tail->next = NULL;` (after saving `head = tail->next`) to turn the circular list into a standard linear list before freeing nodes",
+      "Using `break;` inside a `for` loop without freeing memory",
+      "Calling `free(tail)` first while `tail->next` still points to `head`",
+      "Splitting the list into two smaller circular lists"
     ],
-    "answer": "A pointer that continues to hold the memory address of a node or buffer that has already been deallocated via `free()`",
-    "explanation": "Deallocating memory releases the heap block to the allocator's free list, but leaves the pointer variable holding the old address. Reading or writing to it results in Use-After-Free corruption."
+    answer: "Setting `tail->next = NULL;` (after saving `head = tail->next`) to turn the circular list into a standard linear list before freeing nodes",
+    explanation: "Breaking the circle (`tail->next = NULL`) ensures a standard `while (curr != NULL)` cleanup loop terminates safely after freeing every node once."
   },
   {
-    "id": 13,
-    "question": "What is the standard industrial remedy to eliminate Dangling Pointer bugs after `free(ptr)`?",
-    "options": [
-      "Immediately set `ptr = NULL;` so any accidental future access triggers an instant, predictable SIGSEGV crash instead of silent memory corruption",
-      "Call malloc immediately with size 0",
-      "Recompile the code with optimization flags -O3",
-      "Cast the pointer to `void*`"
+    id: 13,
+    question: "What is the time complexity of deleting the HEAD node (`tail->next`) in a Circular Singly Linked List that tracks `tail`?",
+    options: [
+      "O(1) — save `head = tail->next`, set `tail->next = head->next`, and `free(head)`",
+      "O(N) — must traverse the entire ring",
+      "O(log N)",
+      "O(N^2)"
     ],
-    "answer": "Immediately set `ptr = NULL;` so any accidental future access triggers an instant, predictable SIGSEGV crash instead of silent memory corruption",
-    "explanation": "Neutralizing pointers to NULL prevents Use-After-Free security vulnerabilities, and `free(NULL)` is guaranteed to be a safe no-op by ISO C."
+    answer: "O(1) — save `head = tail->next`, set `tail->next = head->next`, and `free(head)`",
+    explanation: "(With the 1-node edge case `if (head == tail) { free(head); tail = NULL; }`.) No traversal is needed!"
   },
   {
-    "id": 14,
-    "question": "What catastrophic vulnerability occurs when dynamic memory is reallocated using `ptr = realloc(ptr, new_size)` without a temporary pointer?",
-    "options": [
-      "If `realloc()` fails and returns NULL, `ptr` is overwritten with NULL, causing an unrecoverable memory leak of the original allocated block",
-      "The operating system terminates all running threads",
-      "The file system enters read-only mode",
-      "The compiler converts the array to a linked list"
+    id: 14,
+    question: "What is the time complexity of deleting the TAIL node itself in a Circular SINGLY Linked List?",
+    options: [
+      "O(N) — because you need the node BEFORE `tail`, which requires walking around the ring from `head`",
+      "O(1)",
+      "O(log N)",
+      "O(1) if `head` is stored instead"
     ],
-    "answer": "If `realloc()` fails and returns NULL, `ptr` is overwritten with NULL, causing an unrecoverable memory leak of the original allocated block",
-    "explanation": "Always use `void* tmp = realloc(ptr, new_size); if (!tmp) { /* handle error */ } else { ptr = tmp; }` to preserve the original pointer on failure."
+    answer: "O(N) — because you need the node BEFORE `tail`, which requires walking around the ring from `head`",
+    explanation: "A Circular Singly Linked List still only has forward links; to get `O(1)` tail deletion, you need a Circular DOUBLY Linked List (`tail->prev`)."
   },
   {
-    "id": 15,
-    "question": "What happens if a recursive function in \"Circular Linked Lists: Tail pointer optimization, round-robin process scheduler simulation, and break-loop mechanics\" lacks a proper base termination condition?",
-    "options": [
-      "Unbounded recursive activation frames are pushed onto the Call Stack until the OS stack guard page is breached, triggering a Stack Overflow (SIGSEGV) crash",
-      "The function returns 0 automatically",
-      "The CPU executes the function in negative time",
-      "The operating system increases stack RAM to infinite capacity"
+    id: 15,
+    question: "In a Circular DOUBLY Linked List, what do `head->prev` and `tail->next` point to?",
+    options: [
+      "`head->prev == tail` and `tail->next == head`",
+      "Both point to `NULL`",
+      "`head->prev == NULL` and `tail->next == head`",
+      "`head->prev == head` and `tail->next == NULL`"
     ],
-    "answer": "Unbounded recursive activation frames are pushed onto the Call Stack until the OS stack guard page is breached, triggering a Stack Overflow (SIGSEGV) crash",
-    "explanation": "Call stack memory is strictly bounded (typically 1-8 MB). Unbounded recursion exhausts stack memory rapidly, causing a hard process crash."
+    answer: "`head->prev == tail` and `tail->next == head`",
+    explanation: "A Circular Doubly Linked List wraps around in BOTH directions, making `head` and `tail` completely symmetric!"
   },
   {
-    "id": 16,
-    "question": "What is the optimal Asymptotic Time Complexity targeted in \"Circular Linked Lists: Tail pointer optimization, round-robin process scheduler simulation, and break-loop mechanics\"?",
-    "options": [
-      "O(1) constant or O(log N) logarithmic / O(N) linear time depending on the exact operational phase",
-      "O(N!) factorial time",
-      "O(2^N) exponential time",
-      "O(N^4) polynomial time"
+    id: 16,
+    question: "Suppose a Circular Linked List has 4 nodes `[A -> B -> C -> D -> (back to A)]`. If you split it into two equal circular halves, what pointers change?",
+    options: [
+      "`B->next = A` (first half) and `D->next = C` (second half)",
+      "`B->next = NULL` and `D->next = NULL`",
+      "`A->next = C` and `B->next = D`",
+      "Only `D->next = B`"
     ],
-    "answer": "O(1) constant or O(log N) logarithmic / O(N) linear time depending on the exact operational phase",
-    "explanation": "Industrial algorithms strive for logarithmic O(log N) or linear O(N) upper bounds to ensure scalable execution on millions of data records."
+    answer: "`B->next = A` (first half) and `D->next = C` (second half)",
+    explanation: "Using Floyd's fast/slow pointers, you find the midpoint `B` and tail `D`, then close each half back onto its own start!"
   },
   {
-    "id": 17,
-    "question": "What is the difference between 'Auxiliary Space Complexity' and 'Total Space Complexity' for \"Circular Linked Lists: Tail pointer optimization, round-robin process scheduler simulation, and break-loop mechanics\"?",
-    "options": [
-      "Auxiliary Space measures only the extra temporary working memory allocated by the algorithm, excluding the input data size itself",
-      "Auxiliary Space includes the hard disk swap partition",
-      "Total Space measures only CPU register usage",
-      "There is no difference between auxiliary and total space"
+    id: 17,
+    question: "How is the classic Josephus Problem (people standing in a circle, every K-th person eliminated) cleanly simulated?",
+    options: [
+      "Using a Circular Linked List where you advance `K - 1` steps and unlink/free the K-th node until 1 node remains (`curr->next == curr`)",
+      "Using a Stack with LIFO pops",
+      "Using Binary Search",
+      "Using a non-circular Singly Linked List without wrapping"
     ],
-    "answer": "Auxiliary Space measures only the extra temporary working memory allocated by the algorithm, excluding the input data size itself",
-    "explanation": "An algorithm that sorts an array of size N in-place uses O(N) total space (for input) but strictly O(1) auxiliary working space."
+    answer: "Using a Circular Linked List where you advance `K - 1` steps and unlink/free the K-th node until 1 node remains (`curr->next == curr`)",
+    explanation: "Circular Linked Lists naturally handle wrapping around the remaining survivors without index modulo shifts."
   },
   {
-    "id": 18,
-    "question": "What is the formal definition of 'Amortized Time Complexity' in data structure operations?",
-    "options": [
-      "The average time per operation evaluated over a worst-case sequence of N consecutive operations (e.g. dynamic array doubling)",
-      "The best-case execution time on a sorted array",
-      "The time taken when running on multiple CPU cores",
-      "The compilation time of the program"
+    id: 18,
+    question: "How do you merge two Circular Linked Lists with tail pointers `tail1` and `tail2` in O(1) time?",
+    options: [
+      "Save `head1 = tail1->next`; set `tail1->next = tail2->next; tail2->next = head1;` and return `tail2` as the new tail",
+      "Traverse both lists completely in O(N + M) time",
+      "Set `tail1->next = NULL;` and `tail2->next = NULL;`",
+      "Swap `tail1->data` and `tail2->data`"
     ],
-    "answer": "The average time per operation evaluated over a worst-case sequence of N consecutive operations (e.g. dynamic array doubling)",
-    "explanation": "Amortized analysis guarantees that even if an occasional single operation is expensive (e.g. O(N) reallocation), the average cost per operation across a long sequence remains strictly O(1)."
+    answer: "Save `head1 = tail1->next`; set `tail1->next = tail2->next; tail2->next = head1;` and return `tail2` as the new tail",
+    explanation: "Concatenating two circular lists takes just 3 pointer assignments in O(1) time when both `tail` pointers are known!"
   },
   {
-    "id": 19,
-    "question": "According to the Master Theorem for divide-and-conquer recurrences T(n) = aT(n/b) + f(n), what determines the overall complexity?",
-    "options": [
-      "The asymptotic comparison between the work done at the leaves n^(log_b a) and the work done at the divide/combine step f(n)",
-      "The total number of global variables in the C source file",
-      "The physical clock speed of the CPU in GHz",
-      "The RAM bus width"
+    id: 19,
+    question: "Which real-world use case is a natural fit for a Circular Linked List?",
+    options: [
+      "Multiplayer turn-taking loops, audio ring buffers, and OS Round-Robin task queues",
+      "Evaluating arithmetic precedence with LIFO operators",
+      "Storing static 2D matrices",
+      "Sorting strings lexicographically"
     ],
-    "answer": "The asymptotic comparison between the work done at the leaves n^(log_b a) and the work done at the divide/combine step f(n)",
-    "explanation": "The Master Theorem compares $f(n)$ against the watershed function $n^{\\log_b a}$ to determine whether leaf work, root work, or balanced tree work dominates the asymptotic bound."
+    answer: "Multiplayer turn-taking loops, audio ring buffers, and OS Round-Robin task queues",
+    explanation: "Any repeating cyclic turn order where control wraps smoothly from the last item back to the first benefits from circular linking."
   },
   {
-    "id": 20,
-    "question": "Why is an algorithm with O(N log N) time complexity vastly superior to O(N^2) for N = 1,000,000 elements?",
-    "options": [
-      "For N = 10^6, N log2(N) is ~20 million operations, whereas N^2 is 1 trillion (10^12) operations—running in milliseconds vs hours",
-      "Because log N removes negative numbers",
-      "Because O(N^2) is not compilable in modern C",
-      "Because O(N log N) uses zero CPU power"
+    id: 20,
+    question: "If you write `free(curr)` inside a Circular Linked List loop WITHOUT first breaking `tail->next = NULL` (or tracking `tail`), what bug occurs?",
+    options: [
+      "The loop either never stops or accesses freed memory (`curr != head` reads freed `head`), causing Use-After-Free / Double-Free crashes",
+      "Nothing—`free()` automatically breaks circular links",
+      "Only `tail` gets freed",
+      "It turns the list into a Doubly Linked List"
     ],
-    "answer": "For N = 10^6, N log2(N) is ~20 million operations, whereas N^2 is 1 trillion (10^12) operations—running in milliseconds vs hours",
-    "explanation": "Asymptotic growth curves diverge exponentially at scale: a 1-trillion operation workload takes ~16 minutes at 1 GHz, while 20 million operations take ~0.02 seconds."
+    answer: "The loop either never stops or accesses freed memory (`curr != head` reads freed `head`), causing Use-After-Free / Double-Free crashes",
+    explanation: "Breaking the circle (`tail->next = NULL`) before freeing turns cleanup into a safe, finite linear walk."
   },
   {
-    "id": 21,
-    "question": "In the Barrackpore Lab dialogue for \"Circular Linked Lists: Tail pointer optimization, round-robin process scheduler simulation, and break-loop mechanics\", what key insight does Sukanta Sir emphasize regarding pointer ownership?",
-    "options": [
-      "Every dynamically allocated heap resource must have exactly ONE clearly designated owner responsible for its lifecycle and deallocation",
-      "All pointers should be global variables to avoid passing arguments",
-      "Pointers should never be freed until the operating system shuts down",
-      "Always cast every pointer to a float"
+    id: 21,
+    question: "What is the auxiliary space complexity of Round-Robin simulation on an existing Circular Linked List of `N` processes?",
+    options: [
+      "O(1) extra space (only `prev` and `curr` pointers plus `slice` integer)",
+      "O(N) extra space per round",
+      "O(N^2) space",
+      "O(log N) recursion stack"
     ],
-    "answer": "Every dynamically allocated heap resource must have exactly ONE clearly designated owner responsible for its lifecycle and deallocation",
-    "explanation": "Disciplined resource ownership prevents both orphaned memory leaks and catastrophic double-free heap corruption bugs in enterprise C architectures."
+    answer: "O(1) extra space (only `prev` and `curr` pointers plus `slice` integer)",
+    explanation: "Simulation walks the existing nodes in-place using constant pointer variables."
   },
   {
-    "id": 22,
-    "question": "Which compiler flag in GCC/Clang should always be enabled during development of \"Circular Linked Lists: Tail pointer optimization, round-robin process scheduler simulation, and break-loop mechanics\" to detect memory leaks and boundary violations at runtime?",
-    "options": [
-      "-fsanitize=address -g (AddressSanitizer / ASan)",
-      "-O3 (Maximum optimization only)",
-      "-w (Disable all warnings)",
-      "-fno-exceptions"
+    id: 22,
+    question: "How can you check in O(N) time whether ANY given `Node *head` is a true Circular Linked List (where the last node loops all the way back to `head`) vs a normal `NULL`-terminated list?",
+    options: [
+      "Walk `curr = head->next` while `curr != NULL && curr != head`; if `curr == head`, it is circular!",
+      "Check if `head->next == NULL`",
+      "Check if `head->data == 0`",
+      "Count only the first 2 nodes"
     ],
-    "answer": "-fsanitize=address -g (AddressSanitizer / ASan)",
-    "explanation": "AddressSanitizer instruments memory operations with shadow memory guards, reporting exact source code line numbers for out-of-bounds reads/writes and memory leaks."
+    answer: "Walk `curr = head->next` while `curr != NULL && curr != head`; if `curr == head`, it is circular!",
+    explanation: "(Note: if the list could have a cycle NOT starting at `head`, use Floyd's algorithm instead so you don't loop forever!)"
   },
   {
-    "id": 23,
-    "question": "In real-world enterprise infrastructure (e.g. Linux Kernel, Redis, PostgreSQL), where is \"Circular Linked Lists: Tail pointer optimization, round-robin process scheduler simulation, and break-loop mechanics\" actively applied?",
-    "options": [
-      "Core system subsystems such as memory allocators, database index engines, virtual file systems (VFS), and high-throughput network packet buffers",
-      "Writing simple word processing macros only",
-      "Designing static HTML pages",
-      "Disabling hardware interrupts exclusively"
+    id: 23,
+    question: "In `insertTailCircular(&tail, pid, burst)`, why must the `if (*tailRef == NULL)` branch set `newProc->next = newProc;`?",
+    options: [
+      "To preserve the circular invariant (`tail->next == head`) right from the very first node",
+      "Because `NULL` is illegal in structs",
+      "To allocate twice as much memory",
+      "So `printCircular` skips the first node"
     ],
-    "answer": "Core system subsystems such as memory allocators, database index engines, virtual file systems (VFS), and high-throughput network packet buffers",
-    "explanation": "The data structures and algorithmic patterns in this track form the fundamental bedrock of operating system kernels, relational storage engines, and high-frequency trading engines."
+    answer: "To preserve the circular invariant (`tail->next == head`) right from the very first node",
+    explanation: "If the first node left `next = NULL`, subsequent circular inserts (`newProc->next = (*tailRef)->next`) would inject `NULL` into the ring!"
   },
   {
-    "id": 24,
-    "question": "What is the diagnostic difference between a 'Definitely Lost' leak and a 'Still Reachable' leak in Valgrind Memcheck?",
-    "options": [
-      "'Definitely Lost' means all pointers to the allocated block were lost (unrecoverable leak); 'Still Reachable' means pointers to the block still exist at program exit",
-      "'Still Reachable' means the CPU memory is permanently damaged",
-      "'Definitely Lost' indicates a hardware disk fault",
-      "Both indicate syntax compilation errors"
+    id: 24,
+    question: "What is the difference between a Circular Linked List and a Linked List with a Cycle bug?",
+    options: [
+      "In a Circular Linked List, `tail->next` intentionally points to `head` and traversal uses `do-while (curr != head)`; a cycle bug usually loops into an interior node and breaks `while (curr != NULL)`",
+      "There is no structural difference—circular lists always crash",
+      "A cycle bug uses `prev` pointers",
+      "A circular list uses `NULL` at `tail->next`"
     ],
-    "answer": "'Definitely Lost' means all pointers to the allocated block were lost (unrecoverable leak); 'Still Reachable' means pointers to the block still exist at program exit",
-    "explanation": "Definitely lost leaks represent fundamental bugs where memory became unreachable during runtime. Still reachable blocks are typically global pointers not explicitly freed before process termination."
+    answer: "In a Circular Linked List, `tail->next` intentionally points to `head` and traversal uses `do-while (curr != head)`; a cycle bug usually loops into an interior node and breaks `while (curr != NULL)`",
+    explanation: "Circularity is a deliberate design when paired with `tail` tracking and `do-while` / break-loop protocols."
   },
   {
-    "id": 25,
-    "question": "What is the ultimate takeaway from Sukanta Sir's Barrackpore Lab on mastering Data Structures in C?",
-    "options": [
-      "True mastery requires bridging high-level mathematical abstractions with exact low-level physical byte layouts, cache locality, and zero-leak memory management",
-      "Memorizing syntax without understanding memory is sufficient",
-      "Always avoid pointers and use global variables",
-      "C is strictly a theoretical academic language"
+    id: 25,
+    question: "After calling `breakAndFreeCircular(&tail)`, what should `tail` equal?",
+    options: [
+      "`NULL`",
+      "The former `head` address",
+      "`tail->next`",
+      "Unchanged garbage address"
     ],
-    "answer": "True mastery requires bridging high-level mathematical abstractions with exact low-level physical byte layouts, cache locality, and zero-leak memory management",
-    "explanation": "Understanding how algorithms interact with CPU cache lines, stack frames, and the OS heap allocator is what distinguishes an exceptional systems engineer from a syntax coder."
+    answer: "`NULL`",
+    explanation: "Setting `*tailRef = NULL;` ensures no dangling pointer remains after all nodes are freed."
   }
 ];
 

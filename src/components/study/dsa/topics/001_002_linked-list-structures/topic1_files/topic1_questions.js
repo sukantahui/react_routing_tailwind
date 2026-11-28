@@ -1,303 +1,303 @@
 const questions = [
   {
-    "id": 1,
-    "question": "What is the primary physical memory allocation pattern utilized in \"Singly Linked List: Head/Tail insertion, middle deletion, and iterative 3-pointer list reversal\"?",
-    "options": [
-      "Contiguous heap/stack buffer layout designed to maximize CPU L1/L2 cache line hits and deterministic address calculation",
-      "Randomly scattered virtual pages without memory alignment",
-      "Unbuffered disk swap paging exclusively",
-      "Hardware register banking without RAM involvement"
+    id: 1,
+    question: "In a Singly Linked List, what is the time complexity of inserting a new node at the Head (beginning)?",
+    options: [
+      "O(1) — only 2 pointer assignments are needed regardless of list length",
+      "O(N) — all existing nodes must shift one step right",
+      "O(log N) — binary search locates the head",
+      "O(N^2) — every node's address changes"
     ],
-    "answer": "Contiguous heap/stack buffer layout designed to maximize CPU L1/L2 cache line hits and deterministic address calculation",
-    "explanation": "In C systems programming, efficient data structures prioritize contiguous byte layout to leverage hardware spatial locality and minimize L1 cache miss latency."
+    answer: "O(1) — only 2 pointer assignments are needed regardless of list length",
+    explanation: "Inserting at head only sets `newNode->next = head` and `head = newNode`. No shifting or traversal is required."
   },
   {
-    "id": 2,
-    "question": "In \"Singly Linked List: Head/Tail insertion, middle deletion, and iterative 3-pointer list reversal\", what is the exact consequence of dereferencing a NULL or uninitialized pointer?",
-    "options": [
-      "Triggers an immediate Hardware Segmentation Fault (SIGSEGV) because page 0 (0x0) is protected by the OS MMU",
-      "Silently returns integer value 0 without interrupting execution",
-      "The C runtime automatically allocates a new node on the heap",
-      "The CPU switches to single-threaded mode"
+    id: 2,
+    question: "When inserting `newNode` at the head of a non-empty Singly Linked List, what happens if you write `head = newNode; newNode->next = head;` in the WRONG order?",
+    options: [
+      "The original list is orphaned (memory leak), and `newNode->next` points to itself creating a 1-node infinite loop",
+      "The compiler automatically swaps the two statements",
+      "The node is inserted at the tail instead",
+      "It works identically to `newNode->next = head; head = newNode;`"
     ],
-    "answer": "Triggers an immediate Hardware Segmentation Fault (SIGSEGV) because page 0 (0x0) is protected by the OS MMU",
-    "explanation": "The virtual memory page containing address 0x0 is mapped as non-accessible by the Operating System kernel. Attempting to read or write to it raises an unrecoverable SIGSEGV signal."
+    answer: "The original list is orphaned (memory leak), and `newNode->next` points to itself creating a 1-node infinite loop",
+    explanation: "Overwriting `head` first destroys your only reference to the old first node, and `newNode->next = head` then points `newNode` to itself!"
   },
   {
-    "id": 3,
-    "question": "Why must dynamic memory allocations in \"Singly, Doubly & Circular Linked Lists\" be performed using `sizeof(*ptr)` rather than hardcoded primitive sizes?",
-    "options": [
-      "It ensures type-safety and eliminates allocation size mismatches if the pointer's declared type is modified during refactoring",
-      "It compresses heap chunks by 50%",
-      "It is required by the POSIX thread standard",
-      "It forces the memory to be allocated in read-only segments"
+    id: 3,
+    question: "Why does deleting a middle node in a Singly Linked List require stopping at the node BEFORE the target (`prev` or `curr->next->data == key`)?",
+    options: [
+      "Because Singly Linked List nodes have no `prev` pointer, so once you stand on the target node you cannot step backward to relink its predecessor",
+      "Because `free()` cannot be called on a middle node directly",
+      "Because `curr->data` is write-protected",
+      "To reduce space complexity from O(N) to O(1)"
     ],
-    "answer": "It ensures type-safety and eliminates allocation size mismatches if the pointer's declared type is modified during refactoring",
-    "explanation": "Writing `ptr = malloc(sizeof(*ptr))` automatically binds allocation size directly to the target struct or variable type, preventing buffer overflow bugs."
+    answer: "Because Singly Linked List nodes have no `prev` pointer, so once you stand on the target node you cannot step backward to relink its predecessor",
+    explanation: "Links in a singly linked list only go forward. To change `predecessor->next = target->next`, you must still have a pointer to `predecessor`."
   },
   {
-    "id": 4,
-    "question": "How does CPU Spatial Locality impact the execution time of algorithms in \"Singly Linked List: Head/Tail insertion, middle deletion, and iterative 3-pointer list reversal\"?",
-    "options": [
-      "When a memory byte is accessed, the hardware prefetcher loads adjacent 64-byte cache lines into L1 cache, making subsequent sequential accesses ~100x faster than random memory jumps",
-      "It disables CPU speculative execution",
-      "It compresses all integer arithmetic into 8-bit registers",
-      "It eliminates the need for pointer validation"
+    id: 4,
+    question: "In iterative 3-pointer list reversal (`prev`, `curr`, `next`), why MUST `next = curr->next;` be the very first line inside the `while (curr != NULL)` loop?",
+    options: [
+      "Because the next line `curr->next = prev;` overwrites `curr->next`, so without saving `next` first you lose access to the rest of the list",
+      "Because `prev` is always `NULL` on every iteration",
+      "Because `curr` is freed at the end of the loop",
+      "Because C requires reading pointers before writing integers"
     ],
-    "answer": "When a memory byte is accessed, the hardware prefetcher loads adjacent 64-byte cache lines into L1 cache, making subsequent sequential accesses ~100x faster than random memory jumps",
-    "explanation": "Reading from L1 cache takes ~1ns (4-5 CPU cycles) whereas reading from main RAM takes ~100ns (200-300 cycles). Spatial locality is a cornerstone of low-latency DSA design."
+    answer: "Because the next line `curr->next = prev;` overwrites `curr->next`, so without saving `next` first you lose access to the rest of the list",
+    explanation: "Flipping `curr->next = prev` breaks the forward bridge. Saving `next = curr->next` beforehand keeps a handle on the remaining unreversed nodes."
   },
   {
-    "id": 5,
-    "question": "What is the risk of Struct Padding and Byte Alignment when creating custom node structures for \"Singly Linked List: Head/Tail insertion, middle deletion, and iterative 3-pointer list reversal\"?",
-    "options": [
-      "The compiler inserts invisible padding bytes to align members to natural word boundaries (4 or 8 bytes), increasing total memory consumption per node",
-      "It causes compilation failure on 64-bit systems",
-      "It reverses the byte endianness of integer fields",
-      "It converts structs into unions"
+    id: 5,
+    question: "At the end of iterative 3-pointer reversal (`while (curr != NULL)`), which pointer holds the new `head` of the reversed list?",
+    options: [
+      "`prev`",
+      "`curr` (which is now `NULL`)",
+      "`next` (which is now `NULL`)",
+      "The original `head` pointer (now pointing to the tail)"
     ],
-    "answer": "The compiler inserts invisible padding bytes to align members to natural word boundaries (4 or 8 bytes), increasing total memory consumption per node",
-    "explanation": "To optimize memory bus transfers, CPUs require data to align with addresses divisible by their size. Ordering struct fields from largest to smallest minimizes padding waste."
+    answer: "`prev`",
+    explanation: "When the loop terminates, `curr` and `next` have stepped off the end onto `NULL`, while `prev` sits cleanly on the former tail—the new head!"
   },
   {
-    "id": 6,
-    "question": "What is the core algorithmic invariant that must be maintained throughout \"Singly Linked List: Head/Tail insertion, middle deletion, and iterative 3-pointer list reversal\"?",
-    "options": [
-      "Strict adherence to the structural ordering property and validity of boundary indices/pointers across all mutations",
-      "All arrays must be strictly sorted in descending order",
-      "Every function must execute in O(1) time",
-      "All memory blocks must be smaller than 1 kilobyte"
+    id: 6,
+    question: "What are the time and auxiliary space complexities of iterative 3-pointer Singly Linked List reversal?",
+    options: [
+      "O(N) time and O(1) auxiliary space",
+      "O(N) time and O(N) auxiliary space",
+      "O(N log N) time and O(1) auxiliary space",
+      "O(1) time and O(1) auxiliary space"
     ],
-    "answer": "Strict adherence to the structural ordering property and validity of boundary indices/pointers across all mutations",
-    "explanation": "Algorithmic correctness relies on preserving invariant state (e.g. BST search property, heap order, or sliding window bounds) before and after every state transition."
+    answer: "O(N) time and O(1) auxiliary space",
+    explanation: "It visits each of the N nodes once (`O(N)` time) and only uses three fixed pointer variables `prev`, `curr`, `next` (`O(1)` extra space)."
   },
   {
-    "id": 7,
-    "question": "In \"Singly Linked List: Head/Tail insertion, middle deletion, and iterative 3-pointer list reversal\", what is the primary state transition or recursion step?",
-    "options": [
-      "Subdividing the primary problem space into smaller independent or overlapping sub-problems and aggregating optimal sub-solutions",
-      "Executing an infinite loop until RAM is exhausted",
-      "Rebooting the CPU thread pool on each iteration",
-      "Converting dynamic structures to static arrays"
+    id: 7,
+    question: "Compare iterative 3-pointer reversal vs recursive reversal on a list with 1,000,000 nodes:",
+    options: [
+      "Iterative uses O(1) stack space and is safe; recursive uses O(N) call stack frames and risks Stack Overflow",
+      "Recursive uses O(1) stack space while iterative uses O(N)",
+      "Recursive is O(1) time while iterative is O(N)",
+      "Both use identical stack memory"
     ],
-    "answer": "Subdividing the primary problem space into smaller independent or overlapping sub-problems and aggregating optimal sub-solutions",
-    "explanation": "Whether through Divide-and-Conquer, Dynamic Programming, or iterative window shrinking, reducing problem dimension systematically ensures convergence."
+    answer: "Iterative uses O(1) stack space and is safe; recursive uses O(N) call stack frames and risks Stack Overflow",
+    explanation: "A million recursive stack frames typically exceed the default 1–8 MB OS thread stack limit, crashing with a stack overflow."
   },
   {
-    "id": 8,
-    "question": "When executing pointer updates in \"Singly Linked List: Head/Tail insertion, middle deletion, and iterative 3-pointer list reversal\", why is update ordering critical?",
-    "options": [
-      "Modifying a pointer before securing reference to its target or downstream chain permanently breaks linked connectivity, orphaning unreferenced nodes in memory",
-      "The compiler will reverse the execution order automatically",
-      "Pointers can only be updated once per process",
-      "It causes integer underflow in CPU registers"
+    id: 8,
+    question: "What happens if you append at the tail using `while (curr->next != NULL) curr = curr->next;` WITHOUT first checking `if (*headRef == NULL)`?",
+    options: [
+      "Segmentation fault (`SIGSEGV`) on an empty list because `curr` is `NULL` and `curr->next` dereferences address `0x0`",
+      "It safely creates the first node",
+      "It inserts at the head instead",
+      "The `while` condition evaluates to false and exits cleanly"
     ],
-    "answer": "Modifying a pointer before securing reference to its target or downstream chain permanently breaks linked connectivity, orphaning unreferenced nodes in memory",
-    "explanation": "In pointer-based structures, updating `curr->next = new_node` without first saving `new_node->next = curr->next` permanently loses the rest of the list."
+    answer: "Segmentation fault (`SIGSEGV`) on an empty list because `curr` is `NULL` and `curr->next` dereferences address `0x0`",
+    explanation: "Always handle the empty-list case (`*headRef == NULL`) before accessing `curr->next`."
   },
   {
-    "id": 9,
-    "question": "How does in-place algorithm execution compare to auxiliary buffer allocation in \"Singly Linked List: Head/Tail insertion, middle deletion, and iterative 3-pointer list reversal\"?",
-    "options": [
-      "In-place execution operates within the existing memory footprint in O(1) auxiliary space, preserving cache warmth and reducing memory pressure",
-      "In-place execution requires O(N^2) extra RAM",
-      "Auxiliary allocation is always faster than in-place mutation",
-      "In-place algorithms cannot be written in C"
+    id: 9,
+    question: "How can tail insertion in a Singly Linked List be optimized from O(N) down to O(1)?",
+    options: [
+      "By maintaining an explicit `Node *tail` pointer alongside `head` that always points to the last node",
+      "By converting `int data` into a `double`",
+      "By skipping `malloc()` for tail nodes",
+      "By reversing the list before every insertion"
     ],
-    "answer": "In-place execution operates within the existing memory footprint in O(1) auxiliary space, preserving cache warmth and reducing memory pressure",
-    "explanation": "In-place mutation avoids expensive heap allocation system calls and keeps active data residing inside CPU cache hierarchies."
+    answer: "By maintaining an explicit `Node *tail` pointer alongside `head` that always points to the last node",
+    explanation: "With a `tail` pointer, appending simply sets `tail->next = newNode; tail = newNode;` in O(1) time—though you must update `tail` on empty insert and tail delete!"
   },
   {
-    "id": 10,
-    "question": "What role do sentinel nodes (dummy heads/tails) play in simplifying pointer logic in \"Singly Linked List: Head/Tail insertion, middle deletion, and iterative 3-pointer list reversal\"?",
-    "options": [
-      "They eliminate edge-case branching for empty structures and insertions/deletions at boundary positions (head/tail)",
-      "They double the memory capacity of the container",
-      "They automatically sort the elements",
-      "They prevent stack allocation limits"
+    id: 10,
+    question: "During middle node deletion (`Node *toDelete = curr->next; curr->next = toDelete->next;`), why is calling `free(toDelete)` essential?",
+    options: [
+      "Unlinking only hides the node from traversal; without `free(toDelete)`, those heap bytes remain leaked until the process exits",
+      "`free()` automatically updates `curr->next`",
+      "Without `free()`, `curr->data` gets erased",
+      "The C compiler refuses to compile unlinked nodes without `free()`"
     ],
-    "answer": "They eliminate edge-case branching for empty structures and insertions/deletions at boundary positions (head/tail)",
-    "explanation": "A dummy sentinel guarantees that every valid element always has a non-null preceding and succeeding neighbor, removing tedious `if (!head)` checks."
+    answer: "Unlinking only hides the node from traversal; without `free(toDelete)`, those heap bytes remain leaked until the process exits",
+    explanation: "Rewiring `curr->next` removes the node from the chain, but the OS heap allocator only reclaims its memory when `free(toDelete)` is called."
   },
   {
-    "id": 11,
-    "question": "What critical edge case must always be checked first when implementing \"Singly Linked List: Head/Tail insertion, middle deletion, and iterative 3-pointer list reversal\"?",
-    "options": [
-      "Empty input container, NULL base pointer, or container size N = 0 and N = 1",
-      "Checking if the computer is connected to the internet",
-      "Verifying if numbers are prime",
-      "Checking floating point precision mode"
+    id: 11,
+    question: "Which initial values are required before starting the 3-pointer reversal loop?",
+    options: [
+      "`prev = NULL; curr = head; next = NULL;`",
+      "`prev = head; curr = head->next; next = NULL;`",
+      "`prev = NULL; curr = NULL; next = head;`",
+      "`prev = tail; curr = head; next = tail;`"
     ],
-    "answer": "Empty input container, NULL base pointer, or container size N = 0 and N = 1",
-    "explanation": "Boundary inputs (empty, single-element, or identical values) are the most frequent causes of null-pointer exceptions and infinite loops."
+    answer: "`prev = NULL; curr = head; next = NULL;`",
+    explanation: "The original `head` will become the new `tail`, so its reversed `next` must become `NULL`—which is why `prev` starts at `NULL`!"
   },
   {
-    "id": 12,
-    "question": "What is a 'Dangling Pointer' bug in the context of \"Singly Linked List: Head/Tail insertion, middle deletion, and iterative 3-pointer list reversal\"?",
-    "options": [
-      "A pointer that continues to hold the memory address of a node or buffer that has already been deallocated via `free()`",
-      "A pointer declared with the `const` qualifier",
-      "A pointer that points to static global memory",
-      "A pointer stored in an array"
+    id: 12,
+    question: "What happens if you run 3-pointer reversal on an empty list (`head == NULL`) or a 1-node list (`[10] -> NULL`)?",
+    options: [
+      "It handles both gracefully: empty stays `NULL`, and 1-node stays `[10] -> NULL`",
+      "It crashes with `SIGSEGV` on a 1-node list",
+      "It creates a cycle on an empty list",
+      "It deletes the single node"
     ],
-    "answer": "A pointer that continues to hold the memory address of a node or buffer that has already been deallocated via `free()`",
-    "explanation": "Deallocating memory releases the heap block to the allocator's free list, but leaves the pointer variable holding the old address. Reading or writing to it results in Use-After-Free corruption."
+    answer: "It handles both gracefully: empty stays `NULL`, and 1-node stays `[10] -> NULL`",
+    explanation: "When `head == NULL`, the loop never runs and `prev` is `NULL`. For 1 node, `next = NULL`, `curr->next = NULL`, `prev = head`, `curr = NULL`, returning the same single node."
   },
   {
-    "id": 13,
-    "question": "What is the standard industrial remedy to eliminate Dangling Pointer bugs after `free(ptr)`?",
-    "options": [
-      "Immediately set `ptr = NULL;` so any accidental future access triggers an instant, predictable SIGSEGV crash instead of silent memory corruption",
-      "Call malloc immediately with size 0",
-      "Recompile the code with optimization flags -O3",
-      "Cast the pointer to `void*`"
+    id: 13,
+    question: "In `deleteByValue(&head, key)`, why must deleting the HEAD node be handled as a special case?",
+    options: [
+      "Because the head node has no predecessor node, so `*headRef` itself must be updated to `curr->next`",
+      "Because the head node lives on the stack instead of the heap",
+      "Because `head->data` cannot be compared in a `while` loop",
+      "Because `free()` cannot free the first node"
     ],
-    "answer": "Immediately set `ptr = NULL;` so any accidental future access triggers an instant, predictable SIGSEGV crash instead of silent memory corruption",
-    "explanation": "Neutralizing pointers to NULL prevents Use-After-Free security vulnerabilities, and `free(NULL)` is guaranteed to be a safe no-op by ISO C."
+    answer: "Because the head node has no predecessor node, so `*headRef` itself must be updated to `curr->next`",
+    explanation: "Middle deletions modify `prevNode->next`, whereas deleting the first node modifies the external `head` pointer itself."
   },
   {
-    "id": 14,
-    "question": "What catastrophic vulnerability occurs when dynamic memory is reallocated using `ptr = realloc(ptr, new_size)` without a temporary pointer?",
-    "options": [
-      "If `realloc()` fails and returns NULL, `ptr` is overwritten with NULL, causing an unrecoverable memory leak of the original allocated block",
-      "The operating system terminates all running threads",
-      "The file system enters read-only mode",
-      "The compiler converts the array to a linked list"
+    id: 14,
+    question: "What is the 'Dummy Sentinel Head' trick used for in Singly Linked List insertion/deletion?",
+    options: [
+      "Placing a temporary stack node `Node dummy = {0, head};` before `head` so head deletion/insertion uses the exact same `prev->next` logic as middle nodes",
+      "Making every node store two copies of `data`",
+      "Eliminating the need for `NULL` at the tail",
+      "Speeding up linear search from O(N) to O(1)"
     ],
-    "answer": "If `realloc()` fails and returns NULL, `ptr` is overwritten with NULL, causing an unrecoverable memory leak of the original allocated block",
-    "explanation": "Always use `void* tmp = realloc(ptr, new_size); if (!tmp) { /* handle error */ } else { ptr = tmp; }` to preserve the original pointer on failure."
+    answer: "Placing a temporary stack node `Node dummy = {0, head};` before `head` so head deletion/insertion uses the exact same `prev->next` logic as middle nodes",
+    explanation: "With a dummy node, even the real `head` has a predecessor (`&dummy`), eliminating special-case `if` branches for `head`!"
   },
   {
-    "id": 15,
-    "question": "What happens if a recursive function in \"Singly Linked List: Head/Tail insertion, middle deletion, and iterative 3-pointer list reversal\" lacks a proper base termination condition?",
-    "options": [
-      "Unbounded recursive activation frames are pushed onto the Call Stack until the OS stack guard page is breached, triggering a Stack Overflow (SIGSEGV) crash",
-      "The function returns 0 automatically",
-      "The CPU executes the function in negative time",
-      "The operating system increases stack RAM to infinite capacity"
+    id: 15,
+    question: "If a list has 4 nodes `[10 -> 20 -> 30 -> 40 -> NULL]` and you want to insert `25` at 1-based position `3` (between 20 and 30), how many steps from `head` must `curr` advance?",
+    options: [
+      "1 step (from `10` to `20`, i.e., `position - 2` moves so `curr` lands at node 2)",
+      "3 steps (to `40`)",
+      "0 steps (stays at `10`)",
+      "4 steps (to `NULL`)"
     ],
-    "answer": "Unbounded recursive activation frames are pushed onto the Call Stack until the OS stack guard page is breached, triggering a Stack Overflow (SIGSEGV) crash",
-    "explanation": "Call stack memory is strictly bounded (typically 1-8 MB). Unbounded recursion exhausts stack memory rapidly, causing a hard process crash."
+    answer: "1 step (from `10` to `20`, i.e., `position - 2` moves so `curr` lands at node 2)",
+    explanation: "To insert at 1-based position `pos = 3`, `curr` starts at pos 1 (`10`) and advances `pos - 2 = 1` time to reach pos 2 (`20`), then splices `25` after `20`."
   },
   {
-    "id": 16,
-    "question": "What is the optimal Asymptotic Time Complexity targeted in \"Singly Linked List: Head/Tail insertion, middle deletion, and iterative 3-pointer list reversal\"?",
-    "options": [
-      "O(1) constant or O(log N) logarithmic / O(N) linear time depending on the exact operational phase",
-      "O(N!) factorial time",
-      "O(2^N) exponential time",
-      "O(N^4) polynomial time"
+    id: 16,
+    question: "What is the time complexity to delete the LAST node (tail) of a Singly Linked List, even if you keep a `tail` pointer?",
+    options: [
+      "O(N) — because you must walk from `head` to find the second-to-last node so its `next` can be set to `NULL`",
+      "O(1) — `tail` alone is enough to update the previous node",
+      "O(log N)",
+      "O(N^2)"
     ],
-    "answer": "O(1) constant or O(log N) logarithmic / O(N) linear time depending on the exact operational phase",
-    "explanation": "Industrial algorithms strive for logarithmic O(log N) or linear O(N) upper bounds to ensure scalable execution on millions of data records."
+    answer: "O(N) — because you must walk from `head` to find the second-to-last node so its `next` can be set to `NULL`",
+    explanation: "In a Singly Linked List, `tail` has no `prev` pointer. Only a Doubly Linked List achieves `O(1)` tail deletion!"
   },
   {
-    "id": 17,
-    "question": "What is the difference between 'Auxiliary Space Complexity' and 'Total Space Complexity' for \"Singly Linked List: Head/Tail insertion, middle deletion, and iterative 3-pointer list reversal\"?",
-    "options": [
-      "Auxiliary Space measures only the extra temporary working memory allocated by the algorithm, excluding the input data size itself",
-      "Auxiliary Space includes the hard disk swap partition",
-      "Total Space measures only CPU register usage",
-      "There is no difference between auxiliary and total space"
+    id: 17,
+    question: "In the 4-line loop body of 3-pointer reversal, what happens if you swap lines 3 and 4 (`curr = next; prev = curr;`)?",
+    options: [
+      "`prev` gets assigned `next` instead of the old `curr`, breaking the chain and skipping nodes",
+      "The list is reversed twice back to normal",
+      "Nothing changes—lines 3 and 4 are independent",
+      "It reverses only the even-indexed nodes"
     ],
-    "answer": "Auxiliary Space measures only the extra temporary working memory allocated by the algorithm, excluding the input data size itself",
-    "explanation": "An algorithm that sorts an array of size N in-place uses O(N) total space (for input) but strictly O(1) auxiliary working space."
+    answer: "`prev` gets assigned `next` instead of the old `curr`, breaking the chain and skipping nodes",
+    explanation: "`prev = curr` MUST execute BEFORE `curr = next`, otherwise `curr` is overwritten before `prev` captures it!"
   },
   {
-    "id": 18,
-    "question": "What is the formal definition of 'Amortized Time Complexity' in data structure operations?",
-    "options": [
-      "The average time per operation evaluated over a worst-case sequence of N consecutive operations (e.g. dynamic array doubling)",
-      "The best-case execution time on a sorted array",
-      "The time taken when running on multiple CPU cores",
-      "The compilation time of the program"
+    id: 18,
+    question: "Why does the loop condition `while (curr->next != NULL && curr->next->data != target)` use `&&` with `curr->next != NULL` on the LEFT?",
+    options: [
+      "Short-circuit evaluation stops before evaluating `curr->next->data` when `curr->next` is `NULL`, preventing a `SIGSEGV` crash",
+      "C requires `!= NULL` to always appear on the left of `&&`",
+      "It makes the loop run twice as fast",
+      "It automatically frees `curr->next` when false"
     ],
-    "answer": "The average time per operation evaluated over a worst-case sequence of N consecutive operations (e.g. dynamic array doubling)",
-    "explanation": "Amortized analysis guarantees that even if an occasional single operation is expensive (e.g. O(N) reallocation), the average cost per operation across a long sequence remains strictly O(1)."
+    answer: "Short-circuit evaluation stops before evaluating `curr->next->data` when `curr->next` is `NULL`, preventing a `SIGSEGV` crash",
+    explanation: "In C, `&&` evaluates left-to-right and stops immediately if the left operand is false, guarding against dereferencing `NULL->data`."
   },
   {
-    "id": 19,
-    "question": "According to the Master Theorem for divide-and-conquer recurrences T(n) = aT(n/b) + f(n), what determines the overall complexity?",
-    "options": [
-      "The asymptotic comparison between the work done at the leaves n^(log_b a) and the work done at the divide/combine step f(n)",
-      "The total number of global variables in the C source file",
-      "The physical clock speed of the CPU in GHz",
-      "The RAM bus width"
+    id: 19,
+    question: "Suppose `Node *a = head; Node *b = head->next;` and `head` is `10 -> 20 -> 30 -> NULL`. After `a->next = b->next; free(b);`, what does the list look like?",
+    options: [
+      "`10 -> 30 -> NULL`",
+      "`20 -> 30 -> NULL`",
+      "`10 -> 20 -> NULL`",
+      "`10 -> NULL`"
     ],
-    "answer": "The asymptotic comparison between the work done at the leaves n^(log_b a) and the work done at the divide/combine step f(n)",
-    "explanation": "The Master Theorem compares $f(n)$ against the watershed function $n^{\\log_b a}$ to determine whether leaf work, root work, or balanced tree work dominates the asymptotic bound."
+    answer: "`10 -> 30 -> NULL`",
+    explanation: "`a` (`10`) now points directly to `b->next` (`30`), bypassing `b` (`20`), and node `20` is freed."
   },
   {
-    "id": 20,
-    "question": "Why is an algorithm with O(N log N) time complexity vastly superior to O(N^2) for N = 1,000,000 elements?",
-    "options": [
-      "For N = 10^6, N log2(N) is ~20 million operations, whereas N^2 is 1 trillion (10^12) operations—running in milliseconds vs hours",
-      "Because log N removes negative numbers",
-      "Because O(N^2) is not compilable in modern C",
-      "Because O(N log N) uses zero CPU power"
+    id: 20,
+    question: "Which real-world C/OS structure behaves most like a Singly Linked List with `head` and `tail` pointers?",
+    options: [
+      "A FIFO Queue (enqueue at `tail` in O(1), dequeue from `head` in O(1))",
+      "Binary search on a sorted phonebook",
+      "A 2D image pixel grid",
+      "Random-access database column indexing"
     ],
-    "answer": "For N = 10^6, N log2(N) is ~20 million operations, whereas N^2 is 1 trillion (10^12) operations—running in milliseconds vs hours",
-    "explanation": "Asymptotic growth curves diverge exponentially at scale: a 1-trillion operation workload takes ~16 minutes at 1 GHz, while 20 million operations take ~0.02 seconds."
+    answer: "A FIFO Queue (enqueue at `tail` in O(1), dequeue from `head` in O(1))",
+    explanation: "Because Singly Linked Lists support O(1) `head` removal and O(1) `tail` append (when `tail` is tracked), they are ideal for unbounded FIFO queues."
   },
   {
-    "id": 21,
-    "question": "In the Barrackpore Lab dialogue for \"Singly Linked List: Head/Tail insertion, middle deletion, and iterative 3-pointer list reversal\", what key insight does Sukanta Sir emphasize regarding pointer ownership?",
-    "options": [
-      "Every dynamically allocated heap resource must have exactly ONE clearly designated owner responsible for its lifecycle and deallocation",
-      "All pointers should be global variables to avoid passing arguments",
-      "Pointers should never be freed until the operating system shuts down",
-      "Always cast every pointer to a float"
+    id: 21,
+    question: "If `deleteByValue` forgets to handle `curr->next == NULL` (target not found) and unconditionally executes `Node *del = curr->next; curr->next = del->next;`, what happens?",
+    options: [
+      "`del` is `NULL`, so `del->next` dereferences `0x0` and crashes with `SIGSEGV`",
+      "The last node gets deleted instead",
+      "The list is cleared safely",
+      "`free(NULL)` prints an error and continues"
     ],
-    "answer": "Every dynamically allocated heap resource must have exactly ONE clearly designated owner responsible for its lifecycle and deallocation",
-    "explanation": "Disciplined resource ownership prevents both orphaned memory leaks and catastrophic double-free heap corruption bugs in enterprise C architectures."
+    answer: "`del` is `NULL`, so `del->next` dereferences `0x0` and crashes with `SIGSEGV`",
+    explanation: "Always check `if (curr->next == NULL) return;` after the search loop in case the target value does not exist in the list."
   },
   {
-    "id": 22,
-    "question": "Which compiler flag in GCC/Clang should always be enabled during development of \"Singly Linked List: Head/Tail insertion, middle deletion, and iterative 3-pointer list reversal\" to detect memory leaks and boundary violations at runtime?",
-    "options": [
-      "-fsanitize=address -g (AddressSanitizer / ASan)",
-      "-O3 (Maximum optimization only)",
-      "-w (Disable all warnings)",
-      "-fno-exceptions"
+    id: 22,
+    question: "What is the time complexity of reversing ONLY the first `K` nodes of an `N`-node Singly Linked List?",
+    options: [
+      "O(K) time and O(1) space",
+      "O(N^2) time and O(N) space",
+      "O(1) time and O(K) space",
+      "O(N log K) time"
     ],
-    "answer": "-fsanitize=address -g (AddressSanitizer / ASan)",
-    "explanation": "AddressSanitizer instruments memory operations with shadow memory guards, reporting exact source code line numbers for out-of-bounds reads/writes and memory leaks."
+    answer: "O(K) time and O(1) space",
+    explanation: "You run the 3-pointer loop for `K` steps and then connect the original `head` (now tail of the reversed prefix) to the `(K+1)`-th node."
   },
   {
-    "id": 23,
-    "question": "In real-world enterprise infrastructure (e.g. Linux Kernel, Redis, PostgreSQL), where is \"Singly Linked List: Head/Tail insertion, middle deletion, and iterative 3-pointer list reversal\" actively applied?",
-    "options": [
-      "Core system subsystems such as memory allocators, database index engines, virtual file systems (VFS), and high-throughput network packet buffers",
-      "Writing simple word processing macros only",
-      "Designing static HTML pages",
-      "Disabling hardware interrupts exclusively"
+    id: 23,
+    question: "Why can't you perform standard Binary Search in O(log N) time on a sorted Singly Linked List?",
+    options: [
+      "You cannot jump to the middle index `mid` in O(1) time; walking to `mid` takes O(N) steps per probe",
+      "Singly Linked Lists cannot hold sorted numbers",
+      "`data` fields cannot be compared with `<` or `>`",
+      "Pointers cannot be stored inside loops"
     ],
-    "answer": "Core system subsystems such as memory allocators, database index engines, virtual file systems (VFS), and high-throughput network packet buffers",
-    "explanation": "The data structures and algorithmic patterns in this track form the fundamental bedrock of operating system kernels, relational storage engines, and high-frequency trading engines."
+    answer: "You cannot jump to the middle index `mid` in O(1) time; walking to `mid` takes O(N) steps per probe",
+    explanation: "Binary Search requires O(1) random access. Without contiguous indexing, finding the midpoint takes linear pointer traversal."
   },
   {
-    "id": 24,
-    "question": "What is the diagnostic difference between a 'Definitely Lost' leak and a 'Still Reachable' leak in Valgrind Memcheck?",
-    "options": [
-      "'Definitely Lost' means all pointers to the allocated block were lost (unrecoverable leak); 'Still Reachable' means pointers to the block still exist at program exit",
-      "'Still Reachable' means the CPU memory is permanently damaged",
-      "'Definitely Lost' indicates a hardware disk fault",
-      "Both indicate syntax compilation errors"
+    id: 24,
+    question: "After freeing all nodes in `freeList(&head)`, why should we set `*headRef = NULL;`?",
+    options: [
+      "So `head` does not remain a dangling pointer to freed heap memory, preventing Use-After-Free or Double-Free bugs",
+      "Because `free()` fails if `head` is not `NULL`",
+      "To compress the stack frame of `main()`",
+      "To convert the list into a circular list"
     ],
-    "answer": "'Definitely Lost' means all pointers to the allocated block were lost (unrecoverable leak); 'Still Reachable' means pointers to the block still exist at program exit",
-    "explanation": "Definitely lost leaks represent fundamental bugs where memory became unreachable during runtime. Still reachable blocks are typically global pointers not explicitly freed before process termination."
+    answer: "So `head` does not remain a dangling pointer to freed heap memory, preventing Use-After-Free or Double-Free bugs",
+    explanation: "Neutralizing `head` back to `NULL` makes `head == NULL` truthfully report an empty list for any code that runs afterward."
   },
   {
-    "id": 25,
-    "question": "What is the ultimate takeaway from Sukanta Sir's Barrackpore Lab on mastering Data Structures in C?",
-    "options": [
-      "True mastery requires bridging high-level mathematical abstractions with exact low-level physical byte layouts, cache locality, and zero-leak memory management",
-      "Memorizing syntax without understanding memory is sufficient",
-      "Always avoid pointers and use global variables",
-      "C is strictly a theoretical academic language"
+    id: 25,
+    question: "Which of these operations is O(1) on a standard Singly Linked List (with only `head` pointer)?",
+    options: [
+      "Inserting a node at the head, or deleting the head node",
+      "Inserting a node at the tail",
+      "Finding the middle element",
+      "Checking if a value exists in the list"
     ],
-    "answer": "True mastery requires bridging high-level mathematical abstractions with exact low-level physical byte layouts, cache locality, and zero-leak memory management",
-    "explanation": "Understanding how algorithms interact with CPU cache lines, stack frames, and the OS heap allocator is what distinguishes an exceptional systems engineer from a syntax coder."
+    answer: "Inserting a node at the head, or deleting the head node",
+    explanation: "With only `head`, both head insertion and head deletion touch only the first node in O(1) time; tail/middle/search all require traversal."
   }
 ];
 

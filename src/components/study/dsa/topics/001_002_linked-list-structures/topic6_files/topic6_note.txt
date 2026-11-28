@@ -1,33 +1,43 @@
 ================================================================================
 CODER & ACCOTAX - PRINTABLE STUDY NOTE
-Segment 1 · Module: Singly, Doubly & Circular Linked Lists
-Topic: Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)
-Educator: Sukanta Hui · Barrackpore, West Bengal, India
+Subject: Data Structures & Algorithms in C
+Module: Singly, Doubly & Circular Linked Lists (001_002)
+Topic 6: Dangling Pointers after free(node) & Practical Linked List Lab Guide
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
 ================================================================================
 
-1. CONCEPT OVERVIEW & THEORETICAL FOUNDATIONS
+1. WHAT IS A DANGLING POINTER?
 --------------------------------------------------------------------------------
-Topic Title: Classroom Lab Dialogue: Sukanta Sir & Barrackpore Students on Dangling Pointers after free(node)
-Course Module: Singly, Doubly & Circular Linked Lists
+When you call `free(ptr)` in C:
+  • The OS/glibc heap allocator marks that memory block as reusable.
+  • C does NOT automatically set `ptr` to `NULL`!
+  • `ptr` STILL holds the old hex address (e.g., `0x55a030`), even though you
+    no longer own that memory. That leftover pointer is a DANGLING POINTER.
 
-Core Principles:
-  • Memory Integrity: Strict bounds checking on all array indices and pointers.
-  • Time Invariants: Asymptotically optimal step execution.
-  • Space Optimization: Minimal auxiliary allocation to leverage CPU cache lines.
+2. THREE DANGEROUS BUGS CAUSED BY DANGLING POINTERS
+--------------------------------------------------------------------------------
+  1. Use-After-Free (UAF): Reading/writing `ptr->data` or `ptr->next` after
+     `free(ptr)`. May appear to "work" briefly, then silently corrupt data!
+  2. Double-Free: Calling `free(ptr)` a second time on the same address,
+     corrupting the glibc free-list and crashing with `SIGABRT`.
+  3. Orphaned `head` / `tail`: Freeing the whole list without setting
+     `*headRef = NULL` leaves `head` pointing to dead heap memory.
 
-2. ASYMPTOTIC COMPLEXITY ANALYSIS
+3. THE GOLDEN CLEANUP PROTOCOL
 --------------------------------------------------------------------------------
-Operation / Phase         Time Complexity       Auxiliary Space
---------------------------------------------------------------------------------
-Primary Execution         O(N) or O(log N)      O(1) / O(N)
-Memory Allocation         O(1)                  O(N) total block
-Teardown / Cleanup        O(1) or O(N)          O(1)
+  void freeList(Node **headRef) {
+      Node *curr = *headRef;
+      while (curr != NULL) {
+          Node *temp = curr->next; // 1. Save next BEFORE freeing
+          free(curr);              // 2. Release heap block
+          curr = temp;             // 3. Advance safely
+      }
+      *headRef = NULL;             // 4. Neutralize caller's head pointer!
+  }
 
-3. MEMORY SAFETY & POINTER INVARIANTS
---------------------------------------------------------------------------------
-[✓] Check pointer return after malloc(): `if (!ptr) { exit(EXIT_FAILURE); }`
-[✓] Neutralize pointers post-deallocation: `free(ptr); ptr = NULL;`
-[✓] Never access memory outside allocated boundaries: `0 <= index < capacity`
+For single-node removal:
+  free(target);
+  target = NULL;  // Note: free(NULL) is guaranteed a safe no-op in C!
 
 ================================================================================
 Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India

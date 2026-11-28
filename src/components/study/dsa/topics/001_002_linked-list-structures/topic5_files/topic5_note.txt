@@ -1,33 +1,44 @@
 ================================================================================
 CODER & ACCOTAX - PRINTABLE STUDY NOTE
-Segment 1 · Module: Singly, Doubly & Circular Linked Lists
-Topic: Example & Discussion: Polynomial Addition & Sparse Polynomial Multiplication using Sorted Linked Nodes
-Educator: Sukanta Hui · Barrackpore, West Bengal, India
+Subject: Data Structures & Algorithms in C
+Module: Singly, Doubly & Circular Linked Lists (001_002)
+Topic 5: Polynomial Addition & Sparse Multiplication via Sorted Linked Nodes
+Mentor: Sukanta Hui (Barrackpore, West Bengal)
 ================================================================================
 
-1. CONCEPT OVERVIEW & THEORETICAL FOUNDATIONS
+1. WHY LINKED LISTS BEAT ARRAYS FOR SPARSE POLYNOMIALS
 --------------------------------------------------------------------------------
-Topic Title: Example & Discussion: Polynomial Addition & Sparse Polynomial Multiplication using Sorted Linked Nodes
-Course Module: Singly, Doubly & Circular Linked Lists
+Consider P(x) = 5x^1000 + 3x^2 + 1:
+  • Array approach: Needs an array of size 1001, where 998 entries are 0!
+  • Linked List approach: Stores ONLY the 3 non-zero terms:
+      [5 | 1000] -> [3 | 2] -> [1 | 0] -> NULL
 
-Core Principles:
-  • Memory Integrity: Strict bounds checking on all array indices and pointers.
-  • Time Invariants: Asymptotically optimal step execution.
-  • Space Optimization: Minimal auxiliary allocation to leverage CPU cache lines.
+Node Definition:
+  struct Term {
+      int coeff;          // Non-zero coefficient
+      int exp;            // Exponent (kept sorted descending)
+      struct Term *next;
+  };
 
-2. ASYMPTOTIC COMPLEXITY ANALYSIS
+2. POLYNOMIAL ADDITION — TWO-POINTER MERGE IN O(N + M)
 --------------------------------------------------------------------------------
-Operation / Phase         Time Complexity       Auxiliary Space
---------------------------------------------------------------------------------
-Primary Execution         O(N) or O(log N)      O(1) / O(N)
-Memory Allocation         O(1)                  O(N) total block
-Teardown / Cleanup        O(1) or O(N)          O(1)
+Compare `p1->exp` and `p2->exp`:
+  • Case 1 (`p1->exp > p2->exp`): Copy `p1` term to result, advance `p1`.
+  • Case 2 (`p1->exp < p2->exp`): Copy `p2` term to result, advance `p2`.
+  • Case 3 (`p1->exp == p2->exp`): Compute `sum = p1->coeff + p2->coeff`.
+      - If `sum != 0`, append `(sum, exp)` to result.
+      - If `sum == 0`, SKIP (terms cancelled out)!
+      - Advance BOTH `p1` and `p2`.
 
-3. MEMORY SAFETY & POINTER INVARIANTS
+3. SPARSE POLYNOMIAL MULTIPLICATION
 --------------------------------------------------------------------------------
-[✓] Check pointer return after malloc(): `if (!ptr) { exit(EXIT_FAILURE); }`
-[✓] Neutralize pointers post-deallocation: `free(ptr); ptr = NULL;`
-[✓] Never access memory outside allocated boundaries: `0 <= index < capacity`
+For every term `a` in P1 and every term `b` in P2:
+  • Product term = `(a->coeff * b->coeff) * x^(a->exp + b->exp)`.
+  • Insert into sorted result list, combining coefficients if exponent matches
+    and deleting the node if the combined coefficient becomes 0!
+  • Time Complexity:
+      - Using sorted insertion: O(N * M * (N + M)) or O(N^2 * M^2) worst case
+        (can be improved to O(N*M log(N*M)) using Merge Sort on product terms).
 
 ================================================================================
 Coder & AccoTax Computer Education Center · Barrackpore, West Bengal, India
